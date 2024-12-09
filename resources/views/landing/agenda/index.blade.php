@@ -53,7 +53,7 @@
                                             <p class="lh-sm m-0 p-0">Agenda {{ $loop->iteration }}</p>
                                         </div>
                                         <div class="title-content fw-500 mb-4 px-3">
-                                            <p class="lh-sm m-0 p-0">Rapat Koordinasi Pembahasan Pokok-Pokok Pikiran DPRD Prov Kaltim Untuk RKPD Tahun 2026</p>
+                                            <p class="lh-sm m-0 p-0">{{ $agenda->caption }}</p>
                                         </div>
                                         <div class="d-flex mb-4 px-3">
                                             <div class="time-content">
@@ -403,7 +403,7 @@
     <script src="{{ asset('assets/libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
 
     <script>
-           var swiperAllAgenda = new Swiper("#swiper-all-agenda", {
+        const swiperAllAgenda = new Swiper("#swiper-all-agenda", {
         spaceBetween: 15,
         slidesPerView: 'auto',
         direction: "vertical",

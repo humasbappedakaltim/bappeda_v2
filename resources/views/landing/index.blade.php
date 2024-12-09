@@ -568,6 +568,7 @@
           data.data.forEach((agenda) => {
             const agendaEl = document.createElement('div');
             agendaEl.classList.add('agenda-content');
+            // schedule do can format
             agendaEl.innerHTML = `
               <p class="title">${agenda.schedule}</p>
               <p class="location">${agenda.location}</p>
@@ -579,7 +580,7 @@
             agendaContainer.appendChild(agendaEl);
           });
         } else {
-            agendaContainer.innerHTML = `
+          agendaContainer.innerHTML = `
             <div class="card text-center card-sm">
               <div class="card-body">
                 <p>${data.message}</p>
