@@ -579,7 +579,12 @@
             agendaContainer.appendChild(agendaEl);
           });
         } else {
-          agendaContainer.innerHTML = `<p class="no-agenda-message">Tidak ada agenda untuk tanggal ini.</p>`;
+            agendaContainer.innerHTML = `
+            <div class="card text-center card-sm">
+              <div class="card-body">
+                <p>${data.message}</p>
+              </div>
+          `;
         }
       })
       .catch((error) => {

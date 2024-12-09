@@ -76,7 +76,7 @@ class LandingController extends Controller
             return response()->json([
                 'status' => 'error',
                 'date' => $date,
-                'message' => 'Agenda Tidak Ditemukan'
+                'message' => 'Tidak Agenda Pada Tanggal Ini'
             ]);
         }
     }
