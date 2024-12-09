@@ -12,14 +12,13 @@ class AgendaController extends Controller
 {
     public function index(Request $request)
     {
-        // $limit = 20;
         $lastSegment = $request->segment(2);
         $title = strtoupper($lastSegment);
 
         $carbon = Carbon::now()->locale('id');
 
         $agendas = Agenda::where('caption', 'like', '%' . $lastSegment . '%')
-                        ->whereDate('schedule', '>=', Carbon::now())
+                        ->whereDate('schedule', '=', Carbon::today())
                         ->orderBy('schedule', 'desc')->get();
 
         return view('landing.agenda.index', compact('agendas', 'title'));

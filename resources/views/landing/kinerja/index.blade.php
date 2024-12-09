@@ -86,7 +86,7 @@
                                     {!! Str::substr(strip_tags($kiner->description), 0, 300) !!} ....
 
                                 </p>
-                                <a href="{{ route('kinerja.show', $kiner->slug . '.' . Str::slug($kiner->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
+                                <a href="{{ route('pembangunan_kaltim.show', $kiner->slug . '.' . Str::slug($kiner->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                     baca selengkapnya
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
@@ -95,7 +95,7 @@
                     </div>
                     @else
                     <div class="col-12 m-0 p-0">
-                        <a href="{{ route('kinerja.show', $kiner->slug . '.' . Str::slug($kiner->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
+                        <a href="{{ route('pembangunan_kaltim.show', $kiner->slug . '.' . Str::slug($kiner->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
                                     <img src="{{ asset('storage/post/' . $kiner->image) }}" alt="post-img">
