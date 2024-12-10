@@ -259,7 +259,7 @@
                     <p class="fw-bold py-0 my-2 fs-7">Struktur Organisasi</p>
                     <p class="fs-9 py-0 my-0">Lihat struktur organisasi Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur untuk memahami pembagian tugas dan fungsi setiap unit</p>
                 </a>
-                <a href="profil-asn-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('landing.asn') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">ASN Bappeda Prov. Kaltim</p>
                     <p class="fs-9 py-0 my-0">Dapatkan informasi lengkap tentang ASN Bappeda Provinsi Kalimantan Timur</p>
                 </a>

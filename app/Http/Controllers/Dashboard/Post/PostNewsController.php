@@ -22,7 +22,7 @@ class PostNewsController extends Controller
     {
 
         $posts = PostNew::with('category', 'user');
-
+        // dd($posts);
         if ($request->category_id) {
             $posts = $posts->where('category_id', $request->category_id);
         }
@@ -37,7 +37,7 @@ class PostNewsController extends Controller
                 return $row->category->name;
             })
             ->addColumn('user', function ($row) {
-                return $row->user->name;
+                return $row->user->name ?? '';
             })
             ->addColumn('date', function ($row) {
                 return date('d-M-Y', strtotime($row->created_at));

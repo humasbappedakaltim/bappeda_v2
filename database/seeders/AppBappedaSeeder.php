@@ -13,7 +13,7 @@ class AppBappedaSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::table('app_bappedas')->insert(
+        \DB::table('app_bappedas')->insert([
             [
                 'id' => 1,
                 'name' => 'Elib',
@@ -82,7 +82,7 @@ class AppBappedaSeeder extends Seeder
             ],
             [
                 'id' => 11,
-                'title' => 'Portal Pantau Kegiatan Bappeda Kaltim',
+                'name' => 'Portal Pantau Kegiatan Bappeda Kaltim',
                 'active' => 1,
                 'foto' => 'L9g7YOoKAnmY1mIvPzy0.png',
                 'created_at' => '2021-08-08 20:39:12',
@@ -93,7 +93,7 @@ class AppBappedaSeeder extends Seeder
             ],
             [
                 'id' => 13,
-                'title' => 'SP4N LAPOR',
+                'name' => 'SP4N LAPOR',
                 'active' => 1,
                 'foto' => 'PO9GF63Jj3Zo7Amgs2Xq.png',
                 'created_at' => '2021-10-29 01:18:56',
@@ -104,7 +104,7 @@ class AppBappedaSeeder extends Seeder
             ],
             [
                 'id' => 14,
-                'title' => 'PION',
+                'name' => 'PION',
                 'active' => 1,
                 'foto' => '3QI6UFhIci6n7WtGN2zV.jpeg',
                 'created_at' => '2023-02-27 00:26:07',
@@ -115,7 +115,7 @@ class AppBappedaSeeder extends Seeder
             ],
             [
                 'id' => 15,
-                'title' => 'Cloud Storage Kegiatan Bappeda',
+                'name' => 'Cloud Storage Kegiatan Bappeda',
                 'active' => 1,
                 'foto' => 'mRTkxeveNF0Xte93Rlzc.png',
                 'created_at' => '2023-06-09 12:24:37',
@@ -126,7 +126,7 @@ class AppBappedaSeeder extends Seeder
             ],
             [
                 'id' => 17,
-                'title' => 'Portal Pantau Kegiatan Bappeda Kaltim',
+                'name' => 'Portal Pantau Kegiatan Bappeda Kaltim',
                 'active' => 1,
                 'foto' => 'amzUcR9VtRD59t98cLPl.png',
                 'created_at' => '2023-07-26 04:56:36',
@@ -135,6 +135,6 @@ class AppBappedaSeeder extends Seeder
                 'orders' => 7,
                 'slug' => Str::slug(Str::random(10)),
             ],
-        );
+        ]);
     }
 }

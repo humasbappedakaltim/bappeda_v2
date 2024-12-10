@@ -13,7 +13,7 @@ class PejabatSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::table('pejabats')->insert(
+        \DB::table('pejabats')->insert([
             [
                 'id' => 1,
                 'name' => 'Yusliando, ST',
@@ -1383,6 +1383,6 @@ class PejabatSeeder extends Seeder
                 'ketua_tim' => 'BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH, DAN BADAN PENDAPATAN DAERAH',
                 'slug' => Str::slug(Str::random(10)),
             ],
-        );
+        ]);
     }
 }

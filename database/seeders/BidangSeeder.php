@@ -57,7 +57,6 @@ class BidangSeeder extends Seeder
                     'slug' => 'Kepala',
                 ],
 
-            ]
-        );
+            ]);
     }
 }

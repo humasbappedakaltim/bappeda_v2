@@ -12,7 +12,7 @@ class MapsSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::table('maps')->insert(
+        \DB::table('maps')->insert([
             [
                 'id' => 3,
                 'name' => 'Peta Kawasan Lindung Geologi',
@@ -103,7 +103,6 @@ class MapsSeeder extends Seeder
                 'file' => 'February2021/1L5k2hTIgRjYlN9xbJQw.jpg',
                 'views' => 49984,
             ],
-
-        );
+        ]);
     }
 }

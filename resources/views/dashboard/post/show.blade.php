@@ -34,7 +34,8 @@
                                     <div class="col-md-6 mt-2">
                                         <label for="user_id" class="form-label">Pembuat</label>
                                         <select name="user_id" id="user_id" class="form-control" disabled>
-                                                <option value="{{ $post->user_id }}" {{ $post->user_id == $post->user_id ? 'selected' : '' }}>{{ $post->user->name }}</option>
+                                            <option value="{{ $user->id }}" {{ $user->id == $post->user_id ? 'selected' : '' }}>{{ $user->name ?? '' }}</option>
+
                                         </select>
                                     </div>
                                 </div>

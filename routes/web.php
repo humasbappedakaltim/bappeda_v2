@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // front-end
 use App\Http\Controllers\PioController;
 
+use App\Http\Controllers\FrontEnd\AsnController;
 use App\Http\Controllers\FrontEnd\PpidController;
 use App\Http\Controllers\Dashboard\MapsController;
 use App\Http\Controllers\Dashboard\RoleController;
@@ -19,9 +20,9 @@ use App\Http\Controllers\Dashboard\PejabatController;
 use App\Http\Controllers\FrontEnd\SideDataController;
 use App\Http\Controllers\FrontEnd\InformasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\SubBidangController;
 
 // Dashboard
+use App\Http\Controllers\Dashboard\SubBidangController;
 use App\Http\Controllers\FrontEnd\DataCenterController;
 use App\Http\Controllers\Dashboard\AppBappedaController;
 use App\Http\Controllers\Dashboard\PenghargaanController;
@@ -45,9 +46,18 @@ Route::middleware(['setlocale'])->group(function () {
 
     Route::group(['prefix' => '/'], function () {
         Route::get('/', [LandingController::class, 'index'])->name('landing.index');
-        Route::get('/profile', [LandingController::class, 'profil'])->name('landing.profile');
-        Route::get('/tupoksi', [LandingController::class, 'tupoksi'])->name('landing.tupoksi');
-        Route::get('/struktur-organisasi', [LandingController::class, 'struktur'])->name('landing.struktur');
+
+        Route::group(['prefix' => 'profil'], function () {
+            Route::get('/profile', [LandingController::class, 'profil'])->name('landing.profile');
+            Route::get('/tupoksi', [LandingController::class, 'tupoksi'])->name('landing.tupoksi');
+            Route::get('/struktur-organisasi', [LandingController::class, 'struktur'])->name('landing.struktur');
+
+        Route::group(['prefix' => 'profil'], function () {
+
+                Route::get('/asn', [AsnController::class, 'index'])->name('landing.asn');
+                Route::get('/asn/sekretariat', [AsnController::class, 'sekretariat'])->name('landing.asn.sekretariat');
+            });
+        });
         Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
         Route::get('/penghargaan', [LandingController::class, 'penghargaan'])->name('landing.penghargaan');
         Route::get('/kepala-bappeda', [LandingController::class, 'kepala_bappeda'])->name('landing.kepala_bappeda');

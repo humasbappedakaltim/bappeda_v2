@@ -16,13 +16,15 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('views')->default(0);
-            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users');
+            $table->string('user_id_1')->nullable();
             $table->foreignId('category_id')->references('id')->on('post_categories');
             $table->text('keywords')->nullable();
             $table->text('tags')->nullable();
             $table->string('image');
             $table->enum('status', ['draft', 'published', 'trashed'])->default('draft');
             $table->text('extra_photo')->nullable();
+            $table->date('published_at')->nullable();
             $table->string('slug');
             $table->softDeletes();
             $table->timestamps();

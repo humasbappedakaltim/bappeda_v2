@@ -18,6 +18,11 @@ class Bidang extends Model
         'slug',
     ];
 
+    public function sub_bidang()
+    {
+        return $this->hasMany(SubBidang::class, 'bidang_id');
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

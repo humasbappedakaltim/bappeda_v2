@@ -21,12 +21,12 @@ return new class extends Migration
             $table->string('jabatan');
             $table->string('jabatan_lainnya')->nullable();
             $table->string('jabatan_lainnya2')->nullable();
-            $table->foreignId('bidang_id')->references('id')->on('bidangs');
+            $table->foreignId('bidang_id')->nullable()->references('id')->on('bidangs');
             $table->foreignId('sub_bidang_id')->nullable()->references('id')->on('sub_bidangs');
             $table->string('status_jabatan');
             $table->string('status_jabatan_penjabat')->nullable();
             $table->string('ketua_tim')->nullable();
-            $table->integer('urutan_jabatan');
+            $table->integer('urutan_jabatan')->nullable();
             $table->string('status_kehadiran');
             $table->boolean('status_aktif')->default(1);
             $table->string('slug');

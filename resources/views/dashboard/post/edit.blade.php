@@ -46,7 +46,7 @@
                                         <select name="user_id" id="user_id" class="form-control select2">
                                             <option selected>Pilih Pembuat</option>
                                             @foreach ($users as $user)
-                                                <option value="{{ $user->id }}" {{ $user->id == $post->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                                <option value="{{ $user->id }}" {{ $user->id == $post->user_id ? 'selected' : '' }}>{{ $user->name ?? '' }}</option>
                                             @endforeach
                                         </select>
                                         @error('user_id')

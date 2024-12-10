@@ -97,118 +97,32 @@
                         <!-- Swiper Present Agenda -->
                         <div class="swiper swiper-present-agenda" id="swiper-present-agenda">
                             <div class="swiper-wrapper present-agenda-wrapper">
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/October2023/YTKAg58kx91PtW1lmiIG.png" alt="">
+                                @forelse($pejabats as $pejabat)
+                                    <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
+                                        <div class="img-container">
+                                            <img src="{{ asset('storage/pejabat/' . $pejabat->foto) }}" alt="">
+                                        </div>
+                                        <div class="about-container">
+                                            <p class="name fw-500 lh-sm m-0 mb-2 p-0">
+                                                {{ $pejabat->name  }}
+                                            </p>
+                                            <p class="position fw-light lh-sm m-0 mb-4 p-0">
+                                                {{ $pejabat->jabatan }}
+                                            </p>
+                                            <p class="status text-warning lh-sm m-0 p-0">
+                                                Dinas Luar
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Yusliando, ST
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            kepala badan perencanaan pembangunan daerah
-                                        </p>
-                                        <p class="status text-warning lh-sm m-0 p-0">
-                                            Dinas Luar
-                                        </p>
+                                @empty
+                                    <div class="swiper-slide present-agenda-slide">
+                                       <div class="card">
+                                           <div class="card-body">
+                                            <h2>Tidak Ada Pejabat</h2>
+                                           </div>
+                                       </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/K3G7VzY1VkRLhDq5QU9k.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Saur Parsaoran T, S.Pi, MEMD
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            SEKRETARIS/PLT KABID INFRASTRUKTUR DAN KEWILAYAHAN
-                                        </p>
-                                        <p class="status text-success lh-sm m-0 p-0">
-                                            Aktif
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/3dpUw3tZIDUQwZHYlIrt.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Alfino Rinaldi Arief, ST, M.E
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            KABID PERENCANAAN PENGENDALIAN DAN EVALUASI PEMBANGUNAN DAERAH
-                                        </p>
-                                        <p class="status text-warning lh-sm m-0 p-0">
-                                            Dinas Luar
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/kp0FywG7VGl6ifr2oVF6.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Mispoyo, S.Pd., M.Pd
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            KABID PEMERINTAH DAN PEMBANGUNAN MANUSIA
-                                        </p>
-                                        <p class="status text-warning lh-sm m-0 p-0">
-                                            Dinas Luar
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/bOKeXu7p0OotvJ9piPLD.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Wahyu Gatut Purboyo, S.Pi., M.Si
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            KABID PEREKONOMIAN DAN SUMBER DAYA ALAM
-                                        </p>
-                                        <p class="status text-success lh-sm m-0 p-0">
-                                            Hadir
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/s8NwkTeZ17sy7icNSZox.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Achmad Risa, S.E, M.M
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            KEPALA SUB BAGIAN UMUM
-                                        </p>
-                                        <p class="status text-success lh-sm m-0 p-0">
-                                            Hadir
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide present-agenda-slide d-flex gap-3 p-3">
-                                    <div class="img-container">
-                                        <img src="https://bappeda.kaltimprov.go.id/storage/pejabats/June2024/iSEy5OMEBWi3Ol4MUaoN.png" alt="">
-                                    </div>
-                                    <div class="about-container">
-                                        <p class="name fw-500 lh-sm m-0 mb-2 p-0">
-                                            Stella Felicia Sinaga, S.Si., M.UrbanPlanDes.
-                                        </p>
-                                        <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                            KEPALA SUB BAGIAN PERENCANAAN PROGRAM
-                                        </p>
-                                        <p class="status text-success lh-sm m-0 p-0">
-                                            Hadir
-                                        </p>
-                                    </div>
-                                </div>
+                                @endforelse
                             </div>
                         </div>
                         <!-- Swiper Present Agenda -->

@@ -14,7 +14,8 @@ class PenghargaanSeeder extends Seeder
      */
     public function run(): void
     {
-        Penghargaan::create(
+        $datas = [
+
             [
                 "id" => 1,
                 "title" => 'Bappeda Kaltim terima Sertifikat ISO 9001 2008',
@@ -22,7 +23,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => '6qRCFsDR.JPG',
                 "created_at" => '2017-05-08 15:53:12',
                 "updated_at" => '2017-05-08 15:53:12',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 2,
@@ -31,7 +33,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'RxaJCTbw.jpg',
                 "created_at" => '2017-05-08 17:18:30',
                 "updated_at" => '2017-05-10 05:17:05',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 3,
@@ -40,7 +43,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'iN2TUA7F.jpg',
                 "created_at" => '2017-05-08 17:22:12',
                 "updated_at" => '2017-05-10 05:16:43',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 4,
@@ -49,7 +53,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'RG1K5P9A.jpg',
                 "created_at" => '2017-05-08 17:23:22',
                 "updated_at" => '2017-05-08 17:23:22',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 5,
@@ -58,7 +63,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => '5BL6JLgD.jpg',
                 "created_at" => '2017-05-08 17:23:49',
                 "updated_at" => '2017-05-10 05:15:42',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 6,
@@ -67,7 +73,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'RYoibug4.jpg',
                 "created_at" => '2017-05-08 17:33:12',
                 "updated_at" => '2017-05-10 05:14:40',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 7,
@@ -76,7 +83,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'vtp5uU87.jpg',
                 "created_at" => '2017-05-08 17:37:22',
                 "updated_at" => '2017-05-10 05:14:12',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 8,
@@ -85,7 +93,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'oMwAjnIy.JPG',
                 "created_at" => '2017-05-08 17:39:04',
                 "updated_at" => '2017-05-10 05:13:52',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 9,
@@ -94,7 +103,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'XZsWj6vP.JPG',
                 "created_at" => '2017-05-08 17:40:21',
                 "updated_at" => '2017-05-10 05:13:32',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 10,
@@ -103,7 +113,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'bu09Gg7v.JPG',
                 "created_at" => '2017-05-08 17:40:48',
                 "updated_at" => '2017-05-10 05:13:17',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 11,
@@ -112,7 +123,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => '3GvUVdZ1.JPG',
                 "created_at" => '2018-05-10 12:15:22',
                 "updated_at" => '2018-05-10 12:15:22',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 12,
@@ -121,7 +133,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => '6V3cWpzJ.jpg',
                 "created_at" => '2018-05-15 14:22:30',
                 "updated_at" => '2018-05-15 14:22:30',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 13,
@@ -130,7 +143,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'Kw8xF5VG.jpg',
                 "created_at" => '2019-06-22 10:31:10',
                 "updated_at" => '2019-06-22 10:31:10',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 14,
@@ -139,7 +153,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'ISO27001-Kaltim.jpg',
                 "created_at" => '2019-12-03 08:11:40',
                 "updated_at" => '2019-12-03 08:11:40',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 15,
@@ -148,7 +163,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'Anggaran2020.jpg',
                 "created_at" => '2020-01-15 10:10:10',
                 "updated_at" => '2020-01-15 10:10:10',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 16,
@@ -157,7 +173,8 @@ class PenghargaanSeeder extends Seeder
                 "foto" => 'TechInfo2020.jpg',
                 "created_at" => '2020-08-10 09:30:00',
                 "updated_at" => '2020-08-10 09:30:00',
-                'slug' => Str::slug(Str::random(10)),
+                "deleted_at" => NULL,
+                "slug" => Str::slug(Str::random(10)),
             ],
             [
                 "id" => 17,
@@ -167,6 +184,12 @@ class PenghargaanSeeder extends Seeder
                 "created_at" => '2021-02-12 11:12:22',
                 "updated_at" => '2021-02-12 11:12:22',
             ]
-        );
+        ];
+
+        foreach ($datas as $key => $value) {
+            Penghargaan::create($value);
+        }
+
+        
     }
 }
