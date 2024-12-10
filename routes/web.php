@@ -41,61 +41,63 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
 // });
 
 
+Route::middleware(['setlocale'])->group(function () {
 
-Route::group(['prefix' => '/'], function () {
-    Route::get('/', [LandingController::class, 'index'])->name('landing.index');
-    Route::get('/profile', [LandingController::class, 'profil'])->name('landing.profile');
-    Route::get('/tupoksi', [LandingController::class, 'tupoksi'])->name('landing.tupoksi');
-    Route::get('/struktur-organisasi', [LandingController::class, 'struktur'])->name('landing.struktur');
-    Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
-    Route::get('/penghargaan', [LandingController::class, 'penghargaan'])->name('landing.penghargaan');
-    Route::get('/kepala-bappeda', [LandingController::class, 'kepala_bappeda'])->name('landing.kepala_bappeda');
-    Route::get('/sekretaris', [LandingController::class, 'sekretaris'])->name('landing.sekretaris');
-    Route::get('/bidang-perencanaan', [LandingController::class, 'bidang_perencanaan'])->name('landing.bidang_perencanaan');
-    Route::get('/bidang-pemerintahan', [LandingController::class, 'bidang_pemerintahan'])->name('landing.bidang_pemerintahan');
-    Route::get('/bidang-perekonomian', [LandingController::class, 'bidang_perekonomian'])->name('landing.bidang_perekonomian');
-    Route::get('/bidang-infrastruktur', [LandingController::class, 'bidang_infrastruktur'])->name('landing.bidang_infrastruktur');
+    Route::group(['prefix' => '/'], function () {
+        Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+        Route::get('/profile', [LandingController::class, 'profil'])->name('landing.profile');
+        Route::get('/tupoksi', [LandingController::class, 'tupoksi'])->name('landing.tupoksi');
+        Route::get('/struktur-organisasi', [LandingController::class, 'struktur'])->name('landing.struktur');
+        Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
+        Route::get('/penghargaan', [LandingController::class, 'penghargaan'])->name('landing.penghargaan');
+        Route::get('/kepala-bappeda', [LandingController::class, 'kepala_bappeda'])->name('landing.kepala_bappeda');
+        Route::get('/sekretaris', [LandingController::class, 'sekretaris'])->name('landing.sekretaris');
+        Route::get('/bidang-perencanaan', [LandingController::class, 'bidang_perencanaan'])->name('landing.bidang_perencanaan');
+        Route::get('/bidang-pemerintahan', [LandingController::class, 'bidang_pemerintahan'])->name('landing.bidang_pemerintahan');
+        Route::get('/bidang-perekonomian', [LandingController::class, 'bidang_perekonomian'])->name('landing.bidang_perekonomian');
+        Route::get('/bidang-infrastruktur', [LandingController::class, 'bidang_infrastruktur'])->name('landing.bidang_infrastruktur');
 
-    // berita
-    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
-    Route::get('/berita/{slug}/detail', [BeritaController::class, 'show'])->name('berita.show');
+        // berita
+        Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+        Route::get('/berita/{slug}/detail', [BeritaController::class, 'show'])->name('berita.show');
 
-    Route::get('/berita-nasional', [BeritaNasionalController::class, 'index'])->name('berita_nasional.index');
-    Route::get('/berita-nasional/{slug}/detail', [BeritaNasionalController::class, 'show'])->name('berita_nasional.show');
+        Route::get('/berita-nasional', [BeritaNasionalController::class, 'index'])->name('berita_nasional.index');
+        Route::get('/berita-nasional/{slug}/detail', [BeritaNasionalController::class, 'show'])->name('berita_nasional.show');
 
-    Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
-    Route::get('/artikel/{slug}/detail', [ArtikelController::class, 'show'])->name('artikel.show');
+        Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+        Route::get('/artikel/{slug}/detail', [ArtikelController::class, 'show'])->name('artikel.show');
 
-    Route::get('/informasi', [InformasiController::class, 'index'])->name('informasi.index');
-    Route::get('/informasi/{slug}/detail', [InformasiController::class, 'show'])->name('informasi.show');
+        Route::get('/informasi', [InformasiController::class, 'index'])->name('informasi.index');
+        Route::get('/informasi/{slug}/detail', [InformasiController::class, 'show'])->name('informasi.show');
 
-    Route::get('/kinerja-pembangunan-kaltim', [KinerjaPembangunanController::class, 'index'])->name('pembangunan_kaltim.index');
-    Route::get('/kinerja-pembangunan-kaltim/{slug}/detail', [KinerjaPembangunanController::class, 'show'])->name('pembangunan_kaltim.show');
+        Route::get('/kinerja-pembangunan-kaltim', [KinerjaPembangunanController::class, 'index'])->name('pembangunan_kaltim.index');
+        Route::get('/kinerja-pembangunan-kaltim/{slug}/detail', [KinerjaPembangunanController::class, 'show'])->name('pembangunan_kaltim.show');
 
-    // Route::get('/lainnya/{slug}/detail', [SideDataController::class, 'show'])->name('lainnya.show');
+        // Route::get('/lainnya/{slug}/detail', [SideDataController::class, 'show'])->name('lainnya.show');
 
-    Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
-    // Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
-    Route::get('data-center/category/{slug}', [DataCenterController::class, 'show'])->name('data-center.category.show');
-    Route::get('data-center/category/download/{slug}', [DataCenterController::class, 'download'])->name('data-center.category.download');
+        Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
+        // Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
+        Route::get('data-center/category/{slug}', [DataCenterController::class, 'show'])->name('data-center.category.show');
+        Route::get('data-center/category/download/{slug}', [DataCenterController::class, 'download'])->name('data-center.category.download');
 
-    // Agenda
-    Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
-    Route::get('/agenda/umum/', [AgendaController::class, 'index'])->name('agenda.umum');
-    Route::get('/agenda/bidang perencanaan/', [AgendaController::class, 'index'])->name('agenda.perencanaan');
-    Route::get('/agenda/bidang pemerintahan/', [AgendaController::class, 'index'])->name('agenda.pemerintahan');
-    Route::get('/agenda/bidang perekonomian/', [AgendaController::class, 'index'])->name('agenda.perekonomian');
-    Route::get('/agenda/bidang infrastruktur/', [AgendaController::class, 'index'])->name('agenda.infrastruktur');
+        // Agenda
+        Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+        Route::get('/agenda/umum/', [AgendaController::class, 'index'])->name('agenda.umum');
+        Route::get('/agenda/bidang perencanaan/', [AgendaController::class, 'index'])->name('agenda.perencanaan');
+        Route::get('/agenda/bidang pemerintahan/', [AgendaController::class, 'index'])->name('agenda.pemerintahan');
+        Route::get('/agenda/bidang perekonomian/', [AgendaController::class, 'index'])->name('agenda.perekonomian');
+        Route::get('/agenda/bidang infrastruktur/', [AgendaController::class, 'index'])->name('agenda.infrastruktur');
 
-    Route::get('agendas/data', [LandingController::class, 'listAgenda'])->name('agendas.data');
-    // PPID
-    Route::group(['prefix' => 'ppid'], function () {
-        Route::get('/', [PpidController::class, 'index'])->name('ppid.index');
+        Route::get('agendas/data', [LandingController::class, 'listAgenda'])->name('agendas.data');
+        // PPID
+        Route::group(['prefix' => 'ppid'], function () {
+            Route::get('/', [PpidController::class, 'index'])->name('ppid.index');
 
-        // permhohonan Informasi Online
-        Route::get('permohonan-informasi-online', [PpidController::class, 'pio'])->name('ppid.pio');
-        Route::post('permohonan-informasi-online/store', [PioController::class, 'store'])->name('ppid.pio.store');
+            // permhohonan Informasi Online
+            Route::get('permohonan-informasi-online', [PpidController::class, 'pio'])->name('ppid.pio');
+            Route::post('permohonan-informasi-online/store', [PioController::class, 'store'])->name('ppid.pio.store');
 
+        });
     });
 });
 

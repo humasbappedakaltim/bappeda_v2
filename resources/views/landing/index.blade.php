@@ -466,155 +466,176 @@
 
 @push('front_js')
 <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/es/cdn.min.js"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const { format, addDays, startOfMonth, endOfMonth } = dateFns;
+   document.addEventListener('DOMContentLoaded', () => {
+    const { format, addDays, startOfMonth, endOfMonth } = dateFns;
 
-  // Buat array tanggal untuk bulan ini
-  const createDatesArrayToEndOfThisMonth = () => {
-    const dates = [];
-    const today = new Date();
-    const startOfThisMonth = startOfMonth(today);
-    const endOfThisMonth = endOfMonth(today);
+    // Fungsi untuk memperbarui teks bulan
+    const updateMonth = (currentDate) => {
+        const monthElement = document.querySelector(".text-month");
+        if (!monthElement) return;
 
-    let currentDate = new Date(startOfThisMonth);
+        const formattedMonth = format(new Date(currentDate), 'MMMM yyyy');
+        monthElement.textContent = formattedMonth;
+    };
 
-    while (currentDate <= endOfThisMonth) {
-      dates.push(new Date(currentDate));
-      currentDate = addDays(currentDate, 1);
-    }
+    // Membuat array tanggal dari awal hingga akhir bulan
+    const createDatesArrayToEndOfThisMonth = () => {
+        const dates = [];
+        const today = new Date();
+        const startOfThisMonth = startOfMonth(today);
+        const endOfThisMonth = endOfMonth(today);
 
-    return dates;
-  };
+        let currentDate = new Date(startOfThisMonth);
 
-  // Render tanggal ke Swiper
-  const renderDates = (dates) => {
-    const swiperWrapper = document.querySelector("#swiper-date .swiper-wrapper");
+        while (currentDate <= endOfThisMonth) {
+            dates.push(new Date(currentDate));
+            currentDate = addDays(currentDate, 1);
+        }
 
-    if (!swiperWrapper) {
-      console.error("Swiper wrapper tidak ditemukan di DOM.");
-      return;
-    }
+        return dates;
+    };
 
-    swiperWrapper.innerHTML = ''; // Bersihkan konten sebelumnya
+    // Merender tanggal ke dalam Swiper
+    const renderDates = (dates) => {
+        const swiperWrapper = document.querySelector(".swiper-date-wrapper");
 
-    const today = format(new Date(), 'yyyy-MM-dd');
-    let activeIndex = 0;
+        if (!swiperWrapper) {
+            console.error("Swiper wrapper tidak ditemukan di DOM.");
+            return;
+        }
 
-    dates.forEach((date, index) => {
-      const formattedDay = format(date, 'EEE').toLowerCase(); // Contoh: sen, sel
-      const formattedDate = format(date, 'dd'); // Contoh: 01, 02
-      const formattedFullDate = format(date, 'yyyy-MM-dd');
+        swiperWrapper.innerHTML = ''; // Bersihkan konten sebelumnya
 
-      const slideEl = document.createElement('div');
-      slideEl.classList.add('swiper-slide', 'swiper-date-slide', 'py-2');
-      slideEl.setAttribute('data-date', formattedFullDate);
+        const today = format(new Date(), 'yyyy-MM-dd');
+        let activeIndex = 0;
 
-      // Konten slide
-      const content = `
-        <div class="date-day-content d-flex flex-column align-items-center justify-content-center">
-          <p class="text-day text-uppercase mb-1 py-0">${formattedDay}</p>
-          <p class="text-date my-0 py-0">${formattedDate}</p>
-        </div>
-      `;
-      slideEl.innerHTML = content;
+        dates.forEach((date, index) => {
+            // make to indonesia
+            const formattedDay = format(date, 'EEE').toLowerCase(); // Contoh: sen, sel
+            const formattedDate = format(date, 'dd'); // Contoh: 01, 02
+            const formattedFullDate = format(date, 'yyyy-MM-dd');
 
-      // Tambahkan kelas 'active' jika tanggal cocok dengan hari ini
-      if (formattedFullDate === today) {
-        slideEl.classList.add('active');
-        fetchAgendaByDate(today);
-        activeIndex = index;
-      }
+            const slideEl = document.createElement('div');
+            slideEl.classList.add('swiper-slide', 'swiper-date-slide', 'py-2');
+            slideEl.setAttribute('data-date', formattedFullDate);
 
-      // Tambahkan event listener untuk klik
-      slideEl.addEventListener('click', (e) => {
-        // Hapus kelas active dari semua slide
-        swiperWrapper.querySelectorAll('.swiper-date-slide').forEach((slide) => {
-          slide.classList.remove('active');
+            // Konten slide
+            const content = `
+                <div class="date-day-content d-flex flex-column align-items-center justify-content-center">
+                    <p class="text-day text-uppercase mb-1 py-0">${formattedDay}</p>
+                    <p class="text-date my-0 py-0">${formattedDate}</p>
+                </div>
+            `;
+            slideEl.innerHTML = content;
+
+            // Tandai slide aktif jika tanggal cocok dengan hari ini
+            if (formattedFullDate === today) {
+                slideEl.classList.add('active');
+                fetchAgendaByDate(today);
+                activeIndex = index;
+            }
+
+            // Event listener untuk klik
+            slideEl.addEventListener('click', (e) => {
+                const activeSlide = swiperWrapper.querySelector('.swiper-date-slide.active');
+                if (activeSlide) activeSlide.classList.remove('active');
+
+                slideEl.classList.add('active');
+
+                const clickedDate = e.currentTarget.getAttribute('data-date');
+                fetchAgendaByDate(clickedDate);
+
+                updateMonth(clickedDate);
+            });
+
+            swiperWrapper.appendChild(slideEl);
         });
 
-        // Tambahkan kelas active ke yang diklik
-        slideEl.classList.add('active');
+        return activeIndex; // Kembalikan index aktif
+    };
 
-        // Ambil data agenda untuk tanggal yang diklik
-        const clickedDate = e.currentTarget.getAttribute('data-date');
-        fetchAgendaByDate(clickedDate);
-      });
+    // Fungsi untuk mengambil data agenda berdasarkan tanggal
+    const fetchAgendaByDate = (date) => {
+        fetch(`/agendas/data?date=${date}`)
+            .then((response) => response.json())
+            .then((data) => {
+                const agendaContainer = document.getElementById('detail-agenda');
 
-        // fetch agenda by date
+                if (!agendaContainer) {
+                    console.error('Agenda container tidak ditemukan di DOM.');
+                    return;
+                }
 
+                agendaContainer.innerHTML = '';
 
-      swiperWrapper.appendChild(slideEl);
+                if (data.status === 'success') {
+                    data.data.forEach((agenda) => {
+                        const agendaEl = document.createElement('div');
+                        agendaEl.classList.add('agenda-content');
+                        agendaEl.innerHTML = `
+                            <p class="title">${agenda.schedule}</p>
+                            <p class="location">${agenda.location}</p>
+                            <div class="bottom-content d-flex align-items-end justify-content-between">
+                                <p class="time">${agenda.times}</p>
+                                <p class="status text-capitalize">${agenda.dihadiri}</p>
+                            </div>
+                        `;
+                        agendaContainer.appendChild(agendaEl);
+                    });
+                } else {
+                    agendaContainer.innerHTML = `
+                        <div class="card text-center card-sm">
+                            <div class="card-body">
+                                <p>${data.message}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            })
+            .catch((error) => {
+                console.error(`Gagal memuat agenda untuk ${date}:`, error);
+
+                const agendaContainer = document.getElementById('detail-agenda');
+                if (agendaContainer) {
+                    agendaContainer.innerHTML = `
+                        <p class="no-agenda-message">Gagal memuat agenda untuk tanggal ini.</p>
+                    `;
+                }
+            });
+    };
+
+    // Inisialisasi
+    const dates = createDatesArrayToEndOfThisMonth();
+    const activeIndex = renderDates(dates);
+
+    const swiperDate = new Swiper(".swiper-date", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        navigation: {
+            nextEl: '.swiper-date-next',
+            prevEl: '.swiper-date-prev',
+        },
+        loop: false,
+        breakpoints: {
+            640: { slidesPerView: 3 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 6 },
+        },
+        on: {
+            slideChange: () => {
+                const activeSlide = document.querySelector(".swiper-slide-active");
+                if (activeSlide) {
+                    const currentDate = activeSlide.getAttribute("data-date");
+                    updateMonth(currentDate);
+                }
+            },
+        },
     });
 
-    return activeIndex; // Kembalikan index aktif
-  };
-
-  // Fungsi untuk mengambil data agenda berdasarkan tanggal
-  const fetchAgendaByDate = (date) => {
-    fetch(`/agendas/data?date=${date}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const agendaContainer = document.getElementById('detail-agenda');
-
-        if (!agendaContainer) {
-          console.error('Agenda container tidak ditemukan di DOM.');
-          return;
-        }
-
-        agendaContainer.innerHTML = '';
-
-        if (data.status === 'success') {
-          data.data.forEach((agenda) => {
-            const agendaEl = document.createElement('div');
-            agendaEl.classList.add('agenda-content');
-            // schedule do can format
-            agendaEl.innerHTML = `
-              <p class="title">${agenda.schedule}</p>
-              <p class="location">${agenda.location}</p>
-              <div class="bottom-content d-flex align-items-end justify-content-between">
-                <p class="time">${agenda.times}</p>
-                <p class="status text-capitalize">${agenda.dihadiri}</p>
-              </div>
-            `;
-            agendaContainer.appendChild(agendaEl);
-          });
-        } else {
-          agendaContainer.innerHTML = `
-            <div class="card text-center card-sm">
-              <div class="card-body">
-                <p>${data.message}</p>
-              </div>
-          `;
-        }
-      })
-      .catch((error) => {
-        console.error(`Gagal memuat agenda untuk ${date}:`, error);
-
-        const agendaContainer = document.getElementById('agenda-content');
-        if (agendaContainer) {
-          agendaContainer.innerHTML = `<p class="no-agenda-message">Gagal memuat agenda untuk tanggal ini.</p>`;
-        }
-      });
-  };
-
-  // Inisialisasi Swiper dan render slide tanggal
-  const dates = createDatesArrayToEndOfThisMonth();
-  const activeIndex = renderDates(dates);
-
-  const swiperDate = new Swiper("#swiper-date", {
-    spaceBetween: 10,
-    slidesPerView: 4,
-    navigation: {
-      nextEl: '.swiper-date-next',
-      prevEl: '.swiper-date-prev',
-      clickable: true,
-    },
-    loop: false,
-  });
-
-  // Pindahkan swiper ke slide aktif
-  swiperDate.slideTo(activeIndex);
+    swiperDate.slideTo(activeIndex);
 });
 
 </script>

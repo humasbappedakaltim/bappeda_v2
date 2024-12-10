@@ -62,7 +62,7 @@ class LandingController extends Controller
     public function listAgenda(Request $request)
     {
         $date = $request->date;
-        $date = Carbon::parse($date)->format('Y-m-d');
+        $date = Carbon::now()->parse($date)->format('Y-m-d');
 
         $agendas = Agenda::select('schedule', 'caption','description','location','times','dihadiri')->whereDate('schedule', $date)->orderBy('schedule', 'desc')->get();
 
