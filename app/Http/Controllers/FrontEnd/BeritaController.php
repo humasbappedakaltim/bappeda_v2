@@ -21,15 +21,15 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         $limit = 15;
-        $berita_category_id = PostCategory::where('name', 'berita')->first()->id;
+        $berita_category_id = PostCategory::where('name', 'Berita')->first()->id;
 
         // berita with views
         $posts = $this->datas->datas();
         // posts arsip
         $arsip = $this->arsip->arsip();
 
-        $beritas = PostNew::where('category_id', $berita_category_id)->where('status', 'published')->orderBy('created_at', 'desc')->paginate($limit);
-
+        $beritas = PostNew::where('category_id', $berita_category_id)->orderBy('created_at', 'desc')->paginate($limit);
+        // dd($beritas);
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
