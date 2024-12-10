@@ -39,7 +39,7 @@
                                             <option value="0" {{ old('active', $slider->active) == 0 ? 'selected' : '' }}>Tidak Aktif</option>
                                             <option value="1" {{ old('active', $slider->active) == 1 ? 'selected' : '' }}>Aktif</option>
                                         </select>
-                                        @error('status')
+                                        @error('active')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

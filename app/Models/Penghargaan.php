@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Penghargaan extends Model
 {
-    use HasFactory, HasUuids, HasSlug, SoftDeletes;
+    use HasFactory, HasSlug, SoftDeletes;
 
     protected $table = 'penghargaans';
 

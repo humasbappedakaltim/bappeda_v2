@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Pejabat extends Model
 {
-    use HasUuids, HasSlug, SoftDeletes;
+    use HasSlug, SoftDeletes;
 
     protected $fillable = [
         'name',

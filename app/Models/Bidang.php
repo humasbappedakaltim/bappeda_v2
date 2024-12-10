@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Bidang extends Model
 {
-    use HasUuids, HasSlug;
+    use HasSlug;
 
     protected $table = 'bidangs';
 

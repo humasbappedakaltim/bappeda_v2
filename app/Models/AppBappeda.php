@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AppBappeda extends Model
 {
-    use HasUuids, HasFactory, HasSlug, SoftDeletes;
+    use HasFactory, HasSlug, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -20,6 +20,7 @@ class AppBappeda extends Model
         'description',
         'status',
         'orders',
+        'active',
         'slug',
     ];
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('agendas', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->timestamp('schedule')->useCurrent()->useCurrentOnUpdate();
             $table->string('caption', 512);
             $table->text('description')->nullable();

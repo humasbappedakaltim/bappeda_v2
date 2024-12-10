@@ -15,8 +15,8 @@ class PostCategorySeeder extends Seeder
     public function run(): void
     {
         $datas = [
-            'Berita',
             'Artikel',
+            'Berita',
             'Informasi',
             'Kinerja Pembangunan Kaltim',
             'Berita Nasional',
@@ -24,7 +24,6 @@ class PostCategorySeeder extends Seeder
 
         foreach ($datas as $data) {
             PostCategory::create([
-                'id' => Str::uuid(),
                 'name' => $data,
                 'slug' => Str::slug($data),
             ]);

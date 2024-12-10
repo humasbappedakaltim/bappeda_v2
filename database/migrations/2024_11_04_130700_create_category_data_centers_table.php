@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('category_data_centers', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            // $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->integer('order');
             $table->string('slug');

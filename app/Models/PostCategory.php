@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PostCategory extends Model
 {
-    use HasFactory, HasUuids, HasSlug;
+    use HasFactory, HasSlug;
 
     protected $table = 'post_categories';
 

@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_centers', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->string('file');
             $table->string('cover')->nullable();
-            $table->foreignUuid('category_data_center_id')->references('id')->on('category_data_centers')->onDelete('cascade');
+            // refrences not uuid
+            $table->foreignid('category_data_center_id')->references('id')->on('category_data_centers')->onDelete('cascade');
             $table->integer('order')->nullable();
             $table->string('slug');
             $table->timestamps();

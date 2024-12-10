@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('welcome_sliders', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('title')->nullable();
             $table->date('expired_date')->nullable();
             $table->string('image');
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(1);
             $table->text('link')->nullable();
             $table->integer('orders')->nullable();
             $table->string('slug');

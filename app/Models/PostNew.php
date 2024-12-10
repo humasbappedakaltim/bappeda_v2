@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class PostNew extends Model
 {
-    use HasUuids, HasSlug, SoftDeletes;
+    use HasSlug, SoftDeletes;
 
     protected $table = 'post_news';
 

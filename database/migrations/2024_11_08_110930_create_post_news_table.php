@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('post_news', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('title');
             $table->text('description');
             $table->integer('views')->default(0);
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignUuid('category_id')->references('id')->on('post_categories')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('post_categories');
             $table->text('keywords')->nullable();
             $table->text('tags')->nullable();
             $table->string('image');

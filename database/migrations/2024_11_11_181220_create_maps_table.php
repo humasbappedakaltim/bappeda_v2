@@ -15,6 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('file');
+            $table->text('description')->nullable();
+            $table->integer('views')->nullable();
             $table->string('slug');
             $table->softDeletes();
             $table->timestamps();

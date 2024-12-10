@@ -81,6 +81,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <label for="active" class="form-label">Status</label>
+                                        <select class="form-select @error('active') is-invalid @enderror" id="active" name="active">
+                                            <option value="0" {{ old('active', $slider->active) == 0 ? 'selected' : '' }}>Tidak Aktif</option>
+                                            <option value="1" {{ old('active', $slider->active) == 1 ? 'selected' : '' }}>Aktif</option>
+                                        </select>
+                                        @error('active')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <a href="{{ route('dashboard.app-bappeda.index') }}" class="btn btn-danger">Kembali</a>

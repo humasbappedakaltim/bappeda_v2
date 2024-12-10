@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Agenda extends Model
 {
-    use HasFactory,HasUuids;
+    use HasFactory;
 
     protected $fillable = [
         'schedule',

@@ -21,9 +21,16 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             SettingsSeeder::class,
+            // Data Fix
             RoleSeeder::class,
             UserSeeder::class,
-            PostCategorySeeder::class
+            PenghargaanSeeder::class,
+            PostCategorySeeder::class,
+            WelcomeSliderSeeder::class,
+            CategoryDataCenterSeeder::class,
+            DataCenterSeeder::class,
+            MapsSeeder::class,
+            AppBappedaSeeder::class,
         ]);
     }
 }

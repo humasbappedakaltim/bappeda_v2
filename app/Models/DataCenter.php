@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DataCenter extends Model
 {
-    use HasUuids, HasSlug;
+    use HasSlug;
 
     protected $table = "data_centers";
 
