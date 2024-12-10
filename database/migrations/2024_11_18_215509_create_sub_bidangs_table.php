@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sub_bidangs', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
-            $table->foreignUuid('bidang_id')->references('id')->on('bidangs');
+            $table->foreignId('bidang_id')->references('id')->on('bidangs');
             $table->string('slug');
             $table->timestamps();
         });

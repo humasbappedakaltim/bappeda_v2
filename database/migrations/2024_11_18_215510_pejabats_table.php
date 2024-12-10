@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pejabats', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->string('foto')->nullable();
             $table->string('nip');
@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('jabatan');
             $table->string('jabatan_lainnya')->nullable();
             $table->string('jabatan_lainnya2')->nullable();
-            $table->foreignUuid('bidang_id')->references('id')->on('bidangs');
-            $table->foreignUuid('sub_bidang_id')->nullable()->references('id')->on('sub_bidangs');
+            $table->foreignId('bidang_id')->references('id')->on('bidangs');
+            $table->foreignId('sub_bidang_id')->nullable()->references('id')->on('sub_bidangs');
             $table->string('status_jabatan');
-            $table->string('status_jabatan_penjabat');
+            $table->string('status_jabatan_penjabat')->nullable();
             $table->string('ketua_tim')->nullable();
             $table->integer('urutan_jabatan');
             $table->string('status_kehadiran');

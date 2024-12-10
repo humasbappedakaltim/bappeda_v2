@@ -31,6 +31,9 @@ class DatabaseSeeder extends Seeder
             DataCenterSeeder::class,
             MapsSeeder::class,
             AppBappedaSeeder::class,
+            BidangSeeder::class,
+            SubBidangSeeder::class,
+            PejabatSeeder::class,
         ]);
     }
 }
