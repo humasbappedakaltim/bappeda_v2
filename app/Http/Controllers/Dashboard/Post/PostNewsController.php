@@ -204,7 +204,7 @@ class PostNewsController extends Controller
         if ($action) {
             return response()->json(['status' => 'success', 'message' => 'Postingan Berhasil Dihapus']);
         } else {
-            return response()->json(['status' => 'error', 'message' => 'Postingan Gagal Dihapus']);
+            return response()-  z>json(['status' => 'error', 'message' => 'Postingan Gagal Dihapus']);
         }
 
     }

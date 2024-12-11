@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
-@section('title','Agenda')
+@section('title','Pengguna')
 @section('content')
 <h1 class="h3 mb-3">
-    <strong>Pegawai</strong>
-        <a href="{{ route('dashboard.agenda.create') }}" class="btn btn-primary float-end btn-sm btn-rounded">
+    <strong>Pengguna</strong>
+        <a href="{{ route('dashboard.settings.users.create') }}" class="btn btn-primary float-end btn-sm btn-rounded">
             Tambah
             <i class="align-middle" data-feather="plus"></i>
         </a>
@@ -14,14 +14,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-stripped" id="agenda_table">
+                    <table class="table table-stripped" id="user_table">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Schedule</th>
-                                <th scope="col">Lokasi</th>
-                                <th scope="col">View</th>
-                                <th scope="col">Waktu</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -36,7 +35,7 @@
 @push('js')
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#agenda_table').DataTable({
+            $('#user_table').DataTable({
                     ordering: true,
                     pagination: true,
                     deferRender: true,
@@ -46,25 +45,20 @@
                     stateSave: true,
                     pageLength: 50,
                     ajax: {
-                        'url': '{{ route("dashboard.agenda.data_table") }}',
+                        'url': '{{ route("dashboard.settings.users.data_table") }}',
                     },
                     columns: [
                         { data: 'DT_RowIndex',name: 'DT_RowIndex',orderable: false,searchable: false},
-                        { data: 'schedule', name: 'schedule'},
-                        { data: 'location', name: 'location'},
-                        { data: 'views', name: 'views',
-                            render: function (data) {
-                               return '<span class="badge bg-primary">'+data+' x</span>';
-                            }
-                        },
-                        { data: 'times', name: 'times', orderable: true},
+                        { data: 'name', name: 'name'},
+                        { data: 'email', name: 'email'},
+                        { data: 'role', name: 'role'},
                         { data: 'action', name: 'action', orderable: false,searchable: false},
                     ],
                 });
-                $('#agenda_table').on('click', '.btn-delete', function () {
-                    var slug = $(this).data('id');
-                    var url = '{{ route("dashboard.agenda.destroy", ":slug") }}';
-                    url = url.replace(':slug', slug);
+                $('#user_table').on('click', '.btn-delete', function () {
+                    var id = $(this).data('id');
+                    var url = '{{ route("dashboard.settings.users.destroy", ":id") }}';
+                    url = url.replace(':id', id);
                     Swal.fire({
                         title: 'Anda yakin?',
                         text: 'Data yang sudah dihapus tidak dapat dikembalikan!',
@@ -90,7 +84,7 @@
                                 success: function (data) {
                                     if (data.status === 'success') {
                                         Swal.fire('Berhasil', data.message, 'success').then(() => {
-                                            reloadTable('#agenda_table');
+                                            reloadTable('#user_table');
                                         });
                                     } else {
                                         Swal.fire('Error', data.message, 'error');

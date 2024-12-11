@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
-@section('title','Edit User')
+@section('title','Edit Pengguna')
 @section('content')
 <h1 class="h3 mb-3">
-    <strong>Edit User</strong>
+    <strong>Edit Pengguna</strong>
 </h1>
 
 <div class="row">
@@ -12,21 +12,23 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('dashboard.data.center.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.settings.users.update', $user->slug) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row mb-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label for="name" class="form-label">Nama</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $user->name) }}">
                                         @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12 mt-2">
                                         <label for="role" class="form-label">Pilih Role</label>
                                         <select name="role_id" id="role_id" class="form-control">
+                                            <option selected disabled>Pilih Role</option>
                                             @foreach ($roles as $role)
-                                                <option value="{{ $role->id }}" {{ $role->id == $user->roles()->first()->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                                <option value="{{ $role->id }}" {{ $role->id == $user->roles->first()->id ? 'selected' : '' }}>{{ $role->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -37,6 +39,23 @@
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $user->email) }}">
                                         @error('email')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                                        @error('password')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+                                        @error('password_confirmation')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

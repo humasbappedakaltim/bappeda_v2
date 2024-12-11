@@ -154,6 +154,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('sub-bidang-datas', [SubBidangController::class, 'data_table'])->name('dashboard.sub.bidang.data_table');
         Route::get('pejabats-datas', [PejabatController::class, 'data_table'])->name('dashboard.pejabat.data_table');
         Route::get('pios-datas', [DashboardPioController::class, 'data_table'])->name('dashboard.pio.data_table');
+        Route::get('users', [UserController::class, 'data_table'])->name('dashboard.settings.users.data_table');
     });
 
     Route::group(['prefix' => 'settings'], function () {

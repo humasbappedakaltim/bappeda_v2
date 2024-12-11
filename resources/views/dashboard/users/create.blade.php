@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.settings.users.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <div class="col-md-12">
