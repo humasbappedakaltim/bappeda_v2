@@ -41,8 +41,8 @@
                             Data center
                         </a>
                     </li>
-                    <li class="nav-item align-items-center mx-1">
-                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" href="#">
+                    <li class="nav-item align-items-center mx-1 {{ Route::is('landing.ruang_publik') ? 'active' : '' }}">
+                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" href="{{ route('landing.ruang_publik') }}">
                             ruang publik
                         </a>
                     </li>

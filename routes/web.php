@@ -98,6 +98,11 @@ Route::middleware(['setlocale'])->group(function () {
         Route::get('/agenda/bidang perekonomian/', [AgendaController::class, 'index'])->name('agenda.perekonomian');
         Route::get('/agenda/bidang infrastruktur/', [AgendaController::class, 'index'])->name('agenda.infrastruktur');
 
+        // Ruang Publik
+
+        Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
+
+
         Route::get('agendas/data', [LandingController::class, 'listAgenda'])->name('agendas.data');
         // PPID
         Route::group(['prefix' => 'ppid'], function () {

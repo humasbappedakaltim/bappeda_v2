@@ -89,6 +89,8 @@
                 </div>
                 <div class="col-12 asn-list-position mt-5">
                     <div class="row g-3 d-flex align-items-center justify-content-center">
+                        @forelse ($bidangs as $bidang)
+
                         <div class="col-12 col-lg-5 col-xl-4 mb-3">
                             <a href="{{ route('landing.asn.sekretariat') }}" class="list-card text-decoration-none position-relative px-0">
                                 <div class="abbr-title d-flex align-items-center justify-content-center pe-5">
@@ -104,6 +106,15 @@
                                 </div>
                             </a>
                         </div>
+                        @empty
+                        <div class="col-12 col-lg-5 col-xl-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6>Tidak Ada Data Bidang</h6>
+                                </div>
+                            </div>
+                        </div>
+                        @endforelse
                         <div class="col-12 col-lg-5 col-xl-4 mb-3">
                             <a href="asn-p2epd.html" class="list-card text-decoration-none position-relative px-0">
                                 <div class="abbr-title d-flex align-items-center justify-content-center pe-5">

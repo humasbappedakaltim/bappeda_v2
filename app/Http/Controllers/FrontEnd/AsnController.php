@@ -12,7 +12,10 @@ class AsnController extends Controller
     public function index()
     {
         $kepala = Pejabat::where('urutan_jabatan', 1)->first();
-        return view('landing.asn.index', compact('kepala'));
+        $bidangs = Bidang::all();
+
+        dd($bidangs);
+        return view('landing.asn.index', compact('kepala', 'bidangs'));
     }
 
     public function sekretariat()

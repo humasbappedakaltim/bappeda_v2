@@ -14,13 +14,22 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+
+        $middleware->use([
+            // secure headers
+            \App\Http\Middleware\HttpRedirect::class,
+            \App\Http\Middleware\HSTS::class,
+            \App\Http\Middleware\FrameGuard::class,
+            \App\Http\Middleware\SecureHeadersMiddleware::class,
+        ]);
+
         $middleware->alias([
             'role' => RoleMiddleware::class,
             'permission' => PermissionMiddleware::class,
             // 'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
             'setlocale' => \App\Http\Middleware\SetLocale::class,
-
         ]);
+
     })
 
     ->withExceptions(function (Exceptions $exceptions) {

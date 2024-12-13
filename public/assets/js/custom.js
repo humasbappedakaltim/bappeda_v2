@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    (function ($) {
     $('.portfolio-slider').owlCarousel({
         loop: false,
         center: false,
@@ -85,6 +86,8 @@ $(document).ready(function () {
         }
     });
 
+    })(jQuery);
+
     // TO TOP BTN //
     const toTopBtn = document.querySelector('.to-top-btn');
 
@@ -141,7 +144,7 @@ $(document).ready(function () {
         autoplay: {
             delay: 1500,
             disableOnInteraction: true,
-        }   
+        }
     });
 
     var swiperNews = new Swiper("#swiper-news", {
@@ -219,7 +222,7 @@ $(document).ready(function () {
             clickable: true,
         },
     });
-    
+
     var swiperInformation = new Swiper(".swiper-information", {
         spaceBetween: 30,
         centeredSlides: true,
@@ -279,8 +282,8 @@ $(document).ready(function () {
         },
         mousewheel: {
             forceToAxis: false,
-            releaseOnEdges: true, 
-            sensitivity: 1, 
+            releaseOnEdges: true,
+            sensitivity: 1,
         },
     });
 
@@ -295,8 +298,8 @@ $(document).ready(function () {
         },
         mousewheel: {
             forceToAxis: false,
-            releaseOnEdges: true, 
-            sensitivity: 1, 
+            releaseOnEdges: true,
+            sensitivity: 1,
         },
         breakpoints: {
             1200: {
@@ -315,8 +318,8 @@ $(document).ready(function () {
         loop: true,
         mousewheel: {
             forceToAxis: false,
-            releaseOnEdges: true, 
-            sensitivity: 1, 
+            releaseOnEdges: true,
+            sensitivity: 1,
         },
         autoplay: {
             delay: 3000,
@@ -334,8 +337,8 @@ $(document).ready(function () {
         slidesPerView: 4,
         mousewheel: {
             forceToAxis: false,
-            releaseOnEdges: true, 
-            sensitivity: 1, 
+            releaseOnEdges: true,
+            sensitivity: 1,
         },
     });
 
@@ -344,13 +347,13 @@ $(document).ready(function () {
         slidesPerView: 'auto',
         direction: "vertical",
         mousewheel: true,
-        loop: true,  
+        loop: true,
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
         },
-        speed: 800,  
-        effect: 'slide',  
+        speed: 800,
+        effect: 'slide',
         transitionTimingFunction: 'ease-in-out',
     });
 
@@ -363,13 +366,13 @@ $(document).ready(function () {
         slidesPerView: 'auto',
         direction: "vertical",
         mousewheel: true,
-        loop: true,  
+        loop: true,
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
         },
-        speed: 800,  
-        effect: 'slide',  
+        speed: 800,
+        effect: 'slide',
         transitionTimingFunction: 'ease-in-out',
     });
 
@@ -408,10 +411,10 @@ $(document).ready(function () {
                     const isAtEnd = swiperInstance.isEnd;
 
                     if (
-                        (isAtBeginning && e.deltaY < 0) || 
-                        (isAtEnd && e.deltaY > 0) 
+                        (isAtBeginning && e.deltaY < 0) ||
+                        (isAtEnd && e.deltaY > 0)
                     ) {
-                        return; 
+                        return;
                     }
 
                     e.preventDefault();
@@ -427,7 +430,7 @@ $(document).ready(function () {
         swiperNews.autoplay.stop();
     });
     swiperNewsContainer.addEventListener("mouseleave", function() {
-        swiperNews.autoplay.start(); 
+        swiperNews.autoplay.start();
     });
     // SWIPER END //
 

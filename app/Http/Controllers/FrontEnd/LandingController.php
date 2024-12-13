@@ -143,4 +143,9 @@ class LandingController extends Controller
         return view('landing.unit-kerja.bidang_infrastruktur');
     }
 
+    public function ruang_publik()
+    {
+        return view('landing.ruang_publik');
+    }
+
 }

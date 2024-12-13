@@ -12,6 +12,6 @@ class PostNewSeeder extends Seeder
      */
     public function run(): void
     {
-        
+            
     }
 }

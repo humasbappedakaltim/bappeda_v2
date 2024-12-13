@@ -731,7 +731,8 @@
     }
 
     // Initialize once the DOM is ready
-    $(document).ready(fetchYouTubeData);
+    // $(document).ready(fetchYouTubeData);
+    fetchYouTubeData();
 </script>
 @endpush
 @endsection
