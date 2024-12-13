@@ -9,9 +9,21 @@ use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class PostNewsController extends Controller
+class PostNewsController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            // new Middleware('role:superadmin'),
+            new Middleware('permission:post-news-view|post-news-manage'),
+            new Middleware('permission:post-news-view', ['only' => ['index', 'data_table']]),
+            new Middleware('permission:post-news-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
+        ];
+    }
+
     public function index()
     {
         $categorys = PostCategory::orderBy('name')->where('status', '!=' , 0)->get();

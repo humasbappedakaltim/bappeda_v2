@@ -6,9 +6,22 @@ use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class CategoryPostController extends Controller
+class CategoryPostController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            // new Middleware('role:superadmin'),
+            new Middleware('permission:post-category-view|post-category-manage'),
+            new Middleware('permission:post-category-view', ['only' => ['index', 'data_table']]),
+            new Middleware('permission:post-category-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
+        ];
+    }
+
+
     public function index()
     {
         return view('dashboard.post.category.index');
