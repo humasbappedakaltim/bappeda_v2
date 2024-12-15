@@ -110,12 +110,17 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="status_jabatan" class="form-label">Status Jabatan</label>
-                                        <input type="text" class="form-control @error('status_jabatan') is-invalid @enderror" id="status_jabatan" name="status_jabatan" value="{{ old('status_jabatan', $pejabat->status_jabatan) }}">
+                                        <select name="status_jabatan" id="status_jabatan" class="form-control @error('status_jabatan') is-invalid @enderror">
+                                            <option selected disabled>Pilih Status Jabatan</option>
+                                            <option value="non-pajabat" {{ old('status_jabatan', $pejabat->status_jabatan) == 'non-pajabat' ? 'selected' : '' }}>Non Pejabat</option>
+                                            <option value="pajabat" {{ old('status_jabatan', $pejabat->status_jabatan) == 'pajabat' ? 'selected' : '' }}>Pejabat</option>
+                                        </select>
                                         @error('status_jabatan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
+
 
                                 <!-- Status Jabatan Penjabat Input -->
                                 <div class="row mb-3">

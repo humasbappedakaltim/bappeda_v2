@@ -17,4 +17,16 @@ class PpidController extends Controller
         return view('landing.ppid.pio');
     }
 
+    public function profile()
+    {
+        return view('landing.ppid.profil');
+    }
+
+    public function struktur()
+    {
+        return view('landing.ppid.struktur');
+    }
+
+
+
 }

@@ -189,7 +189,7 @@
         <div class="container col-12">
             <h3 class="text-capitalize">Tentang PPID</h3>
             <div class="row mt-1">
-                <a href="profil-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.profil') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Profil</p>
                     <p class="fs-9 py-0 my-0">Profil PPID Kaltim: Wadah utama untuk pengelolaan dan penyebaran informasi publik.</p>
                 </a>

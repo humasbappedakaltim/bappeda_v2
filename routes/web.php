@@ -55,7 +55,9 @@ Route::middleware(['setlocale'])->group(function () {
         Route::group(['prefix' => 'profil'], function () {
 
                 Route::get('/asn', [AsnController::class, 'index'])->name('landing.asn');
-                Route::get('/asn/sekretariat', [AsnController::class, 'sekretariat'])->name('landing.asn.sekretariat');
+                Route::get('/asn/{bidang}', [AsnController::class, 'bidang'])->name('landing.asn.bidang');
+                Route::get('/asn/{bidang}/{subBidang}', [AsnController::class, 'subBidang'])->name('landing.asn.bidang.subBidang');
+
             });
         });
         Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
@@ -108,6 +110,8 @@ Route::middleware(['setlocale'])->group(function () {
         Route::group(['prefix' => 'ppid'], function () {
             Route::get('/', [PpidController::class, 'index'])->name('ppid.index');
 
+            // Profile
+            Route::get('/profile', [PpidController::class, 'profile'])->name('ppid.profil');
             // permhohonan Informasi Online
             Route::get('permohonan-informasi-online', [PpidController::class, 'pio'])->name('ppid.pio');
             Route::post('permohonan-informasi-online/store', [PioController::class, 'store'])->name('ppid.pio.store');
