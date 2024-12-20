@@ -1,10 +1,15 @@
 // DROPDOWN //
-function closeDropdown1(dropdownSelector, toggleSelector, chevronSelector) {
+function closeDropdown(dropdownSelector, toggleSelector, chevronSelector) {
     const dropdown = document.querySelector(dropdownSelector);
     const toggle = document.querySelector(toggleSelector);
     const chevron = document.querySelector(chevronSelector);
 
-    $(dropdown).collapse('hide');
+    // Using Bootstrap 5 Collapse API
+    const collapseInstance = new bootstrap.Collapse(dropdown, {
+        toggle: false
+    });
+    collapseInstance.hide();
+
     toggle.classList.remove('active');
     if (chevron) chevron.classList.remove('rotate');
 }
@@ -17,10 +22,12 @@ function setupDropdowns(dropdownList) {
         const dropdown = document.querySelector(dropdownSelector);
         const chevron = document.querySelector(chevronSelector);
 
+        // Bind collapse events only once
         if (!dropdown.dataset.eventAttached) {
             dropdown.dataset.eventAttached = true;
 
-            $(dropdown).on('shown.bs.collapse', () => {
+            // Use Bootstrap 5 collapse event listeners
+            dropdown.addEventListener('show.bs.collapse', () => {
                 toggle.classList.add('active');
                 if (chevron) chevron.classList.add('rotate');
                 if (mainHeader && !mainHeader.classList.contains('dropdown-active')) {
@@ -28,7 +35,7 @@ function setupDropdowns(dropdownList) {
                 }
             });
 
-            $(dropdown).on('hidden.bs.collapse', () => {
+            dropdown.addEventListener('hidden.bs.collapse', () => {
                 toggle.classList.remove('active');
                 if (chevron) chevron.classList.remove('rotate');
 
@@ -41,13 +48,29 @@ function setupDropdowns(dropdownList) {
             });
         }
 
-        toggle.addEventListener("click", () => {
+        toggle.addEventListener("click", (e) => {
+            e.stopPropagation(); // Prevent the click from closing the dropdown immediately
+
+            // Close all other dropdowns
             dropdownList.forEach(({ dropdownSelector: otherDropdown, toggleSelector: otherToggle, chevronSelector: otherChevron }) => {
                 if (dropdownSelector !== otherDropdown) {
-                    closeDropdown1(otherDropdown, otherToggle, otherChevron);
+                    closeDropdown(otherDropdown, otherToggle, otherChevron);
                 }
             });
+
+            // Toggle the current dropdown's state (show or hide)
+            const collapseInstance = new bootstrap.Collapse(dropdown);
+            collapseInstance.toggle();
         });
+    });
+
+    // Close all dropdowns if clicked outside
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".dropdown") && !e.target.closest("#main-header")) {
+            dropdownList.forEach(({ dropdownSelector, toggleSelector, chevronSelector }) => {
+                closeDropdown(dropdownSelector, toggleSelector, chevronSelector);
+            });
+        }
     });
 }
 
@@ -80,4 +103,4 @@ const dropdownList = [
 ];
 
 setupDropdowns(dropdownList);
-// DROPDOWN END// 
+// DROPDOWN END //

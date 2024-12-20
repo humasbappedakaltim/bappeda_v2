@@ -18,7 +18,7 @@
     <div class="container over-top-container m-0 p-0">
         <div class="row m-0 p-0">
             <div class="col-12 img-container position-relative m-0 p-0">
-                <img src="assets/images/Struktur Bappeda 1 Agustus 2024 Website.png" alt="Image Struktur Organisasi">
+                <img src="{{ asset('assets/images/Struktur Bappeda 1 Agustus 2024 Website.png') }}" alt="Image Struktur Organisasi">
             </div>
         </div>
     </div>

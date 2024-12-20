@@ -357,9 +357,9 @@ $(document).ready(function () {
         transitionTimingFunction: 'ease-in-out',
     });
 
-    setTimeout(() => {
-        swiperAllAgenda.update();
-    }, 100);
+    // setTimeout(() => {
+    //     swiperAllAgenda.update();
+    // }, 100);
 
     var swiperPresentAgenda = new Swiper("#swiper-present-agenda", {
         spaceBetween: 15,
@@ -376,16 +376,16 @@ $(document).ready(function () {
         transitionTimingFunction: 'ease-in-out',
     });
 
-    setTimeout(() => {
-        swiperPresentAgenda.update();
-    }, 100);
+    // setTimeout(() => {
+    //     swiperPresentAgenda.update();
+    // }, 100);
 
 
     document.addEventListener(
         "wheel",
         function (e) {
             const targetElement = e.target.closest("#swiper-date, #swiper-youtube, #swiper-post-category, #swiper-app-bappeda");
-            console.log("Target element:", targetElement);
+            // console.log("Target element:", targetElement);
 
             if (targetElement) {
                 let swiperInstance = null;
@@ -404,7 +404,7 @@ $(document).ready(function () {
                         break;
                 }
 
-                console.log("Swiper instance:", swiperInstance);
+                // console.log("Swiper instance:", swiperInstance);
 
                 if (swiperInstance) {
                     const isAtBeginning = swiperInstance.isBeginning;
@@ -418,7 +418,7 @@ $(document).ready(function () {
                     }
 
                     e.preventDefault();
-                    console.log("Scroll prevented.");
+                    // console.log("Scroll prevented.");
                 }
             }
         },
@@ -448,11 +448,11 @@ $(document).ready(function () {
 
 
 
-    function newDate() {
-        return new Date().getFullYear();
-    }
+    // function newDate() {
+    //     return new Date().getFullYear();
+    // }
 
-    window.onload = function () {
-        document.getElementById("autodate").innerHTML = newDate();
-    };
+    // window.onload = function () {
+    //     document.getElementById("autodate").innerHTML = newDate();
+    // };
 });

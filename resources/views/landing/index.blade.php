@@ -468,7 +468,7 @@
 <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/es/cdn.min.js"></script>
 
-<script>
+<script type="text/javascript">
    document.addEventListener('DOMContentLoaded', () => {
     const { format, addDays, startOfMonth, endOfMonth } = dateFns;
 
@@ -507,15 +507,15 @@
             return;
         }
 
-        swiperWrapper.innerHTML = ''; // Bersihkan konten sebelumnya
+        swiperWrapper.innerHTML = '';
 
         const today = format(new Date(), 'yyyy-MM-dd');
         let activeIndex = 0;
 
         dates.forEach((date, index) => {
             // make to indonesia
-            const formattedDay = format(date, 'EEE').toLowerCase(); // Contoh: sen, sel
-            const formattedDate = format(date, 'dd'); // Contoh: 01, 02
+            const formattedDay = format(date, 'EEE').toLowerCase();
+            const formattedDate = format(date, 'dd');
             const formattedFullDate = format(date, 'yyyy-MM-dd');
 
             const slideEl = document.createElement('div');
@@ -626,7 +626,7 @@
         },
         on: {
             slideChange: () => {
-                const activeSlide = document.querySelector(".swiper-slide-active");
+                const activeSlide = document.querySelector(".swiper-date-slide.active");
                 if (activeSlide) {
                     const currentDate = activeSlide.getAttribute("data-date");
                     updateMonth(currentDate);
@@ -635,104 +635,150 @@
         },
     });
 
-    swiperDate.slideTo(activeIndex);
+    if (activeIndex !== undefined) {
+        swiperDate.slideTo(activeIndex);
+    }
 });
 
 </script>
-
 <script type="text/javascript">
-    const youtubeToken = "{{ env('YOUTUBE_API_KEY') }}";
-    const youtubeChannelId = "UC5LF3CO4omiNMSrKOJUuXzQ";
+    // Use jQuery directly to avoid conflicts
+    jQuery(document).ready(function () {
+        const youtubeToken = "{{ env('YOUTUBE_API_KEY') }}";
+        const youtubeChannelId = "UC5LF3CO4omiNMSrKOJUuXzQ";
+        let isVideoPlaying = false;
 
-    function fetchYouTubeData() {
-        // Fetch and initialize data
-        fetchChannelVideos();
-    }
+        function fetchYouTubeData() {
+            // Fetch and initialize data
+            fetchChannelVideos();
+        }
 
-    function fetchChannelVideos() {
-        $.ajax({
-            url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${youtubeChannelId}&maxResults=5&order=date&key=${youtubeToken}`,
-            type: 'GET'
-        })
-        .done(function (data) {
-            if (data.items) {
-                appendVideosToCarousel(data.items);
-                initializeSwiper();
-            }
-        })
-        .fail(function (error) {
-            console.error("Error fetching YouTube videos:", error);
-        });
-    }
+        function fetchChannelVideos() {
+            jQuery.ajax({
+                url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${youtubeChannelId}&maxResults=5&order=date&key=${youtubeToken}`,
+                type: 'GET'
+            })
+            .done(function (data) {
+                if (data.items) {
+                    appendVideosToCarousel(data.items);
+                    initializeSwiper();
+                }
+            })
+            .fail(function (error) {
+                console.error("Error fetching YouTube videos:", error);
+            });
+        }
 
-    function appendVideosToCarousel(videos) {
-        const carouselWrapper = document.getElementById('swiper-youtube-wrapper');
-        carouselWrapper.innerHTML = ''; // Clear carousel slides before appending
+        function appendVideosToCarousel(videos) {
+            const carouselWrapper = document.getElementById('swiper-youtube-wrapper');
+            carouselWrapper.innerHTML = ''; // Clear carousel slides before appending
 
-        videos.forEach(video => {
-            const slide = document.createElement('div');
-            slide.classList.add('swiper-slide', 'swiper-youtube-slide', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-center');
-            slide.innerHTML = `
-                <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
-                    <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" class="video-thumbnail">
-                    <p class="title-content text-white text-justify">${video.snippet.title}</p>
-                </a>
-            `;
-            carouselWrapper.appendChild(slide);
-        });
-    }
+            videos.forEach(video => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide', 'swiper-youtube-slide', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-center');
+                slide.innerHTML = `
+                    <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+                        <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" class="video-thumbnail">
+                        <p class="title-content text-white text-justify">${video.snippet.title}</p>
+                    </a>
+                `;
+                carouselWrapper.appendChild(slide);
+            });
+        }
 
-    let swiperInstance;
+        let swiperInstance;
 
-    function initializeSwiper() {
-        swiperInstance = new Swiper('#swiper-youtube', {
-            spaceBetween: 10,
-            slidesPerView: 4,
-            mousewheel: {
-                forceToAxis: false,
-                releaseOnEdges: true,
-                sensitivity: 1,
-            },
-            // loop:
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            on: {
-                slideChange: function () {
-                    const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
-                    const activeVideoLink = $(activeSlide).find('a').attr('href');
-                    const videoId = activeVideoLink.split('v=')[1];
-                    updateVideoContainer(videoId);
+        function initializeSwiper() {
+            const swiperWrapper = document.querySelector('#swiper-youtube .swiper-wrapper');
+            const slides = swiperWrapper.querySelectorAll('.swiper-slide');
+
+            // Check if the number of slides is insufficient for looping
+            if (slides.length < 4) {
+                // Duplicate slides to enable loop
+                const duplicatesNeeded = 4 - slides.length;
+                for (let i = 0; i < duplicatesNeeded; i++) {
+                    const duplicateSlide = slides[i % slides.length].cloneNode(true);
+                    swiperWrapper.appendChild(duplicateSlide);
                 }
             }
-        });
 
+            swiperInstance = new Swiper('#swiper-youtube', {
+                spaceBetween: 10,
+                slidesPerView: 4,
+                mousewheel: {
+                    forceToAxis: false,
+                    releaseOnEdges: true,
+                    sensitivity: 1,
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                on: {
+                    slideChange: function () {
+                        if (isVideoPlaying) {
+                            swiperInstance.autoplay.stop();
+                        }
+                        const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+                        // console.log(active);
+                        const activeVideoLink = jQuery(activeSlide).find('a').attr('href');
+                        const videoId = activeVideoLink.split('v=')[1];
+                        updateVideoContainer(videoId);
+                    },
+                    touchStart: function () {
+                        if (isVideoPlaying) {
+                            swiperInstance.autoplay.stop(); // Stop autoplay on swipe start
+                        }
+                    },
+                    touchEnd: function () {
+                        if (!isVideoPlaying) {
+                            swiperInstance.autoplay.start(); // Restart autoplay after swipe
+                        }
+                    }
+                },
+                // loop: true,
+            });
 
-        // Trigger video loading for the first slide on initialization
-        const firstSlide = swiperInstance.slides[swiperInstance.activeIndex];
-        const firstVideoLink = $(firstSlide).find('a').attr('href');
-        const firstVideoId = firstVideoLink.split('v=')[1];
-        updateVideoContainer(firstVideoId);
-    }
+            // Trigger video loading for the first slide on initialization
+            const firstSlide = swiperInstance.slides[swiperInstance.activeIndex];
+            const firstVideoLink = jQuery(firstSlide).find('a').attr('href');
+            const firstVideoId = firstVideoLink.split('v=')[1];
+            updateVideoContainer(firstVideoId);
+        }
 
-    function updateVideoContainer(videoId) {
-        const videoContainer = $('.video-container');
-        videoContainer.html(`
-            <iframe
-                width="100%"
-                height="500"
-                src="https://www.youtube.com/embed/${videoId}"
-                frameborder="0"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        `);
-    }
+        function updateVideoContainer(videoId) {
+            const videoContainer = jQuery('.video-container');
+            videoContainer.html(`
+                <iframe
+                    id="youtube-video"
+                    width="100%"
+                    height="500"
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            `);
 
-    // Initialize once the DOM is ready
-    // $(document).ready(fetchYouTubeData);
-    fetchYouTubeData();
+            // Mark the video as playing
+            isVideoPlaying = true;
+
+            // Add event listener to detect when the video is finished or paused
+            const iframe = document.getElementById('youtube-video');
+            iframe.addEventListener('pause', function() {
+                isVideoPlaying = false;
+                swiperInstance.autoplay.start(); // Resume autoplay when the video is paused
+            });
+
+            iframe.addEventListener('ended', function() {
+                isVideoPlaying = false;
+                swiperInstance.autoplay.start(); // Resume autoplay when the video ends
+            });
+        }
+
+        fetchYouTubeData();
+    });
 </script>
+
 @endpush
 @endsection

@@ -3,23 +3,23 @@
         const dropdown = document.querySelector(dropdownSelector);
         const toggle = document.querySelector(toggleSelector);
         const chevron = document.querySelector(chevronSelector);
-    
+
         $(dropdown).collapse('hide');
         toggle.classList.remove('active');
         if (chevron) chevron.classList.remove('rotate');
     }
-    
+
     function setupDropdowns(dropdownList) {
         const mainHeader = document.querySelector("#main-header");
-    
+
         dropdownList.forEach(({ toggleSelector, dropdownSelector, chevronSelector }) => {
             const toggle = document.querySelector(toggleSelector);
             const dropdown = document.querySelector(dropdownSelector);
             const chevron = document.querySelector(chevronSelector);
-    
+
             if (!dropdown.dataset.eventAttached) {
                 dropdown.dataset.eventAttached = true;
-    
+
                 $(dropdown).on('shown.bs.collapse', () => {
                     toggle.classList.add('active');
                     if (chevron) chevron.classList.add('rotate');
@@ -27,11 +27,11 @@
                         mainHeader.classList.add('dropdown-active');
                     }
                 });
-    
+
                 $(dropdown).on('hidden.bs.collapse', () => {
                     toggle.classList.remove('active');
                     if (chevron) chevron.classList.remove('rotate');
-    
+
                     const anyDropdownOpen = dropdownList.some(({ dropdownSelector }) =>
                         document.querySelector(dropdownSelector).classList.contains('show')
                     );
@@ -40,7 +40,7 @@
                     }
                 });
             }
-    
+
             toggle.addEventListener("click", () => {
                 dropdownList.forEach(({ dropdownSelector: otherDropdown, toggleSelector: otherToggle, chevronSelector: otherChevron }) => {
                     if (dropdownSelector !== otherDropdown) {
@@ -50,9 +50,9 @@
             });
         });
     }
-    
+
     const dropdownList = [
-    
+
         {
             toggleSelector: "#tentang-ppid-dropdown-toggle",
             dropdownSelector: "#tentang-ppid-dropdown",
@@ -74,6 +74,6 @@
             chevronSelector: "#informasi-publik-dropdown-toggle .icon-chevron-down"
         },
     ];
-    
+
     setupDropdowns(dropdownList);
-    // DROPDOWN END// 
+    // DROPDOWN END//
