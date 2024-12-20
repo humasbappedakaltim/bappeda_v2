@@ -107,11 +107,15 @@
                                                 {{ $pejabat->name  }}
                                             </p>
                                             <p class="position fw-light lh-sm m-0 mb-4 p-0">
-                                                {{ $pejabat->jabatan }}
+                                                {{ $pejabat->jabatan }} / {{ $pejabat->jabatan_lainnya ?? '' }}
                                             </p>
-                                            <p class="status text-warning lh-sm m-0 p-0">
-                                                Dinas Luar
-                                            </p>
+                                            @if($pejabat->status == 1)
+                                            <p class="status text-success lh-sm m-0 p-0"> Aktif</p>
+
+                                            @else
+                                            <p class="status text-warning lh-sm m-0 p-0"> Dinas Luar</p>
+                                            @endif
+
                                         </div>
                                     </div>
                                 @empty

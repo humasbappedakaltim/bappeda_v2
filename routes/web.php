@@ -13,15 +13,16 @@ use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\FrontEnd\AgendaController;
 use App\Http\Controllers\FrontEnd\BeritaController;
+use App\Http\Controllers\FrontEnd\SurveiController;
 use App\Http\Controllers\Dashboard\BidangController;
 use App\Http\Controllers\FrontEnd\ArtikelController;
 use App\Http\Controllers\FrontEnd\LandingController;
 use App\Http\Controllers\Dashboard\PejabatController;
 use App\Http\Controllers\FrontEnd\SideDataController;
 use App\Http\Controllers\FrontEnd\InformasiController;
-use App\Http\Controllers\Dashboard\DashboardController;
 
 // Dashboard
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SubBidangController;
 use App\Http\Controllers\FrontEnd\DataCenterController;
 use App\Http\Controllers\Dashboard\AppBappedaController;
@@ -103,6 +104,9 @@ Route::middleware(['setlocale'])->group(function () {
         // Ruang Publik
 
         Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
+
+        Route::get('/survei', [SurveiController::class, 'index'])->name('landing.survei');
+        Route::post('/survei/store', [SurveiController::class, 'store'])->name('landing.survei.store');
 
 
         Route::get('agendas/data', [LandingController::class, 'listAgenda'])->name('agendas.data');

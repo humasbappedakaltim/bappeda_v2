@@ -228,7 +228,7 @@
                         <div id="collapseSurvei" class="accordion-collapse collapse" aria-labelledby="headingSurvei" data-bs-parent="#accordionExample">
                             <ul class="accordion-body">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="survei-skm.html" class="nav-item-list text-decoration-none text-white">Survei Kepuasan Masyarakat (SKM)</a>
+                                    <a href="{{ route('landing.survei') }}" class="nav-item-list text-decoration-none text-white">Survei Kepuasan Masyarakat (SKM)</a>
                                 </li>
                             </ul>
                         </div>
@@ -410,7 +410,7 @@
         <div class="container col-12">
             <h3 class="text-capitalize">survei</h3>
             <div class="row mt-1">
-                <a href="survei-skm.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('landing.survei') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Survei Kepuasan Masyarakat (SKM)</p>
                     <p class="fs-9 py-0 my-0">Ikuti survei kami untuk memberikan masukan berharga tentang kepuasan masyarakat terhadap layanan</p>
                 </a>

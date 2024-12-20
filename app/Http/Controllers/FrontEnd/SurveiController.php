@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class SurveiController extends Controller
 {
@@ -50,10 +53,10 @@ class SurveiController extends Controller
      */
     public function index()
     {
-        $visitors = new Visitors();
-        $data['visitors']['yearly'] = $visitors->whereYear('created_at', '=', date('Y'))->count();
-        $data['visitors']['monthly'] = $visitors->whereMonth('created_at', '=', date('m'))->count();
-        $data['title'] = 'Survei Kepuasan Masyarakat (SKM)';
+        // $visitors = new Visitors();
+        // $data['visitors']['yearly'] = $visitors->whereYear('created_at', '=', date('Y'))->count();
+        // $data['visitors']['monthly'] = $visitors->whereMonth('created_at', '=', date('m'))->count();
+        // $data['title'] = 'Survei Kepuasan Masyarakat (SKM)';
 
         $data['ageRangeData'] = $this->ageRangeData;
         $data['mainJobData'] = $this->mainJobData;
@@ -66,7 +69,7 @@ class SurveiController extends Controller
         $data['reasonablenessAnswerData'] = $this->reasonablenessAnswerData;
         $data['managementAnswerData'] = $this->managementAnswerData;
         $data['suitabilityAnswerData'] = $this->suitabilityAnswerData;
-        return view('content.community_satisfaction_survey.community_satisfaction_survey', $data);
+        return view('landing.survei.index', $data);
     }
 
     public function modalIndex(){
@@ -152,7 +155,7 @@ class SurveiController extends Controller
                 'name.required' => 'Mohon Isi Nama',
                 'name.min' => 'Mohon Isi Nama Minimal 2 Karakter',
                 'name.max' => 'Mohon Isi Nama Minimal 5012 Karakter',
-                'email.required' => 'Mohon Isi Email',
+                'emwail.required' => 'Mohon Isi Email',
                 'email.email' => 'Mohon Isi Email Sesuai Domain (Contoh: @gmail.com)',
                 'sex.required' => 'Mohon Pilih Jenis Kelamin',
                 'age.required' => 'Mohon Pilih Usia',
@@ -179,7 +182,7 @@ class SurveiController extends Controller
              ]);
             if ($validatedData->fails()) {
                 $errorsString = implode('<br>', $validatedData->errors()->all());
-                return redirect()->route('surveikepuasanmasyarakat')->withInput()->withErrors($validatedData)->with('errorsString', $errorsString);
+                return redirect()->route('landing.survei')->withInput()->withErrors($validatedData)->with('errorsString', $errorsString);
             }
 
             DB::transaction(function() use($request, $mainJob, $anotherMainJob) {
@@ -346,51 +349,6 @@ class SurveiController extends Controller
         } catch (Exception $error) {
             return dd($error);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function success()

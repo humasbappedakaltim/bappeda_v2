@@ -41,7 +41,7 @@ class DataCenterController extends Controller implements HasMiddleware
                 return $row->category->name ?? '-';
             })
             ->addColumn('file', function ($row) {
-                return '<a href="' . asset('storage/file/data-center/' . $row->file) . '" target="_blank">' . $row->file . '</a>';
+                return '<a href="' . asset('storage/data-center/' . $row->file) . '" target="_blank">' . $row->file . '</a>';
             })
             ->addColumn('action', function ($row) {
                 $actions = '';
@@ -77,7 +77,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $upload_path = public_path('storage/file/data-center/');
+            $upload_path = public_path('storage/data-center/');
             $file_name = 'DataCenter_' . Str::slug(Str::random(6)) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
             $file->move($upload_path, $file_name);
@@ -85,7 +85,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         if ($request->hasFile('file_cover')) {
             $file = $request->file('file_cover');
-            $upload_path = public_path('storage/file/data-center/cover/');
+            $upload_path = public_path('storage/data-center/cover/');
             $file_name_cover = 'Cover_DataCenter_' . Str::slug(Str::random(6)) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
             $file->move($upload_path, $file_name_cover);
@@ -125,7 +125,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $upload_path = public_path('storage/file/data-center/');
+            $upload_path = public_path('storage/data-center/');
             $file_name = 'DataCenter_' . Str::slug(Str::random(6)) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
             $file->move($upload_path, $file_name);
@@ -135,7 +135,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         if ($request->hasFile('file_cover')) {
             $file = $request->file('file_cover');
-            $upload_path = public_path('storage/file/data-center/cover/');
+            $upload_path = public_path('storage/data-center/cover/');
             $file_name_cover = 'Cover_DataCenter_' . Str::slug(Str::random(6)) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
             $file->move($upload_path, $file_name_cover);

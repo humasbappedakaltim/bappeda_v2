@@ -25,7 +25,7 @@ class AgendaController extends Controller
 
         // $bidang = Bidang::where('name', 'Kepala')->first();
 
-        $pejabats = Pejabat::where('order', )->get();
+        $pejabats = Pejabat::orderBy('urutan_jabatan', 'asc')->get();
 
         return view('landing.agenda.index', compact('agendas', 'title', 'pejabats'));
     }

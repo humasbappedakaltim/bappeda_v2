@@ -38,7 +38,7 @@
                                         <label for="file" class="form-label">File</label>
                                         <div class="input-group">
                                             <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file') }}">
-                                            <a href="{{ asset('storage/file/data-center/' . $dataCenter->file) }}" target="_blank" class="btn btn-warning btn-sm">Lihat</a>
+                                            <a href="{{ asset('storage/data-center/' . $dataCenter->file) }}" target="_blank" class="btn btn-warning btn-sm">Lihat</a>
                                         </div>
                                         @error('file')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-md-12 mt-2 text-center">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ asset('storage/file/data-center/cover/' . $dataCenter->cover) }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="{{ asset('storage/data-center/cover/' . $dataCenter->cover) }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
