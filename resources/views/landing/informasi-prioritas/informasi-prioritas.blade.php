@@ -16,7 +16,7 @@
 </section>
 <section class="over-top-section position-relative d-flex justify-content-center my-0">
     <div class="container over-top-container px-0">
-        <div class="row mx-0">
+        <div class="row mx-0" style="height: max-content !important;">
             <div class="col-12">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <h5 class="title text-uppercase fw-bold fs-6">informasi prioritas provinsi kalimantan timur tahun 2024</h5>
@@ -24,7 +24,7 @@
                 </div>
                 <div id="Iframe-Master-CC-and-Rs2" class="set-margin set-padding2 set-border set-box-shadow2 center-block-horiz2">
                     <div class="responsive-wrapper2 responsive-wrapper-wxh-572x6122" style="-webkit-overflow-scrolling: touch; overflow: auto;">
-                      <iframe src="{{ asset('assets/pdf/informasiprioritas.pdf') }}#toolbar=0">
+                      <iframe src="{{ asset('assets/pdf/informasiprioritas.pdf') }}#toolbar=0" style="width: 100%; height: 800px; border-radius: 10px;">
                             <p style="font-size: 110%;"><em><strong>ERROR: </strong>
                             An &#105;frame should be displayed here but your browser version does not support &#105;frames. </em>Please update your browser to its most recent version and try again.</p>
                       </iframe>
