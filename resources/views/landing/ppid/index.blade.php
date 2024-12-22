@@ -4,7 +4,7 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="index.html" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="/" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
             <p class="breadcrumb-active text-white fw-500 m-0 p-0">PPID</p>
         </div>
@@ -79,28 +79,28 @@
                     <div class="swiper swiper-ppid" id="swiper-ppid">
                         <div class="swiper-wrapper swiper-ppid-wrapper">
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/B0PjjcakoCOfaSt2AvrB.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/B0PjjcakoCOfaSt2AvrB.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/YV8XVzihTN5zx0ai0QjQ.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/YV8XVzihTN5zx0ai0QjQ.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/FkcESHhXzw6aIbFdpWBx.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/FkcESHhXzw6aIbFdpWBx.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/8HA6QPvJ8ssMUa43wcOf.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/8HA6QPvJ8ssMUa43wcOf.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/5Z5Hlm0fMTsCrUvHzivf.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/5Z5Hlm0fMTsCrUvHzivf.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/3DRoxnZY7kntqasEh99L.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/3DRoxnZY7kntqasEh99L.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/vF2gfLnFh8P9EXj518sC.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/vF2gfLnFh8P9EXj518sC.png" />
                             </div>
                             <div class="swiper-slide swiper-ppid-slide">
-                                <img src="https://bappeda.kaltimprov.go.id/storage/sliders/October2024/1q7lnJhHOlAsgp0lKluu.png" />
+                                <img src="https://bappeda.kaltimprov.go.id/storage/slider/1q7lnJhHOlAsgp0lKluu.png" />
                             </div>
                         </div>
                         <div class="pagination-slide-content">

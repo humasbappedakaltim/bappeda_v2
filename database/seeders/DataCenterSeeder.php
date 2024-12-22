@@ -17,7 +17,7 @@ class DataCenterSeeder extends Seeder
                 [
                     'id' => 21,
                     'name' => 'BUKU PETUNJUK USER PDM V.1',
-                    'file' => 'ORGCjH3BepCrTSCzY67A.pdf',
+                    'file' => ' ',
                     'created_at' => '2021-08-15 19:48:33',
                     'updated_at' => '2021-08-15 19:48:33',
                     'category_data_center_id' => 7,

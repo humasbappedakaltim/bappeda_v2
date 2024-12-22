@@ -116,7 +116,8 @@ class LandingController extends Controller
 
     public function penghargaan()
     {
-        return view('landing.penghargaan');
+        $penghargaan = Penghargaan::orderBy('created_at', 'asc')->get();
+        return view('landing.penghargaan.index', compact('penghargaan'));
     }
 
     // Unit Kerja

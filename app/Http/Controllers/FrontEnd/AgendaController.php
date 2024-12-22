@@ -14,7 +14,7 @@ class AgendaController extends Controller
 {
     public function index(Request $request)
     {
-        $lastSegment = $request->segment(2);
+        $lastSegment = $request->segment(3);
         $title = strtoupper($lastSegment);
 
         $carbon = Carbon::now()->locale('id');
@@ -24,8 +24,10 @@ class AgendaController extends Controller
                         ->orderBy('schedule', 'desc')->get();
 
         // $bidang = Bidang::where('name', 'Kepala')->first();
-
-        $pejabats = Pejabat::orderBy('urutan_jabatan', 'asc')->get();
+        // dd($lastSegment);
+        $pejabats = Pejabat::whereHas('bidang', function ($bidang) use ($lastSegment) {
+            $bidang->where('name', 'like', '%' . $lastSegment . '%');
+        })->where('status_jabatan', 'pejabat')->get();
 
         return view('landing.agenda.index', compact('agendas', 'title', 'pejabats'));
     }

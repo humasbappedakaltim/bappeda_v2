@@ -555,7 +555,7 @@
 
     // Fungsi untuk mengambil data agenda berdasarkan tanggal
     const fetchAgendaByDate = (date) => {
-        fetch(`/agendas/data?date=${date}`)
+        fetch(`/beranda/agendas/data?date=${date}`)
             .then((response) => response.json())
             .then((data) => {
                 const agendaContainer = document.getElementById('detail-agenda');

@@ -69,7 +69,7 @@ class DataCenterController extends Controller implements HasMiddleware
         $request->validate([
             'name' => 'required',
             'category_data_center_id' => 'required',
-            'file' => 'required|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,jpg,jpeg,png',
+            'file' => 'required|',
         ]);
 
         $file_name = null;
@@ -116,7 +116,7 @@ class DataCenterController extends Controller implements HasMiddleware
         $request->validate([
             'name' => 'required',
             'category_data_center_id' => 'required',
-            'file' => 'mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,jpg,jpeg,png',
+            // 'file' => 're',
         ]);
 
         $data_center = DataCenter::where('slug', $slug)->first();
