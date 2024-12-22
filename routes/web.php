@@ -45,7 +45,11 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
 
 Route::middleware(['setlocale'])->group(function () {
 
-    Route::group(['prefix' => '/'], function () {
+    Route::get('/', function () {
+        return view('landing.portal');
+    });
+
+    Route::group(['prefix' => '/beranda'], function () {
         Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
         Route::group(['prefix' => 'profil'], function () {

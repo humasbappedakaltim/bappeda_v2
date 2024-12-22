@@ -5,7 +5,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="shortcut icon" href="{{ asset('assets/img/photos/logo-bappeda.png') }}" />
+<link rel="shortcut icon" href="{{ asset('asset_dashboard/img/photos/logo_head.png') }}" />
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="{{ asset('assets/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}">
