@@ -28,7 +28,7 @@
             <div class="title-section position-relative mx-auto mb-lg-5 mb-3">
                 <div class="row m-0 p-0">
                     <div class="col-12">
-                        <img src="assets/images/kaltim-logo.png" alt="">
+                        <img src="{{ asset('assets/images/kaltim-logo.png') }}" alt="">
                     </div>
                     <div class="col-12">
                         <p class="greeting text-white text-center fw-500 lh-sm mb-2 m-0 p-0">
@@ -81,7 +81,7 @@
         </div>
     </section>
 
- 
+
 
 </body>
 </html>
