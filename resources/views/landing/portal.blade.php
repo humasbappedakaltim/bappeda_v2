@@ -28,7 +28,7 @@
             <div class="title-section position-relative mx-auto mb-lg-5 mb-3">
                 <div class="row m-0 p-0">
                     <div class="col-12">
-                        <img src="{{ asset('assets/images/kaltim-logo.png') }}" alt="">
+                        <img src="assets/images/kaltim-logo.png" alt="">
                     </div>
                     <div class="col-12">
                         <p class="greeting text-white text-center fw-500 lh-sm mb-2 m-0 p-0">
@@ -46,34 +46,24 @@
             </div>
             <div class="menu-section position-relative m-0 p-0">
                 <div class="row g-4 m-0 p-0">
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
+                    <a href="{{ route('ppid.index') }}" class="col-6 col-md-4 list-menu text-decoration-none">
                         <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
                             ppid
                         </p>
                     </a>
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
+                    <a href="{{ route('landing.index') }}" class="col-6 col-md-4 list-menu text-decoration-none">
                         <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
                             website
                         </p>
                     </a>
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
+                    <a href="{{ url('https://sidilan.bappedakaltim.com') }}" class="col-6 col-md-4 list-menu text-decoration-none">
                         <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
-                            sidirga
+                            smart-spj
                         </p>
                     </a>
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
+                    <a href="{{ route('landing.survei') }}" class="col-6 col-md-4 list-menu text-decoration-none">
                         <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
-                            sikap
-                        </p>
-                    </a>
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
-                            sienggang
-                        </p>
-                    </a>
-                    <a href="#" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
-                            e-bankeu
+                            Survei Kepuasan Masyarakat
                         </p>
                     </a>
                 </div>
