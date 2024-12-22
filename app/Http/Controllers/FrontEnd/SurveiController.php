@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Models\CommunitySatisfactionSurveyResponse;
+use App\Models\CommunitySatisfactionSurveyRespondent;
 
 class SurveiController extends Controller
 {

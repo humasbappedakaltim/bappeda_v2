@@ -59,6 +59,10 @@
     <!------------------------------>
     @yield('content')
 
+    <section class="to-top-btn white-radius-hover position-fixed" id="to-top-btn">
+        <i class="bi bi-arrow-up-circle text-white"></i>
+    </section>
+
 
     @include('layouts.landing.footer')
     @include('layouts.landing.script')

@@ -119,7 +119,10 @@ Route::middleware(['setlocale'])->group(function () {
             // permhohonan Informasi Online
             Route::get('permohonan-informasi-online', [PpidController::class, 'pio'])->name('ppid.pio');
             Route::post('permohonan-informasi-online/store', [PioController::class, 'store'])->name('ppid.pio.store');
-
+            Route::get('struktur-organisasi', [PpidController::class, 'struktur'])->name('ppid.struktur');
+            Route::get('tugas-dan-fungsi', [PpidController::class, 'tugas_fungsi'])->name('ppid.tugas_fungsi');
+            Route::get('visi-misi', [PpidController::class, 'visi_misi'])->name('ppid.visi_visi');
+            Route::get('tata-cara', [PpidController::class, 'tata_cara'])->name('ppid.tata_cara');
         });
     });
 });

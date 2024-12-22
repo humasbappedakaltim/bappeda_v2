@@ -104,8 +104,10 @@ class LandingController extends Controller
 
     public function peta()
     {
-        return view('landing.peta');
+        $maps = Maps::orderBy('name')->get();
+        return view('landing.peta.index', ['maps' => $maps, 'selectedMap' => null]);
     }
+
 
     public function penghargaan()
     {

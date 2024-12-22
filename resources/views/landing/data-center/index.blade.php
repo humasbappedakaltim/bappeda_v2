@@ -31,11 +31,23 @@
                 <hr class="hr-title-black flex-grow-1 ms-3">
             </div>
             <div class="row g-4 m-0 p-0 dc-document-list">
+                <div class="col-3 mb-3">
+                    <a href="{{ route('landing.peta') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
+                        <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
+                        <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">Peta</p>
+                    </a>
+                </div>
+                <div class="col-3 mb-3">
+                    <a href="{{ route('landing.penghargaan') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
+                        <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
+                        <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">Penghargaan</p>
+                    </a>
+                </div>
                 @forelse ($categorys as $category)
                 <div class="col-3 mb-3">
                     <a href="{{ route('data-center.category.show', $category->slug) }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                         <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                        <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ $category->name }}</p>
+                        <p class="bappeda-primary-color fs-7 lh-sm m-0 p-0">{{ $category->name }}</p>
                     </a>
                 </div>
 

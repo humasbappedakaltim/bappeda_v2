@@ -27,6 +27,20 @@ class PpidController extends Controller
         return view('landing.ppid.struktur');
     }
 
+    public function tugas_fungsi()
+    {
+        return view('landing.ppid.tugas_fungsi');
+    }
+
+    public function visi_misi()
+    {
+        return view('landing.ppid.visi_misi');
+    }
+
+    public function tata_cara()
+    {
+        return view('landing.ppid.tata_cara');
+    }
 
 
 }

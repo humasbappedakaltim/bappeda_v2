@@ -193,15 +193,15 @@
                     <p class="fw-bold py-0 my-2 fs-7">Profil</p>
                     <p class="fs-9 py-0 my-0">Profil PPID Kaltim: Wadah utama untuk pengelolaan dan penyebaran informasi publik.</p>
                 </a>
-                <a href="profil-tupoksi-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.struktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Struktur Organisasi</p>
                     <p class="fs-9 py-0 my-0">Lihat bagaimana struktur organisasi PPID Kaltim mendukung layanan informasi yang efisien.</p>
                 </a>
-                <a href="profil-struktur-organisasi.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.tugas_fungsi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Tugas dan Fungsi</p>
                     <p class="fs-9 py-0 my-0">Ketahui tugas dan fungsi utama PPID Kaltim dalam mendukung keterbukaan informasi</p>
                 </a>
-                <a href="profil-asn-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.visi_visi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Visi dan Misi</p>
                     <p class="fs-9 py-0 my-0">Pelajari visi dan misi PPID Kaltim yang mendukung keterbukaan informasi publik.</p>
                 </a>
@@ -217,7 +217,7 @@
                     <p class="fw-bold py-0 my-2 fs-7">Standar Operasional Prosedur</p>
                     <p class="fs-9 py-0 my-0">Klik untuk memahami standar operasional prosedur PPID dalam melaksanakan tugasnya dengan efektif.</p>
                 </a>
-                <a href="profil-asn-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.tata_cara') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Tata Cara</p>
                     <p class="fs-9 py-0 my-0">Pahami langkah-langkah yang harus dilakukan saat mengajukan permohonan informasi ke PPID.</p>
                 </a>
