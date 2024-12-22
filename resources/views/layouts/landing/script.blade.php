@@ -10,5 +10,6 @@
 <script src="https://cdn.userway.org/widget.js')}}" data-account="mjiPcHFp7V"></script>
 <script src="{{ asset('assets/js/custom.js')}}"></script>
 <script src="{{ asset('assets/js/main-header-primary.js')}}"></script>
+<script src="{{ asset('assets/js/cursor/cursor.js')}}"></script>
 
 @stack('front_js')

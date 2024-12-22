@@ -65,6 +65,9 @@ Route::middleware(['setlocale'])->group(function () {
 
             });
         });
+
+        Route::get('/informasi-prioritas', [LandingController::class, 'informasi_prioritas'])->name('landing.informasi_prioritas');
+
         Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
         Route::get('/penghargaan', [LandingController::class, 'penghargaan'])->name('landing.penghargaan');
         Route::get('/kepala-bappeda', [LandingController::class, 'kepala_bappeda'])->name('landing.kepala_bappeda');

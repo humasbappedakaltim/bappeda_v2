@@ -102,6 +102,11 @@ class LandingController extends Controller
         return view('landing.struktur');
     }
 
+    public function informasi_prioritas()
+    {
+        return view('landing.informasi-prioritas.informasi-prioritas');
+    }
+
     public function peta()
     {
         $maps = Maps::orderBy('name')->get();

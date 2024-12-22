@@ -340,7 +340,7 @@
                     Informasi Prioritas Daerah Provinsi Kalimantan Timur
                 </h2>
                 <div class="detail-btn d-flex">
-                    <a href="#">Klik Disini</a>
+                    <a href="{{ route('landing.informasi_prioritas') }}">Klik Disini</a>
                 </div>
             </div>
         </div>
