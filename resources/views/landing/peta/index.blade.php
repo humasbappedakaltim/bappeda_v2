@@ -39,7 +39,7 @@
             <div class="row g-4 m-0 p-0 dc-document-list">
                 @forelse ($maps as $map)
                 <div class="col-3 mb-3">
-                    <a href="#" class="document-list-card text-decoration-none d-flex flex-column align-items-center gap-2 p-2"  data-lightbox="maps" data-title="{{ $map->name }}">
+                    <a href="{{ asset('storage/maps/' . $map->file) }}" class="document-list-card text-decoration-none d-flex flex-column align-items-center gap-2 p-2"  data-lightbox="maps" data-title="{{ $map->name }}">
                         <div class="img-container position-relative d-flex align-items-center justify-content-center w-100">
                             <img src="{{ asset('storage/maps/' . $map->file) }}" alt="">
                         </div>
@@ -58,7 +58,5 @@
 
     @push('front_js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
-
-
     @endpush
 @endsection
