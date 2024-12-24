@@ -61,7 +61,7 @@
                         <a href="{{ route('artikel.show', $artikel->slug . '.' . Str::slug($artikel->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
-                                    <img src="{{ asset('storage/post/' . $artikel->image) }}" alt="post-img">
+                                    <img src="{{ asset('storage/post/' . $artikel->image ?? asset('storage/')) }}" alt="post-img">
                                 </div>
                             </div>
                             <div class="col-9 m-0 p-0 py-2 ps-3">
