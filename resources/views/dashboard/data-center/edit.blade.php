@@ -47,6 +47,29 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-12">
+                                        <label for="category_information" class="form-label">Kategori Informasi</label>
+                                        <select name="category_information" id="category_information" class="form-control select2">
+                                            <option selected disabled>Pilih Kategori Informasi</option>
+                                            <option value="infoberkala" {{ old('category_information', $dataCenter->category_information) == 'infoberkala' ? 'selected' : '' }}>Info Berkala</option>
+                                            <option value="infosertamerta" {{ old('category_information', $dataCenter->category_information) == 'infosertamerta' ? 'selected' : '' }}>Info Serta Merta</option>
+                                            <option value="infotersediasetiapsaat" {{ old('category_information', $dataCenter->category_information) == 'infotersediasetiapsaat' ? 'selected' : '' }}>Info Tersedia Setiap Saat</option>
+                                            <option value="maklumat" {{ old('category_information', $dataCenter->category_information) == 'maklumat' ? 'selected' : '' }}>Maklumat</option>
+                                            <option value="prosedurpermohonaninformasi" {{ old('category_information', $dataCenter->category_information) == 'prosedurpermohonaninformasi' ? 'selected' : '' }}>Prosedur Permohonan Informasi</option>
+                                            <option value="prosedurpengajuankeberatan" {{ old('category_information', $dataCenter->category_information) == 'prosedurpengajuankeberatan' ? 'selected' : '' }}>Prosedur Pengajuan Keberatan</option>
+                                            <option value="prosedursengketainformasi" {{ old('category_information', $dataCenter->category_information) == 'prosedursengketainformasi' ? 'selected' : '' }}>Prosedur Sengketa Informasi</option>
+                                            <option value="jalurwaktudanbiayalayanan" {{ old('category_information', $dataCenter->category_information) == 'jalurwaktudanbiayalayanan' ? 'selected' : '' }}>Jalur, Waktu dan Biaya Layanan</option>
+                                            <option value="laporanaksesinformasipublik" {{ old('category_information', $dataCenter->category_information) == 'laporanaksesinformasipublik' ? 'selected' : '' }}>Laporan Akses Informasi Publik</option>
+                                            <option value="laporanlayananinformasipublik" {{ old('category_information', $dataCenter->category_information) == 'laporanlayananinformasipublik' ? 'selected' : '' }}>Laporan Layanan Informasi Publik</option>
+                                            <option value="laporansurveilayananinformasi" {{ old('category_information', $dataCenter->category_information) == 'laporansurveilayananinformasi' ? 'selected' : '' }}>Laporan Survei Layanan Informasi</option>
+                                            <option value="laporanrealisasianggaran" {{ old('category_information', $dataCenter->category_information) == 'laporanrealisasianggaran' ? 'selected' : '' }}>Laporan Realisasi Anggaran</option>
+                                        </select>
+                                        @error('category_information')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
                                         <label for="file_cover" class="form-label">Cover</label>
                                         <input type="file" class="form-control @error('file_cover') is-invalid @enderror" id="file_cover" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" name="file_cover" value="{{ old('file_cover') }}" >
                                         @error('file_cover')

@@ -20,6 +20,7 @@ class DataCenter extends Model
         'cover',
         'category_data_center_id',
         'order',
+        'category_information',
         'slug',
     ];
 

@@ -69,7 +69,7 @@ class DataCenterController extends Controller implements HasMiddleware
         $request->validate([
             'name' => 'required',
             'category_data_center_id' => 'required',
-            'file' => 'required|',
+            'file' => 'required',
         ]);
 
         $file_name = null;
@@ -97,6 +97,7 @@ class DataCenterController extends Controller implements HasMiddleware
             'order' => $request->order,
             'file' => $file_name,
             'file_cover' => $file_name_cover,
+            'category_information' => $request->category_information,
             'category_data_center_id' => $request->category_data_center_id,
         ]);
 
@@ -150,6 +151,7 @@ class DataCenterController extends Controller implements HasMiddleware
             'order'=> $request->order,
             'category_data_center_id'=> $request->category_data_center_id,
             'file' => $file_name,
+            'category_information' => $request->category_information,
             'cover' => $file_name_cover,
         ]);
 

@@ -19,6 +19,7 @@ return new class extends Migration
             // refrences not uuid
             $table->foreignid('category_data_center_id')->references('id')->on('category_data_centers')->onDelete('cascade');
             $table->integer('order')->nullable();
+            $table->string('category_information')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
