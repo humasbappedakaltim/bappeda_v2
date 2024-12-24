@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('foto')->nullable();
             $table->string('nip');
             $table->string('golongan');
-            $table->string('kelas_jabatan');
+            $table->string('kelas_jabatan')->nullable();
             $table->string('jabatan');
             $table->string('jabatan_lainnya')->nullable();
             $table->string('jabatan_lainnya2')->nullable();
