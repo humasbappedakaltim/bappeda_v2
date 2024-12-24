@@ -10,7 +10,7 @@
     </h1>
 
 <div class="row">
-    <div class="col-xl-12 col-xxl-7">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">

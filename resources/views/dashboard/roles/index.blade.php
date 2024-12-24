@@ -9,7 +9,7 @@
 </h1>
 
 <div class="row">
-    <div class="col-xl-12 col-xxl-5 d-flex">
+    <div class="col-md-12">
         <div class="card flex-fill w-100">
 
             <div class="card-body py-4">
