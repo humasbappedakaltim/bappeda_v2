@@ -42,7 +42,7 @@
                                     </p>
                                     <p class="text-white mx-2 m-0 p-0">|</p>
                                     <p class="author text-white text-capitalize m-0 p-0">
-                                        {{ $informasi->user->name }}
+                                        {{ $informasi->user->name ?? 'Admin' }}
                                     </p>
                                 </div>
                                 <p class="description text-white">
@@ -67,7 +67,7 @@
                             <div class="col-9 m-0 p-0 py-2 ps-3">
                                 <div class="about-content d-flex flex-column justify-content-between m-0 p-0">
                                     <p class="category text-uppercase fs-8 fw-500 mb-2">
-                                        {{ $informasi->category->name }}
+                                        {{ $informasi->category->name  }}
                                     </p>
                                     <p class="title fw-bold text-capitalize mb-2">
                                         {{ $informasi->title }}
@@ -78,7 +78,7 @@
                                         </p>
                                         <p class="mx-2 m-0 p-0">|</p>
                                         <p class="author text-capitalize m-0 p-0">
-                                            {{ $informasi->user->name }}
+                                            {{ $informasi->user->name ?? 'Admin' }}
                                         </p>
                                     </div>
                                     <p class="description m-0 p-0">

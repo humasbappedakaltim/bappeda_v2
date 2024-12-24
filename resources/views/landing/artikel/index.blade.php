@@ -42,7 +42,7 @@
                                     </p>
                                     <p class="text-white mx-2 m-0 p-0">|</p>
                                     <p class="author text-white text-capitalize m-0 p-0">
-                                        {{ $artikel->user->name }}
+                                        {{ $artikel->user->name  ?? 'Admin'}}
                                     </p>
                                 </div>
                                 <p class="description text-white">
@@ -78,7 +78,7 @@
                                         </p>
                                         <p class="mx-2 m-0 p-0">|</p>
                                         <p class="author text-capitalize m-0 p-0">
-                                            {{ $artikel->user->name }}
+                                            {{ $artikel->user->name  ?? 'Admin' }}
                                         </p>
                                     </div>
                                     <p class="description m-0 p-0">

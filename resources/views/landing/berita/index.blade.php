@@ -17,7 +17,7 @@
 <section class="over-top-section post-section position-relative d-flex justify-content-center my-0">
     <div class="container over-top-container m-0 p-0">
         @include('landing.side.heade')
-      
+
         <div class="row m-0 p-0">
             <div class="col-12 col-lg-7 m-0 mb-5 mb-lg-0 p-0">
                 <div class="row m-0 p-0">
@@ -37,7 +37,7 @@
                                     </p>
                                     <p class="text-white mx-2 m-0 p-0">|</p>
                                     <p class="author text-white text-capitalize m-0 p-0">
-                                        {{ $berita->user->name ?? '-' }}
+                                        {{ $berita->user->name ?? 'Admin' }}
                                     </p>
                                 </div>
                                 <p class="description text-white">
@@ -75,7 +75,7 @@
                                         </p>
                                         <p class="mx-2 m-0 p-0">|</p>
                                         <p class="author text-capitalize m-0 p-0">
-                                            {{ $berita->user->name  ?? '-' }}
+                                            {{ $berita->user->name  ?? 'Admin' }}
                                         </p>
                                     </div>
                                     <p class="description m-0 p-0">

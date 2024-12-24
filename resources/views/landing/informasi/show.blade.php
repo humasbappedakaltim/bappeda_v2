@@ -40,7 +40,7 @@
                                 <div class="col-6 mb-2 m-0 p-0">
                                     <div class="d-flex align-items-start justify-content-end gap-2">
                                         <i class="bi bi-person"></i>
-                                        <p class="fs-9 lh-sm m-0 p-0">{{ $postNew->user->name }}</p>
+                                        <p class="fs-9 lh-sm m-0 p-0">{{ $postNew->user->name  ?? 'Admin' }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2 m-0 p-0">

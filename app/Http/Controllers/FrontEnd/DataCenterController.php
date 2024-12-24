@@ -11,7 +11,7 @@ class DataCenterController extends Controller
 {
     public function index()
     {
-        $categorys = CategoryDataCenter::orderBy('order', 'asc')->paginate(10);
+        $categorys = CategoryDataCenter::orderBy('order', 'asc')->paginate(20);
         return view('landing.data-center.index', compact('categorys'));
     }
 
