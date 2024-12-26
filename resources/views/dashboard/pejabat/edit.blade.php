@@ -159,7 +159,15 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="status_kehadiran" class="form-label">Status Kehadiran</label>
-                                        <input type="text" class="form-control @error('status_kehadiran') is-invalid @enderror" id="status_kehadiran" name="status_kehadiran" value="{{ old('status_kehadiran', $pejabat->status_kehadiran) }}">
+                                        <select name="status_kehadiran" id="status_kehadiran" class="form-control @error('status_kehadiran') is-invalid @enderror">
+                                            <option selected disabled>Pilih Status Kehadiran</option>
+                                            <option value="Hadir" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Hadir' ? 'selected' : '' }}>Hadir</option>
+                                            <option value="Tidak Hadir" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Tidak Hadir' ? 'selected' : '' }}>Tidak Hadir</option>
+                                            <option value="Tidak Ada Keterangan" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Tidak Ada Keterangan' ? 'selected' : '' }}>Tidak Ada Keterangan</option>
+                                            <option value="Dinas Luar" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Dinas Luar' ? 'selected' : '' }}>Dinas Luar</option>
+                                            <option value="Tugas Luar Kantor" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Tugas Luar Kantor' ? 'selected' : '' }}>Tugas Luar Kantor</option>
+                                            <option value="Cuti" {{ old('status_kehadiran', $pejabat->status_kehadiran) == 'Cuti' ? 'selected' : '' }}>Cuti</option>
+                                        </select>
                                         @error('status_kehadiran')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
