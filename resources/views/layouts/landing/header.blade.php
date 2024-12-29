@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-between px-0">
         <nav class="navbar navbar-expand-xl py-0 d-flex justify-content-between w-100">
             <div class="logo d-flex align-items-center">
-                <a class="navbar-brand py-0" href="#"><img src="{{ asset('assets/images/logo-bappeda.png')}}"alt=""></a>
+                <a class="navbar-brand py-0" href="{{ route('landing.index') }}"><img src="{{ asset('assets/images/logo-bappeda.png')}}"alt=""></a>
             </div>
             <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"  data-bs-toggle="offcanvas" href="#offcanvas-navbar" aria-controls="offcanvasExample">
                 <i class="ti ti-menu-2 text-warning text-white"></i>
@@ -75,7 +75,7 @@
             <div class="offcanvas-body px-2" id="accordionExample">
                 <ul class="navbar-nav accordion">
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="index.html">Beranda</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.index') }}">Beranda</a>
                     </li>
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingProfil">
@@ -86,16 +86,16 @@
                         <div id="collapseProfil" class="accordion-collapse collapse " aria-labelledby="headingProfil" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="profil-bappeda.html" class="text-decoration-none text-white">Profil Bappeda</a>
+                                    <a href="{{ route('landing.profile') }}" class="text-decoration-none text-white">Profil Bappeda</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="profil-tupoksi-bappeda.html" class="text-decoration-none text-white">Tupoksi Bappeda</a>
+                                    <a href="{{ route('landing.tupoksi') }}" class="text-decoration-none text-white">Tupoksi Bappeda</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="profil-struktur-organisasi.html" class="text-decoration-none text-white">Struktur Organisasi</a>
+                                    <a href="{{ route('landing.struktur') }}" class="text-decoration-none text-white">Struktur Organisasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="profil-asn-bappeda.html" class="text-decoration-none text-white">ASN Bappeda Prov. Kaltim</a>
+                                    <a href="{{ route('landing.asn') }}" class="text-decoration-none text-white">ASN Bappeda Prov. Kaltim</a>
                                 </li>
                             </ul>
                         </div>
@@ -109,22 +109,22 @@
                         <div id="collapseUnitKerja" class="accordion-collapse collapse" aria-labelledby="headingUnitKerja" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-kepala-bappeda.html" class="text-decoration-none text-white">Kepala BAPPEDA</a>
+                                    <a href="{{ route('landing.kepala_bappeda') }}" class="text-decoration-none text-white">Kepala BAPPEDA</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-sekretariat.html" class="text-decoration-none text-white">Sekretariat</a>
+                                    <a href="{{ route('landing.sekretaris') }}" class="text-decoration-none text-white">Sekretariat</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-p2epd.html" class="text-decoration-none text-white">Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
+                                    <a href="{{ route('landing.bidang_perencanaan') }}" class="text-decoration-none text-white">Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-ppm.html" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
+                                    <a href="{{ route('landing.bidang_pemerintahan') }}" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-psda.html" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
+                                    <a href="{{ route('landing.bidang_perekonomian') }}" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="uk-infraswil.html" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
+                                    <a href="{{ route('landing.bidang_infrastruktur') }}" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
                                 </li>
                             </ul>
                         </div>

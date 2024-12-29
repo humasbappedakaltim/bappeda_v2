@@ -233,7 +233,7 @@
                             <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
                                 <p class="text-title text-capitalize lh-sm my-0 py-0">Penghargaan</p>
                                 <hr class="hr-title-black flex-grow-1 mx-3">
-                                <a href="#" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
+                                <a href="{{ route('landing.penghargaan') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
                                     lihat semua Penghargaan
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
@@ -251,7 +251,7 @@
                                             <p class="description text-white">
                                                 {{ $award->description }}
                                             </p>
-                                            <a href="#" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
+                                            <a href="{{ route('landing.penghargaan') }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                                 baca selengkapnya
                                                 <i class="bi bi-box-arrow-up-right"></i>
                                             </a>

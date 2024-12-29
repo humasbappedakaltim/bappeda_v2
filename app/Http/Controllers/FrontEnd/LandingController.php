@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Maps;
 use App\Models\Agenda;
 use App\Models\PostNew;
+use App\Models\Visitor;
 use App\Models\AppBappeda;
 use App\Models\Penghargaan;
 use App\Models\PostCategory;
@@ -17,6 +18,10 @@ class LandingController extends Controller
 {
     public function index()
     {
+        // save visitor
+        $visitor = new Visitor();
+        $visitor->save();
+
         // posts
         $news_category = PostCategory::where('name', 'Berita')->first();
         $news_international = PostCategory::where('name', 'Berita Nasional')->first();
@@ -55,6 +60,7 @@ class LandingController extends Controller
         $maps = Maps::orderBy('name', 'asc')->limit(5)->get();
 
         $news = PostNew::where('status', 'published')->orderBy('created_at', 'desc')->limit(10)->get();
+
 
         return view('landing.index', compact('sliders','news','informations','apps','awards','maps','agendas','posts_list_by_views'));
     }
@@ -154,6 +160,15 @@ class LandingController extends Controller
     public function ruang_publik()
     {
         return view('landing.ruang_publik');
+    }
+
+    public function dataVisitor()
+    {
+        $visitor_by_day = Visitor::whereDate('created_at', Carbon::now()->format('Y-m-d'))->count();
+        $visitor_by_month = Visitor::whereDate('created_at', '>=', Carbon::now()->startOfMonth()->format('Y-m-d'))->count();
+        $visitor_by_year = Visitor::whereDate('created_at', '>=', Carbon::now()->startOfYear()->format('Y-m-d'))->count();
+
+        return view('layouts.landing.footer', compact('visitor_by_day', 'visitor_by_month', 'visitor_by_year'));
     }
 
 }

@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('visitors', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('user_agent')->nullable();
             $table->string('ip_address', 20)->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

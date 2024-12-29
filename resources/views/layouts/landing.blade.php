@@ -15,16 +15,16 @@
     <!------------------------------>
     <section class="floating-socmed position-fixed">
         <div class="floating-items d-flex flex-column mb-3">
-            <a href="#" class="mx-1 my-1">
+            <a href="https://www.facebook.com/mediapublikasi.bappeda.1?mibextid=ZbWKwL" target="_blank" class="mx-1 my-1">
                 <i class="bi bi-facebook text-white"></i>
             </a>
-            <a href="#" class="mx-1 my-1">
+            <a href="https://instagram.com/bappeda_kaltim" target="_blank" class="mx-1 my-1">
                 <i class="bi bi-instagram text-white"></i>
             </a>
-            <a href="#" class="mx-1 my-1">
+            <a href="https://x.com/bappedakaltim?s=21" target="_blank" class="mx-1 my-1">
                 <i class="bi bi-twitter-x text-white"></i>
             </a>
-            <a href="#" class="mx-1 my-1">
+            <a href="https://youtube.com/@bappedakaltim1650?si=UZ6Ey7dY5fiLsZei" target="_blank" class="mx-1 my-1">
                 <i class="bi bi-youtube text-white"></i>
             </a>
             <a href="#" class="mx-1 my-1">

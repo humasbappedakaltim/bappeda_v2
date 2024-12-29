@@ -109,11 +109,18 @@
                                             <p class="position fw-light lh-sm m-0 mb-4 p-0">
                                                 {{ $pejabat->jabatan }} / {{ $pejabat->jabatan_lainnya ?? '' }}
                                             </p>
-                                            @if($pejabat->status == 1)
-                                            <p class="status text-success lh-sm m-0 p-0"> Aktif</p>
-
-                                            @else
-                                            <p class="status text-warning lh-sm m-0 p-0"> Dinas Luar</p>
+                                            @if($pejabat->status_kehadiran == 'Hadir')
+                                            <p class="status text-success lh-sm m-0 p-0">Hadir</p>
+                                            @elseif($pejabat->status_kehadiran == 'Tidak Hadir')
+                                            <p class="status text-danger lh-sm m-0 p-0">Tidak Hadir</p>
+                                            @elseif($pejabat->status_kehadiran == 'Dinas Luar')
+                                            <p class="status text-warning lh-sm m-0 p-0">Dinas Luar</p>
+                                            @elseif($pejabat->status_kehadiran == 'Tidak Ada Keterangan')
+                                            <p class="status text-warning lh-sm m-0 p-0">Tidak Ada Keterangan</p>
+                                            @elseif($pejabat->status_kehadiran == 'Cuti')
+                                            <p class="status text-danger lh-sm m-0 p-0">Cuti</p>
+                                            @elseif($pejabat->status_kehadiran == 'Tugas Luar Kantor')
+                                            <p class="status text-warning lh-sm m-0 p-0">Tugas Luar Kantor</p>
                                             @endif
 
                                         </div>

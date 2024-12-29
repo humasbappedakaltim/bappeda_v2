@@ -39,16 +39,16 @@
                                 <div class="d-flex flex-column align-items-start justify-content-start">
                                     <p class="title-sm text-white fw-bold">Media Sosial</p>
                                     <div class="socmed d-flex align-items-start justify-content-start gap-2 w-100">
-                                        <a href="#">
+                                        <a href="https://www.facebook.com/mediapublikasi.bappeda.1?mibextid=ZbWKwL" target="_blank">
                                             <i class="bi bi-facebook text-white"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://instagram.com/bappeda_kaltim" target="_blank">
                                             <i class="bi bi-instagram text-white"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://x.com/bappedakaltim?s=21" target="_blank">
                                             <i class="bi bi-twitter-x text-white"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://youtube.com/@bappedakaltim1650?si=UZ6Ey7dY5fiLsZei" target="_blank">
                                             <i class="bi bi-youtube text-white"></i>
                                         </a>
                                         <a href="#">
@@ -102,10 +102,17 @@
                         Copyright © 2024 - All Rights Reserved Bappeda Prov. Kaltim
                     </p>
                 </div>
-                <div class="col-xl-3 col-lg-12">
+                {{-- <div class="col-xl-3 col-lg-12">
                     <div class="visitors d-flex flex-column align-items-end">
                         <p class="text-white text-end lh-sm">Pengunjung tahun ini : 132508</p>
                         <p class="text-white text-end lh-sm">Pengunjung bulan ini : 14996</p>
+                    </div>
+                </div> --}}
+                <div class="col-xl-3 col-lg-12">
+                    <div class="visitors d-flex flex-column align-items-end">
+                        <p class="text-white text-end lh-sm">Pengunjung hari ini : {{ $visitor_by_day }}</p>
+                        <p class="text-white text-end lh-sm">Pengunjung bulan ini : {{ $visitor_by_month }}</p>
+                        <p class="text-white text-end lh-sm">Pengunjung tahun ini : {{ $visitor_by_year }}</p>
                     </div>
                 </div>
             </div>
