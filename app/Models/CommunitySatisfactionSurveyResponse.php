@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CommunitySatisfactionSurveyResponse extends Model
 {
@@ -23,7 +24,8 @@ class CommunitySatisfactionSurveyResponse extends Model
     ];
 
 
-    public function community_satisfaction_survey_respondents(){
-        return $this->belongsTo('community_satisfaction_survey_respondent_id','id');
+    public function community_satisfaction_survey_respondents(): BelongsTo
+    {
+        return $this->belongsTo(CommunitySatisfactionSurveyRespondent::class, 'community_satisfaction_survey_respondent_id','id');
     }
 }

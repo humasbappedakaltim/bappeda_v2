@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\Http\Controllers\Controller;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PpidController extends Controller
 {
     public function index()
     {
+        // save visitor
+        $visitor = new Visebitor();
+        $visitor->save();
+
         return view('landing.ppid.index');
     }
 

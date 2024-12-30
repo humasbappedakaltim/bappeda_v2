@@ -110,6 +110,13 @@
     </a>
 </li>
 
+<li class="sidebar-item {{ request()->routeIs('dashboard.survei.*') ? 'active' : '' }}">
+    <a class="sidebar-link" href="{{ route('dashboard.survei.index') }}">
+        <i class="align-middle bx bxs-inbox" ></i> <span class="align-middle">Survei</span>
+    </a>
+</li>
+
+
 {{-- <li class="sidebar-item">
     <a class="sidebar-link" href="pages-blank.html">
         <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>

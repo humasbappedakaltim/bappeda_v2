@@ -223,7 +223,7 @@ class SurveiController extends Controller
                 ]);
             });
 
-            return redirect('/survei-kepuasan-masyarakat-berhasil');
+            return redirect()->back()->with('success', 'Terima Kasih Telah Mengisi Survei');
         } catch (Exception $error) {
             return dd($error);
         }
@@ -307,7 +307,7 @@ class SurveiController extends Controller
              ]);
             if ($validatedData->fails()) {
                 $errorsString = implode('<br>', $validatedData->errors()->all());
-                return redirect()->route('modalsurveikepuasanmasyarakat')->withInput()->withErrors($validatedData)->with('errorsString', $errorsString);
+                return redirect()->back()->withInput()->withErrors($validatedData)->with('errorsString', $errorsString);
                 // return back()->withInput()->withErrors($validatedData)->with('errorsString', $errorsString);
             }
 
@@ -347,7 +347,7 @@ class SurveiController extends Controller
                 ]);
             });
 
-            return redirect('/modal-survei-kepuasan-masyarakat-berhasil');
+            return redirect()->back()->with('success','Terima Kasih Telah Mengisi Survei Kepuasan Masyrakat (SKM) 2045');
         } catch (Exception $error) {
             return dd($error);
         }

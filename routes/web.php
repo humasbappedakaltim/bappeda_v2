@@ -19,9 +19,9 @@ use App\Http\Controllers\FrontEnd\ArtikelController;
 use App\Http\Controllers\FrontEnd\LandingController;
 use App\Http\Controllers\Dashboard\PejabatController;
 use App\Http\Controllers\FrontEnd\SideDataController;
-use App\Http\Controllers\FrontEnd\InformasiController;
 
 // Dashboard
+use App\Http\Controllers\FrontEnd\InformasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SubBidangController;
 use App\Http\Controllers\FrontEnd\DataCenterController;
@@ -34,6 +34,7 @@ use App\Http\Controllers\Dashboard\Post\CategoryPostController;
 use App\Http\Controllers\FrontEnd\KinerjaPembangunanController;
 use App\Http\Controllers\Dashboard\CategoryDataCenterController;
 use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
+use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
 
@@ -155,6 +156,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('sub-bidang', SubBidangController::class, ['names' => 'dashboard.sub.bidang']);
     Route::resource('pegawai', PejabatController::class, ['names' => 'dashboard.pejabat']);
 
+    Route::resource('survei', DashboardSurveiController::class, ['names' => 'dashboard.survei']);
+
     Route::group(['prefix' => 'post'], function () {
         Route::resource('category-post', CategoryPostController::class, ['names' => 'dashboard.post.category']);
         Route::resource('post-news', PostNewsController::class, ['names' => 'dashboard.post.news']);
@@ -177,6 +180,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('sub-bidang-datas', [SubBidangController::class, 'data_table'])->name('dashboard.sub.bidang.data_table');
         Route::get('pejabats-datas', [PejabatController::class, 'data_table'])->name('dashboard.pejabat.data_table');
         Route::get('pios-datas', [DashboardPioController::class, 'data_table'])->name('dashboard.pio.data_table');
+        Route::get('survei', [DashboardSurveiController::class, 'data_table'])->name('dashboard.survei.data_table');
         Route::get('users', [UserController::class, 'data_table'])->name('dashboard.settings.users.data_table');
     });
 
