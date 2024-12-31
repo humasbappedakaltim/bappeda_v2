@@ -27,7 +27,12 @@
                     <div class="col-12 m-0 p-0">
                         <div class="post-container position-relative m-0 p-0">
                             <div class="img-container position-relative">
-                                <img src="{{ asset('storage/post/' .$berita->image) }}" alt="post-img">
+                                {{-- <img src="{{ asset('storage/post/' .$berita->image) }}" alt="post-img"> --}}
+                                @php
+                                // Extract the filename from the image URL using basename()
+                                    $imageFilename = basename($berita->image);
+                                @endphp
+                                <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="about-content p-3">
                                 <p class="category text-white text-uppercase fs-8 fw-500 mb-2">Postingan Berita</p>
