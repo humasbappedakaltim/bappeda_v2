@@ -28,9 +28,9 @@
                         <div class="post-container position-relative m-0 p-0">
                             <div class="img-container position-relative">
                                 {{-- <img src="{{ asset('storage/post/' .$berita->image) }}" alt="post-img"> --}}
+                                {{-- explode everyhting and take only first or base name from file  --}}
                                 @php
-                                // Extract the filename from the image URL using basename()
-                                    $imageFilename = basename($berita->image);
+                                    $imageFilename = explode('/', $berita->image)[count(explode('/', $berita->image)) - 1];
                                 @endphp
                                 <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
