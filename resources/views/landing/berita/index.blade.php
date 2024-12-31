@@ -62,7 +62,10 @@
                         <a href="{{ route('berita.show', $berita->slug . '.' . Str::slug($berita->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
-                                    <img src="{{ asset('storage/post/' .$berita->image) }}" alt="post-img">
+                                    @php
+                                    $imageFilename = basename(str_replace('\\', '/', $berita->image));
+                                @endphp
+                                <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                                 </div>
                             </div>
                             <div class="col-9 m-0 p-0 py-2 ps-3">
