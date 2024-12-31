@@ -34,15 +34,15 @@
     <section class="over-top-section dc-section position-relative d-flex justify-content-center my-0">
         <div class="container over-top-container m-0 p-0">
             <div class="title-content d-flex align-items-center justify-content-between">
-                <p class="tagline text-uppercase fw-bold fs-4 py-0">Peta</p>
+                <p class="tagline text-uppercase fw-bold fs-4 py-0">Penghargaan</p>
                 <hr class="hr-title-black flex-grow-1 ms-3">
             </div>
             <div class="row g-4 m-0 p-0 dc-document-list">
                 @forelse ($penghargaan as $peng)
                 <div class="col-3 mb-3">
-                    <a href="{{ asset('storage/maps/' . $peng->foto) }}" class="document-list-card text-decoration-none d-flex flex-column align-items-center gap-2 p-2"  data-lightbox="maps" data-title="{{ $peng->title }}">
+                    <a href="{{ asset('storage/penghargaan/' . $peng->foto) }}" class="document-list-card text-decoration-none d-flex flex-column align-items-center gap-2 p-2"  data-lightbox="penghargaan" data-title="{{ $peng->title }}">
                         <div class="img-container position-relative d-flex align-items-center justify-content-center w-100">
-                            <img src="{{ asset('storage/maps/' . $peng->foto) }}" alt="">
+                            <img src="{{ asset('storage/penghargaan/' . $peng->foto) }}" alt="">
                         </div>
                         <p class="list-title text-black text-start fs-8 lh-sm m-0 p-0">{{ $peng->title }}</p>
                     </a>
