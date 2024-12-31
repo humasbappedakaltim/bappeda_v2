@@ -30,7 +30,7 @@
                                 {{-- <img src="{{ asset('storage/post/' .$berita->image) }}" alt="post-img"> --}}
                                 {{-- explode everyhting and take only first or base name from file  --}}
                                 @php
-                                    $imageFilename = explode('/', $berita->image)[count(explode('/', $berita->image)) - 1];
+                                    $imageFilename = basename(str_replace('\\', '/', $berita->image)); // Normalize slashes
                                 @endphp
                                 <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
