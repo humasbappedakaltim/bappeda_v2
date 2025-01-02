@@ -37,7 +37,7 @@ use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
 use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
-
+use App\Http\Controllers\DataCenterPpidController;
 
 // Route::get('/', function () {
 //     return view('landing.index');
@@ -129,8 +129,15 @@ Route::middleware(['setlocale'])->group(function () {
             Route::post('permohonan-informasi-online/store', [PioController::class, 'store'])->name('ppid.pio.store');
             Route::get('struktur-organisasi', [PpidController::class, 'struktur'])->name('ppid.struktur');
             Route::get('tugas-dan-fungsi', [PpidController::class, 'tugas_fungsi'])->name('ppid.tugas_fungsi');
-            Route::get('visi-misi', [PpidController::class, 'visi_misi'])->name('ppid.visi_visi');
+            Route::get('maklumat-pelayanan', [PpidController::class, 'maklumat_pelayanan'])->name('ppid.maklumat_pelayanan');
+            Route::get('visi-misi', [PpidController::class, 'visi_misi'])->name('ppid.visi_misi');
             Route::get('tata-cara', [PpidController::class, 'tata_cara'])->name('ppid.tata_cara');
+
+            // Route::get('maklumat', [DataCenterPpidController::class, 'maklumat'])->name('ppid.maklumat');
+            // Route::get('prosedur-permohonan-informasi', [DataCenterPpidController::class, 'prosedur_permohonan_informasi'])->name('ppid.prosedur_permohonan_informasi');
+            // Data PPID
+            Route::get('category/{slug}', [DataCenterPpidController::class, 'show'])->name('ppid.category.show');
+            Route::get('category/download/{slug}', [DataCenterPpidController::class, 'download'])->name('ppid.category.download');
         });
     });
 });

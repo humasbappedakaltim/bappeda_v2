@@ -13434,14 +13434,14 @@ fieldset:disabled .btn {
 /* BREADCRUMB END */
 
 /* PPID */
-.profil-ppid .img-container, .struktur-ppid .img-container, .tugas-dan-fungsi-ppid .img-container, .visi-dan-misi-ppid .img-container {
+.profil-ppid .img-container, .struktur-ppid .img-container, .tugas-dan-fungsi-ppid .img-container, .maklumat-pelayanan-ppid .img-container, .visi-dan-misi-ppid .img-container {
   width: 100%;
   height: auto;
   border-radius: 1rem;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
   overflow: hidden;
 }
-.profil-ppid .img-container img, .struktur-ppid .img-container img, .tugas-dan-fungsi-ppid .img-container img, .visi-dan-misi-ppid .img-container img {
+.profil-ppid .img-container img, .struktur-ppid .img-container img, .tugas-dan-fungsi-ppid .img-container img, .maklumat-pelayanan-ppid .img-container, .visi-dan-misi-ppid .img-container img {
   width: 100%;
   border-radius: 1rem;
   object-fit: cover;

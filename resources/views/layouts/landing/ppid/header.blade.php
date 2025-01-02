@@ -109,10 +109,10 @@
                         <div id="collapseStandarLayanan" class="accordion-collapse collapse" aria-labelledby="headingStandarLayanan" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Maklumat</a>
+                                    <a href="" class="text-decoration-none text-white">Maklumat Pelayanan</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Prosedur Permohonan Informas</a>
+                                    <a href="" class="text-decoration-none text-white">Prosedur Permohonan Informasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
                                     <a href="" class="text-decoration-none text-white">Prosedur Pengajuan Keberatan</a>
@@ -189,19 +189,19 @@
         <div class="container col-12">
             <h3 class="text-capitalize">Tentang PPID</h3>
             <div class="row mt-1">
-                <a href="{{ route('ppid.profil') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.profil') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.profil') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Profil</p>
                     <p class="fs-9 py-0 my-0">Profil PPID Kaltim: Wadah utama untuk pengelolaan dan penyebaran informasi publik.</p>
                 </a>
-                <a href="{{ route('ppid.struktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.struktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.struktur') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Struktur Organisasi</p>
                     <p class="fs-9 py-0 my-0">Lihat bagaimana struktur organisasi PPID Kaltim mendukung layanan informasi yang efisien.</p>
                 </a>
-                <a href="{{ route('ppid.tugas_fungsi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.tugas_fungsi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.tugas_fungsi') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Tugas dan Fungsi</p>
                     <p class="fs-9 py-0 my-0">Ketahui tugas dan fungsi utama PPID Kaltim dalam mendukung keterbukaan informasi</p>
                 </a>
-                <a href="{{ route('ppid.visi_visi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.visi_misi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.visi_misi') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Visi dan Misi</p>
                     <p class="fs-9 py-0 my-0">Pelajari visi dan misi PPID Kaltim yang mendukung keterbukaan informasi publik.</p>
                 </a>
@@ -209,7 +209,7 @@
                     <p class="fw-bold py-0 my-2 fs-7">Dasar Hukum</p>
                     <p class="fs-9 py-0 my-0">Baca lebih lanjut tentang dasar hukum yang memperkuat peran PPID di Provinsi Kaltim.</p>
                 </a>
-                <a href="profil-asn-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.maklumat_pelayanan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Maklumat Pelayanan</p>
                     <p class="fs-9 py-0 my-0">Ketahui maklumat pelayanan PPID dalam memberikan akses informasi publik yang cepat dan transparan.</p>
                 </a>
@@ -217,7 +217,7 @@
                     <p class="fw-bold py-0 my-2 fs-7">Standar Operasional Prosedur</p>
                     <p class="fs-9 py-0 my-0">Klik untuk memahami standar operasional prosedur PPID dalam melaksanakan tugasnya dengan efektif.</p>
                 </a>
-                <a href="{{ route('ppid.tata_cara') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.tata_cara') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.tata_cara') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Tata Cara</p>
                     <p class="fs-9 py-0 my-0">Pahami langkah-langkah yang harus dilakukan saat mengajukan permohonan informasi ke PPID.</p>
                 </a>
@@ -232,24 +232,24 @@
         <div class="container col-12">
             <h3 class="text-capitalize">Standar Layanan</h3>
             <div class="row mt-1">
-                <a href="" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Maklumat</p>
+                <a href="{{ route('ppid.category.show', 'maklumat') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.maklumat_pelayanan') ? 'active' : '' }}">
+                    <p class="fw-bold py-0 my-2 fs-7">Maklumat Pelayanan</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'prosedur permohonan informasi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2 {{ Route::is('ppid.prosedur_permohonan_informasi') ? 'active' : '' }}">
                     <p class="fw-bold py-0 my-2 fs-7">Prosedur Permohonan Informasi</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'prosedur pengajuan keberatan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Prosedur Pengajuan Keberatan</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'prosedur sengketa informasi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Prosedur Sengketa Informasi</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Jalur, Jalan dan Biaya Layanan</p>
+                <a href="{{ route('ppid.category.show', 'jalur jalan dan biaya layanan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                    <p class="fw-bold py-0 my-2 fs-7">Jalur, Waktu, dan Biaya Layanan</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
             </div>
@@ -263,19 +263,19 @@
         <div class="container col-12">
             <h3 class="text-capitalize">Laporan</h3>
             <div class="row mt-1">
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'laporan akses informasi publik') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Laporan Akses Informasi Publik</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'laporan pelayanan informasi publik') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Laporan Layanan Informasi Publik</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'laporan survei layanan informasi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Laporan Survei Layanan Informasi</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'laporan realisasi anggaran') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Laporan Realisasi Anggaran</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>

@@ -26,7 +26,7 @@ class LandingController extends Controller
         $news_category = PostCategory::where('name', 'Berita')->first();
         $news_international = PostCategory::where('name', 'Berita Nasional')->first();
         $information_category = PostCategory::where('name', 'Informasi')->first();
-        $sliders = WelcomeSlider::where('active', 1)->orderBy('orders', 'asc')->take(5)->get();
+        $sliders = WelcomeSlider::where('active', 1)->orderBy('orders', 'asc')->get();
         // dd($sliders);
         $news = PostNew::whereIn('category_id', [$news_category->id, $news_international->id])->where('status', 'published')->orderBy('created_at', 'desc')->limit(3)->get();
         $informations = PostNew::where('category_id', $information_category->id)->where('status', 'published')->orderBy('created_at', 'desc')->limit(5)->get();
