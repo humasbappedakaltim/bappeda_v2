@@ -16,7 +16,7 @@ use App\Http\Controllers\Controller;
 
 class LandingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // save visitor
         $visitor = new Visitor();
@@ -48,6 +48,7 @@ class LandingController extends Controller
             $informations = collect();
         }
 
+        
         $agendas = Agenda::orderBy('created_at', 'desc')->get();
         // views posts
         $posts_list_by_views = PostNew::orderBy('views', 'desc')->take(10)->get();

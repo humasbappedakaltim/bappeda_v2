@@ -94,7 +94,7 @@
                                     <div class="col-md-12">
                                         <label for="sub_bidang_id" class="form-label">Sub Bidang</label>
                                         <select class="form-control @error('sub_bidang_id') is-invalid @enderror select2" id="sub_bidang_id" name="sub_bidang_id">
-                                            <option value="">Pilih Sub Bidang</option>
+                                            <option selected disabled>Pilih Sub Bidang</option>
                                             @foreach ($sub_bidangs as $sub)
                                                 <option value="{{ $sub->id }}" {{ old('sub_bidang_id') == $sub->id ? 'selected' : '' }}>{{ $sub->name }}</option>
                                             @endforeach
@@ -166,7 +166,7 @@
                                             <option selected disabled>Pilih Status Kehadiran</option>
                                             <option value="Hadir" {{ old('status_kehadiran') == 'Hadir' ? 'selected' : '' }}>Hadir</option>
                                             <option value="Tidak Hadir" {{ old('status_kehadiran') == 'Tidak Hadir' ? 'selected' : '' }}>Tidak Hadir</option>
-                                            <option value="Tidak Ada Keterangan" {{ old('status_kehadiran') == 'Tidak Ada Keterangan' ? 'selected' : '' }}>Tidak Ada Keterangan</option>
+                                            <option value="TidakPjeba Ada Keterangan" {{ old('status_kehadiran') == 'Tidak Ada Keterangan' ? 'selected' : '' }}>Tidak Ada Keterangan</option>
                                             <option value="Dinas Luar" {{ old('status_kehadiran') == 'Dinas Luar' ? 'selected' : '' }}>Dinas Luar</option>
                                             <option value="Tugas Luar Kantor" {{ old('status_kehadiran') == 'Tugas Luar Kantor' ? 'selected' : '' }}>Tugas Luar Kantor</option>
                                             <option value="Cuti" {{ old('status_kehadiran') == 'Cuti' ? 'selected' : '' }}>Cuti</option>
@@ -234,7 +234,7 @@
                 // append pejabat structural fungsional
                 $('#div_status_jabatan_penjabat').removeClass('d-none');
                 $('#status_jabatan_penjabat').html(
-                    '<option value="non-pajabat">Non Pejabat</option><option value="pajabat">Pejabat</option>');
+                    '<option value="non-pajabat">Struktural</option><option value="pajabat">Fungsional</option>');
             } else {
                 // remove pejabat structural fungsional
                 $('#div_status_jabatan_penjabat').removeClass('d-none');

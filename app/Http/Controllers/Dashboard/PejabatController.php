@@ -89,13 +89,12 @@ class PejabatController extends Controller
             'jabatan_lainnya' => 'nullable|string|max:100',
             'jabatan_lainnya2' => 'nullable|string|max:100',
             'bidang_id' => 'required|exists:bidangs,id',
-            'sub_bidang_id' => 'nullable|exists:sub_bidangs,id',
             'status_jabatan' => 'required|string|max:50',
             'status_jabatan_penjabat' => 'required|string|max:50',
             'ketua_tim' => 'nullable|string|max:100',
-            'urutan_jabatan' => 'required|integer|min:1',
             'status_kehadiran' => 'required|string|max:50',
             'status_aktif' => 'required|boolean',
+            'urutan_jabatan' => 'nullable|integer',
         ]);
 
         $file_name = null;
@@ -112,7 +111,7 @@ class PejabatController extends Controller
         $pejabat = Pejabat::create([
             'name' => $request->name,
             'bidang_id' => $request->bidang_id,
-            'sub_bidang_id' => $request->sub_bidang_id,
+            'sub_bidang_id' => $request->sub_bidang_id ?? NULL,
             'nip' => $request->nip,
             'golongan' => $request->golongan,
             'kelas_jabatan' => $request->kelas_jabatan,
@@ -122,7 +121,7 @@ class PejabatController extends Controller
             'status_jabatan' => $request->status_jabatan,
             'status_jabatan_penjabat' => $request->status_jabatan_penjabat,
             'ketua_tim' => $request->ketua_tim,
-            'urutan_jabatan' => $request->urutan_jabatan,
+            'urutan_jabatan' => $request->urutan_jabatan ?? NULL,
             'status_kehadiran' => $request->status_kehadiran,
             'status_aktif' => $request->status_aktif,
             'foto' => $file_name,
@@ -154,13 +153,12 @@ class PejabatController extends Controller
             'jabatan_lainnya' => 'nullable|string|max:100',
             'jabatan_lainnya2' => 'nullable|string|max:100',
             'bidang_id' => 'required|exists:bidangs,id',
-            'sub_bidang_id' => 'nullable|exists:sub_bidangs,id',
             'status_jabatan' => 'required|string|max:50',
             'status_jabatan_penjabat' => 'required|string|max:50',
             'ketua_tim' => 'nullable|string|max:100',
-            'urutan_jabatan' => 'required|integer|min:1',
             'status_kehadiran' => 'required|string|max:50',
             'status_aktif' => 'required|boolean',
+            'urutan_jabatan' => 'nullable|integer',
         ]);
 
 
@@ -178,7 +176,7 @@ class PejabatController extends Controller
         $pejabat->update([
             'name' => $request->name,
             'bidang_id' => $request->bidang_id,
-            'sub_bidang_id' => $request->sub_bidang_id,
+            'sub_bidang_id' => $request->sub_bidang_id ?? NULL,
             'nip' => $request->nip,
             'golongan' => $request->golongan,
             'kelas_jabatan' => $request->kelas_jabatan,
@@ -188,7 +186,7 @@ class PejabatController extends Controller
             'status_jabatan' => $request->status_jabatan,
             'status_jabatan_penjabat' => $request->status_jabatan_penjabat,
             'ketua_tim' => $request->ketua_tim,
-            'urutan_jabatan' => $request->urutan_jabatan,
+            'urutan_jabatan' => $request->urutan_jabatan ?? NULL,
             'status_kehadiran' => $request->status_kehadiran,
             'status_aktif' => $request->status_aktif,
             'foto' => $file_name,

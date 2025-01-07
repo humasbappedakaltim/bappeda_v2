@@ -65,14 +65,14 @@
                                 <p class="text-uppercase text-center text-white fw-500 lh-sm m-0 p-0">FORM PENGAJUAN PERMOHONAN INFORMASI PUBLIK</p>
                             </a>
                         </div>
-                        <div class="col-4">
+                        {{-- <div class="col-4">
                             <a href="" class="pio-card text-decoration-none d-flex flex-column p-3">
                                 <div class="pio-card-icon w-100 d-flex justify-content-center mb-3">
                                     <i class="bi bi-postcard text-white text-center fs-2 m-0 p-0"></i>
                                 </div>
                                 <p class="text-uppercase text-center text-white fw-500 lh-sm m-0 p-0">Form Pengajuan Keberatan Informasi Publik</p>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="ppid-carousel m-0 p-0">

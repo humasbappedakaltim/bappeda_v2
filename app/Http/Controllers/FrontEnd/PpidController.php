@@ -11,7 +11,7 @@ class PpidController extends Controller
     public function index()
     {
         // save visitor
-        $visitor = new Visebitor();
+        $visitor = new Visitor();
         $visitor->save();
 
         return view('landing.ppid.index');

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survei Kepuasan Masyarakat (SKM) | Bappeda Provinsi Kalimantan Timur</title>
-    <script src="{{ asset('jquery-3.7.1/jquery-3.7.1.min.js') }}"></script>
+    {{-- <script src="{{ asset('jquery-3.7.1/jquery-3.7.1.min.js') }}"></script> --}}
     <link rel="shortcut icon" href="{{ asset('storage/settings/September2020/akBHm4gYEq4pgdfOLIHQ.png') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css5/css/bootstrap.min.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/community_satisfaction_survey/style.css') }}"> --}}
@@ -547,7 +547,8 @@
           </div>
     </div>
     {{-- <script src="{{ asset('css5/js/bootstrap.min.js') }}"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" type="text/javascript" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
     <script>
         $(function () {

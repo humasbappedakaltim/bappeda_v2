@@ -148,7 +148,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="urutan_jabatan" class="form-label">Urutan Jabatan</label>
-                                        <input type="text" class="form-control @error('urutan_jabatan') is-invalid @enderror" id="urutan_jabatan" name="urutan_jabatan" value="{{ old('urutan_jabatan', $pejabat->urutan_jabatan) }}">
+                                        <input type="number" class="form-control @error('urutan_jabatan') is-invalid @enderror" id="urutan_jabatan" name="urutan_jabatan" value="{{ old('urutan_jabatan', $pejabat->urutan_jabatan) }}">
                                         @error('urutan_jabatan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror

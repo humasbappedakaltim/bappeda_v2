@@ -63,8 +63,8 @@
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
                                     @php
-                                    $imageFilename = basename(str_replace('\\', '/', $berita->image));
-                                @endphp
+                                        $imageFilename = basename(str_replace('\\', '/', $berita->image));
+                                    @endphp
                                 <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                                 </div>
                             </div>

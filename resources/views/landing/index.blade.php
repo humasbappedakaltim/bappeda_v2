@@ -12,11 +12,11 @@
         <div class="col-12 text-center text-white px-0">
             <h4 class="text-capitalize lh-sm">badan perencanaan pembangunan daerah</h4>
             <h4 class="text-capitalize lh-sm mb-5">pemerintah provinsi kalimantan timur</h4>
-            <h5 class="text-capitalize lh-sm mb-3">Dapatkan layanan publik di Bappeda Kaltim</h5>
-            <form action="" class="input-search p-0">
-                <input type="search" class="custom-form-control mx-0  my-0 py-0" placeholder="Ketik untuk mencari..">
+            <h5 class="text-capitalize lh-sm mb-3">Dapatkan Berita Dan Informasi Dari Bappeda Kaltim</h5>
+            <form action="{{ route('berita.index') }}" method="GET" class="input-search p-0">
+                <input type="search" class="custom-form-control mx-0  my-0 py-0" name="search" placeholder="Ketik untuk mencari..">
                 <i class="bi bi-search icon-search  my-0 py-0"></i>
-                <input class="custom-btn  py-0 my-0" type="submit" value="Cari">
+                <button class="btn custom-btn  py-0 my-0" type="submit">Cari</button>
             </form>
         </div>
     </div>

@@ -50,6 +50,10 @@ Route::middleware(['setlocale'])->group(function () {
         return view('landing.portal');
     });
 
+    Route::get('/survei-kepuasan-masyarakat', [SurveiController::class, 'index'])->name('landing.survei');
+    Route::get('/survei/berhasil', [SurveiController::class, 'success'])->name('landing.survei.success');
+
+
     Route::group(['prefix' => '/beranda'], function () {
         Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
@@ -113,7 +117,6 @@ Route::middleware(['setlocale'])->group(function () {
 
         Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
 
-        Route::get('/survei', [SurveiController::class, 'index'])->name('landing.survei');
         Route::post('/survei/store', [SurveiController::class, 'store'])->name('landing.survei.store');
 
 

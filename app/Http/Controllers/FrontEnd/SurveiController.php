@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
+use App\Models\Visitor;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -223,7 +224,7 @@ class SurveiController extends Controller
                 ]);
             });
 
-            return redirect()->back()->with('success', 'Terima Kasih Telah Mengisi Survei');
+            return redirect()->route('landing.survei.success');
         } catch (Exception $error) {
             return dd($error);
         }
@@ -347,7 +348,7 @@ class SurveiController extends Controller
                 ]);
             });
 
-            return redirect()->back()->with('success','Terima Kasih Telah Mengisi Survei Kepuasan Masyrakat (SKM) 2045');
+            return redirect()->route('landing.survei.success');
         } catch (Exception $error) {
             return dd($error);
         }
@@ -355,11 +356,11 @@ class SurveiController extends Controller
 
     public function success()
     {
-        $visitors = new Visitors();
+        $visitors = new Visitor();
         $data['visitors']['yearly'] = $visitors->whereYear('created_at', '=', date('Y'))->count();
         $data['visitors']['monthly'] = $visitors->whereMonth('created_at', '=', date('m'))->count();
         $data['title'] = 'Survei Kepuasan Masyrakat (SKM) 2045';
-        return view('content.community_satisfaction_survey.community_satisfaction_survey_success', $data);
+        return view('landing.survei.success', $data);
     }
 
     public function modalSuccess()
