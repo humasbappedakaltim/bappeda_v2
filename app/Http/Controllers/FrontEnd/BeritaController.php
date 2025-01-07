@@ -33,9 +33,8 @@ class BeritaController extends Controller
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
-            $beritas = PostNew::where('category_id', $berita_category_id)
-                ->where('title', 'like', '%'.$request->input('search').'%')
-                ->where('status', 'published')
+            $beritas = PostNew::where('title', 'like', '%'.$request->input('search').'%')
+                // ->where('status', 'published')
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
