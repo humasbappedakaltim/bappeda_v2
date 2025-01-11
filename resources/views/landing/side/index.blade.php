@@ -88,7 +88,7 @@
                     <a href="{{ $url }}" class="d-flex gap-3 text-decoration-none text-black mt-4 p-1">
                         <div class="img-container m-0 p-0">
                             @php
-                                    $imageFilename = basename(str_replace('\\', '/', $berita->image));
+                                    $imageFilename = basename(str_replace('\\', '/', $post->image));
                                 @endphp
                             <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                         </div>
