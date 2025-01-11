@@ -65,6 +65,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::where('name', '!=', 'superadmin')->get();
+        
         return view('dashboard.users.edit',compact('user','roles'));
     }
 

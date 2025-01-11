@@ -7,9 +7,17 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
+use App\Actions\Fortify\UpdateUserPassword;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
-{
+{   
+    // protected
+
+    public function __construct(UpdateUserPassword $updatePassword)
+    {
+        $this->update = $updatePassword;
+    }
+
     /**
      * Validate and update the given user's profile information.
      *
@@ -25,6 +33,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);
+        }
+
+        if (isset($input['password'])) {
+            $this->update->update($user, $input);
+        } else {
+            // return redirect()->back()->with('error', '');
         }
 
         if ($input['email'] !== $user->email &&
