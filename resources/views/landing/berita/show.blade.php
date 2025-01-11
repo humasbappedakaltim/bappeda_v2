@@ -28,7 +28,7 @@
                         <div class="detail-post-container position-relative m-0 p-0">
                             <div class="img-container position-relative mb-4">
                                 @php
-                                    $imageFilename = basename(str_replace('\\', '/', $berita->image));
+                                    $imageFilename = basename(str_replace('\\', '/', $postNew->image));
                                 @endphp
                             <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
