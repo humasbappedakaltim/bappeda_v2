@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreignId('category_id')->references('id')->on('post_categories');
             $table->text('keywords')->nullable();
             $table->text('tags')->nullable();
-            $table->string('image');
-            $table->enum('status', ['draft', 'published', 'trashed'])->default('published');
+            $table->text('image');
+            $table->integer('status')->default(0);
             $table->text('extra_photo')->nullable();
             $table->date('published_at')->nullable();
             $table->string('slug');
