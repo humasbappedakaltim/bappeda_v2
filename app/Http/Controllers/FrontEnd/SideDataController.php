@@ -19,7 +19,7 @@ class SideDataController extends Controller
     public function arsip()
     {
         $posts_arsip = PostNew::selectRaw('YEAR(created_at) as year, COUNT(*) as total')
-        ->where('status', 'published')
+        ->where('status', '!=', 0)
         ->groupBy('year')
         ->orderBy('year', 'desc')
         ->get();
@@ -37,6 +37,9 @@ class SideDataController extends Controller
         if (!$realSlug) {
             abort(404);
         }
+
+        $view = PostNew::findBySlugAndIncrementViews($slug);
+
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 

@@ -72,8 +72,8 @@
                                         <label for="status" class="form-label">Status Publish</label>
                                         <select name="status" id="status" class="form-control">
                                             <option selected>Pilih Status</option>
-                                            <option value="published">Publish</option>
-                                            <option value="draft">Draft</option>
+                                            <option value="0">Draf</option>
+                                            <option value="1">Publish</option>
 
                                         </select>
                                         @error('status')
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                               
+
                                 <div class="row mt-5">
                                     <div class="col-md-12 mt-5">
                                         <a href="{{ route('dashboard.post.news.index') }}" class="btn btn-danger">Kembali</a>

@@ -28,14 +28,14 @@ class InformasiController extends Controller
         // posts arsip
         $arsip = $this->arsip->arsip();
 
-        $informas = PostNew::where('category_id', $informasi_id)->where('status', 'published')->orderBy('created_at', 'desc')->paginate($limit);
+        $informas = PostNew::where('category_id', $informasi_id)->where('status', '!=', 0)->orderBy('created_at', 'desc')->paginate($limit);
 
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
             $informas = PostNew::where('category_id', $informasi_id)
                 ->where('title', 'like', '%'.$request->input('search').'%')
-                ->where('status', 'published')
+                ->where('status', '!=', 0)
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
@@ -44,16 +44,19 @@ class InformasiController extends Controller
 
     public function show($slug)
     {
+        
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;
         $random = $parts[1] ?? null;
-
-
+        
+        
         if (!$realSlug) {
             abort(404);
         }
-
+        
+        $view = PostNew::findBySlugAndIncrementViews($slug);
+        
         $postNew = PostNew::where('slug', $realSlug)->first();
 
         if (!$postNew) {

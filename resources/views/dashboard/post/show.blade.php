@@ -52,8 +52,8 @@
                                         <label for="status" class="form-label">Status Publish</label>
                                         <select name="status" id="status" class="form-control" disabled>
                                             <option selected>Pilih Status</option>
-                                            <option value="published" {{ $post->status == 'published' ? 'selected' : '' }}>Publish</option>
-                                            <option value="draft" {{ $post->status == 'draft' ? 'selected' : '' }}>Draft</option>
+                                            <option value="0" {{ $post->status == '0' ? 'selected' : '' }}>Draf</option>
+                                            <option value="1" {{ $post->status == '1' ? 'selected' : '' }}>Publish</option>
 
                                         </select>
                                     </div>

@@ -28,14 +28,14 @@ class KinerjaPembangunanController extends Controller
         // posts arsip
         $arsip = $this->arsip->arsip();
 
-        $kinerja = PostNew::where('category_id', $kinerja_id)->where('status', 'published')->orderBy('created_at', 'desc')->paginate($limit);
+        $kinerja = PostNew::where('category_id', $kinerja_id)->where('status', '!=', 0)->orderBy('created_at', 'desc')->paginate($limit);
 
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
             $kinerja = PostNew::where('category_id', $kinerja_id)
                 ->where('title', 'like', '%'.$request->input('search').'%')
-                ->where('status', 'published')
+                ->where('status', '!=', 0)
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
@@ -53,6 +53,9 @@ class KinerjaPembangunanController extends Controller
         if (!$realSlug) {
             abort(404);
         }
+
+        $view = PostNew::findBySlugAndIncrementViews($slug);
+
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 

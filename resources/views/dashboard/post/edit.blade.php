@@ -72,9 +72,9 @@
                                     <div class="col-md-12 mb-2">
                                         <label for="status" class="form-label">Status Publish</label>
                                         <select name="status" id="status" class="form-control">
-                                            <option selected value="{{ $post->status }}">{{ $post->status }}</option>
-                                            <option value="published">Publish</option>
-                                            <option value="draft">Draft</option>
+                                            <option selected value="{{ $post->status }}">{{ $post->status == '1' ? 'Publish' : 'Draf' }}</option>
+                                            <option value="0">Draf</option>
+                                            <option value="1">Publish</option>
 
                                         </select>
                                         @error('status')

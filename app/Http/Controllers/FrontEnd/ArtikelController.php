@@ -28,14 +28,14 @@ class ArtikelController extends Controller
         // posts arsip
         $arsip = $this->arsip->arsip();
 
-        $artikels = PostNew::where('category_id', $artikel_id)->where('status', 'published')->orderBy('created_at', 'desc')->paginate($limit);
+        $artikels = PostNew::where('category_id', $artikel_id)->where('status', '!=', 0)->orderBy('created_at', 'desc')->paginate($limit);
 
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
             $artikels = PostNew::where('category_id', $artikel_id)
                 ->where('title', 'like', '%'.$request->input('search').'%')
-                ->where('status', 'published')
+                ->where('status', '!=', 0)
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
@@ -52,7 +52,10 @@ class ArtikelController extends Controller
 
         if (!$realSlug) {
             abort(404);
-        }
+        }   
+
+
+        $view = PostNew::findBySlugAndIncrementViews($slug);
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 

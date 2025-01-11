@@ -53,4 +53,21 @@ class PostNew extends Model
     {
         return 'slug';
     }
+
+    // view increment 
+    // public static function boot()
+    // {
+    //     parent::boot();
+    
+    //     static::retrieved(function ($postNew) {
+    //         $postNew->increment('views');
+    //     });
+    // }
+    public static function findBySlugAndIncrementViews($slug)
+    {
+        $postNew = self::where('slug', $slug)->firstOrFail();
+        $postNew->increment('views');
+        return $postNew;
+    }
+    
 }

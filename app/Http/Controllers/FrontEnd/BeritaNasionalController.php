@@ -28,7 +28,7 @@ class BeritaNasionalController extends Controller
         // posts arsip
         $arsip = $this->arsip->arsip();
 
-        $postNew = PostNew::where('category_id', $berita_nasional)->where('status', 'published')->orderBy('created_at', 'desc')->paginate($limit);
+        $postNew = PostNew::where('category_id', $berita_nasional)->where('status', '!=', 0)->orderBy('created_at', 'desc')->paginate($limit);
 
         $categorys = PostCategory::orderBy('name')->get();
 
@@ -44,6 +44,8 @@ class BeritaNasionalController extends Controller
 
     public function show($slug)
     {
+        $view = PostNew::findBySlugAndIncrementViews($slug);
+        
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;

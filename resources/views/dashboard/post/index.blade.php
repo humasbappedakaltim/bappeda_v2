@@ -28,9 +28,8 @@
                         <label class="mb-2" for="category">Status Postingan</label>
                         <select name="status" id="status" class="form-control">
                             <option selected value="">Pilih Status Postingan</option>
-                            <option value="published">Dipublikasikan</option>
-                            <option value="draft">Draft</option>
-                            <option value="trashed">Di Hapus</option>
+                            <option value="0">Draf</option>
+                            <option value="1">Publish</option>
                         </select>
                     </div>
                 </div>
@@ -82,12 +81,10 @@
                         { data: 'date', name: 'date'},
                         { data: 'status', name: 'status',
                             render: function (data) {
-                                if (data == 'published') {
+                                if (data == '1') {
                                     return '<span class="badge bg-success">Dipublikasikan</span>';
-                                } else if (data == 'draft') {
-                                    return '<span class="badge bg-warning">Draft</span>';
                                 } else {
-                                    return '<span class="badge bg-danger">Dihapus</span>';
+                                    return '<span class="badge bg-warning">Draf</span>';
                                 }
                             }
                         },

@@ -34,7 +34,7 @@ class BeritaController extends Controller
 
         if($request->has('search')) {
             $beritas = PostNew::where('title', 'like', '%'.$request->input('search').'%')
-                // ->where('status', 'published')
+                ->where('status', '!=', 0)
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
@@ -44,6 +44,7 @@ class BeritaController extends Controller
 
     public function show($slug)
     {
+        
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;
@@ -53,6 +54,8 @@ class BeritaController extends Controller
         if (!$realSlug) {
             abort(404);
         }
+
+        $view = PostNew::findBySlugAndIncrementViews($slug);
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 
