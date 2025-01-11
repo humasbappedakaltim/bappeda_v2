@@ -27,7 +27,10 @@
                     <div class="col-12 m-0 p-0">
                         <div class="detail-post-container position-relative m-0 p-0">
                             <div class="img-container position-relative mb-4">
-                                <img src="{{ asset('storage/post/' .$postNew->image) }}" alt="post-img" class="w-100 img-fluid" style="border-radius: 6px">
+                                @php
+                                    $imageFilename = basename(str_replace('\\', '/', $berita->image));
+                                @endphp
+                            <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="row about-content align-items-center d-flex m-0 mb-3 p-0">
                                 <div class="col-6 mb-2 m-0 p-0">

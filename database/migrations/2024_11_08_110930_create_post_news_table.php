@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('keywords')->nullable();
             $table->text('tags')->nullable();
             $table->string('image');
-            $table->enum('status', ['draft', 'published', 'trashed'])->default('draft');
+            $table->enum('status', ['draft', 'published', 'trashed'])->default('published');
             $table->text('extra_photo')->nullable();
             $table->date('published_at')->nullable();
             $table->string('slug');

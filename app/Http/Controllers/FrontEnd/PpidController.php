@@ -52,5 +52,9 @@ class PpidController extends Controller
         return view('landing.ppid.tata_cara');
     }
 
+    public function dasar_hukum()
+    {
+        return view('landing.ppid.dasar_hukum');
+    }
 
 }

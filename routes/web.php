@@ -115,7 +115,7 @@ Route::middleware(['setlocale'])->group(function () {
 
         // Ruang Publik
 
-        Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
+        Route::get('/ruang-publik', [LandingController::class, 'ruang_publVue.vscode-typescript-vue-pluginik'])->name('landing.ruang_publik');
 
         Route::post('/survei/store', [SurveiController::class, 'store'])->name('landing.survei.store');
 
@@ -135,6 +135,8 @@ Route::middleware(['setlocale'])->group(function () {
             Route::get('maklumat-pelayanan', [PpidController::class, 'maklumat_pelayanan'])->name('ppid.maklumat_pelayanan');
             Route::get('visi-misi', [PpidController::class, 'visi_misi'])->name('ppid.visi_misi');
             Route::get('tata-cara', [PpidController::class, 'tata_cara'])->name('ppid.tata_cara');
+
+            Route::get('dasar-hukum',[PpidController::class, 'dasar_hukum'])->name('ppid.dasar_hukum');
 
             // Route::get('maklumat', [DataCenterPpidController::class, 'maklumat'])->name('ppid.maklumat');
             // Route::get('prosedur-permohonan-informasi', [DataCenterPpidController::class, 'prosedur_permohonan_informasi'])->name('ppid.prosedur_permohonan_informasi');
