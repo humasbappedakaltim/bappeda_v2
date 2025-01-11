@@ -87,6 +87,7 @@
             <div class="col-12 m-0 mb-5 p-0 order-2 order-lg-3 detail-post-documentary">
                 <div class="row g-3">
                     @if($postNew->extra_photo != null)
+                    {{-- $post-> --}}
                     @php
                         $extra_photos = explode(',', $postNew->extra_photo);
                     @endphp
