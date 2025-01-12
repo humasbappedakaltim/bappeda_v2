@@ -30,7 +30,7 @@
                                 @php
                                     $imageFilename = basename(str_replace('\\', '/', $postNew->image));
                                 @endphp
-                            <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
+                                    <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="row about-content align-items-center d-flex m-0 mb-3 p-0">
                                 <div class="col-6 mb-2 m-0 p-0">

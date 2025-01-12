@@ -26,6 +26,11 @@
                     <div class="col-12 m-0 p-0">
                         <div class="detail-post-container position-relative m-0 p-0">
                             <div class="img-container position-relative mb-4">
+                                @php
+                                $imageFilename = basename(str_replace('\\', '/', $postNew->image)); // Normalize slashes
+                                @endphp
+                                   <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
+
                                 <img src="{{ asset('storage/post/' .$postNew->image) }}" alt="post-img">
                             </div>
                             <div class="row about-content align-items-center d-flex m-0 mb-3 p-0">
