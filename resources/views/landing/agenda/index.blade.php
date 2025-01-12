@@ -21,7 +21,7 @@
         <div class="container custom-container d-flex justify-content-between px-0">
             <nav class="navbar navbar-expand-xl py-0 d-flex justify-content-between w-100 mx-0 px-0">
                 <div class="logo d-flex align-items-center">
-                    <a class="navbar-brand py-0" href="/"><img src="{{ asset('assets/images/logo-bappeda.png')}}" alt=""></a>
+                    <a class="navbar-brand py-0" href="{{ route('landing.index') }}"><img src="{{ asset('assets/images/logo-bappeda.png')}}" alt=""></a>
                 </div>
                 <div class="title-content">
                     <p class="text-title fw-500 m-0 p-0">Agenda</p>
