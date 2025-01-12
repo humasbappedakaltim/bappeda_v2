@@ -1,7 +1,9 @@
 @extends('layouts.landing')
 
+
 @section('content')
 @push('front_css')
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -57,7 +59,7 @@
                     $routeName = $routeMap[$categoryName] ?? 'berita.show';
                     $url = route($routeName, ['slug' => $post->slug]);
                 @endphp
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
                     <a href="{{ $url }}" class="text-decoration-none text-black">
                         <div class="card border-0 shadow-sm card-hover p-3">
                             <img src="{{ asset('storage/post/' . basename($post->image)) }}" alt="post-img" class="img-fluid w-100" style="border-radius: 10px;">
@@ -70,7 +72,6 @@
 
                                 <div class="d-flex justify-content-center">
                                     <a href="{{ $url }}" class="btn btn-primary btn-sm mt-3"><i class="bi bi-eye"></i> Lihat</a>
-
                                 </div>
 
                             </div>
@@ -97,7 +98,10 @@
 </section>
 
 @push('front_js')
-    <script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script type="text/javascript">
+        AOS.init();
         document.getElementById('filter').addEventListener('change', function () {
             const order = this.value;
             const url = new URL(window.location.href);
