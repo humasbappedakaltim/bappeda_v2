@@ -51,7 +51,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h2>Profile</h2>
+                    <h2>Profil</h2>
                 </div>
 
                 <div class="card-body">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="col-md-6 mt-2">
                                 <label for="name" class="form-label">Role</label>
-                                <input type="text" class="form-control" name="role" value="{{ Auth::user()->first()->name }}">
+                                <input type="text" class="form-control" name="role" value="{{ Auth::user()->first()->name }}" readonly>
                             </div>
                             <div class="col-md-6 mt-2 mb-5">
                                 <label for="name" class="form-label">Email</label>
@@ -82,7 +82,7 @@
                             <div class="col-md-12">
                                 <p><strong>Keamanan</strong></p>
                             </div>
-                            
+
                             <hr>
 
                             <div class="col-md-12 mt-2">
@@ -91,16 +91,16 @@
                                 @error('current_password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                            </div>  
+                            </div>
 
-                            
+
                             <div class="col-md-12 mt-2">
                                 <label for="name" class="form-label">Password Baru</label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                            </div>  
+                            </div>
 
 
 
