@@ -59,7 +59,7 @@
                 $routeName = $routeMap[$categoryName] ?? 'berita.show';
                 $url = route($routeName, ['slug' => $post->slug]);
             @endphp
-            <div class="col-md-3 m-2 p-0 w-30">
+            <div class="col-md-4 m-2 p-0 w-30">
                 <a href="{{ $url }}" class="text-decoration-none text-black">
                     <div class="card border-0 shadow-sm mb-3 card-hover">
                         <div class="card-body">
@@ -68,7 +68,7 @@
                             @endphp
                             <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img" class="img-fluid w-100 mb-4" style="border-radius: 10px;">
                             <div class="card-title mt-4 mb-2">
-                                <h5>{{ $post->title }}</h5>
+                                <h6>{{ $post->title }}</h5>
                             </div>
                             <p class="card-text">
                                 {!! Str::substr(strip_tags($post->description), 0, 100) !!}...
