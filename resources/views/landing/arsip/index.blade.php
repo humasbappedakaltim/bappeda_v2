@@ -44,7 +44,7 @@
             <div class="col-md-6 align-self-center">
                 <h4 class="fw-bold">Postingan {{ $tahun }}</h4>
             </div>
-            <div class="col-md-6 d-flex justify-content-end gap-4">
+            <div class="col-md-6 d-flex justify-content-end gap-2">
                 <label for="filter" class="align-self-center" style="font-size: 20px;">Filter Berdasarkan</label>
                 <select name="filter" id="filter" class="form-control w-50">
                     <option value="oldest">Terlama</option>
