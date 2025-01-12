@@ -64,7 +64,7 @@
                         <div class="card border-0 shadow-sm card-hover p-3">
                             <img src="{{ asset('storage/post/' . basename($post->image)) }}" alt="post-img" class="img-fluid w-100" style="border-radius: 10px;">
                             <div class="mx-2 mt-4">
-                                <h6 class="card-title">{{ $post->title }}</h6>
+                                <h6 class="card-title">{{ Str::limit($post->title, 30) }}</h6>
                                 <p class="card-text"><i class="bi bi-calendar2-event"></i> {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}</p>
                                 <p><i class="bi bi-person"></i> {{ $post->user->name ?? 'Admin' }}</p>
                                 <p><i class="bi bi-tag"></i> {{ $post->category->name }}</p>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="col-12 mt-4">
-            {{ $postArsip->appends(['order' => request('order')])->links() }}
+            {{-- {{ $postArsip->appends(['order' => request('order')])->links() }} --}}
         </div>
     </div>
 </section>
