@@ -62,7 +62,7 @@
                 <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
                     <a href="{{ $url }}" class="text-decoration-none text-black">
                         <div class="card border-0 shadow-sm card-hover p-3">
-                            <img src="{{ asset('storage/post/' . basename($post->image)) }}" alt="post-img" class="img-fluid w-100" style="border-radius: 10px;">
+                            <img src="{{ asset('storage/post/' . basename($post->image)) }}" alt="post-img" class=" card-img img-fluid w-100" style="border-radius: 10px;">
                             <div class="mx-2 mt-4">
                                 <h6 class="card-title">{{ Str::limit($post->title, 30) }}</h6>
                                 <p class="card-text"><i class="bi bi-calendar2-event"></i> {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}</p>
