@@ -44,7 +44,7 @@ use App\Http\Controllers\DataCenterPpidController;
 // });
 
 
-Route::middleware(['setlocale'])->group(function () {
+// Route::middleware(['setlocale'])->group(function () {
 
     Route::get('/', function () {
         return view('landing.portal');
@@ -115,7 +115,7 @@ Route::middleware(['setlocale'])->group(function () {
 
         // Ruang Publik
 
-        Route::get('/ruang-publik', [LandingController::class, 'ruang_publVue.vscode-typescript-vue-pluginik'])->name('landing.ruang_publik');
+        Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
 
         Route::post('/survei/store', [SurveiController::class, 'store'])->name('landing.survei.store');
 
@@ -145,7 +145,7 @@ Route::middleware(['setlocale'])->group(function () {
             Route::get('category/download/{slug}', [DataCenterPpidController::class, 'download'])->name('ppid.category.download');
         });
     });
-});
+// });
 
 
 // front-end
