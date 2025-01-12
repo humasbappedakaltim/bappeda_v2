@@ -44,19 +44,19 @@ class InformasiController extends Controller
 
     public function show($slug)
     {
-        
+
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;
         $random = $parts[1] ?? null;
-        
-        
+
+
         if (!$realSlug) {
             abort(404);
         }
-        
-        $view = PostNew::findBySlugAndIncrementViews($slug);
-        
+
+        $view = PostNew::findBySlugAndIncrementViews($realSlug);
+
         $postNew = PostNew::where('slug', $realSlug)->first();
 
         if (!$postNew) {

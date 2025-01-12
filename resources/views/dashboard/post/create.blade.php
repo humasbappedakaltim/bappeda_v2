@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        @include('layouts.flashmessage')
+                        {{-- @include('layouts.flashmessage') --}}
                         <div class="card-body">
                             <form action="{{ route('dashboard.post.news.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="col-md-12 mb-2">
                                         <label for="status" class="form-label">Status Publish</label>
-                                        <select name="status" id="status" class="form-control">
+                                        <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
                                             <option selected>Pilih Status</option>
                                             <option value="0">Draf</option>
                                             <option value="1">Publish</option>

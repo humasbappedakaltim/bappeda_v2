@@ -54,7 +54,7 @@ class KinerjaPembangunanController extends Controller
             abort(404);
         }
 
-        $view = PostNew::findBySlugAndIncrementViews($slug);
+        $view = PostNew::findBySlugAndIncrementViews($realSlug);
 
 
         $postNew = PostNew::where('slug', $realSlug)->first();

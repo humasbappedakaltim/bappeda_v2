@@ -35,7 +35,7 @@ class BeritaNasionalController extends Controller
         if($request->has('search')) {
             $postNew = PostNew::where('category_id', $berita_nasional)
                 ->where('title', 'like', '%'.$request->input('search').'%')
-                ->where('status', 'published')
+                ->where('status', '!=' , 0)
                 ->orderBy('created_at', 'desc')
                 ->paginate($limit);
         }
@@ -44,8 +44,7 @@ class BeritaNasionalController extends Controller
 
     public function show($slug)
     {
-        $view = PostNew::findBySlugAndIncrementViews($slug);
-        
+
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;
@@ -56,6 +55,7 @@ class BeritaNasionalController extends Controller
             abort(404);
         }
 
+        $view = PostNew::findBySlugAndIncrementViews($realSlug);
         $postNew = PostNew::where('slug', $realSlug)->first();
 
         if (!$postNew) {

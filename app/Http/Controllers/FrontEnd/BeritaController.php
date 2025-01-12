@@ -29,7 +29,7 @@ class BeritaController extends Controller
         $arsip = $this->arsip->arsip();
 
         $beritas = PostNew::where('category_id', $berita_category_id)->orderBy('created_at', 'desc')->paginate($limit);
-        // dd($beritas);
+
         $categorys = PostCategory::orderBy('name')->get();
 
         if($request->has('search')) {
@@ -44,18 +44,18 @@ class BeritaController extends Controller
 
     public function show($slug)
     {
-        
         // Pisahkan slug dan random string
         $parts = explode('.', $slug, 2);
         $realSlug = $parts[0] ?? null;
         $random = $parts[1] ?? null;
 
+        // dd($slug, $realSlug, $random);
 
         if (!$realSlug) {
             abort(404);
         }
 
-        $view = PostNew::findBySlugAndIncrementViews($slug);
+        $view = PostNew::findBySlugAndIncrementViews($realSlug);
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 

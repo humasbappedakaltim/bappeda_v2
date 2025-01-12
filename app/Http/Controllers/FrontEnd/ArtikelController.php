@@ -52,10 +52,10 @@ class ArtikelController extends Controller
 
         if (!$realSlug) {
             abort(404);
-        }   
+        }
 
 
-        $view = PostNew::findBySlugAndIncrementViews($slug);
+        $view = PostNew::findBySlugAndIncrementViews($realSlug);
 
         $postNew = PostNew::where('slug', $realSlug)->first();
 

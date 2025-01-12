@@ -83,7 +83,7 @@ class PostNewsController extends Controller implements HasMiddleware
             'keywords' => 'required|string|max:255',
             'tags' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|in:draft,published,trashed',
+            'status' => 'required',
         ]);
 
         $file_name = null;
@@ -152,7 +152,7 @@ class PostNewsController extends Controller implements HasMiddleware
             'category_id' => 'required',
             'keywords' => 'required|string|max:255',
             'tags' => 'required|string|max:255',
-            'status' => 'required|in:draft,published,trashed',
+            'status' => 'required',
         ]);
 
         $post = PostNew::where('slug', $slug)->first();
