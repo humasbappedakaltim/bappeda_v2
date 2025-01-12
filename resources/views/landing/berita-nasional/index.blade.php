@@ -6,7 +6,7 @@
             <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">berita</p>
+            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">berita< Nasional</p>
         </div>
         <div class="title-content">
             <h4 class="title text-capitalize fw-bold mb-3">
@@ -26,7 +26,10 @@
                     <div class="col-12 m-0 p-0">
                         <div class="post-container position-relative m-0 p-0">
                             <div class="img-container position-relative">
-                                <img src="{{ asset('storage/post/' . $post->image) }}" alt="post-img">
+                                @php
+                                    $imageFilename = basename(str_replace('\\', '/', $post->image));
+                                @endphp
+                                <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="about-content p-3">
                                 <p class="category text-white text-uppercase fs-8 fw-500 mb-2">{{ $post->category->name }}</p>
@@ -44,7 +47,7 @@
                                     {!! Str::substr(strip_tags($post->description), 0, 300) !!} ....
                                 </p>
 
-                                <a href="{{ route('berita.show', $post->slug . '.' . Str::slug($post->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
+                                <a href="{{ route('berita_nasional.show', $post->slug . '.' . Str::slug($post->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                     baca selengkapnya
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
@@ -53,7 +56,7 @@
                     </div>
                     @else
                     <div class="col-12 m-0 p-0">
-                        <a href="{{ route('berita.show', $post->slug . '.' . Str::slug($post->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
+                        <a href="{{ route('berita_nasional.show', $post->slug . '.' . Str::slug($post->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
                                     <img src="{{ asset('storage/post/' . $post->image) }}" alt="post-img">

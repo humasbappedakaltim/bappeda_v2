@@ -7,18 +7,19 @@
             <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <a href="{{ route('artikel.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">artikel</a>
+            <a href="{{ route('pembangunan_kaltim.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">Kinerja Pembangunan Kaltim </a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">detail artikel</p>
+            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">detail</p>
         </div>
         <div class="title-content">
             <h4 class="title text-capitalize fw-bold mb-3">
-                detail artikel {{ $postNew->title }}
+                detail kinerja {{ $postNew->title }}
             </h4>
         </div>
     </div>
 </section>
 <section class="over-top-section post-section position-relative d-flex justify-content-center my-0">
+    <div class="container over-top-container m-0 p-0">
         @include('landing.side.heade')
         <div class="row m-0 p-0">
             <div class="col-12 col-lg-7 order-1 m-0 mb-5 p-0">
@@ -26,7 +27,10 @@
                     <div class="col-12 m-0 p-0">
                         <div class="detail-post-container position-relative m-0 p-0">
                             <div class="img-container position-relative mb-4">
-                                <img src="{{ asset('storage/post/' .$postNew->image) }}" alt="post-img">
+                                @php
+                                    $imageFilename = basename(str_replace('\\', '/', $postNew->image));
+                                @endphp
+                                <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="row about-content align-items-center d-flex m-0 mb-3 p-0">
                                 <div class="col-6 mb-2 m-0 p-0">
@@ -63,7 +67,6 @@
                                 {!! $postNew->description !!}
                             </p>
 
-
                         </div>
                     </div>
                 </div>
@@ -89,4 +92,5 @@
     </div>
 </section>
 @endsection
+
 

@@ -27,7 +27,10 @@
                     <div class="col-12 m-0 p-0">
                         <div class="post-container position-relative m-0 p-0">
                             <div class="img-container position-relative">
-                                <img src="{{ asset('storage/post/' . $informasi->image) }}" alt="post-img">
+                                @php
+                                $imageFilename = basename(str_replace('\\', '/', $informasi->image));
+                            @endphp
+                            <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                             </div>
                             <div class="about-content p-3">
                                 <p class="category text-white text-uppercase fs-8 fw-500 mb-2">
@@ -62,7 +65,10 @@
                         <a href="{{ route('informasi.show', $informasi->slug . '.' . Str::slug($informasi->title)) }}" class="row post-other-content text-decoration-none text-black mt-4 mx-0 p-0">
                             <div class="col-3 m-0 p-0">
                                 <div class="img-container">
-                                    <img src="{{ asset('storage/post/' . $informasi->image) }}" alt="post-img">
+                                    @php
+                                    $imageFilename = basename(str_replace('\\', '/', $informasi->image));
+                                @endphp
+                                <img src="{{ asset('storage/post/' . $imageFilename) }}" alt="post-img">
                                 </div>
                             </div>
                             <div class="col-9 m-0 p-0 py-2 ps-3">
