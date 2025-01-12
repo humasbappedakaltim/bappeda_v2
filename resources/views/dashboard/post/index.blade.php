@@ -25,13 +25,14 @@
                         </select>
                     </div>
                     <div class="col-md-4 mb-2">
-                        <label class="mb-2" for="category">Status Postingan</label>
+                        <label class="mb-2" for="status">Status Postingan</label>
                         <select name="status" id="status" class="form-control">
-                            <option selected value="">Pilih Status Postingan</option>
+                            <option selected value="" disabled>Pilih Status Postingan</option>
                             <option value="0">Draf</option>
                             <option value="1">Publish</option>
                         </select>
                     </div>
+
                 </div>
                 <div class="table-responsive">
                     <table class="table table-stripped" id="news_post">
@@ -134,6 +135,7 @@
                     $('#news_post').DataTable().ajax.reload();
                 });
                 $('#status').on('change', function () {
+                    // console.log($('#status').val());
                     $('#news_post').DataTable().ajax.reload();
                 });
         });

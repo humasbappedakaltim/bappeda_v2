@@ -17,7 +17,7 @@
 
                                 <div class="col-auto">
                                     <div class="stat text-primary">
-                                        <i class="align-middle" data-feather="truck"></i>
+                                        <i class="align-middle bx bx-news"></i>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
 
                                 <div class="col-auto">
                                     <div class="stat text-primary">
-                                        <i class="align-middle" data-feather="users"></i>
+                                        <i class="align-middle bx bx-news"></i>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
 
                                 <div class="col-auto">
                                     <div class="stat text-primary">
-                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                        <i class="align-middle bx bx-info-circle"></i>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
 
                                 <div class="col-auto">
                                     <div class="stat text-primary">
-                                        <i class="align-middle" data-feather="shopping-cart"></i>
+                                        <i class="align-middle bx bx-hard-hat"></i>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
 
                                 <div class="col-auto">
                                     <div class="stat text-primary">
-                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                        <i class="align-middl bx bx-world"></i>
                                     </div>
                                 </div>
                             </div>

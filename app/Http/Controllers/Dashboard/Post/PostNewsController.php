@@ -34,14 +34,17 @@ class PostNewsController extends Controller implements HasMiddleware
     {
 
         $posts = PostNew::with('category', 'user');
-        // dd($posts);
+
         if ($request->category_id) {
             $posts = $posts->where('category_id', $request->category_id);
         }
 
-        if ($request->status) {
-            $posts = $posts->where('status', $request->status);
-        }
+           // Filter by status
+            if ($request->status !== null && $request->status !== '') {
+                $posts = $posts->where('status', $request->status);
+            }
+
+
 
 
         return DataTables::of($posts)
