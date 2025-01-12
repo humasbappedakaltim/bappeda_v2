@@ -50,10 +50,42 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
+    # Prevent access to sensitive files
+    RewriteRule ^\.env$ - [F,L]
+    RewriteRule ^composer\.json$ - [F,L]
+    RewriteRule ^composer\.lock$ - [F,L]
+
+    # Restrict access to specific file types
+    RewriteRule \.(git|svn|htaccess|htpasswd|ini|log|sh|sql|bak|old|swp|swx)$ - [F,L]
+
+    # Deny access to common attack patterns
+    RewriteCond %{QUERY_STRING} \.\./ [NC,OR]
+    RewriteCond %{QUERY_STRING} \.php [NC,OR]
+    RewriteCond %{QUERY_STRING} \%00 [NC,OR]
+    RewriteCond %{QUERY_STRING} \%2e%2e [NC,OR]
+    RewriteCond %{QUERY_STRING} (union|select|insert|drop|delete|update|cast|create|truncate|alter|replace) [NC]
+    RewriteRule .* - [F,L]
+
+    # Redirect Trailing Slashes If Not A Folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    # RewriteRule ^ %1 [L,R=301]
+    RewriteRule ^ %1 index.php [L]
+
+    # Redirect all 404 errors to Laravel
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+
 
     #RewriteCond %{HTTP_HOST} ^www.bappeda.kaltimprov.go.id [NC]
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
     RewriteRule ^(.*)$ https://bappeda.kaltimprov.go.id/$1 [L,R=301]
 
     #RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Permissions-Policy "geolocation=self"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
 </IfModule>
