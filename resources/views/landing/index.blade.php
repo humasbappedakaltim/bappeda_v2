@@ -104,7 +104,7 @@
                                                 <p class="description text-white">
                                                     {!! Str::substr(strip_tags($item->description), 0, 300) !!}
                                                 </p>
-                                                <a href="#" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
+                                                <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                                     baca selengkapnya
                                                     <i class="bi bi-box-arrow-up-right"></i>
                                                 </a>
