@@ -41,9 +41,9 @@
                     method="GET"
                     class="input-search position-relative">
                     @if ($searchRoute === 'berita.index')
-                        <input type="search" name="search" class="custom-form-control m-0 p-2 w-100" placeholder="Masukkan Keyword...">
+                        <input type="search" name="old_search" class="custom-form-control m-0 p-2 w-100" placeholder="Masukkan Keyword..." value="{{ old('search') }}">
                     @else
-                        <input type="search" name="search" class="custom-form-control m-0 p-2 w-100" placeholder="Keyword untuk {{ $title }}...">
+                        <input type="search" name="old_search" class="custom-form-control m-0 p-2 w-100" placeholder="Keyword untuk {{ $title }}..." value="{{ old('search') }}">
                     @endif
                     <i class="bi bi-search icon-search m-0 p-0"></i>
                 </form>

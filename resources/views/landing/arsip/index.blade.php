@@ -108,6 +108,8 @@
             url.searchParams.set('order', order);
             window.location.href = url.toString();
         });
+
+        
     </script>
 @endpush
 
