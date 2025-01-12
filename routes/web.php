@@ -11,6 +11,7 @@ use App\Http\Controllers\FrontEnd\PpidController;
 use App\Http\Controllers\Dashboard\MapsController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\DataCenterPpidController;
 use App\Http\Controllers\FrontEnd\AgendaController;
 use App\Http\Controllers\FrontEnd\BeritaController;
 use App\Http\Controllers\FrontEnd\SurveiController;
@@ -18,9 +19,10 @@ use App\Http\Controllers\Dashboard\BidangController;
 use App\Http\Controllers\FrontEnd\ArtikelController;
 use App\Http\Controllers\FrontEnd\LandingController;
 use App\Http\Controllers\Dashboard\PejabatController;
-use App\Http\Controllers\FrontEnd\SideDataController;
 
 // Dashboard
+use App\Http\Controllers\FrontEnd\SideDataController;
+use App\Http\Controllers\FrontEnd\ArsipPostController;
 use App\Http\Controllers\FrontEnd\InformasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SubBidangController;
@@ -34,10 +36,9 @@ use App\Http\Controllers\Dashboard\Post\CategoryPostController;
 use App\Http\Controllers\FrontEnd\KinerjaPembangunanController;
 use App\Http\Controllers\Dashboard\CategoryDataCenterController;
 use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
-use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
+use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
-use App\Http\Controllers\DataCenterPpidController;
 
 // Route::get('/', function () {
 //     return view('landing.index');
@@ -98,6 +99,7 @@ use App\Http\Controllers\DataCenterPpidController;
         Route::get('/kinerja-pembangunan-kaltim', [KinerjaPembangunanController::class, 'index'])->name('pembangunan_kaltim.index');
         Route::get('/kinerja-pembangunan-kaltim/{slug}/detail', [KinerjaPembangunanController::class, 'show'])->name('pembangunan_kaltim.show');
 
+        Route::get('/arsip/{tahun}', [ArsipPostController::class, 'index'])->name('arsip.show');
         // Route::get('/lainnya/{slug}/detail', [SideDataController::class, 'show'])->name('lainnya.show');
 
         Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');

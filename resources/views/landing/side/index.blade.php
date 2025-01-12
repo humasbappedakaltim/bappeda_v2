@@ -121,7 +121,7 @@
                 </div>
                 @forelse ($arsip as $item)
 
-                <a href="#" class="d-flex align-items-center justify-content-between text-decoration-none text-black fs-8 fw-light py-3 border-bottom">
+                <a href="{{ route('arsip.show', $item->year) }}" class="d-flex align-items-center justify-content-between text-decoration-none text-black fs-8 fw-light py-3 border-bottom">
                     <p class="m-0 p-0">Tahun {{ $item->year }} <span class="badge bg-primary rounded ml-3">{{ $item->total }} Postingan</span></p>
                     <i class="bi bi-chevron-right"></i>
                 </a>

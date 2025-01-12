@@ -22,7 +22,7 @@
     <div class="container over-top-container m-0 p-0">
         <div class="post-category-container border-bottom mb-4 pb-3">
             <!-- Swiper -->
-            <div class="swiper swiper-post-category" id="swiper-post-category">
+            {{-- <div class="swiper swiper-post-category" id="swiper-post-category">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide post-category-slide d-flex align-items-center justify-content-center p-0">
                         <a href="postingan-artikel.html" class="category text-decoration-none text-center text-grey fw-500 fs-9 m-0">
@@ -55,7 +55,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Swiper News Item End -->
         </div>
         <div class="row m-0 p-0">
