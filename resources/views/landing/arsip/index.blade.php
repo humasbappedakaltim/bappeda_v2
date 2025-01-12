@@ -59,7 +59,7 @@
                 $routeName = $routeMap[$categoryName] ?? 'berita.show';
                 $url = route($routeName, ['slug' => $post->slug]);
             @endphp
-            <div class="col-md-4 m-2 p-0 w-30">
+            <div class="col-md-4 m-2 p-0">
                 <a href="{{ $url }}" class="text-decoration-none text-black">
                     <div class="card border-0 shadow-sm mb-3 card-hover">
                         <div class="card-body">
