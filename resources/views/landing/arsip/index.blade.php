@@ -55,7 +55,7 @@
         <div class="row">
             @forelse ($postArsip as $post)
                 @php
-                    $categoryName = $post->category->name;
+                    $categoryName = $post->category->name ?? '';
                     $routeName = $routeMap[$categoryName] ?? 'berita.show';
                     $url = route($routeName, ['slug' => $post->slug]);
                 @endphp
@@ -67,7 +67,7 @@
                                 <h6 class="card-title">{{ Str::limit($post->title, 30) }}</h6>
                                 <p class="card-text"><i class="bi bi-calendar2-event"></i> {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}</p>
                                 <p><i class="bi bi-person"></i> {{ $post->user->name ?? 'Admin' }}</p>
-                                <p><i class="bi bi-tag"></i> {{ $post->category->name }}</p>
+                                <p><i class="bi bi-tag"></i> {{ $post->category->name  ?? ''}}</p>
                                 <p class="card-text">{!! Str::limit(strip_tags($post->description), 100) !!}</p>
 
                                 <div class="d-flex justify-content-center">
