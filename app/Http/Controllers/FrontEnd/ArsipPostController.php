@@ -8,9 +8,18 @@ use App\Http\Controllers\Controller;
 
 class ArsipPostController extends Controller
 {
-    public function index($tahun)
+    public function index(Request $request, $tahun)
     {
-        $postArsip = PostNew::where('status', '!=', 0)->whereYear('created_at', $tahun)->paginate(10);
+        $order = $request->get('order', 'asc');
+
+        $postArsip = PostNew::where('status', '!=', 0)
+            ->whereYear('created_at', $tahun)
+            ->orderBy('created_at', $order)
+            ->paginate(10);
+
+        if ($postArsip->isEmpty()) {
+            abort(404);
+        }
 
         return view('landing.arsip.index', compact('postArsip', 'tahun'));
     }
