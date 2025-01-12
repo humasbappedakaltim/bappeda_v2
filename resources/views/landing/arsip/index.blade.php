@@ -29,10 +29,10 @@
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
             <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">Arsip Postingan {{ $tahun }}</p>
+            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">Arsip Postingan Tahun {{ $tahun }}</p>
         </div>
         <div class="title-content">
-            <h4 class="title text-capitalize fw-bold mb-3">Arsip Postingan {{ $tahun }}</h4>
+            <h4 class="title text-capitalize fw-bold mb-3">Arsip Postingan Tahun {{ $tahun }}</h4>
         </div>
     </div>
 </section>
@@ -41,7 +41,7 @@
     <div class="container over-top-container m-0 p-0">
         <div class="row mb-4">
             <div class="col-md-6">
-                <h4 class="fw-bold">Postingan {{ $tahun }}</h4>
+                <h4 class="fw-bold">Postingan Tahun {{ $tahun }}</h4>
             </div>
             <div class="col-md-6 d-flex justify-content-end gap-1">
                 <label for="filter" class="align-self-center" style="font-size: 20px;">Filter Berdasarkan</label>
@@ -109,7 +109,7 @@
             window.location.href = url.toString();
         });
 
-        
+
     </script>
 @endpush
 
