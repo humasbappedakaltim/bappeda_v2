@@ -44,7 +44,7 @@
             <div class="col-md-6 align-self-center">
                 <h4 class="fw-bold">Postingan {{ $tahun }}</h4>
             </div>
-            <div class="col-md-6 d-flex justify-content-end gap-2">
+            <div class="col-md-6 d-flex justify-content-end gap-1">
                 <label for="filter" class="align-self-center" style="font-size: 20px;">Filter Berdasarkan</label>
                 <select name="filter" id="filter" class="form-control w-50">
                     <option value="oldest">Terlama</option>
@@ -59,7 +59,7 @@
                 $routeName = $routeMap[$categoryName] ?? 'berita.show';
                 $url = route($routeName, ['slug' => $post->slug]);
             @endphp
-            <div class="col-md-4 m-1">
+            <div class="col-md-3 m-1 ">
                 <a href="{{ $url }}" class="text-decoration-none text-black">
                     <div class="card border-0 shadow-sm mb-3 card-hover">
                         <div class="card-body">
