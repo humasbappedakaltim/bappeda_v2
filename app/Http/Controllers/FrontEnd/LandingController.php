@@ -33,13 +33,13 @@ class LandingController extends Controller
         // dd($informations);
         if ($news_category && $news_international && $information_category) {
             $news = PostNew::whereIn('category_id', [$news_category->id, $news_international->id])
-                           ->where('status', 'published')
+                           ->where('status', '!=', 0)
                            ->orderBy('created_at', 'desc')
                            ->limit(3)
                            ->get();
 
             $informations = PostNew::where('category_id', $information_category->id)
-                                   ->where('status', 'published')
+                                   ->where('status', '!=', 0)
                                    ->orderBy('created_at', 'desc')
                                    ->limit(5)
                                    ->get();
@@ -48,7 +48,7 @@ class LandingController extends Controller
             $informations = collect();
         }
 
-        
+
         $agendas = Agenda::orderBy('created_at', 'desc')->get();
         // views posts
         $posts_list_by_views = PostNew::orderBy('views', 'desc')->take(10)->get();
@@ -60,7 +60,7 @@ class LandingController extends Controller
         // maps / peta
         $maps = Maps::orderBy('name', 'asc')->limit(5)->get();
 
-        $news = PostNew::where('status', 'published')->orderBy('created_at', 'desc')->limit(10)->get();
+        $news = PostNew::where('status', '!=' , 0)->orderBy('created_at', 'desc')->limit(10)->get();
 
 
         return view('landing.index', compact('sliders','news','informations','apps','awards','maps','agendas','posts_list_by_views'));

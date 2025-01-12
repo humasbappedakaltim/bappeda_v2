@@ -90,7 +90,10 @@
                                     <div class="swiper-wrapper swiper-primary-wrapper">
                                         @forelse ($news as $item)
                                         <div class="swiper-slide swiper-primary-slide">
-                                            <img src="{{ asset('storage/post/'.$item->image)}}"/>
+                                            @php
+                                                $imageFilename = basename(str_replace('\\', '/', $item->image));
+                                            @endphp
+                                            <img src="{{ asset('storage/post/'. $imageFilename )}}"/>
                                             <div class="primary-slide-content pb-4">
                                                 <p class="title text-white fw-bold text-capitalize mb-2">
                                                     {{ $item->title }}
@@ -151,7 +154,7 @@
                                     @elseif($item->category->name == 'Infromasi')
                                     <li class="list-group-item"><a href="{{ route('informasi.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
                                     @elseif($item->category->name == 'Berita Nasional')
-                                    <li class="list-group-item"><a href="{{ route('berita-nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
+                                    <li class="list-group-item"><a href="{{ route('berita_nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
                                     @elseif($item->category->name == 'Kinerja Pembangunan Kaltim')
                                     <li class="list-group-item"><a href="{{ route('pembangunan_kaltim.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
                                     @endif
@@ -673,7 +676,7 @@
                 const slide = document.createElement('div');
                 slide.classList.add('swiper-slide', 'swiper-youtube-slide', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-center');
                 slide.innerHTML = `
-                    <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+                    <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank" style="text-decoration: none; list-style: none;">
                         <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" class="video-thumbnail">
                         <p class="title-content text-white text-justify">${video.snippet.title}</p>
                     </a>
