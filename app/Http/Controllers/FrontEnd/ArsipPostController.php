@@ -15,8 +15,8 @@ class ArsipPostController extends Controller
         $postArsip = PostNew::where('status', '!=', 0)
             ->whereYear('created_at', $tahun)
             ->orderBy('created_at', $order)
-            ->paginate(10);
-
+            ->get();
+            
         if ($postArsip->isEmpty()) {
             abort(404);
         }
