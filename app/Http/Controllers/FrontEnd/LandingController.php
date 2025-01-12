@@ -28,8 +28,8 @@ class LandingController extends Controller
         $information_category = PostCategory::where('name', 'Informasi')->first();
         $sliders = WelcomeSlider::where('active', 1)->orderBy('orders', 'asc')->get();
         // dd($sliders);
-        $news = PostNew::whereIn('category_id', [$news_category->id, $news_international->id])->where('status', 'published')->orderBy('created_at', 'desc')->limit(3)->get();
-        $informations = PostNew::where('category_id', $information_category->id)->where('status', 'published')->orderBy('created_at', 'desc')->limit(5)->get();
+        $news = PostNew::whereIn('category_id', [$news_category->id, $news_international->id])->where('status', '!=', 0)->orderBy('created_at', 'desc')->limit(3)->get();
+        $informations = PostNew::where('category_id', $information_category->id)->where('status', '!=', 0)->orderBy('created_at', 'desc')->limit(5)->get();
         // dd($informations);
         if ($news_category && $news_international && $information_category) {
             $news = PostNew::whereIn('category_id', [$news_category->id, $news_international->id])
@@ -60,7 +60,7 @@ class LandingController extends Controller
         // maps / peta
         $maps = Maps::orderBy('name', 'asc')->limit(5)->get();
 
-        $news = PostNew::where('status', '!=' , 0)->orderBy('created_at', 'desc')->limit(10)->get();
+        $news = PostNew::where('status', '!=' , 0)->orderBy('created_at', 'desc')->limit(4)->get();
 
 
         return view('landing.index', compact('sliders','news','informations','apps','awards','maps','agendas','posts_list_by_views'));
