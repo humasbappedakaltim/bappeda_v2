@@ -133,77 +133,86 @@
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('.select2').select2();
-            const toolbarOptions = [
-                ['bold', 'italic', 'underline', 'strike'],
-                ['blockquote', 'code-block'],
+   $(document).ready(function () {
+        $('.select2').select2();
 
-                [{
-                    'header': 1
-                }, {
-                    'header': 2
-                }], // custom button values
-                [{
-                    'list': 'ordered'
-                }, {
-                    'list': 'bullet'
-                }],
-                [{
-                    'script': 'sub'
-                }, {
-                    'script': 'super'
-                }], // superscript/subscript
-                [{
-                    'indent': '-1'
-                }, {
-                    'indent': '+1'
-                }], // outdent/indent
-                [{
-                    'direction': 'rtl'
-                }], // text direction
+        const toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],
+            [{ 'indent': '-1' }, { 'indent': '+1' }],
+            [{ 'direction': 'rtl' }],
+            [{ 'size': ['small', false, 'large', 'huge'] }],
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'font': [] }],
+            [{ 'align': [] }],
+            ['link', 'image', 'video'],
+            ['clean']
+        ];
 
-                [{
-                    'size': ['small', false, 'large', 'huge']
-                }], // custom dropdown
-                [{
-                    'header': [1, 2, 3, 4, 5, 6, false]
-                }],
-
-                [{
-                    'color': []
-                }, {
-                    'background': []
-                }],
-                [{
-                    'font': []
-                }],
-                [{
-                    'align': []
-                }],
-
-                ['link', 'image', 'video'],
-
-                ['formula'],
-                // attach media
-                ['image', 'video'],
-
-                ['clean']
-            ];
-
-            var quill = new Quill('#editor', {
-                modules: {
-                    toolbar: toolbarOptions
-                },
-                theme: 'snow'
-            });
-            quill.on('text-change', function (delta, oldDelta, source) {
-                $('#content-editor').text($('.ql-editor').html());
-                // take value media
-
-                // console.log($(".ql-editor").html());
-            });
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: {
+                    container: toolbarOptions,
+                    handlers: {
+                        image: function () {
+                            selectLocalImage();
+                        }
+                    }
+                }
+            },
+            theme: 'snow'
         });
+
+        quill.on('text-change', function (delta, oldDelta, source) {
+            $('#content-editor').text($('.ql-editor').html());
+        });
+
+        function selectLocalImage() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+
+            input.onchange = async () => {
+                const file = input.files[0];
+                if (file) {
+                    const formData = new FormData();
+                    formData.append('gambar_upload', file); // Sesuaikan dengan key di backend
+
+                    try {
+                        const response = await fetch('{{ route('dashboard.post.upload.image') }}', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            },
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                        if (data.status === 'success') {
+                            const range = quill.getSelection();
+                            quill.insertEmbed(range.index, 'image', data.url);
+                        } else {
+                            alert(data.message || 'Gagal mengunggah gambar');
+                        }
+                    } catch (error) {
+                        console.error('Error uploading image:', error);
+                        alert('Terjadi kesalahan saat mengunggah gambar.');
+                    }
+                }
+            };
+        }
+
+    });
+
     </script>
 
 

@@ -219,8 +219,35 @@ class PostNewsController extends Controller implements HasMiddleware
         if ($action) {
             return response()->json(['status' => 'success', 'message' => 'Postingan Berhasil Dihapus']);
         } else {
-            return response()-  z>json(['status' => 'error', 'message' => 'Postingan Gagal Dihapus']);
+            return response()->json(['status' => 'error', 'message' => 'Postingan Gagal Dihapus']);
+        }
+    }
+
+    public function uploadImage(Request $request)
+    {
+        if ($request->hasFile('gambar_upload')) {
+            $file = $request->file('gambar_upload');
+            $ext = $file->getClientOriginalExtension();
+
+            $upload_path = public_path('storage/post/');
+            $filename = 'Post_' . Str::slug(Str::random(6)) . '_' . date('YmdHis') . '.' . $ext;
+
+            $file->move($upload_path, $filename);
+
+            // Berikan URL file yang dapat digunakan
+            $fileUrl = url('storage/post/' . $filename);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Berhasil Mengupload Gambar',
+                'url' => $fileUrl,
+            ], 200);
         }
 
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Gagal mengunggah gambar',
+        ], 400);
     }
+
 }

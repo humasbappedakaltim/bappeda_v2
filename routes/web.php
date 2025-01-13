@@ -175,6 +175,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::group(['prefix' => 'post'], function () {
         Route::resource('category-post', CategoryPostController::class, ['names' => 'dashboard.post.category']);
         Route::resource('post-news', PostNewsController::class, ['names' => 'dashboard.post.news']);
+        Route::post('post-upload-image', [PostNewsController::class, 'uploadImage'])->name('dashboard.post.upload.image');
     });
 
 
