@@ -41,7 +41,7 @@ class DataCenterController extends Controller implements HasMiddleware
                 return $row->category->name ?? '-';
             })
             ->addColumn('file', function ($row) {
-                return '<a href="' . asset('storage/data-center/' . $row->file) . '" target="_blank">' . $row->file . '</a>';
+                return '<a href="' . asset('storage/file/data-center/' . $row->file) . '" target="_blank">' . $row->file . '</a>';
             })
             ->addColumn('action', function ($row) {
                 $actions = '';

@@ -41,7 +41,7 @@
     <h1>Document Viewer <br>{{ $data->name }}</h1>
     <div class="iframe-container">
         <iframe
-            src="{{ public_path('storage/file/data-center/' . $data->file) }}"
+            src="{{ asset('storage/file/data-center/' . $data->file) }}"
             title="Document Viewer">
         </iframe>
     </div>
