@@ -57,7 +57,7 @@
                 </ol>
                 <div class="pio-container position-relative d-flex justify-content-center my-5">
                     <div class="row g-5">
-                        <div class="col-4 offset-2">
+                        <div class="col-12 text-center">
                             <a href="{{ route('ppid.pio') }}" class="pio-card text-decoration-none d-flex flex-column p-3">
                                 <div class="pio-card-icon w-100 d-flex justify-content-center mb-3">
                                     <i class="bi bi-postcard text-white text-center fs-2 m-0 p-0"></i>
