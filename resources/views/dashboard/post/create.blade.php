@@ -2,10 +2,7 @@
     @section('title','Tambah Postingan')
     @push('css')
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.core.css" />
-
-
+        <link href="https://cdn.bootcdn.net/ajax/libs/quill/1.3.7/quill.snow.min.css" rel="stylesheet" />
     @endpush
     @section('content')
     <h1 class="h3 mb-3">
@@ -73,7 +70,7 @@
                                         <div class="col-md-12 mb-2">
                                             <label for="status" class="form-label">Status Publish</label>
                                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                                <option selected>Pilih Status</option>
+                                                <option selected disabled>Pilih Status</option>
                                                 <option value="0">Draf</option>
                                                 <option value="1">Publish</option>
 
@@ -132,12 +129,12 @@
 
     @push('js')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-    {{-- <script type="text/javascript" src="{{ asset('asset_dashboard/js/quil.js') }}"></script> --}}
-
+    <script defer src="https://cdn.bootcdn.net/ajax/libs/quill/1.3.7/quill.min.js"></script>
+    <script defer src="https://unpkg.com/quill-resize-image@1.0.5/dist/quill-resize-image.min.js"></script>
     <script>
         $(document).ready(function () {
                 $('.select2').select2();
+                Quill.register("modules/resize", window.QuillResizeImage);
 
 
                 const toolbarOptions = [
@@ -167,7 +164,9 @@
                                 }
                             }
                         },
-                        // ImageResize: {},
+                        resize: {
+                            locale: {},
+                        },
 
                     },
                     theme: 'snow'
