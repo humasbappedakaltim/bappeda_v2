@@ -17,6 +17,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "quill-image-resize": "^3.0.9",
+        "quill-image-resize-module": "^3.0.0",
         "wow.js": "^1.2.2"
     }
 }

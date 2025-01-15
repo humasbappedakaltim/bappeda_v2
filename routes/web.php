@@ -138,8 +138,8 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
             Route::get('visi-misi', [PpidController::class, 'visi_misi'])->name('ppid.visi_misi');
             Route::get('tata-cara', [PpidController::class, 'tata_cara'])->name('ppid.tata_cara');
 
-            Route::get('dasar-hukum',[PpidController::class, 'dasar_hukum'])->name('ppid.dasar_hukum');
-
+            Route::get('dasar-hukum/{category_infomation}',[DataCenterPpidController::class, 'dasar_hukum'])->name('ppid.dasar_hukum');
+            Route::get('dasar-hukum/show/{slug}', [DataCenterPpidController::class, 'dasar_hukum_show'])->name('ppid.dasar_hukum_show');
             // Route::get('maklumat', [DataCenterPpidController::class, 'maklumat'])->name('ppid.maklumat');
             // Route::get('prosedur-permohonan-informasi', [DataCenterPpidController::class, 'prosedur_permohonan_informasi'])->name('ppid.prosedur_permohonan_informasi');
             // Data PPID

@@ -13,4 +13,5 @@
             chevron.classList.add('rotate');
         }
     });
+    
 });

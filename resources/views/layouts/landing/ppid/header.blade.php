@@ -54,7 +54,7 @@
         <div class="container m-0 p-0">
             <div class="offcanvas-header m-0 p-0 custom-offcanvas-header">
                 <div class="logo d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand py-0" href="#"><img src="assets/images/ppid/logo-ppid-bappeda.png" alt=""></a>
+                    <a class="navbar-brand py-0" href="{{ route('ppid.index') }}"><img src="assets/images/ppid/logo-ppid-bappeda.png" alt=""></a>
                 </div>
                 <button type="button" class="custom-btn-close text-white d-inline-block d-lg-block d-xl-none d-xxl-none nav-toggler text-decoration-none mx-0 my-0 px-0 py-0"     data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="ti ti-x text-white mx-0 my-0 px-0 py-0"></i>
@@ -63,7 +63,7 @@
             <div class="offcanvas-body px-2" id="accordionExample">
                 <ul class="navbar-nav accordion">
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="index.html">Website Utama BAPPEDA</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.index') }}">Website Utama BAPPEDA</a>
                     </li>
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingTentangPpid">
@@ -74,28 +74,28 @@
                         <div id="collapseTentangPpid" class="accordion-collapse collapse mx-0 px-0" aria-labelledby="headingTentangPpid" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Profil</a>
+                                    <a href="{{ route('ppid.profil') }}" class="text-decoration-none text-white">Profil</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Struktur Organisasi</a>
+                                    <a href="{{ route('ppid.struktur') }}" class="text-decoration-none text-white">Struktur Organisasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Tugas dan Fungsi</a>
+                                    <a href="{{ route('ppid.tugas_fungsi') }}" class="text-decoration-none text-white">Tugas dan Fungsi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Visi dan Misi</a>
+                                    <a href="{{ route('ppid.visi_misi') }}" class="text-decoration-none text-white">Visi dan Misi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Dasar Hukum</a>
+                                    <a href="{{ route('ppid.dasar_hukum', 'Dasar Peraturan') }}" class="text-decoration-none text-white">Dasar Hukum</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Maklumat Pelayanan</a>
+                                    <a href="{{ route('ppid.maklumat_pelayanan') }}" class="text-decoration-none text-white">Maklumat Pelayanan</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
                                     <a href="#" class="text-decoration-none text-white">Standar Operasional Prosedur</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Tata Cara</a>
+                                    <a href="{{ route('ppid.tata_cara') }}" class="text-decoration-none text-white">Tata Cara</a>
                                 </li>
                             </ul>
                         </div>
@@ -109,19 +109,19 @@
                         <div id="collapseStandarLayanan" class="accordion-collapse collapse" aria-labelledby="headingStandarLayanan" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Maklumat Pelayanan</a>
+                                    <a href="{{ route('ppid.maklumat_pelayanan') }}" class="text-decoration-none text-white">Maklumat Pelayanan</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Prosedur Permohonan Informasi</a>
+                                    <a href="{{ route('ppid.category.show', 'prosedur permohonan informasi') }}" class="text-decoration-none text-white">Prosedur Permohonan Informasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Prosedur Pengajuan Keberatan</a>
+                                    <a href="{{ route('ppid.category.show', 'prosedur pengajuan keberatan') }}" class="text-decoration-none text-white">Prosedur Pengajuan Keberatan</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Prosedur Sengketa Informasi</a>
+                                    <a href="{{ route('ppid.category.show', 'prosedur sengketa informasi') }}" class="text-decoration-none text-white">Prosedur Sengketa Informasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="" class="text-decoration-none text-white">Jalur, Waktu dan Biaya Layanan</a>
+                                    <a href="{{ route('ppid.category.show', 'jalur jalan dan biaya layanan') }}" class="text-decoration-none text-white">Jalur, Waktu dan Biaya Layanan</a>
                                 </li>
                             </ul>
                         </div>
@@ -135,16 +135,16 @@
                         <div id="collapseLaporan" class="accordion-collapse collapse" aria-labelledby="headingLaporan" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Laporan Akses Informasi Publik</a>
+                                    <a href="{{ route('ppid.category.show', 'laporan akses informasi publik') }}" class="text-decoration-none text-white">Laporan Akses Informasi Publik</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Laporan Layanan Informasi Publik</a>
+                                    <a href="{{ route('ppid.category.show', 'laporan layanan informasi publik') }}" class="text-decoration-none text-white">Laporan Layanan Informasi Publik</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Laporan Survei Layanan Informasi</a>
+                                    <a href="{{ route('ppid.category.show', 'laporan survei layanan informasi') }}" class="text-decoration-none text-white">Laporan Survei Layanan Informasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Laporan Realisasi Anggaran</a>
+                                    <a href="{{ route('ppid.category.show', 'laporan realisasi anggaran') }}" class="text-decoration-none text-white">Laporan Realisasi Anggaran</a>
                                 </li>
                             </ul>
                         </div>
@@ -205,7 +205,7 @@
                     <p class="fw-bold py-0 my-2 fs-7">Visi dan Misi</p>
                     <p class="fs-9 py-0 my-0">Pelajari visi dan misi PPID Kaltim yang mendukung keterbukaan informasi publik.</p>
                 </a>
-                <a href="profil-asn-bappeda.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.dasar_hukum', 'Dasar Peraturan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Dasar Hukum</p>
                     <p class="fs-9 py-0 my-0">Baca lebih lanjut tentang dasar hukum yang memperkuat peran PPID di Provinsi Kaltim.</p>
                 </a>

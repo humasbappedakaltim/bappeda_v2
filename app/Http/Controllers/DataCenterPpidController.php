@@ -23,6 +23,32 @@ class DataCenterPpidController extends Controller
         return view('landing.ppid.data', compact('categorys', 'name'));
     }
 
+    public function dasar_hukum($category_infomation)
+    {
+
+        $categroy = CategoryDataCenter::where('name', $category_infomation)->first();
+
+        $dataCenter = DataCenter::where('category_data_center_id', $categroy->id)->paginate(10);
+
+        if($dataCenter == null){
+            abort(404);
+        }
+
+        return view('landing.ppid.dasar_hukum', compact('dataCenter'));
+    }
+
+    public function dasar_hukum_show($slug)
+    {
+        $data = DataCenter::where('slug', $slug)->first();
+
+        if($data == null){
+            abort(404);
+        }
+
+
+        return view('landing.ppid.dasar_hukum_show', compact('data'));
+    }
+
     public function show($slug)
     {
         // $category = CategoryDataCenter::where('slug', $slug)->first();
