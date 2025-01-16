@@ -294,23 +294,23 @@
                     <p class="fw-bold py-0 my-2 fs-7">Daftar Informasi Publik</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'info berkala') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Info Berkala</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'info serta merta') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Info Serta Merta</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('ppid.category.show', 'info tersedia saat ini') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Info Tersedia Setiap Saat</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('berita.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Berita Bappeda</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>
-                <a href="#" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                <a href="{{ route('berita_nasional.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">Berita Nasional</p>
                     <p class="fs-9 py-0 my-0"></p>
                 </a>

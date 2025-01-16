@@ -138,19 +138,19 @@
                         <div id="collapseAgenda" class="accordion-collapse collapse" aria-labelledby="headingAgenda" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="agenda-umum.html" class="text-decoration-none text-white">Umum</a>
+                                    <a href="{{ route('agenda.umum') }}" class="text-decoration-none text-white">Umum</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="agenda-p2epd.html" class="text-decoration-none text-white">Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
+                                    <a href="{{ route('agenda.perencanaan') }}" class="text-decoration-none text-white">Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="agenda-ppm.html" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
+                                    <a href="{{ route('agenda.pemerintahan') }}" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="agenda-psda.html" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
+                                    <a href="{{ route('agenda.perekonomian') }}" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="agenda-infraswil.html" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
+                                    <a href="{{ route('agenda.infrastruktur') }}" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
                                 </li>
                             </ul>
                         </div>
@@ -164,60 +164,31 @@
                         <div id="collapsePostingan" class="accordion-collapse collapse" aria-labelledby="headingPostingan" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-artikel.html" class="text-decoration-none text-white">Artikel</a>
+                                    <a href="{{ route('artikel.index') }}" class="text-decoration-none text-white">Artikel</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-berita.html" class="text-decoration-none text-white">Berita Bappeda</a>
+                                    <a href="{{ route('berita.index') }}" class="text-decoration-none text-white">Berita Bappeda</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-informasi.html" class="text-decoration-none text-white">Informasi</a>
+                                    <a href="{{ route('informasi.index') }}" class="text-decoration-none text-white">Informasi</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-kpk.html" class="text-decoration-none text-white">Kinerja Pembangunan Kaltim</a>
+                                    <a href="{{ route('pembangunan_kaltim.index') }}" class="text-decoration-none text-white">Kinerja Pembangunan Kaltim</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-berita-nasional.html" class="text-decoration-none text-white">Berita Nasional</a>
+                                    <a href="{{ route('berita_nasional.index') }}" class="text-decoration-none text-white">Berita Nasional</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="postingan-social-media.html" class="text-decoration-none text-white">Social Media</a>
+                                    <a href="#" class="text-decoration-none text-white">Social Media</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <!-- <li class="nav-item accordion my-1 py-2">
-                        <h2 class="accordion-header" id="headingDataCenter">
-                            <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDataCenter" aria-expanded="false" aria-controls="collapseDataCenter">
-                                Data Center
-                            </button>
-                        </h2>
-                        <div id="collapseDataCenter" class="accordion-collapse collapse" aria-labelledby="headingDataCenter" data-bs-parent="#accordionExample">
-                            <ul class="accordion-body nav-item-list">
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-perencanaan.html" class="text-decoration-none text-white">Perencanaan</a>
-                                </li>
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-pengendalian-evaluasi.html" class="text-decoration-none text-white">Pengendalian dan Evaluasi</a>
-                                </li>
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-kumpulan-paparan.html" class="text-decoration-none text-white">Kump ulan Paparan</a>
-                                </li>
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-data-lainnya.html" class="text-decoration-none text-white">Data Lainnya</a>
-                                </li>
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-peta.html" class="text-decoration-none text-white">Peta</a>
-                                </li>
-                                <li class="list-unstyled py-3 fs-7">
-                                    <a href="dc-penghargaan.html" class="text-decoration-none text-white">Penghargaan</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> -->
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="data-center.html">Data Center</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('data-center.index') }}">Data Center</a>
                     </li>
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="ruang-publik.html">Ruang Publik</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.ruang_publik') }}">Ruang Publik</a>
                     </li>
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingSurvei">
@@ -234,7 +205,7 @@
                         </div>
                     </li>
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="ppid.html">PPID</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('ppid.index') }}">PPID</a>
                     </li>
                 </ul>
             </div>
@@ -368,42 +339,6 @@
         </div>
     </div>
 </div>
-<!-- POSTINGAN DROPDOWN END -->
-<!-- DATA CENTER DROPDOWN -->
-<!-- <div class="collapse position-fixed w-100 custom-dropdown" id="data-center-dropdown">
-    <div class="card card-body py-4 custom-body-dropdown">
-        <div class="container col-12">
-            <h3 class="text-capitalize">data center</h3>
-            <div class="row mt-1">
-                <a href="dc-perencanaan.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Perencanaan</p>
-                    <p class="fs-9 py-0 my-0">Jelajahi data perencanaan Bappeda untuk mendukung pengembangan daerah yang lebih baik</p>
-                </a>
-                <a href="dc-pengendalian-evaluasi.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Pengendalian dan Evaluasi</p>
-                    <p class="fs-9 py-0 my-0">Akses informasi terkini tentang pengendalian dan evaluasi untuk mendukung keputusan strategis</p>
-                </a>
-                <a href="dc-kumpulan-paparan.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Kumpulan Paparan</p>
-                    <p class="fs-9 py-0 my-0">Temukan kumpulan data dan paparan untuk memperdalam pemahaman Anda tentang isu-isu terkini</p>
-                </a>
-                <a href="dc-data-lainnya.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Data Lainnya</p>
-                    <p class="fs-9 py-0 my-0">Dapatkan insight mendalam dari kumpulan data Bappeda yang bermanfaat dan informatif</p>
-                </a>
-                <a href="dc-peta.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Peta</p>
-                    <p class="fs-9 py-0 my-0">Akses peta yang detail untuk membantu Anda dalam perencanaan dan evaluasi program</p>
-                </a>
-                <a href="dc-penghargaan.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Penghargaan</p>
-                    <p class="fs-9 py-0 my-0">Lihat daftar penghargaan Bappeda untuk merayakan keberhasilan dalam pengembangan wilayah Kaltim</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- DATA CENTER DROPDOWN END -->
 <!-- SURVEI DROPDOWN -->
 <div class="collapse position-fixed w-100 custom-dropdown" id="survei-dropdown">
     <div class="card card-body py-4 custom-body-dropdown">
