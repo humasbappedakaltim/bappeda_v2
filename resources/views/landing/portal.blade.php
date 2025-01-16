@@ -61,9 +61,19 @@
                             smart-spj
                         </p>
                     </a>
+                    <a href="{{ url('https://evdoren.kaltimprov.go.id') }}" class="col-6 col-md-4 list-menu text-decoration-none">
+                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                            evdoren
+                        </p>
+                    </a>
+                    <a href="{{ url('https://www.lapor.go.id') }}" class="col-6 col-md-4 list-menu text-decoration-none">
+                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                            sp4n lapor
+                        </p>
+                    </a>
                     <a href="{{ route('landing.survei') }}" class="col-6 col-md-4 list-menu text-decoration-none">
                         <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
-                            Survei Kepuasan Masyarakat
+                            survei kepuasan masyarakat
                         </p>
                     </a>
                 </div>

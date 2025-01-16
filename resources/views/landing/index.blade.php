@@ -276,6 +276,16 @@
                         <div class="m-0 p-0">
                             <div class="row">
                                 <div class="col-12 order-2 order-lg-1">
+                                    <div class="col-12 order-1 order-lg-2">
+                                        <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
+                                            <p class="text-title text-capitalize my-0 py-0">peta</p>
+                                            <hr class="hr-title-black flex-grow-1 mx-3">
+                                            <a href="{{ route('landing.peta') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
+                                                lihat semua peta
+                                                <i class="bi bi-box-arrow-up-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                     <!-- Swiper Maps -->
                                     <div class="swiper swiper-maps swiper-award-maps swiper-primary-hover mb-3">
                                         <div class="swiper-wrapper swiper-primary-wrapper">
@@ -306,16 +316,6 @@
                                         </div>
                                     </div>
                                     <!-- Swiper News End -->
-                                </div>
-                                <div class="col-12 order-1 order-lg-2">
-                                    <div class="title-content title-section d-flex align-items-center justify-content-between">
-                                        <p class="text-title text-capitalize my-0 py-0">peta</p>
-                                        <hr class="hr-title-black flex-grow-1 mx-3">
-                                        <a href="{{ route('landing.peta') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
-                                            lihat semua peta
-                                            <i class="bi bi-box-arrow-up-right"></i>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -404,7 +404,6 @@
                     <hr class="hr-title-black flex-grow-1 mx-3">
                 </div>
                 <div class="maps-content ">
-                    <!-- sementara pakai img nanti pakai API -->
                     <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d484.5116310768901!2d117.15023381229987!3d-0.4917341374364053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f9e3a5b4857%3A0x1095dd7216e92f7e!2sBappeda%20Kaltim!5e0!3m2!1sen!2sid!4v1699926426178!5m2!1sen!2sid"
                     width="1240"
@@ -423,10 +422,20 @@
 <!---------- Maps End -------------->
 <!---------------------------------->
 
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
+
+<!---------------------------------->
+<!---------- Instagram ------------->
+<!---------------------------------->
+<div class="container custom-container mb-5">
+    <iframe src='https://widgets.sociablekit.com/instagram-feed/iframe/25510593' frameborder='0' width='100%' height='700'></iframe>
+</div>
+{{-- <script src="https://static.elfsight.com/platform/platform.js" async></script>
 <div class="container custom-container">
     <div class="elfsight-app-217a6d6a-9059-4d8e-8ffa-d566a5d0bdbd" data-elfsight-app-lazy></div>
-</div>
+</div> --}}
+<!---------------------------------->
+<!-------- Instagram End ----------->
+<!---------------------------------->
 
 <!---------------------------------->
 <!----------- Youtube -------------->
@@ -575,7 +584,7 @@
                         const agendaEl = document.createElement('div');
                         agendaEl.classList.add('agenda-content');
                         agendaEl.innerHTML = `
-                            <p class="title">${agenda.schedule}</p>
+                            <p class="title">${agenda.caption}</p>
                             <p class="location">${agenda.location}</p>
                             <div class="bottom-content d-flex align-items-end justify-content-between">
                                 <p class="time">${agenda.times}</p>

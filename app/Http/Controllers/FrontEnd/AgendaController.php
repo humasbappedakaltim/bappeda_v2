@@ -21,7 +21,7 @@ class AgendaController extends Controller
 
         $agendas = Agenda::where('dihadiri', 'like', '%' . $lastSegment . '%')
                         ->whereDate('schedule', '=', Carbon::today())
-                        ->orderBy('schedule', 'desc')->get();
+                        ->get();
 
         // $bidang = Bidang::where('name', 'Kepala')->first();
         // dd($lastSegment);
