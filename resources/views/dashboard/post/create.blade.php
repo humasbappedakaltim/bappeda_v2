@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="col-md-12 mt-2">
                                             <h6 class="text-center">Preview Gambar</h6>
-                                            <img src=""
+                                            <img
                                                  id="output"
                                                  class="img-preview img-fluid mb-3"
                                                  style="border-radius: 10px; max-width: 100%; height: auto; display: none;">
@@ -148,7 +148,7 @@
             const file = event.target.files[0];
 
             if (file) {
-                output.src = URL.createObjectURL(file); // Buat URL dari file yang dipilih
+                output.src = URL.createObjectURL(file);
                 output.style.display = 'block'; // Tampilkan gambar
             } else {
                 output.src = ''; // Hapus src jika tidak ada file
