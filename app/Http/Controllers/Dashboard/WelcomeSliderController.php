@@ -93,7 +93,6 @@ class WelcomeSliderController extends Controller
         $request->validate([
             'title' => 'required',
             'expired_date' => 'required',
-            'link' => 'required',
             'orders' => 'required',
             'active' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
