@@ -33,7 +33,7 @@ class SecureHeadersMiddleware
               $response->headers->set('Content-Security-Policy', "style-src 'self' 'unsafe-inline' unpkg.com cdn.datatables.net cdn.jsdelivr.net cdnjs.cloudflare.com cdn.quilljs.com code.jquery.com fonts.googleapis.com https://use.fontawesome.com/releases/v5.15.4/css/all.css https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js https://fonts.gstatic.com/s/dmsans/v15/rP2Fp2ywxg089UriCZa4ET-DNl0.woff2 https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/fonts/bootstrap-icons.woff2 https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://googleads.g.doubleclick.net/pagead/id fonts.bunny.net https://http-bappeda-kaltimprov-go-id.disqus.com/embed.js https://cdn.jsdelivr.net https://cdn.bootcdn.net https://bappeda.kaltimprov.go.id;");
               // img-src unsafe-eval
 
-              $response->headers->set('Content-Security-Policy', "img-src 'self' https: data: blob:;");
+              $response->headers->set('Content-Security-Policy', "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:;");
 
 
         return $response;
