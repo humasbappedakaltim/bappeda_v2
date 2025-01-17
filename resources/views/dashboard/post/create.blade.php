@@ -83,16 +83,26 @@
                                     <div class="row mb-3">
                                         <div class="col-md-12">
                                             <label for="image" class="form-label">Gambar</label>
-                                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                            <input type="file"
+                                                   class="form-control @error('image') is-invalid @enderror"
+                                                   id="image"
+                                                   name="image"
+                                                   accept="image/*"
+                                                   onchange="previewImage(event)">
                                             @error('image')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-md-12 mt-2">
                                             <h6 class="text-center">Preview Gambar</h6>
-                                            <img src="" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                            <img src=""
+                                                 id="output"
+                                                 class="img-preview img-fluid mb-3"
+                                                 style="border-radius: 10px; max-width: 100%; height: auto; display: none;">
                                         </div>
                                     </div>
+
+
                                     <div class="row mb-5">
                                         <div class="col-md-12 mb-4">
                                             <label for="description" class="form-label">Deskripsi</label>
@@ -132,8 +142,23 @@
     <script defer src="https://cdn.bootcdn.net/ajax/libs/quill/1.3.7/quill.min.js"></script>
     <script defer src="https://unpkg.com/quill-resize-image@1.0.5/dist/quill-resize-image.min.js"></script>
     <script>
+
+         function previewImage(event) {
+            const output = document.getElementById('output');
+            const file = event.target.files[0];
+
+            if (file) {
+                output.src = URL.createObjectURL(file); // Buat URL dari file yang dipilih
+                output.style.display = 'block'; // Tampilkan gambar
+            } else {
+                output.src = ''; // Hapus src jika tidak ada file
+                output.style.display = 'none'; // Sembunyikan gambar
+            }
+        }
+
         $(document).ready(function () {
                 $('.select2').select2();
+
                 Quill.register("modules/resize", window.QuillResizeImage);
 
 
