@@ -121,7 +121,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/quill/1.3.7/quill.min.js"></script>
     <script defer src="https://unpkg.com/quill-resize-image@1.0.5/dist/quill-resize-image.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
                 $('.select2').select2();
                 Quill.register("modules/resize", window.QuillResizeImage);
