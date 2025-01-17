@@ -13171,7 +13171,8 @@ fieldset:disabled .btn {
   font-size: 14px;
   padding-bottom: 5px;
   margin-right: 10px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  
   text-overflow: ellipsis;
   overflow: hidden;
 }
