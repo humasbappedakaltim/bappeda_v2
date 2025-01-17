@@ -225,7 +225,7 @@ class PostNewsController extends Controller implements HasMiddleware
 
     public function uploadImage(Request $request)
     {
-        if ($request->gambar_upload) {
+        if ($request->hasFile('gambar_upload')) {
             $file = $request->file('gambar_upload');
             $ext = $file->getClientOriginalExtension();
 

@@ -63,10 +63,3 @@
     Header set Permissions-Policy "geolocation=self"
     Header set Referrer-Policy "no-referrer-when-downgrade"
 </IfModule>
-# Increase PHP upload limits for PHP 8.3
-<IfModule mod_php8.c>
-    php_value upload_max_filesize 10M
-    php_value post_max_size 10M
-    php_value max_input_vars 3000
-    php_value memory_limit 256M
-</IfModule>
