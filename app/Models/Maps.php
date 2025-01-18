@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Maps extends Model
 {
-    use HasSlug;
+    use HasSlug, HasUuids;
 
     protected $table = 'maps';
 

@@ -15,6 +15,26 @@
 
 <script>
 
+
+    function previewImage(event) {
+        const output = document.getElementById('output');
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                output.src = e.target.result; // Set the Base64 encoded image data
+                output.style.display = 'block'; // Display the image
+            };
+
+            reader.readAsDataURL(file); // Read the file as a Data URL
+        } else {
+            output.src = ''; // Clear src if no file
+            output.style.display = 'none'; // Hide the image
+        }
+    }
+
     function reloadTable(id){
         let table = $(id).DataTable();
         table.cleanData;

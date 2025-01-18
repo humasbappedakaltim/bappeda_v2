@@ -24,7 +24,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="name" class="form-label">Kategori Data Center</label>
+                                        <label for="category_data_center_id" class="form-label">Kategori Data Center</label>
                                         <select name="category_data_center_id" id="category_data_center_id" class="form-control">
                                             <option value="">Pilih Kategori Data Center</option>
                                             @foreach ($categorys as $category)
@@ -71,14 +71,22 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="file_cover" class="form-label">Cover</label>
-                                        <input type="file" class="form-control @error('file_cover') is-invalid @enderror" id="file_cover" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" name="file_cover" value="{{ old('file_cover') }}" >
+                                        <input type="file"
+                                                class="form-control @error('file_cover') is-invalid @enderror"
+                                                id="image"
+                                                name="file_cover"
+                                                accept="image/*"
+                                                onchange="previewImage(event)">
                                         @error('file_cover')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mt-2 text-center">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ asset('storage/data-center/cover/' . $dataCenter->cover) }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="{{ asset('storage/data-center/cover/' . $dataCenter->cover) }}"
+                                             id="output"
+                                             class="img-preview img-fluid mb-3"
+                                             style="border-radius: 10px; max-width: 100%; height: auto;">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

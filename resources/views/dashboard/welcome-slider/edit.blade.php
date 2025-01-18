@@ -63,17 +63,26 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="image" class="form-label">Gambar</label>
-                                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                        <input type="file"
+                                               class="form-control @error('image') is-invalid @enderror"
+                                               id="image"
+                                               name="image"
+                                               accept="image/*"
+                                               onchange="previewImage(event)">
                                         @error('image')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 mt-2">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ asset('storage/slider/' . $slider->image) }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="{{ asset('storage/slider/' . $slider->image) }}"
+                                             id="output"
+                                             class="img-preview img-fluid mb-3"
+                                             style="border-radius: 10px; max-width: 100%; height: auto;">
                                     </div>
 
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <a href="{{ route('dashboard.sliders.index') }}" class="btn btn-danger">Kembali</a>

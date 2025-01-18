@@ -58,19 +58,29 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+
+                                <div class="mb-3">
                                     <div class="col-md-12">
-                                        <label for="foto" class="form-label">Gambar</label>
-                                        <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                                        @error('foto')
+                                        <label for="image" class="form-label">Gambar</label>
+                                        <input type="file"
+                                               class="form-control @error('foto') is-invalid @enderror"
+                                               id="image"
+                                               name="foto"
+                                               accept="image/*"
+                                               onchange="previewImage(event)">
+                                        @error('file')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-12 mt-2 text-center">
+                                    <div class="col-md-12 mt-2">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src=""
+                                             id="output"
+                                             class="img-preview img-fluid mb-3"
+                                             style="border-radius: 10px; max-width: 100%; height: auto;">
                                     </div>
                                 </div>
+                                
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="orders" class="form-label">Posisi</label>
