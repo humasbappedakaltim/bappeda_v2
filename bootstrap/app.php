@@ -27,7 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'role' => RoleMiddleware::class,
             'permission' => PermissionMiddleware::class,
             // 'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
-            // 'setlocale' => \App\Http\Middleware\SetLocale::class,
+            'setlocale' => \App\Http\Middleware\SetLocale::class,
         ]);
 
     })

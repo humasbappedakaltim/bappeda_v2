@@ -45,11 +45,13 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
 // });
 
 
-// Route::middleware(['setlocale'])->group(function () {
+Route::middleware(['setlocale'])->group(function () {
 
     Route::get('/', function () {
         return view('landing.portal');
     });
+
+
 
     Route::get('/survei-kepuasan-masyarakat', [SurveiController::class, 'index'])->name('landing.survei');
     Route::get('/survei/berhasil', [SurveiController::class, 'success'])->name('landing.survei.success');
@@ -147,7 +149,7 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
             Route::get('category/download/{slug}', [DataCenterPpidController::class, 'download'])->name('ppid.category.download');
         });
     });
-// });
+});
 
 
 // front-end

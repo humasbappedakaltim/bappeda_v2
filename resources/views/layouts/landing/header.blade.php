@@ -1,3 +1,35 @@
+
+@push('front_css')
+    <style type="text/css">
+        /* Smaller button with padding adjustments */
+        .dropdown-toggle {
+            padding: 5px !important;
+            font-size: 12px;
+        }
+
+        /* Ensure the dropdown image is smaller */
+        .dropdown-item img {
+            width: 25px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Adjust the size of the dropdown menu */
+        .dropdown-menu {
+            padding: 0;
+            font-size: 12px;
+            left: 0 !important;   /* Force the menu to be aligned to the left */
+            right: auto !important; /* Remove any right-alignment */
+            text-align: left; /* Ensure text inside the menu is left-aligned */
+        }
+
+        /* Add a bit of space between text and image */
+        .dropdown-item {
+            padding: 5px 10px;
+        }
+
+    </style>
+@endpush
 <header class="main-header position-fixed d-flex align-items-center justify-content-between px-xl-5 px-3 mx-0 w-100" id="main-header">
     <div class="container d-flex justify-content-between px-0">
         <nav class="navbar navbar-expand-xl py-0 d-flex justify-content-between w-100">
@@ -55,8 +87,25 @@
                     <li class="nav-item align-items-center mx-1">
                         <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-uppercase" href="{{ route('ppid.index') }}">ppid</a>
                     </li>
+
                     <li class="nav-item align-items-center mx-1">
-                        <img src="{{ asset('assets/images/indonesia-round-icon.png')}}" alt="" class="nav-link px-2 py-2" style="width: 35px;">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle btn-sm" type="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
+                                <img src="{{ asset('assets/images/indonesia-round-icon.png') }}" alt="Selected Language" style="width: 20px;">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="localeDropdown" style="left: -80px !important; padding: 10px;">
+                                <li>
+                                    <a class="dropdown-item" href="javascript:void(0)">
+                                        <img src="{{ asset('assets/images/indonesia-round-icon.png') }}" alt="Indonesia" style="width: 25px;"> Indonesia
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="javascript:void(0)">
+                                        <img src="{{ asset('assets/images/english.png') }}" style="width: 25px;"> English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -357,4 +406,3 @@
 <!------------------------------>
 <!-------- Header End  --------->
 <!------------------------------>
-

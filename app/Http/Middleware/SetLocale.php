@@ -9,10 +9,17 @@ class SetLocale
 {
     public function handle(Request $request, Closure $next)
     {
-        $locale = $request->get('lang', 'id');
+        // Retrieve the 'lang' query parameter or use the session value as fallback
+        $locale = $request->get('lang', session('locale', 'id'));
+        $supportedLocales = ['en', 'id'];
 
-        setlocale(LC_TIME, $locale); // Set bahasa untuk LC_TIME
-        app()->setLocale($locale);
+        if (in_array($locale, $supportedLocales)) {
+            // Save the locale to the session
+            session()->put('locale', $locale);
+
+            // Set the application's locale
+            app()->setLocale($locale);
+        }
 
         return $next($request);
     }

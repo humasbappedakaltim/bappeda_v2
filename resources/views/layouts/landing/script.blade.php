@@ -12,4 +12,5 @@
 <script src="{{ asset('assets/js/main-header-primary.js')}}"></script>
 <script src="{{ asset('assets/js/cursor/cursor.js')}}"></script>
 
+
 @stack('front_js')
