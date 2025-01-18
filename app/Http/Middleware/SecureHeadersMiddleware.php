@@ -27,14 +27,12 @@ class SecureHeadersMiddleware
         $response->headers->set('X-Frame-Options', 'DENY');
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 
-        // Combine CSP directives into a single header
-        $csp = "default-src 'self'; "
-             . "style-src 'self' 'unsafe-inline' unpkg.com cdn.datatables.net cdn.jsdelivr.net cdnjs.cloudflare.com cdn.quilljs.com code.jquery.com fonts.googleapis.com https://use.fontawesome.com/releases/v5.15.4/css/all.css https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js https://fonts.gstatic.com/s/dmsans/v15/rP2Fp2ywxg089UriCZa4ET-DNl0.woff2 https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/fonts/bootstrap-icons.woff2 https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://googleads.g.doubleclick.net/pagead/id fonts.bunny.net https://http-bappeda-kaltimprov-go-id.disqus.com/embed.js https://cdn.jsdelivr.net https://cdn.bootcdn.net https://bappeda.kaltimprov.go.id; "
-             . "script-src 'self' 'unsafe-eval' unpkg.com cdn.datatables.net https://googleads.g.doubleclick.net/pagead/id; "
-             . "img-src 'self' data: blob: unpkg.com cdn.datatables.net https://googleads.g.doubleclick.net/pagead/id https://bappeda.kaltimprov.go.id;";
-
-        $response->headers->set('Content-Security-Policy', $csp);
-
+        // Set Content-Security-Policy
+        $response->headers->set('Content-Security-Policy', "default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-eval'; img-src 'self' blob:; frame-src 'self'; font-src 'self';");
+        $response->headers->set('Content-Security-Policy', "default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-eval'; img-src 'self' blob: data:; frame-src 'self'; font-src 'self';");
+        $response->headers->set('Content-Security-Policy', "style-src 'self' unpkg.com cdn.datatables.net https://googleads.g.doubleclick.net/pagead/id;");
+        $response->headers->set('Content-Security-Policy', "style-src 'self' 'unsafe-inline' unpkg.com cdn.datatables.net cdn.jsdelivr.net cdnjs.cloudflare.com cdn.quilljs.com code.jquery.com fonts.googleapis.com https://use.fontawesome.com/releases/v5.15.4/css/all.css https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js https://fonts.gstatic.com/s/dmsans/v15/rP2Fp2ywxg089UriCZa4ET-DNl0.woff2 https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/fonts/bootstrap-icons.woff2 https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js https://googleads.g.doubleclick.net/pagead/id fonts.bunny.net https://http-bappeda-kaltimprov-go-id.disqus.com/embed.js https://cdn.jsdelivr.net https://cdn.bootcdn.net https://bappeda.kaltimprov.go.id;");
+        
         return $response;
     }
 
