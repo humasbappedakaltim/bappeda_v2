@@ -143,18 +143,25 @@
     <script defer src="https://unpkg.com/quill-resize-image@1.0.5/dist/quill-resize-image.min.js"></script>
     <script type="text/javascript">
 
-         function previewImage(event) {
+        function previewImage(event) {
             const output = document.getElementById('output');
             const file = event.target.files[0];
 
             if (file) {
-                output.src = URL.createObjectURL(file); // Buat URL dari file yang dipilih
-                output.style.display = 'block'; // Tampilkan gambar
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    output.src = e.target.result; // Set the Base64 encoded image data
+                    output.style.display = 'block'; // Display the image
+                };
+
+                reader.readAsDataURL(file); // Read the file as a Data URL
             } else {
-                output.src = ''; // Hapus src jika tidak ada file
-                output.style.display = 'none'; // Sembunyikan gambar
+                output.src = ''; // Clear src if no file
+                output.style.display = 'none'; // Hide the image
             }
         }
+
 
         $(document).ready(function () {
                 $('.select2').select2();
