@@ -42,50 +42,50 @@
             <div class="collapse navbar-collapse float-end px-0 mx-0" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item align-items-center mx-1 {{ Route::is('landing.index') ? 'active' : '' }}">
-                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" aria-current="page" href="{{ route('landing.index') }}">beranda</a>
+                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" aria-current="page" href="{{ route('landing.index') }}">{{ translate("Beranda") }}</a>
                     </li>
                     <li class="nav-item align-items-center mx-1" id="profil-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center d-flex align-items-center justify-content-center gap-1 px-2 py-2 text-reset text-capitalize" href="#profil-dropdown"  data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            profil
+                            {{ translate("Profil") }}
                             <i class="bi bi-chevron-down icon-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1" id="unit-kerja-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center d-flex align-items-center justify-content-center gap-1 px-2 py-2 text-reset text-capitalize" href="#unit-kerja-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            unit kerja
+                            {{ translate("Unit Kerja") }}
                             <i class="bi bi-chevron-down icon-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1" id="agenda-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center d-flex align-items-center justify-content-center gap-1 px-2 py-2 text-reset text-capitalize" href="#agenda-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            agenda
+                            {{ translate("Agenda") }}
                             <i class="bi bi-chevron-down icon-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1" id="berita-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center d-flex align-items-center justify-content-center gap-1 px-2 py-2 text-reset text-capitalize" href="#berita-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            postingan
+                            {{ translate("Postingan") }}
                             <i class="bi bi-chevron-down icon-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1 {{ Route::is('data-center.index') ? 'active' : '' }}" id="data-center-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" href="{{ route('data-center.index') }}">
-                            Data center
+                            {{ translate("Data Center") }}
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1 {{ Route::is('landing.ruang_publik') ? 'active' : '' }}">
                         <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-capitalize" href="{{ route('landing.ruang_publik') }}">
-                            ruang publik
+                            {{ translate("Ruang Publik") }}
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1" id="survei-dropdown-toggle">
                         <a class="nav-link custom-nav-link text-center d-flex align-items-center justify-content-center gap-1 px-2 py-2 text-reset text-capitalize" href="#survei-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseExample">
-                            survei
+                            {{ translate("Survei") }}
                             <i class="bi bi-chevron-down icon-chevron-down"></i>
                         </a>
                     </li>
                     <li class="nav-item align-items-center mx-1">
-                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-uppercase" href="{{ route('ppid.index') }}">ppid</a>
+                        <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-uppercase" href="{{ route('ppid.index') }}">{{ translate("PPID") }}</a>
                     </li>
 
                     <li class="nav-item align-items-center mx-1">
