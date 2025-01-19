@@ -19,7 +19,7 @@
         <div class="row mx-0">
             <div class="col-12">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5 class="title text-uppercase fw-bold fs-6">sejarah bappeda provinsi kalimantan timur</h5>
+                    <h5 class="title text-uppercase fw-bold fs-6">{{ translate('sejarah bappeda provinsi kalimantan timur') }}</h5>
                     <hr class="hr-title-black flex-grow-1 ms-3">
                 </div>
                 <p class="text-indent fs-8 lh-sm fw-light text-justify">
