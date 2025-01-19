@@ -68,7 +68,7 @@
                                                     {{ translate('Tempat') }}
                                                 </p>
                                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                                    {{ translate($agenda->locatio)n }}
+                                                    {{ translate($agenda->locatio) }}
                                                 </p>
                                             </div>
                                         </div>
