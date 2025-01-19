@@ -30,7 +30,7 @@
     <!---------------------------------->
     <section class="over-top-section secretary position-relative d-flex justify-content-center my-0">
         <div class="container over-top-container px-0">
-            <h4 class="text-title text-uppercase my-0 py-0">{{ translate('bidang') }} {{ $bidang->name }}</h4>
+            <h4 class="text-title text-uppercase my-0 py-0">{{ translate('bidang') }} {{ translate($bidang->name) }}</h4>
             <hr class="hr-title-black flex-grow-1 mb-5">
             <div class="row">
                 @if($bidang->name == 'Sekretariat')
@@ -56,7 +56,7 @@
                                     {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                    {{ $pejabat->jabatan  }} / {{ $kepala->jabatan_lainnya ?? '' }}
+                                    {{ translate($pejabat->jabatan)  }} / {{ translate($kepala->jabatan_lainnya) ?? '' }}
                                 </p>
                             </div>
                             <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 mb-2 p-0 pt-2 pb-2 gap-2">
@@ -118,7 +118,7 @@
                                     {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                    {{ $pejab->jabatan  }} / {{ $kepala->jabatan_lainnya ?? '' }}
+                                    {{ translate($pejab->jabatan)  }} / {{ translate($kepala->jabatan_lainnya) ?? '' }}
                                 </p>
                             </div>
                             <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
@@ -128,7 +128,7 @@
                                 @if($pejab->ketua_tim != null)
 
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        {{ $pejab->ketua_tim }}
+                                        {{ translate($pejab->ketua_tim) }}
                                 </p>
                                 @else
                                     -
