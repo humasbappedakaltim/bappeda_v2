@@ -31,8 +31,7 @@
             <div class="row m-0 p-0">
                 <div class="col-12 px-0">
                     <p class="title text-uppercase fs-4 fw-bold">
-                        {{ translate('
-                        {{ translate('Kepala Bidang Pemerintahan dan Pembangunan Manusia') }}') }}
+                        {{ translate('Kepala Bidang Pemerintahan dan Pembangunan Manusia') }}
                     </p>
                     <hr class="hr-title-black flex-grow-1 mb-5">
                     <p class="fs-8 fw-bold mb-2">{{ translate('Ikhtisar Jabatan :') }}</p>
