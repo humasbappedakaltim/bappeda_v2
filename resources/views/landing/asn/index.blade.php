@@ -57,7 +57,7 @@
                                     {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                    {{ translate($kepala->jabatan) }} {{ translate($kepala->jabatan_lainnya) ??  '' }}
+                                    {{ translate($kepala->jabatan) }} {{ translate($kepala->jabatan_lainnya) ??  '-' }}
                                 </p>
                             </div>
                             <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 mb-2 p-0 pt-2 pb-2 gap-2">
