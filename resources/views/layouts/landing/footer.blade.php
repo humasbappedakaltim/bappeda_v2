@@ -17,7 +17,7 @@
                             <div class="d-flex align-items-start justify-content-start gap-2">
                                 <i class="bi bi-envelope-open-fill text-white"></i>
                                 <div class="d-flex flex-column align-items-start justify-content-start">
-                                    <p class="title-sm text-white fw-bold">Kontak</p>
+                                    <p class="title-sm text-white fw-bold">{{ translate('kontak') }}</p>
                                     <div class="d-flex align-items-start justify-content-start gap-2">
                                         <i class="bi bi-telephone-fill text-white"></i>
                                         <p class="content text-white ">0541 - 741044</p>
@@ -37,7 +37,7 @@
                             <div class="socmed-container d-flex align-items-start justify-content-start gap-2 ms-auto">
                                 <i class="bi bi-dribbble text-white"></i>
                                 <div class="d-flex flex-column align-items-start justify-content-start">
-                                    <p class="title-sm text-white fw-bold">Media Sosial</p>
+                                    <p class="title-sm text-white fw-bold">{{ translate('media sosial') }}</p>
                                     <div class="socmed d-flex align-items-start justify-content-start gap-2 w-100">
                                         <a href="https://www.facebook.com/mediapublikasi.bappeda.1?mibextid=ZbWKwL" target="_blank">
                                             <i class="bi bi-facebook text-white"></i>
@@ -63,7 +63,7 @@
                 <div class="col-xl-7 col-lg-12 d-flex align-items-center">
                     <div class="row w-100 m-0">
                         <div class="col-6 border-left px-5 d-flex flex-column gap-1">
-                            <p class="title-md text-white text-capitalize fw-bold mb-3">Pemerintah Daerah</p>
+                            <p class="title-md text-white text-capitalize fw-bold mb-3">{{ translate("Pemerintah Daerah") }}</p>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Pemprov Kaltim</a>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Bappeda Kota Samarinda</a>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Bappeda Kota Balikpapan</a>
@@ -76,7 +76,7 @@
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Bappeda Kab. Kutai Barat</a>
                         </div>
                         <div class="col-6 border-left px-5 d-flex flex-column gap-1">
-                            <p class="title-md text-white text-capitalize fw-bold mb-3">Instansi Terkait</p>
+                            <p class="title-md text-white text-capitalize fw-bold mb-3">{{ translate("Instansi Terkait") }}</p>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Presiden RI</a>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">DPR RI</a>
                             <a href="#" class="content content-hover text-white text-decoration-none px-1 py-1">Kantor Staf Presiden RI</a>
@@ -110,9 +110,9 @@
                 </div> --}}
                 <div class="col-xl-3 col-lg-12">
                     <div class="visitors d-flex flex-column align-items-end">
-                        <p class="text-white text-end lh-sm">Pengunjung hari ini : {{ $visitor_by_day }}</p>
-                        <p class="text-white text-end lh-sm">Pengunjung bulan ini : {{ $visitor_by_month }}</p>
-                        <p class="text-white text-end lh-sm">Pengunjung tahun ini : {{ $visitor_by_year }}</p>
+                        <p class="text-white text-end lh-sm">{{ translate("Pengunjung hari ini") }} : {{ $visitor_by_day }}</p>
+                        <p class="text-white text-end lh-sm">{{ translate("Pengunjung bulan ini") }} : {{ $visitor_by_month }}</p>
+                        <p class="text-white text-end lh-sm">{{ translate("Pengunjung tahun ini") }} : {{ $visitor_by_year }}</p>
                     </div>
                 </div>
             </div>

@@ -313,9 +313,9 @@
                                                     <p class="title text-white fw-bold text-capitalize mb-2">
                                                         {{ translate("$map->name") }}
                                                     </p>
-                                                    <p class="description text-white">
-                                                        {{ translate('Peta RTRW') }}
-                                                    </p>
+                                                    {{-- <p class="description text-white">
+                                                        {{ translate("$map->description") }}
+                                                    </p> --}}
                                                     <a href="{{ route('landing.peta') }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                                         {{ translate('baca selengkapnya') }}
                                                         <i class="bi bi-box-arrow-up-right"></i>
