@@ -6,14 +6,14 @@
     <section class="breadcrumb-section position-relative d-flex justify-content-center">
         <div class="container custom-container">
             <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-                <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+                <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
                 <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-                <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">Data Center</p>
+                <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">{{ translate('Data Center') }}</p>
             </div>
             <div class="title-content">
                 <h4 class="title text-capitalize fw-bold mb-3">
-                    Data Center
+                    {{ translate('Data Center') }}
                 </h4>
             </div>
         </div>
@@ -28,7 +28,7 @@
     <section class="over-top-section dc-section position-relative d-flex justify-content-center my-0">
         <div class="container over-top-container m-0 p-0">
             <div class="title-content d-flex align-items-center justify-content-between">
-                <p class="tagline text-uppercase fw-bold fs-4 py-0">Data Center</p>
+                <p class="tagline text-uppercase fw-bold fs-4 py-0">{{ translate('Data Center') }}</p>
                 <hr class="hr-title-black flex-grow-1 ms-3">
             </div>
             <div class="row g-4 m-0 p-0 dc-document-list">
@@ -37,14 +37,14 @@
                         <div class="col-3 mb-3">
                             <a href="{{ route('landing.penghargaan') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                                 <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">Penghargaan</p>
+                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('Penghargaan') }}</p>
                             </a>
                         </div>
                     @elseif($category->name == 'Peta')
                         <div class="col-3 mb-3">
                             <a href="{{ route('landing.peta') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                                 <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">Peta</p>
+                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('Peta') }}</p>
                             </a>
                         </div>
                     @else
@@ -59,9 +59,9 @@
                     <div class="col-md-12 mb-3 text-center">
                         <div class="document-list-card position-relative text-decoration-none gap-2 p-3 pb-3">
                             <div class="img-container position-relative d-flex align-items-center justify-content-center w-100 mb-3 py-2">
-                                <p>Tidak Ada Data</p>
+                                <p>{{ translate('Tidak Ada Data') }}</p>
                             </div>
-                            <a href="{{ route('landing.index') }}" class="btn btn-primary">Kembali</a>
+                            <a href="{{ route('landing.index') }}" class="btn btn-primary">{{ translate('Kembali') }}</a>
                         </div>
                     </div>
                 @endforelse
@@ -79,3 +79,5 @@
     <!---------------------------------->
 
 @endsection
+
+

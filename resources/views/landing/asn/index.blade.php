@@ -7,14 +7,14 @@
     <section class="breadcrumb-section position-relative d-flex justify-content-center">
         <div class="container custom-container">
             <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-                <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+                <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0"> {{ translate('beranda') }} </a>
 
                 <i class="bi bi-chevron-right text-white my-0 py-0 mx-0 px-0"></i>
-                <p class="breadcrumb-active text-capitalize text-white fw-500 my-0 py-0 mx-0 px-0">ASN bappeda</p>
+                <p class="breadcrumb-active text-capitalize text-white fw-500 my-0 py-0 mx-0 px-0"> {{ translate('asn bappeda') }} </p>
             </div>
             <div class="title-content">
                 <h4 class="title text-capitalize fw-bold mb-3">
-                    ASN bappeda provinsi kalimantan timur
+                    {{ translate('asn bappeda provinsi kalimantan timur') }}
                 </h4>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <section class="over-top-section asn-bappeda-section position-relative d-flex justify-content-center m-0 p-0">
         <div class="container over-top-container m-0 p-0">
             <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="title text-uppercase fw-bold fs-6">asn bappeda provinsi kalimantan timur</h5>
+                <h5 class="title text-uppercase fw-bold fs-6"> {{ translate('asn bappeda') }} </h5>
                 <hr class="hr-title-black flex-grow-1 ms-3">
             </div>
             <div class="row m-0 p-0">
@@ -46,7 +46,7 @@
                             </p>
                             <div class="asn-rank-class d-flex flex-column align-items-center justify-content-center m-0 p-0 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    pangkat | golongan
+                                    {{ translate('pangkat') }} | {{ translate('golongan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $kepala->golongan }}
@@ -54,7 +54,7 @@
                             </div>
                             <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    jabatan
+                                    {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $kepala->jabatan }} {{ $kepala->jabatan_lainnya ??  '' }}
@@ -86,7 +86,7 @@
                                         <i class="bi bi-person-lines-fill text-white fs-3"></i>
                                     </div>
                                     <div class="detail-btn d-flex align-items-center justify-content-center w-100">
-                                        <p class="text-center text-white text-uppercase fw-bold m-0 p-0">klik untuk detail</p>
+                                        <p class="text-center text-white text-uppercase fw-bold m-0 p-0">{{ translate('klik untuk detail') }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -95,7 +95,7 @@
                         <div class="col-12 col-lg-5 col-xl-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6>Tidak Ada Data Bidang</h6>
+                                    <h6> {{ translate('tidak ada data bidang') }} </h6>
                                 </div>
                             </div>
                         </div>
@@ -110,3 +110,5 @@
     <!------- Main Section End --------->
     <!---------------------------------->
 @endsection
+
+

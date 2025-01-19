@@ -27,12 +27,11 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">Arsip Postingan Tahun {{ $tahun }}</p>
         </div>
         <div class="title-content">
-            <h4 class="title text-capitalize fw-bold mb-3">Arsip Postingan Tahun {{ $tahun }}</h4>
+            <h4 class="title text-capitalize fw-bold mb-3">{{ translate('arsip postingan tahun') }} {{ $tahun }}</h4>
         </div>
     </div>
 </section>
@@ -41,13 +40,13 @@
     <div class="container over-top-container m-0 p-0">
         <div class="row mb-4">
             <div class="col-md-6">
-                <h4 class="fw-bold">Postingan Tahun {{ $tahun }}</h4>
+                <h4 class="fw-bold">{{ translate('postingan tahun') }} {{ $tahun }}</h4>
             </div>
             <div class="col-md-6 d-flex justify-content-end gap-1">
-                <label for="filter" class="align-self-center" style="font-size: 20px;">Filter Berdasarkan</label>
+                <label for="filter" class="align-self-center" style="font-size: 20px;">{{ translate('filter berdasarkan') }}</label>
                 <select id="filter" class="form-control w-50">
-                    <option value="asc" {{ request('order') == 'asc' ? 'selected' : '' }}>Terlama</option>
-                    <option value="desc" {{ request('order') == 'desc' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="asc" {{ request('order') == 'asc' ? 'selected' : '' }}>{{ translate('terlama') }}</option>
+                    <option value="desc" {{ request('order') == 'desc' ? 'selected' : '' }}>{{ translate('terbaru') }}</option>
                 </select>
             </div>
         </div>
@@ -71,7 +70,7 @@
                                 <p class="card-text">{!! Str::limit(strip_tags($post->description), 100) !!}</p>
 
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ $url }}" class="btn btn-primary btn-sm mt-3"><i class="bi bi-eye"></i> Lihat</a>
+                                    <a href="{{ $url }}" class="btn btn-primary btn-sm mt-3"><i class="bi bi-eye"></i> {{ translate('lihat') }}</a>
                                 </div>
 
                             </div>
@@ -84,7 +83,7 @@
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
                             <h5>Oops</h5>
-                            <p>Tidak Ada Arsip Postingan Pada Tahun Yang Dipilih.</p>
+                            <p>{{ translate('tidak ada arsip postingan pada tahun yang dipilih') }}.</p>
                         </div>
                     </div>
                 </div>
@@ -114,3 +113,5 @@
 @endpush
 
 @endsection
+
+

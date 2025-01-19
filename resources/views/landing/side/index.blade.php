@@ -32,7 +32,7 @@
                             : 'berita.index';
                     @endphp
 
-                    <p class="title fs-4 m-0 p-0">Pencarian {{ $title }}</p>
+                    <p class="title fs-4 m-0 p-0">{{ translate('Pencarian') }} {{ translate($title) }}</p>
                     <hr class="hr-title-black flex-grow-1 ms-3">
                 </div>
 
@@ -43,7 +43,7 @@
                     @if ($searchRoute === 'berita.index')
                         <input type="search" name="search" class="custom-form-control m-0 p-2 w-100" placeholder="Masukkan Keyword..." value="{{ old('search') }}">
                     @else
-                        <input type="search" name="search" class="custom-form-control m-0 p-2 w-100" placeholder="Keyword untuk {{ $title }}..." value="{{ old('search') }}">
+                        <input type="search" name="search" class="custom-form-control m-0 p-2 w-100" placeholder="{{ translate('Keyword untuk') }} {{ translate($title) }}..." value="{{ old('search') }}">
                     @endif
                     <i class="bi bi-search icon-search m-0 p-0"></i>
                 </form>
@@ -55,7 +55,7 @@
         <div class="col-12 m-0 mb-5 p-0">
             <div class="post-content-item post-sidebar-container position-relative px-3 py-4">
                 <div class="title-content d-flex align-items-center justify-content-between">
-                    <p class="title fs-4 m-0 p-0">Postingan Lainnya</p>
+                    <p class="title fs-4 m-0 p-0">{{ translate('Postingan Lainnya') }}</p>
                     <hr class="hr-title-black flex-grow-1 ms-3">
                 </div>
 
@@ -98,17 +98,17 @@
                             </div>
                             <div class="d-flex gap-2 align-items-center text-grey">
                                 <p class="author text-capitalize m-0 p-0">
-                                    {{ $post->category->name }}
+                                    {{ translate($post->category->name) }}
                                 </p>
                                 <p class="m-0 p-0">|</p>
                                 <p class="date text-capitalize m-0 p-0">
-                                    {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}
+                                    {{ \Carbon\Carbon::parse($post->created_at)->locale(session('locale'))->translatedFormat('l, d F Y') }}
                                 </p>
                             </div>
                         </div>
                     </a>
                 @empty
-                    <p class="text-center">Tidak ada postingan.</p>
+                    <p class="text-center">{{ translate('Tidak ada postingan.') }}</p>
                 @endforelse
             </div>
         </div>
@@ -116,13 +116,13 @@
         <div class="col-12 m-0 p-0">
             <div class="post-date-content post-sidebar-container position-relative px-3 py-4">
                 <div class="title-content d-flex align-items-center justify-content-between mb-4">
-                    <p class="title fs-4 m-0 p-0">Arsip Postingan</p>
+                    <p class="title fs-4 m-0 p-0">{{ translate('Arsip Postingan') }}</p>
                     <hr class="hr-title-black flex-grow-1 ms-3">
                 </div>
                 @forelse ($arsip as $item)
 
                 <a href="{{ route('arsip.show', $item->year) }}" class="d-flex align-items-center justify-content-between text-decoration-none text-black fs-8 fw-light py-3 border-bottom">
-                    <p class="m-0 p-0">Tahun {{ $item->year }} <span class="badge bg-primary rounded ml-3">{{ $item->total }} Postingan</span></p>
+                    <p class="m-0 p-0">{{ translate('Tahun') }} {{ $item->year }} <span class="badge bg-primary rounded ml-3">{{ $item->total }} {{ translate('Postingan') }}</span></p>
                     <i class="bi bi-chevron-right"></i>
                 </a>
 
@@ -134,3 +134,5 @@
         </div>
     </div>
 </div>
+
+

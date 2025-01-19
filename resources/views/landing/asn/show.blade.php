@@ -7,16 +7,16 @@
     <section class="breadcrumb-section position-relative d-flex justify-content-center">
         <div class="container custom-container">
             <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-                <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+                <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
                 <i class="bi bi-chevron-right text-white my-0 py-0 m-0 p-0"></i>
-            <a href="{{ route('landing.asn') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 my-0 py-0 m-0 p-0">ASN Bappeda</a>
+                <a href="{{ route('landing.asn') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 my-0 py-0 m-0 p-0">{{ translate('ASN Bappeda') }}</a>
                 <i class="bi bi-chevron-right text-white my-0 py-0 m-0 p-0"></i>
                 <p class="breadcrumb-active text-capitalize text-white fw-500 my-0 py-0 m-0 p-0">{{ $bidang->name }}</p>
             </div>
             <div class="title-content">
                 <h4 class="title text-capitalize fw-bold mb-3">
-                    Bidang {{ $bidang->name }}
+                    {{ translate('Bidang') }} {{ $bidang->name }}
                 </h4>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <!---------------------------------->
     <section class="over-top-section secretary position-relative d-flex justify-content-center my-0">
         <div class="container over-top-container px-0">
-            <h4 class="text-title text-uppercase my-0 py-0">bidang {{ $bidang->name }}</h4>
+            <h4 class="text-title text-uppercase my-0 py-0">{{ translate('bidang') }} {{ $bidang->name }}</h4>
             <hr class="hr-title-black flex-grow-1 mb-5">
             <div class="row">
                 @if($bidang->name == 'Sekretariat')
@@ -45,7 +45,7 @@
                             </p>
                             <div class="asn-rank-class d-flex flex-column align-items-center justify-content-center m-0 p-0 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    pangkat | golongan
+                                    {{ translate('pangkat | golongan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $pejabat->golongan }}
@@ -53,7 +53,7 @@
                             </div>
                             <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    jabatan
+                                    {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $pejabat->jabatan  }} / {{ $kepala->jabatan_lainnya ?? '' }}
@@ -83,7 +83,7 @@
                                         <i class="bi bi-person-lines-fill text-white fs-3"></i>
                                     </div>
                                     <div class="detail-btn d-flex align-items-center justify-content-center w-100">
-                                        <p class="text-center text-white text-uppercase fw-bold m-0 p-0">klik untuk detail</p>
+                                        <p class="text-center text-white text-uppercase fw-bold m-0 p-0">{{ translate('klik untuk detail') }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -107,7 +107,7 @@
                             </p>
                             <div class="asn-rank-class d-flex flex-column align-items-center justify-content-center m-0 p-0 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    pangkat | golongan
+                                    {{ translate('pangkat | golongan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $pejab->golongan }}
@@ -115,7 +115,7 @@
                             </div>
                             <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    jabatan
+                                    {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
                                     {{ $pejab->jabatan  }} / {{ $kepala->jabatan_lainnya ?? '' }}
@@ -123,7 +123,7 @@
                             </div>
                             <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                 <p class="fs-8 text-capitalize lh-sm m-0 p-0">
-                                    ketua tim
+                                    {{ translate('ketua tim') }}
                                 </p>
                                 @if($pejab->ketua_tim != null)
 
@@ -148,10 +148,5 @@
     <!---------------------------------->
     <!------- Main Section End --------->
     <!---------------------------------->
-
-
-    <!---------------------------------->
-    <!------- Main Section End --------->
-    <!---------------------------------->
-
 @endsection
+
