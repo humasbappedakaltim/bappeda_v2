@@ -76,7 +76,7 @@
                                     @php
                                         $name = explode(' ', $sub->name)[count(explode(' ', $sub->name)) - 1];
                                     @endphp
-                                    <p class="text-white text-uppercase fw-bold py-2 my-5">{{ $name }}</p>
+                                    <p class="text-white text-uppercase fw-bold py-2 my-5">{{ translate($name) }}</p>
                                 </div>
                                 <div class="icon-content d-flex align-items-center justify-content-start m-0 px-3 gap-4">
                                     <div class="d-flex align-items-center justify-content-center ps-3 ps-md-2">
