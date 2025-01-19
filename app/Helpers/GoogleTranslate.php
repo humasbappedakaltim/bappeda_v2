@@ -1,26 +1,32 @@
 <?php
 
 use Stichoza\GoogleTranslate\GoogleTranslate;
+use Illuminate\Support\Facades\Cache;
 
 if (!function_exists('translate')) {
     /**
-     * Translate text using Google Translate.
+     * Translate text using Google Translate with caching.
      *
      * @param  string  $text
      * @return string
      */
     function translate($text)
     {
-
         $locale = app()->getLocale();
 
-        // Initialize GoogleTranslate instance
-        $googleTranslate = new GoogleTranslate();
+        // Generate a unique cache key for the text and target language
+        $cacheKey = 'translation_' . $locale . '_' . md5($text);
 
-        // Set the target language (locale)
-        $googleTranslate->setTarget($locale);
+        // Check if the translation exists in cache
+        return Cache::remember($cacheKey, 86400, function () use ($text, $locale) {
+            // Initialize GoogleTranslate instance
+            $googleTranslate = new GoogleTranslate();
 
-        // Translate the text and return the result
-        return $googleTranslate->translate($text);
+            // Set the target language (locale)
+            $googleTranslate->setTarget($locale);
+
+            // Translate the text and return the result
+            return $googleTranslate->translate($text);
+        });
     }
 }

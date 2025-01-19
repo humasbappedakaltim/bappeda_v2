@@ -120,7 +120,7 @@
         <div class="container m-0 p-0">
             <div class="offcanvas-header m-0 p-0 custom-offcanvas-header">
                 <div class="logo d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand py-0" href="#"><img src="{{ asset('assets/images/logo-bappeda.png')}}" alt=""></a>
+                    <a class="navbar-brand py-0" href="{{ route('landing.index') }}"><img src="{{ asset('assets/images/logo-bappeda.png')}}" alt=""></a>
                 </div>
                 <button type="button" class="custom-btn-close text-white d-inline-block d-lg-block d-xl-none d-xxl-none nav-toggler text-decoration-none m-0 p-0" data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="ti ti-x text-white m-0 p-0"></i>
@@ -129,7 +129,7 @@
             <div class="offcanvas-body px-2" id="accordionExample">
                 <ul class="navbar-nav accordion">
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.index') }}">Beranda</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.index') }}">{{ translate('Beranda') }}</a>
                     </li>
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingProfil">
@@ -209,6 +209,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingPostingan">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostingan" aria-expanded="false" aria-controls="collapsePostingan">
@@ -270,23 +271,23 @@
  <div class="collapse position-fixed w-100 custom-dropdown" id="profil-dropdown">
     <div class="card card-body py-4 custom-body-dropdown">
         <div class="container col-12">
-            <h3 class="text-capitalize">profil</h3>
+            <h3 class="text-capitalize">{{ translate('profil') }}</h3>
             <div class="row mt-1">
                 <a href="{{ route('landing.profile') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Profil Bappeda</p>
-                    <p class="fs-9 py-0 my-0">Sejarah Singkat Bappeda Kaltim: Dari 1974 hingga Pembaruan 2020</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Profil Bappeda')}}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Sejarah Singkat Bappeda Kaltim: Dari 1974 hingga Pembaruan 2020') }}</p>
                 </a>
                 <a href="{{ route('landing.tupoksi') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Tupoksi Bappeda</p>
-                    <p class="fs-9 py-0 my-0">Temukan peran dan tanggung jawab Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur sesuai dengan Peraturan Gubernur Nomor 43 Tahun 2023</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Tupoksi Bappeda')}}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Temukan peran dan tanggung jawab Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur sesuai dengan Peraturan Gubernur Nomor 43 Tahun 2023') }}</p>
                 </a>
                 <a href="{{ route('landing.struktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Struktur Organisasi</p>
-                    <p class="fs-9 py-0 my-0">Lihat struktur organisasi Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur untuk memahami pembagian tugas dan fungsi setiap unit</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Struktur Organisasi')}}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Lihat struktur organisasi Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur untuk memahami pembagian tugas dan fungsi setiap unit') }}</p>
                 </a>
                 <a href="{{ route('landing.asn') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">ASN Bappeda Prov. Kaltim</p>
-                    <p class="fs-9 py-0 my-0">Dapatkan informasi lengkap tentang ASN Bappeda Provinsi Kalimantan Timur</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('ASN Bappeda Prov. Kaltim')}}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Dapatkan informasi lengkap tentang ASN Bappeda Provinsi Kalimantan Timur') }}</p>
                 </a>
             </div>
         </div>
@@ -297,31 +298,31 @@
 <div class="collapse position-fixed w-100 custom-dropdown" id="unit-kerja-dropdown">
     <div class="card card-body py-4 custom-body-dropdown">
         <div class="container col-12">
-            <h3 class="text-capitalize">unit kerja</h3>
+            <h3 class="text-capitalize">{{ translate('unit kerja') }}</h3>
             <div class="row mt-1">
                 <a href="{{ route('landing.kepala_bappeda') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Kepala Bappeda</p>
-                    <p class="fs-9 py-0 my-0">Kenali sosok Kepala Bappeda Provinsi Kalimantan Timur dan visinya</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Kepala Bappeda') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Kenali sosok Kepala Bappeda Provinsi Kalimantan Timur dan visinya') }}</p>
                 </a>
                 <a href="{{ route('landing.sekretaris') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Sekretariat</p>
-                    <p class="fs-9 py-0 my-0">Ketahui lebih lanjut bagaimana Sekretariat Bappeda Provinsi Kaltim menjalankan peran pentingnya dalam koordinasi administrasi, keuangan, dan operasional untuk mendukung kelancaran tugas seluruh unit</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Sekretariat') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Ketahui lebih lanjut bagaimana Sekretariat Bappeda Provinsi Kaltim menjalankan peran pentingnya dalam koordinasi administrasi, keuangan, dan operasional untuk mendukung kelancaran tugas seluruh unit') }}</p>
                 </a>
                 <a href="{{ route('landing.bidang_perencanaan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</p>
-                    <p class="fs-9 py-0 my-0">Lihat struktur organisasi Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur untuk memahami pembagian tugas dan fungsi setiap unit</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Lihat struktur organisasi Badan Perencanaan Pembangunan Daerah Provinsi Kalimantan Timur untuk memahami pembagian tugas dan fungsi setiap unit') }}</p>
                 </a>
                 <a href="{{ route('landing.bidang_pemerintahan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Pemerintahan dan Pembangunan Manusia</p>
-                    <p class="fs-9 py-0 my-0">Temukan peran Bidang Pemerintahan dan Pembangunan Manusia dalam merumuskan kebijakan dan mengembangkan sumber daya manusia serta kesejahteraan rakyat di Bappeda Kaltim</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Pemerintahan dan Pembangunan Manusia') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Temukan peran Bidang Pemerintahan dan Pembangunan Manusia dalam merumuskan kebijakan dan mengembangkan sumber daya manusia serta kesejahteraan rakyat di Bappeda Kaltim') }}</p>
                 </a>
                 <a href="{{ route('landing.bidang_perekonomian') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Perekonomian dan Sumber Daya Alam</p>
-                    <p class="fs-9 py-0 my-0">Simak bagaimana Bidang Perekonomian dan Sumber Daya Alam memainkan peran penting dalam pengembangan kebijakan dan program untuk memaksimalkan potensi sumber daya</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Perekonomian dan Sumber Daya Alam') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Simak bagaimana Bidang Perekonomian dan Sumber Daya Alam memainkan peran penting dalam pengembangan kebijakan dan program untuk memaksimalkan potensi sumber daya') }}</p>
                 </a>
                 <a href="{{ route('landing.bidang_infrastruktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Infrastruktur dan Kewilayahan</p>
-                    <p class="fs-9 py-0 my-0">Dapatkan wawasan tentang koordinasi antar sub bidang dalam penyusunan rencana dan program pembangunan infrastruktur yang efektif dan efisien</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Infrastruktur dan Kewilayahan') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Dapatkan wawasan tentang koordinasi antar sub bidang dalam penyusunan rencana dan program pembangunan infrastruktur yang efektif dan efisien') }}</p>
                 </a>
             </div>
         </div>
@@ -335,24 +336,24 @@
             <h3 class="text-capitalize">agenda</h3>
             <div class="row mt-1">
                 <a href="{{ route('agenda.umum') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Umum</p>
-                    <p class="fs-9 py-0 my-0">Telusuri agenda terkini yang mendukung pelaksanaan berbagai program strategis untuk pembangunan dan pelayanan publik.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Umum') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Telusuri agenda terkini yang mendukung pelaksanaan berbagai program strategis untuk pembangunan dan pelayanan publik.') }}</p>
                 </a>
                 <a href="{{ route('agenda.perencanaan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</p>
-                    <p class="fs-9 py-0 my-0">Telusuri agenda prioritas Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah yang dirancang untuk meningkatkan efektivitas perencanaan pembangunan daerah.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Telusuri agenda prioritas Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah yang dirancang untuk meningkatkan efektivitas perencanaan pembangunan daerah.') }}</p>
                 </a>
                 <a href="{{ route('agenda.pemerintahan') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Pemerintahan dan Pembangunan Manusia</p>
-                    <p class="fs-9 py-0 my-0">Telusuri jadwal agenda Bidang Pemerintahan dan Pembangunan Manusia yang berfokus pada pengawasan dan evaluasi berkelanjutan terhadap pelaksanaan pembangunan.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Pemerintahan dan Pembangunan Manusia') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Telusuri jadwal agenda Bidang Pemerintahan dan Pembangunan Manusia yang berfokus pada pengawasan dan evaluasi berkelanjutan terhadap pelaksanaan pembangunan.') }}</p>
                 </a>
                 <a href="{{ route('agenda.perekonomian') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Perekonomian dan Sumber Daya Alam</p>
-                    <p class="fs-9 py-0 my-0">Telusuri informasi terkini mengenai agenda Bidang Perekonomian dan Sumber Daya Alam yang berfokus pada pemanfaatan sumber daya alam untuk kesejahteraan bersama.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Perekonomian dan Sumber Daya Alam') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Telusuri informasi terkini mengenai agenda Bidang Perekonomian dan Sumber Daya Alam yang berfokus pada pemanfaatan sumber daya alam untuk kesejahteraan bersama.') }}</p>
                 </a>
                 <a href="{{ route('agenda.infrastruktur') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Bidang Infrastruktur dan Kewilayahan</p>
-                    <p class="fs-9 py-0 my-0">Telusuri agenda strategis Bidang Infrastruktur dan Kewilayahan yang mendukung pengembangan infrastruktur demi memperkuat konektivitas wilayah.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Bidang Infrastruktur dan Kewilayahan') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Telusuri agenda strategis Bidang Infrastruktur dan Kewilayahan yang mendukung pengembangan infrastruktur demi memperkuat konektivitas wilayah.') }}</p>
                 </a>
             </div>
         </div>
@@ -366,28 +367,28 @@
             <h3 class="text-capitalize">Postingan</h3>
             <div class="row mt-1">
                 <a href="{{ route('artikel.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Artikel</p>
-                    <p class="fs-9 py-0 my-0">Temukan informasi penting tentang inovasi pembangunan yang mendukung kemajuan daerah.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Artikel') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Temukan informasi penting tentang inovasi pembangunan yang mendukung kemajuan daerah.') }}</p>
                 </a>
                 <a href="{{ route('berita.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Berita Bappeda</p>
-                    <p class="fs-9 py-0 my-0">Ulasan lengkap tentang program unggulan Bappeda yang berkontribusi pada kemajuan wilayah.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Berita Bappeda') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Ulasan lengkap tentang program unggulan Bappeda yang berkontribusi pada kemajuan wilayah.') }}</p>
                 </a>
                 <a href="{{ route('informasi.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Informasi</p>
-                    <p class="fs-9 py-0 my-0">Dapatkan informasi terbaru tentang program pembangunan daerah yang inovatif dan berdampak</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Informasi') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Dapatkan informasi terbaru tentang program pembangunan daerah yang inovatif dan berdampak') }}</p>
                 </a>
                 <a href="{{ route('pembangunan_kaltim.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Kinerja Pembangunan Kaltim</p>
-                    <p class="fs-9 py-0 my-0">Ketahui perkembangan signifikan dalam kinerja pembangunan Kaltim yang mendorong kemajuan ekonomi daerah</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Kinerja Pembangunan Kaltim') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Ketahui perkembangan signifikan dalam kinerja pembangunan Kaltim yang mendorong kemajuan ekonomi daerah') }}</p>
                 </a>
                 <a href="{{ route('berita_nasional.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Berita Nasional</p>
-                    <p class="fs-9 py-0 my-0">Temukan berita terkini tentang perkembangan yang menyentuh berbagai aspek kehidupan bangsa.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Berita Nasional') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Temukan berita terkini tentang perkembangan yang menyentuh berbagai aspek kehidupan bangsa.') }}</p>
                 </a>
                 <a href="postingan-social-media.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Social Media</p>
-                    <p class="fs-9 py-0 my-0">Jangan lewatkan informasi penting yang sedang menjadi sorotan di media sosial. Klik untuk selengkapnya.</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Social Media') }}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Jangan lewatkan informasi penting yang sedang menjadi sorotan di media sosial. Klik untuk selengkapnya.') }}</p>
                 </a>
             </div>
         </div>
@@ -400,8 +401,8 @@
             <h3 class="text-capitalize">survei</h3>
             <div class="row mt-1">
                 <a href="{{ route('landing.survei') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
-                    <p class="fw-bold py-0 my-2 fs-7">Survei Kepuasan Masyarakat (SKM)</p>
-                    <p class="fs-9 py-0 my-0">Ikuti survei kami untuk memberikan masukan berharga tentang kepuasan masyarakat terhadap layanan</p>
+                    <p class="fw-bold py-0 my-2 fs-7">{{ translate('Survei Kepuasan Masyarakat (SKM)')}}</p>
+                    <p class="fs-9 py-0 my-0">{{ translate('Ikuti survei kami untuk memberikan masukan berharga tentang kepuasan masyarakat terhadap layanan') }}</p>
                 </a>
             </div>
         </div>
