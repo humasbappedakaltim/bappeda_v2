@@ -96,13 +96,13 @@
                                             <img src="{{ asset('storage/post/'. $imageFilename )}}"/>
                                             <div class="primary-slide-content pb-4">
                                                 <p class="title text-white fw-bold text-capitalize mb-2">
-                                                    {{ $item->title }}
+                                                    {{ translate("$item->title") }}
                                                 </p>
                                                 <p class="date text-white text-capitalize mb-2">
                                                     {{ \Carbon\Carbon::parse($item->created_at)->locale('id')->translatedFormat('d F Y') }}
                                                 </p>
                                                 <p class="description text-white">
-                                                    {!! Str::substr(strip_tags($item->description), 0, 300) !!}
+                                                    {!! Str::substr(strip_tags(translate("$item->description")), 0, 300) !!}
                                                 </p>
                                                 <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
                                                     {{ translate('baca selengkapnya') }}
@@ -189,7 +189,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-12 left-content position-relative mb-5 mb-lg-0">
                         <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                            <p class="text-title text-capitalize lh-sm my-0 py-0">informasi terkini</p>
+                            <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('informasi terkini') }}</p>
                             <hr class="hr-title-black flex-grow-1 ms-3">
                         </div>
                         <!-- Swiper Information -->
@@ -218,11 +218,11 @@
                     <div class="col-lg-4 col-md-12 right-content d-flex align-items-start justify-content-start position-relative  ps-0 ps-lg-3">
                         <div class="right-content-container position-relative">
                             <div class="top-content position-relative">
-                                <p class="title text-uppercase fw-bold px-0 mx-0">agenda bappeda kaltim</p>
-                                <p class="text-ajakan px-0 mx-0">Ikuti agenda terkini dari Bappeda Kaltim</p>
+                                <p class="title text-uppercase fw-bold px-0 mx-0">{{ translate('agenda bappeda kaltim') }}</p>
+                                <p class="text-ajakan px-0 mx-0">{{ translate('Ikuti agenda terkini dari Bappeda Kaltim') }}</p>
                             </div>
                             <div class="main-content">
-                                <p class="text-month text-capitalize mb-4 py-0">november 2024</p>
+                                <p class="text-month text-capitalize mb-4 py-0">{{ translate('november 2024') }}</p>
                                 <!-- <p class="text-week mb-4 py-0">Minggu ke 1</p> -->
                                 <!-- Swiper Date-->
                                 <div class="swiper swiper-date d-flex justify-content-center mb-4" id="swiper-date">
@@ -245,15 +245,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 award-maps-container position-relative m-0 mb-3 mb-lg-5 p-0">
                 <div class="row g-3">
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0 ps-0">
                         <div class="m-0 p-0">
                             <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                                <p class="text-title text-capitalize lh-sm my-0 py-0">Penghargaan</p>
+                                <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('Penghargaan') }}</p>
                                 <hr class="hr-title-black flex-grow-1 mx-3">
                                 <a href="{{ route('landing.penghargaan') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
-                                    lihat semua Penghargaan
+                                    {{ translate('lihat semua Penghargaan') }}
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
                             </div>
@@ -265,13 +266,13 @@
                                         <img src="{{ asset('storage/penghargaan/' . $award->foto) }}" alt="award"/>
                                         <div class="primary-slide-content pb-4">
                                             <p class="title text-white fw-bold text-capitalize mb-2">
-                                                {{ $award->title }}
+                                                {{ translate("$award->title") }}
                                             </p>
                                             <p class="description text-white">
-                                                {{ $award->description }}
+                                                {{ translate("$award->description") }}
                                             </p>
                                             <a href="{{ route('landing.penghargaan') }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
-                                                baca selengkapnya
+                                                {{ translate('baca selengkapnya') }}
                                                 <i class="bi bi-box-arrow-up-right"></i>
                                             </a>
                                         </div>
@@ -285,7 +286,7 @@
                                     <div class="swiper-pagination d-flex align-items-center justify-content-between gap-2 fs-9"></div>
                                 </div>
                             </div>
-                            <!-- Swiper Awar End -->
+                            <!-- Swiper Award End -->
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 pe-0">
@@ -294,10 +295,10 @@
                                 <div class="col-12 order-2 order-lg-1">
                                     <div class="col-12 order-1 order-lg-2">
                                         <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                                            <p class="text-title text-capitalize my-0 py-0">peta</p>
+                                            <p class="text-title text-capitalize my-0 py-0">{{ translate('peta') }}</p>
                                             <hr class="hr-title-black flex-grow-1 mx-3">
                                             <a href="{{ route('landing.peta') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
-                                                lihat semua peta
+                                                {{ translate('lihat semua peta') }}
                                                 <i class="bi bi-box-arrow-up-right"></i>
                                             </a>
                                         </div>
@@ -310,13 +311,13 @@
                                                 <img src="{{ asset('storage/maps/' .$map->file) }}"/>
                                                 <div class="primary-slide-content pb-4">
                                                     <p class="title text-white fw-bold text-capitalize mb-2">
-                                                        {{ $map->name }}
+                                                        {{ translate("$map->name") }}
                                                     </p>
                                                     <p class="description text-white">
-                                                        Peta RTRW
+                                                        {{ translate('Peta RTRW') }}
                                                     </p>
                                                     <a href="{{ route('landing.peta') }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
-                                                        baca selengkapnya
+                                                        {{ translate('baca selengkapnya') }}
                                                         <i class="bi bi-box-arrow-up-right"></i>
                                                     </a>
                                                 </div>
@@ -338,6 +339,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -353,13 +355,13 @@
         <div class="banner-container">
             <div class="text-content d-flex flex-column m-0 p-0">
                 <p class="text-white fs-6 lh-sm m-0 mb-4 p-0">
-                    Mau Tau Informasi Program Prioritas Pembangunan Daerah di Kalimantan Timur pada Tahun 2024?
+                    {{ translate('Mau Tau Informasi Program Prioritas Pembangunan Daerah di Kalimantan Timur pada Tahun 2024?') }}
                 </p>
                 <h2 class="text-white text-uppercase fw-light lh-sm mb-4">
-                    Informasi Prioritas Daerah Provinsi Kalimantan Timur
+                    {{ translate('Informasi Prioritas Daerah Provinsi Kalimantan Timur') }}
                 </h2>
                 <div class="detail-btn d-flex">
-                    <a href="{{ route('landing.informasi_prioritas') }}">Klik Disini</a>
+                    <a href="{{ route('landing.informasi_prioritas') }}">{{ translate('Klik Disini') }}</a>
                 </div>
             </div>
         </div>
@@ -377,7 +379,7 @@
         <div class="row m-0 p-0">
             <div class="col-12 app-bappeda-container position-relative m-0 p-0">
                 <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                    <p class="text-title text-capitalize lh-sm my-0 py-0">Aplikasi Bappeda Provinsi Kalimantan Timur</p>
+                    <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('Aplikasi Bappeda Provinsi Kalimantan Timur') }}</p>
                     <hr class="hr-title-black flex-grow-1 ms-3">
                 </div>
                 <div class="swiper swiper-app-bappeda" id="swiper-app-bappeda">
@@ -386,16 +388,16 @@
                         <a href="{{ $app->link }}" target="__blank" class="swiper-slide app-bappeda-slide text-decoration-none d-flex flex-column justify-content-center align-items-center p-3">
                             <div class="title-contain mb-3">
                                 <p class="title text-white text-wrap fw-bold lh-sm m-0 p-0">
-                                    {{ $app->name }}
+                                    {{ translate("$app->name") }}
                                 </p>
                             </div>
                             <div class="img-container d-flex align-items-center justify-content-center p-3">
-                                <img src="{{ asset('storage/img/app-bappeda/' . $app->foto) }}" alt="{{ $app->name }}">
+                                <img src="{{ asset('storage/img/app-bappeda/' . $app->foto) }}" alt="{{ translate("$app->name") }}">
                             </div>
                         </a>
                         @empty
                         <div class="swiper-slide app-bappeda-slide d-flex justify-content-center align-items-center p-3">
-                            <p class="text-muted">Tidak ada aplikasi yang tersedia.</p>
+                            <p class="text-muted">{{ translate('Tidak ada aplikasi yang tersedia.') }}</p>
                         </div>
                         @endforelse
                     </div>
@@ -416,7 +418,7 @@
         <div class="row d-flex align-items-center justify-content-center m-0 p-0 w-100">
             <div class="col-12 m-0 p-0 w-100">
                 <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                    <p class="text-title text-capitalize lh-sm my-0 py-0">Lokasi BAPPEDA Provinsi Kalimantan Timur</p>
+                    <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate("Lokasi BAPPEDA Provinsi Kalimantan Timur") }}</p>
                     <hr class="hr-title-black flex-grow-1 mx-3">
                 </div>
                 <div class="maps-content ">
@@ -474,7 +476,7 @@
                         <p class="subscribers text-white">@bappedakaltim1650 • 29 Subscribers</p>
                     </div>
                 </div>
-                <h4 class="text-connect-youtube text-white fw-bold mx-0 mt-3 p-0">Terhubung dengan Bappeda Provinsi Kalimantan Timur</h4>
+                <h4 class="text-connect-youtube text-white fw-bold mx-0 mt-3 p-0">{{ translate('Terhubung dengan Bappeda Provinsi Kalimantan Timur') }}</h4>
             </div>
             <div class="col-lg-6 col-md-12">
                 <!-- Swiper Youtube Carousel -->
