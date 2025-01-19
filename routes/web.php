@@ -45,6 +45,14 @@ use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterCo
 // });
 
 
+// Route::get('locale/{locale}', function ($locale) {
+//     app()->setLocale($locale);
+//     session(['locale' => $locale]);
+//     // dd(app()->getLocale());
+//     return redirect()->back();
+// })->name('set.locale');
+
+
 Route::middleware(['setlocale'])->group(function () {
 
     Route::get('/', function () {

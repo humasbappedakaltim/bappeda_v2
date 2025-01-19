@@ -10,18 +10,18 @@
     <div class="container searching-container d-flex justify-content-center">
     <div class="row d-flex justify-content-center w-100">
         <div class="col-12 text-center text-white px-0">
-            <h4 class="text-capitalize lh-sm">badan perencanaan pembangunan daerah</h4>
-            <h4 class="text-capitalize lh-sm mb-5">pemerintah provinsi kalimantan timur</h4>
-            <h5 class="text-capitalize lh-sm mb-3">Dapatkan Berita Dan Informasi Dari Bappeda Kaltim</h5>
+            <h4 class="text-capitalize lh-sm">{{ translate('badan perencanaan pembangunan daerah') }}</h4>
+            <h4 class="text-capitalize lh-sm mb-5">{{ translate('pemerintah provinsi kalimantan timur') }}</h4>
+            <h5 class="text-capitalize lh-sm mb-3">{{ translate('Dapatkan Berita Dan Informasi Dari Bappeda Kaltim') }}</h5>
             <form action="{{ route('berita.index') }}" method="GET" class="input-search p-0">
-                <input type="search" class="custom-form-control mx-0  my-0 py-0" name="search" placeholder="Ketik untuk mencari..">
+                <input type="search" class="custom-form-control mx-0  my-0 py-0" name="search" placeholder="{{ translate('Ketik untuk mencari..') }}">
                 <i class="bi bi-search icon-search  my-0 py-0"></i>
-                <button class="btn custom-btn  py-0 my-0" type="submit">Cari</button>
+                <button class="btn custom-btn  py-0 my-0" type="submit">{{ translate('Cari') }}</button>
             </form>
         </div>
     </div>
     </div>
-    <h1 class="text-province text-uppercase">kalimantan timur</h1>
+    <h1 class="text-province text-uppercase">{{ translate('kalimantan timur') }}</h1>
     <!-- Swiper Banner -->
     <div class="swiper swiper-banner">
         <div class="swiper-wrapper swiper-banner-wrapper">
@@ -57,12 +57,12 @@
                     </div>
                     <div class="col-12 col-lg-9 flex-column justify-content-center align-items-center right-content mx-0 px-3 my-0 py-0">
                         <div class="title-content d-flex align-items-center justify-content-between mb-3">
-                            <p class="tagline text-uppercase fw-bold py-0">selayang pandang</p>
+                            <p class="tagline text-uppercase fw-bold py-0">{{ translate('selayang pandang') }}</p>
                             <hr class="hr-title-white flex-grow-1 ms-3">
                         </div>
                         <div class="description d-flex flex-column justify-content-between my-0">
-                            <h4 class="title text-capitalize py-0">badan perencanaan pembangunan daerah</h4>
-                            <p class="about lh-sm my-0">Selamat datang di Website Resmi Bappeda Provinsi Kalimantan Timur. Website ini merupakan platform informasi yang menyediakan berbagai data dan gambaran tentang Bappeda dalam melaksanakan tugas perencanaan dan pengembangan daerah. Kami berkomitmen untuk memberikan pelayanan yang transparan dan akuntabel kepada masyarakat, serta mendukung upaya pembangunan yang berkelanjutan di Provinsi Kalimantan Timur.</p>
+                            <h4 class="title text-capitalize py-0">{{ translate('badan perencanaan pembangunan daerah') }}</h4>
+                            <p class="about lh-sm my-0">{{ translate('Selamat datang di Website Resmi Bappeda Provinsi Kalimantan Timur. Website ini merupakan platform informasi yang menyediakan berbagai data dan gambaran tentang Bappeda dalam melaksanakan tugas perencanaan dan pengembangan daerah. Kami berkomitmen untuk memberikan pelayanan yang transparan dan akuntabel kepada masyarakat, serta mendukung upaya pembangunan yang berkelanjutan di Provinsi Kalimantan Timur.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -72,14 +72,14 @@
                     <div class="col-12 col-lg-9 mb-4 mb-lg-0">
                         <div class="row">
                             <div class="col-12">
-                                    <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                                        <p class="text-title text-capitalize lh-sm my-0 py-0">berita terkini</p>
-                                        <hr class="hr-title-black flex-grow-1 mx-3">
-                                        <a href="{{ route('berita.index') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none lh-sm gap-3 fw-500">
-                                            lihat semua berita
-                                            <i class="bi bi-box-arrow-up-right"></i>
-                                        </a>
-                                    </div>
+                                <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
+                                    <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('berita terkini') }}</p>
+                                    <hr class="hr-title-black flex-grow-1 mx-3">
+                                    <a href="{{ route('berita.index') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none lh-sm gap-3 fw-500">
+                                        {{ translate('lihat semua berita') }}
+                                        <i class="bi bi-box-arrow-up-right"></i>
+                                    </a>
+                                </div>
                             </div>
                             <div class="col-12 col-md-4 order-3 oder-md-2 mb-4 mb-md-0">
                                 <div id="gpr-kominfo-widget-container"></div>
@@ -99,13 +99,13 @@
                                                     {{ $item->title }}
                                                 </p>
                                                 <p class="date text-white text-capitalize mb-2">
-                                                   {{ \Carbon\Carbon::parse($item->created_at)->locale('id')->translatedFormat('d F Y') }}
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->locale('id')->translatedFormat('d F Y') }}
                                                 </p>
                                                 <p class="description text-white">
                                                     {!! Str::substr(strip_tags($item->description), 0, 300) !!}
                                                 </p>
                                                 <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
-                                                    baca selengkapnya
+                                                    {{ translate('baca selengkapnya') }}
                                                     <i class="bi bi-box-arrow-up-right"></i>
                                                 </a>
                                             </div>
@@ -113,21 +113,20 @@
                                         @empty
                                         <div class="primary-slide-content pb-4">
                                             <p class="title text-white fw-bold text-capitalize mb-2">
-                                                Rapat Asistensi Rencana Kerja Tahunan Program Forest Carbon Partnership Facility-Carbon Fund (PFCP-CF)
+                                                {{ translate('Rapat Asistensi Rencana Kerja Tahunan Program Forest Carbon Partnership Facility-Carbon Fund (PFCP-CF)') }}
                                             </p>
                                             <p class="date text-white text-capitalize mb-2">
-                                                Rabu, 30 Oktober 2024
+                                                {{ translate('Rabu, 30 Oktober 2024') }}
                                             </p>
                                             <p class="description text-white">
-                                                Dalam upaya mengoptimalkan implementasi program penurunan emisi Gas Rumah Kaca (GRK) di Kalimantan Timur, Bappeda Kaltim menggelar rapat asistensi Rencana Kerja Tahunan (Annual Work Plan/AWP) untuk Program Forest Carbon Partnership Facility-Carbon Fund (FCPF-CF) pada hari ini. Acara ini berlangsung di Ruang Rapat Poldas, Kantor Bappeda Provinsi Kalimantan Timur.
+                                                {{ translate('Dalam upaya mengoptimalkan implementasi program penurunan emisi Gas Rumah Kaca (GRK) di Kalimantan Timur, Bappeda Kaltim menggelar rapat asistensi Rencana Kerja Tahunan (Annual Work Plan/AWP) untuk Program Forest Carbon Partnership Facility-Carbon Fund (FCPF-CF) pada hari ini. Acara ini berlangsung di Ruang Rapat Poldas, Kantor Bappeda Provinsi Kalimantan Timur.') }}
                                             </p>
                                             <a href="#" class="detail-primary-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
-                                                baca selengkapnya
+                                                {{ translate('baca selengkapnya') }}
                                                 <i class="bi bi-box-arrow-up-right"></i>
                                             </a>
                                         </div>
                                         @endforelse
-
                                     </div>
                                     <div class="swiper-primary-pagination position-absolute d-flex align-items-center justify-content-between">
                                         <i class="bi bi-chevron-left btn-prev text-white fs-9"></i>
@@ -143,25 +142,41 @@
                         <div class="d-flex flex-column">
                             <div class="news-category-btn d-flex align-items-center justify-content-between mb-3">
                                 <p class="text-center fs-8 text-uppercase m-0 px-0 py-2 w-100 active">
-                                    terbaru
+                                    {{ translate('terbaru') }}
                                 </p>
                             </div>
                             <div class="row">
                                 @forelse ($news as $item)
                                 <ul class="list-group list-group-flush">
                                     @if(in_array($item->category->name, ['Berita', 'Artikel']))
-                                    <li class="list-group-item"><a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
+                                    <li class="list-group-item">
+                                        <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
+                                            {{ translate("$item->title") }}
+                                        </a>
+                                    </li>
                                     @elseif($item->category->name == 'Infromasi')
-                                    <li class="list-group-item"><a href="{{ route('informasi.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
+                                    <li class="list-group-item">
+                                        <a href="{{ route('informasi.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
+                                            {{ translate("$item->title") }}
+                                        </a>
+                                    </li>
                                     @elseif($item->category->name == 'Berita Nasional')
-                                    <li class="list-group-item"><a href="{{ route('berita_nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
+                                    <li class="list-group-item">
+                                        <a href="{{ route('berita_nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
+                                            {{ translate("$item->title") }}
+                                        </a>
+                                    </li>
                                     @elseif($item->category->name == 'Kinerja Pembangunan Kaltim')
-                                    <li class="list-group-item"><a href="{{ route('pembangunan_kaltim.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">{{ $item->title }}</a></li>
+                                    <li class="list-group-item">
+                                        <a href="{{ route('pembangunan_kaltim.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
+                                            {{ translate("$item->title") }}
+                                        </a>
+                                    </li>
                                     @endif
                                 </ul>
                                 @empty
                                 <ul>
-                                    <li class="list-group-item">Tidak Ada Data</li>
+                                    <li class="list-group-item">{{ translate('Tidak Ada Data') }}</li>
                                 </ul>
                                 @endforelse
                             </div>
@@ -169,6 +184,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 info-container position-relative m-0 mb-5 p-0">
                 <div class="row">
                     <div class="col-lg-8 col-md-12 left-content position-relative mb-5 mb-lg-0">
