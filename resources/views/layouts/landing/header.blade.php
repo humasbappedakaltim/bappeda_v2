@@ -134,22 +134,22 @@
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingProfil">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfil" aria-expanded="false" aria-controls="collapseProfil">
-                                Profil
+                                {{ translate('Profil') }}
                             </button>
                         </h2>
                         <div id="collapseProfil" class="accordion-collapse collapse " aria-labelledby="headingProfil" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.profile') }}" class="text-decoration-none text-white">Profil Bappeda</a>
+                                    <a href="{{ route('landing.profile') }}" class="text-decoration-none text-white">{{ translate('Profil Bappeda') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.tupoksi') }}" class="text-decoration-none text-white">Tupoksi Bappeda</a>
+                                    <a href="{{ route('landing.tupoksi') }}" class="text-decoration-none text-white">{{ translate('Tupoksi Bappeda') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.struktur') }}" class="text-decoration-none text-white">Struktur Organisasi</a>
+                                    <a href="{{ route('landing.struktur') }}" class="text-decoration-none text-white">{{ translate('Struktur Organisasi') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.asn') }}" class="text-decoration-none text-white">ASN Bappeda Prov. Kaltim</a>
+                                    <a href="{{ route('landing.asn') }}" class="text-decoration-none text-white">{{ translate('ASN Bappeda Prov. Kaltim') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -157,28 +157,28 @@
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingUnitKerja">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUnitKerja" aria-expanded="false" aria-controls="collapseUnitKerja">
-                                Unit Kerja
+                                {{ translate('Unit Kerja') }}
                             </button>
                         </h2>
                         <div id="collapseUnitKerja" class="accordion-collapse collapse" aria-labelledby="headingUnitKerja" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.kepala_bappeda') }}" class="text-decoration-none text-white">Kepala BAPPEDA</a>
+                                    <a href="{{ route('landing.kepala_bappeda') }}" class="text-decoration-none text-white"> {{ translate('Kepala BAPPEDA') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.sekretaris') }}" class="text-decoration-none text-white">Sekretariat</a>
+                                    <a href="{{ route('landing.sekretaris') }}" class="text-decoration-none text-white"> {{ translate('Sekretariat') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.bidang_perencanaan') }}" class="text-decoration-none text-white">Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
+                                    <a href="{{ route('landing.bidang_perencanaan') }}" class="text-decoration-none text-white"> {{ translate('Bidang perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.bidang_pemerintahan') }}" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
+                                    <a href="{{ route('landing.bidang_pemerintahan') }}" class="text-decoration-none text-white"> {{ translate('Bidang Pemerintahan dan Pembangunan Manusia') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.bidang_perekonomian') }}" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
+                                    <a href="{{ route('landing.bidang_perekonomian') }}" class="text-decoration-none text-white"> {{ translate('Bidang Perekonomian dan Sumber Daya Alam') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.bidang_infrastruktur') }}" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
+                                    <a href="{{ route('landing.bidang_infrastruktur') }}" class="text-decoration-none text-white"> {{ translate('Bidang Infrastruktur dan Kewilayahan') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -186,25 +186,25 @@
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingAgenda">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAgenda" aria-expanded="false" aria-controls="collapseAgenda">
-                                Agenda
+                                {{ translate('Agenda') }}
                             </button>
                         </h2>
                         <div id="collapseAgenda" class="accordion-collapse collapse" aria-labelledby="headingAgenda" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('agenda.umum') }}" class="text-decoration-none text-white">Umum</a>
+                                    <a href="{{ route('agenda.umum') }}" class="text-decoration-none text-white"> {{ translate('Umum')}}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('agenda.perencanaan') }}" class="text-decoration-none text-white">Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah</a>
+                                    <a href="{{ route('agenda.perencanaan') }}" class="text-decoration-none text-white"> {{ translate('Bidang Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah')}}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('agenda.pemerintahan') }}" class="text-decoration-none text-white">Bidang Pemerintahan dan Pembangunan Manusia</a>
+                                    <a href="{{ route('agenda.pemerintahan') }}" class="text-decoration-none text-white"> {{ translate('Bidang Pemerintahan dan Pembangunan Manusia')}}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('agenda.perekonomian') }}" class="text-decoration-none text-white">Bidang Perekonomian dan Sumber Daya Alam</a>
+                                    <a href="{{ route('agenda.perekonomian') }}" class="text-decoration-none text-white"> {{ translate('Bidang Perekonomian dan Sumber Daya Alam')}}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('agenda.infrastruktur') }}" class="text-decoration-none text-white">Bidang Infrastruktur dan Kewilayahan</a>
+                                    <a href="{{ route('agenda.infrastruktur') }}" class="text-decoration-none text-white"> {{ translate('Bidang Infrastruktur dan Kewilayahan')}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -213,54 +213,54 @@
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingPostingan">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostingan" aria-expanded="false" aria-controls="collapsePostingan">
-                                Postingan
+                                 {{ translate('Postingan') }}
                             </button>
                         </h2>
                         <div id="collapsePostingan" class="accordion-collapse collapse" aria-labelledby="headingPostingan" data-bs-parent="#accordionExample">
                             <ul class="accordion-body nav-item-list">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('artikel.index') }}" class="text-decoration-none text-white">Artikel</a>
+                                    <a href="{{ route('artikel.index') }}" class="text-decoration-none text-white"> {{ translate('Artikel') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('berita.index') }}" class="text-decoration-none text-white">Berita Bappeda</a>
+                                    <a href="{{ route('berita.index') }}" class="text-decoration-none text-white"> {{ translate('Berita Bappeda') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('informasi.index') }}" class="text-decoration-none text-white">Informasi</a>
+                                    <a href="{{ route('informasi.index') }}" class="text-decoration-none text-white"> {{ translate('Informasi') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('pembangunan_kaltim.index') }}" class="text-decoration-none text-white">Kinerja Pembangunan Kaltim</a>
+                                    <a href="{{ route('pembangunan_kaltim.index') }}" class="text-decoration-none text-white"> {{ translate('Kinerja Pembangunan Kaltim') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('berita_nasional.index') }}" class="text-decoration-none text-white">Berita Nasional</a>
+                                    <a href="{{ route('berita_nasional.index') }}" class="text-decoration-none text-white"> {{ translate('Berita Nasional') }}</a>
                                 </li>
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="#" class="text-decoration-none text-white">Social Media</a>
+                                    <a href="#" class="text-decoration-none text-white"> {{ translate('Social Media') }}</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('data-center.index') }}">Data Center</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('data-center.index') }}"> {{ translate('Data Center') }}</a>
                     </li>
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.ruang_publik') }}">Ruang Publik</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('landing.ruang_publik') }}"> {{ translate('Ruang Publik') }}</a>
                     </li>
                     <li class="nav-item accordion my-1 py-2">
                         <h2 class="accordion-header" id="headingSurvei">
                             <button class="nav-item-title accordion-button collapsed fs-6 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurvei" aria-expanded="false" aria-controls="collapseSurvei">
-                                Survei
+                                {{ translate('Survei') }}
                             </button>
                         </h2>
                         <div id="collapseSurvei" class="accordion-collapse collapse" aria-labelledby="headingSurvei" data-bs-parent="#accordionExample">
                             <ul class="accordion-body">
                                 <li class="list-unstyled py-3 fs-7">
-                                    <a href="{{ route('landing.survei') }}" class="nav-item-list text-decoration-none text-white">Survei Kepuasan Masyarakat (SKM)</a>
+                                    <a href="{{ route('landing.survei') }}" class="nav-item-list text-decoration-none text-white">{{ translate('Survei Kepuasan Masyarakat (SKM)') }}</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item my-1 py-2">
-                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('ppid.index') }}">PPID</a>
+                        <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('ppid.index') }}">{{ translate('PPID') }}</a>
                     </li>
                 </ul>
             </div>
@@ -333,7 +333,7 @@
 <div class="collapse position-fixed w-100 custom-dropdown" id="agenda-dropdown">
     <div class="card card-body py-4 custom-body-dropdown">
         <div class="container col-12">
-            <h3 class="text-capitalize">agenda</h3>
+            <h3 class="text-capitalize">{{ translate('agenda') }}</h3>
             <div class="row mt-1">
                 <a href="{{ route('agenda.umum') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">{{ translate('Umum') }}</p>
@@ -364,7 +364,7 @@
 <div class="collapse position-fixed w-100 custom-dropdown" id="berita-dropdown">
     <div class="card card-body py-4 custom-body-dropdown">
         <div class="container col-12">
-            <h3 class="text-capitalize">Postingan</h3>
+            <h3 class="text-capitalize">{{ translate('Postingan') }}</h3>
             <div class="row mt-1">
                 <a href="{{ route('artikel.index') }}" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">{{ translate('Artikel') }}</p>
