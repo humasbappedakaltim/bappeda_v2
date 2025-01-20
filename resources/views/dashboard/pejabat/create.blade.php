@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                                  <!-- Foto Input -->
-                        
+
 
                                 <!-- Form Actions -->
                                 <div class="row">

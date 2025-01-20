@@ -51,7 +51,7 @@
                         <div class="col-3 mb-3">
                             <a href="{{ route('data-center.category.show', $category->slug) }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                                 <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                                <p class="bappeda-primary-color fs-7 lh-sm m-0 p-0">{{ $category->name }}</p>
+                                <p class="bappeda-primary-color fs-7 lh-sm m-0 p-0">{{ translate($category->name) }}</p>
                             </a>
                         </div>
                     @endif

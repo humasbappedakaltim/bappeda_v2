@@ -81,7 +81,7 @@
                                         @enderror
                                     </div>
                                 </div>
-
+{{--
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="orders" class="form-label">Status</label>
@@ -93,7 +93,7 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="row">
                                     <div class="col-md-12">

@@ -3,14 +3,14 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">berita< Nasional</p>
+            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">{{ translate('berita nasional') }}</p>
         </div>
         <div class="title-content">
             <h4 class="title text-capitalize fw-bold mb-3">
-                berita nasional bappeda
+                {{ translate('berita nasional bappeda') }}
             </h4>
         </div>
     </div>
@@ -36,7 +36,7 @@
                                 <p class="title text-white fw-bold text-capitalize mb-2">{{ $post->title }}</p>
                                 <div class="d-flex align-items-center mb-2">
                                     <p class="date text-white text-capitalize m-0 p-0">
-                                        {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}
+                                        {{ \Carbon\Carbon::parse($post->created_at)->locale(session('locale'))->translatedFormat('l, d F Y') }}
                                     </p>
                                     <p class="text-white mx-2 m-0 p-0">|</p>
                                     <p class="author text-white text-capitalize m-0 p-0">
@@ -44,11 +44,11 @@
                                     </p>
                                 </div>
                                 <p class="description text-white">
-                                    {!! Str::substr(strip_tags($post->description), 0, 300) !!} ....
+                                    {!! Str::substr(strip_tags(translate($post->description)), 0, 300) !!} ....
                                 </p>
 
                                 <a href="{{ route('berita_nasional.show', $post->slug . '.' . Str::slug($post->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
-                                    baca selengkapnya
+                                    {{ translate('baca selengkapnya') }}
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
                             </div>
@@ -84,7 +84,7 @@
                                         </p>
                                     </div>
                                     <p class="description m-0 p-0">
-                                        {!! Str::substr(strip_tags($post->description), 0, 300) !!} ....
+                                        {!! Str::substr(strip_tags(translate($post->description)), 0, 300) !!} ....
                                     </p>
 
                                 </div>
@@ -95,7 +95,7 @@
                     @empty
                     <div class="card text-center">
                         <div class="card-body">
-                            <h5>Tidak Ada Data Berita Nasional</h5>
+                            <h5>{{ translate('Tidak Ada Data Berita Nasional') }}</h5>
                         </div>
                     </div>
 

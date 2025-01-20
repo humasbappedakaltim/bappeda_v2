@@ -80,7 +80,7 @@
                                              style="border-radius: 10px; max-width: 100%; height: auto;">
                                     </div>
                                 </div>
-                                
+
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="orders" class="form-label">Posisi</label>
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                {{-- <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="orders" class="form-label">Status</label>
                                         <select class="form-select @error('active') is-invalid @enderror" id="active" name="active">
@@ -102,7 +102,7 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="row">
                                     <div class="col-md-12">

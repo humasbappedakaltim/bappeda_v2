@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3 mt-7">
+                                    {{-- <div class="row mb-3 mt-7">
                                         <div class="col-md-12">
                                             <label for="extra_photo" class="form-label">Foto Tambahan</label>
                                             <input type="file" class="form-control @error('extra_photo') is-invalid @enderror" id="extra_photo" name="extra_photo[]" accept="image/*" multiple>
@@ -119,7 +119,7 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
                                     <div class="row mt-5">

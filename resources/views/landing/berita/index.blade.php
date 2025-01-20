@@ -45,7 +45,7 @@
                                     </p>
                                 </div>
                                 <p class="description text-white">
-                                    {!! Str::substr(strip_tags($berita->description), 0, 300) !!} ....
+                                    {!! Str::substr(strip_tags(translate($berita->description)), 0, 300) !!} ....
                                 </p>
 
                                 <a href="{{ route('berita.show', $berita->slug . '.' . Str::slug($berita->title)) }}" class="detail-post-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none text-white gap-3">
@@ -84,7 +84,7 @@
                                         </p>
                                     </div>
                                     <p class="description m-0 p-0">
-                                        {!! Str::substr(strip_tags($berita->description), 0, 300) !!} ....
+                                        {!! Str::substr(strip_tags(translate($berita->description)), 0, 300) !!} ....
                                     </p>
                                 </div>
                             </div>

@@ -1,18 +1,17 @@
 @extends('layouts.dashboard')
-@section('title', 'Edit Pejabat')
+@section('title', 'Edti Pegawai')
 @push('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
 @section('content')
 <h1 class="h3 mb-3">
-    <strong>Edit Pejabat</strong>
+    <strong>Edti Pegawai</strong>
 </h1>
 
 <div class="row">
     <div class="col-md-12 d-flex">
         <div class="w-100">
             <div class="row">
-                @include('layouts.flashmessage')
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -74,6 +73,7 @@
                                     </div>
                                 </div>
 
+
                                 <!-- Bidang ID Input -->
                                 <div class="row mb-3">
                                     <div class="col-md-12">
@@ -95,7 +95,7 @@
                                     <div class="col-md-12">
                                         <label for="sub_bidang_id" class="form-label">Sub Bidang</label>
                                         <select class="form-control @error('sub_bidang_id') is-invalid @enderror select2" id="sub_bidang_id" name="sub_bidang_id">
-                                            <option value="">Pilih Sub Bidang</option>
+                                            <option selected disabled>Pilih Sub Bidang</option>
                                             @foreach ($sub_bidangs as $sub)
                                                 <option value="{{ $sub->id }}" {{ old('sub_bidang_id', $pejabat->sub_bidang_id) == $sub->id ? 'selected' : '' }}>{{ $sub->name }}</option>
                                             @endforeach
@@ -121,17 +121,21 @@
                                     </div>
                                 </div>
 
-
                                 <!-- Status Jabatan Penjabat Input -->
-                                <div class="row mb-3">
+                                {{-- select pejabat structural fungsional --}}
+                                {{-- select non-pejabat pelaksana pppk non-asn --}}
+                                <div class="row mb-3" id="div_status_jabatan_penjabat">
                                     <div class="col-md-12">
                                         <label for="status_jabatan_penjabat" class="form-label">Status Jabatan Penjabat</label>
-                                        <input type="text" class="form-control @error('status_jabatan_penjabat') is-invalid @enderror" id="status_jabatan_penjabat" name="status_jabatan_penjabat" value="{{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) }}">
+                                        <select name="status_jabatan_penjabat" id="status_jabatan_penjabat" class="form-control @error('status_jabatan_penjabat') is-invalid @enderror">
+                                            {{-- <optio n selected disabled>Pilih Status Jabatan Penjabat</optio> --}}
+                                        </select>
                                         @error('status_jabatan_penjabat')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
+
 
                                 <!-- Ketua Tim Input -->
                                 <div class="row mb-3">
@@ -148,7 +152,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="urutan_jabatan" class="form-label">Urutan Jabatan</label>
-                                        <input type="number" class="form-control @error('urutan_jabatan') is-invalid @enderror" id="urutan_jabatan" name="urutan_jabatan" value="{{ old('urutan_jabatan', $pejabat->urutan_jabatan) }}">
+                                        <input type="text" class="form-control @error('urutan_jabatan') is-invalid @enderror" id="urutan_jabatan" name="urutan_jabatan" value="{{ old('urutan_jabatan', $pejabat->urutan_jabatan) }}">
                                         @error('urutan_jabatan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -174,6 +178,7 @@
                                     </div>
                                 </div>
 
+                                <!-- Status Aktif Input -->
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="status_aktif" class="form-label">Status Aktif</label>
@@ -187,7 +192,8 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+
+                                <div class="mb-3">
                                     <div class="col-md-12">
                                         <label for="image" class="form-label">Gambar</label>
                                         <input type="file"
@@ -208,9 +214,10 @@
                                              style="border-radius: 10px; max-width: 100%; height: auto;">
                                     </div>
                                 </div>
+                                 <!-- Foto Input -->
 
-                
 
+                                <!-- Form Actions -->
                                 <div class="row">
                                     <div class="col-md-12">
                                         <a href="{{ route('dashboard.pejabat.index') }}" class="btn btn-danger">Kembali</a>
@@ -225,13 +232,41 @@
         </div>
     </div>
 </div>
-@endsection
 
 @push('js')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.select2').select2();
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+
+        function updateStatusJabatanOptions() {
+            let status_jabatan = $('#status_jabatan').val();
+
+            if (status_jabatan === 'pajabat') {
+                $('#div_status_jabatan_penjabat').removeClass('d-none');
+                $('#status_jabatan_penjabat').html(
+                    '<option value="struktural" {{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) == 'struktural' ? 'selected' : '' }}>Struktural</option>' +
+                    '<option value="fungsional" {{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) == 'fungsional' ? 'selected' : '' }}>Fungsional</option>'
+                );
+            } else {
+                $('#div_status_jabatan_penjabat').removeClass('d-none');
+                $('#status_jabatan_penjabat').html(
+                    '<option value="pelaksana" {{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) == 'pelaksana' ? 'selected' : '' }}>Pelaksana</option>' +
+                    '<option value="pppk" {{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) == 'pppk' ? 'selected' : '' }}>PPPK</option>' +
+                    '<option value="non-asn" {{ old('status_jabatan_penjabat', $pejabat->status_jabatan_penjabat) == 'non-asn' ? 'selected' : '' }}>Non ASN</option>'
+                );
+            }
+        }
+
+        $(document).ready(function () {
+            updateStatusJabatanOptions();
+
+            $('#status_jabatan').on('change', function () {
+                updateStatusJabatanOptions();
+            });
         });
-    </script>
+
+    });
+</script>
 @endpush
+@endsection

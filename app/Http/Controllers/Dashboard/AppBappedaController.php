@@ -65,7 +65,6 @@ class AppBappedaController extends Controller implements HasMiddleware
             'description' => 'nullable|string',
             'status' => 'required|in:1,0',
             'orders' => 'required|integer',
-            'active' => 'required|boolean',
 
         ]);
 

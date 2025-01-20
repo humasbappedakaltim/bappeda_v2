@@ -4,7 +4,7 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{route('landing.index' )}}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
             <a href="{{ route('berita.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">berita</a>
