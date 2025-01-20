@@ -74,18 +74,28 @@ class LandingController extends Controller
         $agendas = Agenda::select('schedule', 'caption','description','location','times','dihadiri')->whereDate('schedule', $date)->orderBy('schedule', 'desc')->get();
 
         if ($agendas->count() > 0) {
+            $translatedAgendas = $agendas->map(function ($agenda) {
+                return [
+                    'caption' => translate($agenda->caption),
+                    'location' => translate($agenda->location),
+                    'times' => $agenda->times,
+                    'dihadiri' => translate($agenda->dihadiri),
+                ];
+            });
+
             return response()->json([
                 'status' => 'success',
                 'date' => $date,
-                'data' => $agendas
+                'data' => $translatedAgendas,
             ]);
         } else {
             return response()->json([
                 'status' => 'error',
                 'date' => $date,
-                'message' => 'Tidak Agenda Pada Tanggal Ini'
+                'message' => translate('Tidak Agenda Pada Tanggal Ini')
             ]);
         }
+
     }
 
 

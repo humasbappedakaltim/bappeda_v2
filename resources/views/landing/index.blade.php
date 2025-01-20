@@ -139,46 +139,72 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="d-flex flex-column">
-                            <div class="news-category-btn d-flex align-items-center justify-content-between mb-3">
-                                <p class="text-center fs-8 text-uppercase m-0 px-0 py-2 w-100 active">
+                        <div class="row m-0 p-0">
+                            <div class="news-category-btn d-flex align-items-center justify-content-between mb-3 m-0 p-0">
+                                <p class="text-center fs-8 text-uppercase m-0 p-0 py-2 w-100 active">
                                     {{ translate('terbaru') }}
                                 </p>
                             </div>
-                            <div class="row">
-                                @forelse ($news as $item)
-                                <ul class="list-group list-group-flush">
+                            <div class="row m-0 p-0">
+                                <div class="news-item-content m-0 p-0">
+                                    @forelse ($news as $item)
                                     @if(in_array($item->category->name, ['Berita', 'Artikel']))
-                                    <li class="list-group-item">
-                                        <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
-                                            {{ translate("$item->title") }}
+                                        <a href="{{ route('berita.show', $item->slug . '.' . Str::slug($item->title)) }}" class="text-decoration-none text-black">
+                                            <div class="list-content mb-2 m-0 p-2">
+                                                <p class="title">
+                                                    {{ translate("$item->title") }}
+                                                </p>
+                                                <p class="date">
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->locale(session('locale'))->translatedFormat('l, j F Y') }}
+                                                </p>
+                                            </div>
                                         </a>
-                                    </li>
                                     @elseif($item->category->name == 'Infromasi')
-                                    <li class="list-group-item">
-                                        <a href="{{ route('informasi.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
-                                            {{ translate("$item->title") }}
+                                        <a href="{{ route('informasi.show', $item->slug . '.' . Str::slug($item->title)) }}" class="text-decoration-none text-black">
+                                            <div class="list-content mb-2 m-0 p-2">
+                                                <p class="title">
+                                                    {{ translate("$item->title") }}
+                                                </p>
+                                                <p class="date">
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->locale(session('locale'))->translatedFormat('l, j F Y') }}
+                                                </p>
+                                            </div>
                                         </a>
-                                    </li>
                                     @elseif($item->category->name == 'Berita Nasional')
-                                    <li class="list-group-item">
-                                        <a href="{{ route('berita_nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
-                                            {{ translate("$item->title") }}
+                                        <a href="{{ route('berita_nasional.show', $item->slug . '.' . Str::slug($item->title)) }}" class="text-decoration-none text-black">
+                                            <div class="list-content mb-2 m-0 p-2">
+                                                <p class="title">
+                                                    {{ translate("$item->title") }}
+                                                </p>
+                                                <p class="date">
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->locale(session('locale'))->translatedFormat('l, j F Y') }}
+                                                </p>
+                                            </div>
                                         </a>
-                                    </li>
                                     @elseif($item->category->name == 'Kinerja Pembangunan Kaltim')
-                                    <li class="list-group-item">
-                                        <a href="{{ route('pembangunan_kaltim.show', $item->slug . '.' . Str::slug($item->title)) }}" class="btn btn-primary btn-sm">
-                                            {{ translate("$item->title") }}
+                                        <a href="{{ route('pembangunan_kaltim.show', $item->slug . '.' . Str::slug($item->title)) }}" class="text-decoration-none text-black">
+                                            <div class="list-content mb-2 m-0 p-2">
+                                                <p class="title">
+                                                    {{ translate("$item->title") }}
+                                                </p>
+                                                <p class="date">
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->locale(session('locale'))->translatedFormat('l, j F Y') }}
+                                                </p>
+                                            </div>
                                         </a>
-                                    </li>
                                     @endif
-                                </ul>
-                                @empty
-                                <ul>
-                                    <li class="list-group-item">{{ translate('Tidak Ada Data') }}</li>
-                                </ul>
-                                @endforelse
+                                    @empty
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p class="text-center text-white fs-8 m-0 p-0 py-2 w-100">
+                                                        {{ translate('tidak ada data') }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
                     </div>
