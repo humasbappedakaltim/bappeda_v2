@@ -16,13 +16,13 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-white fw-500 m-0 p-0">Permohonan Informasi Online</p>
+            <p class="breadcrumb-active text-white fw-500 m-0 p-0">{{ translate('Permohonan Informasi Online') }}</p>
         </div>
         <div class="title-content">
             <h4 class="title fw-bold mb-3">
-                Permohonan Informasi Online
+                {{ translate('Permohonan Informasi Online') }}
             </h4>
         </div>
     </div>
