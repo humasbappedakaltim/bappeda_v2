@@ -9,7 +9,7 @@
                                 <i class="bi bi-geo-alt-fill text-white"></i>
                                 <div class="d-flex flex-column align-items-start justify-content-start">
                                     <p class="title-sm text-white fw-bold m-0 p-0 mb-1">Bappeda Kaltim</p>
-                                    <p class="content text-white m-0 p-0">Jl. Kesuma Bangsa No.2, Kel. Sungai Pinang Luar, Kec. Samarinda Kota, Kota Samarinda, Kalimantan Timur 75242</p>
+                                    <p class="content text-white m-0 p-0">{{ translate('Jl. Kesuma Bangsa No.2, Kel. Sungai Pinang Luar, Kec. Samarinda Kota, Kota Samarinda, Kalimantan Timur 75242') }}</p>
                                 </div>
                             </div>
                         </div>

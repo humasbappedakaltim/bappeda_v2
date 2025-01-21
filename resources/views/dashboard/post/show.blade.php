@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Pembuat</label>
-                        <input type="text" class="form-control" value="{{ $post->user->name }}" readonly>
+                        <input type="text" class="form-control" value="{{ $post->user->name ?? 'Admin' }}" readonly>
                     </div>
                 </div>
 

@@ -63,7 +63,7 @@
                                 {{ translate($postNew->title) }}
                             </p>
                             <p class="text-justify fs-8 fw-light lh-sm mb-4">
-                                {!! $postNew->description !!}
+                                {!! translate($postNew->description) !!}
                             </p>
                         </div>
                     </div>

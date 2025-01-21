@@ -321,7 +321,7 @@
                                 <div class="col-12 order-2 order-lg-1">
                                     <div class="col-12 order-1 order-lg-2">
                                         <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                                            <p class="text-title text-capitalize my-0 py-0">{{ translate('Peta') }}</p>
+                                            <p class="text-title text-capitalize my-0 py-0">{{ translate('peta') }}</p>
                                             <hr class="hr-title-black flex-grow-1 mx-3">
                                             <a href="{{ route('landing.peta') }}" class="all-news-btn d-flex align-items-center justify-content-center text-capitalize text-decoration-none gap-3 fw-500">
                                                 {{ translate('lihat semua peta') }}

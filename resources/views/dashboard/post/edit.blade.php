@@ -172,7 +172,7 @@
                     theme: 'snow'
                 });
 
-                quill.root.innerHTML = '{!! $post->description !!}';
+                quill.root.innerHTML = `{!! $post->description !!}`;
 
                 quill.on('text-change', function () {
                     $('#content-editor').text($('.ql-editor').html());

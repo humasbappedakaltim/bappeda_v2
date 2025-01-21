@@ -94,7 +94,7 @@
                         </div>
                         <div class="about-content d-flex flex-column m-0 p-0">
                             <div class="title fs-8 lh-sm m-0 mb-2 p-0">
-                                {{ $post->title }}
+                                {{ translate($post->title) }}
                             </div>
                             <div class="d-flex gap-2 align-items-center text-grey">
                                 <p class="author text-capitalize m-0 p-0">
