@@ -470,24 +470,29 @@ $(document).ready(function () {
     );
 
     let swiperNewsContainer = document.querySelector("#swiper-news");
-    swiperNewsContainer.addEventListener("mouseenter", function() {
-        swiperNews.autoplay.stop();
-    });
-    swiperNewsContainer.addEventListener("mouseleave", function() {
-        swiperNews.autoplay.start();
-    });
+    if (swiperNewsContainer) {
+        swiperNewsContainer.addEventListener("mouseenter", function() {
+            swiperNews.autoplay.stop();
+        });
+        swiperNewsContainer.addEventListener("mouseleave", function() {
+            swiperNews.autoplay.start();
+        });
+    }
     // SWIPER END //
 
     // ASN CARD //
-    document.querySelectorAll('.asn-card-item').forEach(card => {
-        card.addEventListener('click', () => {
-            if(card.classList.contains('active')) {
-                card.classList.remove('active');
-            } else {
-                card.classList.add('active');
-            }
+    const asnCardItems = document.querySelectorAll('.asn-card-item');
+    if (asnCardItems) {
+        asnCardItems.forEach(card => {
+            card.addEventListener('click', () => {
+                if (card.classList.contains('active')) {
+                    card.classList.remove('active');
+                } else {
+                    card.classList.add('active');
+                }
+            });
         });
-    });
+    }
     // ASN CARD END //
 
 
