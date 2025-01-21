@@ -88,7 +88,7 @@
                         <a class="nav-link custom-nav-link text-center px-2 py-2 text-reset text-uppercase" href="{{ route('ppid.index') }}">{{ translate("PPID") }}</a>
                     </li>
 
-                    <li class="nav-item align-items-center mx-1">
+                    {{-- <li class="nav-item align-items-center mx-1">
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle btn-sm" type="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
                                 @if(app()->getLocale() == 'id')
@@ -110,7 +110,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> --}}
+                    @include('layouts.language')
 
                 </ul>
             </div>

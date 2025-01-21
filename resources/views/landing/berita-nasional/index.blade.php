@@ -68,14 +68,14 @@
                             <div class="col-9 m-0 p-0 py-2 ps-3">
                                 <div class="about-content d-flex flex-column justify-content-between m-0">
                                     <p class="category text-uppercase fs-8 fw-500 mb-2">
-                                        {{ $post->category->name }}
+                                        {{ translate($post->category->name) }}
                                     </p>
                                     <p class="title fw-bold text-capitalize mb-2">
-                                        {{ $post->title }}
+                                        {{ translate($post->title) }}
                                     </p>
                                     <div class="d-flex align-items-center mb-2">
                                         <p class="date text-capitalize m-0 p-0">
-                                            {{ \Carbon\Carbon::parse($post->created_at)->locale('id')->translatedFormat('l, d F Y') }}
+                                            {{ \Carbon\Carbon::parse($post->created_at)->locale(session('locale'))->translatedFormat('l, d F Y') }}
 
                                         </p>
                                         <p class="mx-2 m-0 p-0">|</p>

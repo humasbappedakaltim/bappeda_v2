@@ -1,17 +1,16 @@
 @extends('layouts.ppid')
 @section('content')
-
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="/beranda" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-white fw-500 m-0 p-0">PPID</p>
+            <p class="breadcrumb-active text-white fw-500 m-0 p-0">{{ translate('PPID') }}</p>
         </div>
         <div class="title-content">
             <h4 class="title fw-bold mb-3">
-                PPID
+                {{ translate('PPID') }}
             </h4>
         </div>
     </div>
@@ -27,33 +26,29 @@
     <div class="container over-top-container m-0 p-0">
         <div class="welcome-content mb-5 m-0 p-0">
             <div class="title-content title-section d-flex align-items-center justify-content-between">
-                <h3 class="fw-bold text-danger">Selamat Datang</h3>
+                <h3 class="fw-bold text-danger">{{ translate('Selamat Datang') }}</h3>
                 <hr class="hr-title-black flex-grow-1 ms-3">
             </div>
-            <p class="fs-6 text-danger m-0 p-0">di Website Pejabat Pengelola Informasi dan Dokumentasi Bappeda Provinsi Kalimantan Timur</p>
+            <p class="fs-6 text-danger m-0 p-0">{{ translate('di Website Pejabat Pengelola Informasi dan Dokumentasi Bappeda Provinsi Kalimantan Timur') }}</p>
         </div>
         <div class="row">
             <div class="col-12 m-0 p-0">
                 <p class="text-center fs-8 fw-light lh-sm mb-3">
-                    Visi dan Misi Provinsi Kalimantan Timur yang tertuang dalam RPJMD Kalimantan Timur Tahun 2019 - 2023
+                    {{ translate('Visi dan Misi Provinsi Kalimantan Timur yang tertuang dalam RPJMD Kalimantan Timur Tahun 2019 - 2023') }}
                 </p>
-                <h3 class="title text-danger text-center fw-light mb-3">Visi</h3>
+                <h3 class="title text-danger text-center fw-light mb-3">{{ translate('Visi') }}</h3>
                 <p class="text-center fs-8 fw-light lh-sm mb-3">
-                    "Berani Untuk Kalimantan Timur Berdaulat".
+                    {{ translate('Berani Untuk Kalimantan Timur Berdaulat') }}.
                 </p>
-                <h3 class="title text-danger text-center fw-light mb-3">Misi</h3>
+                <h3 class="title text-danger text-center fw-light mb-3">{{ translate('Misi') }}</h3>
                 <ol>
                     <li class="fs-8 fw-light lh-sm mb-1">
-                        Berdaulat Dalam Pembangunan Sumber Daya Manusia Berahklak Mulia dan Berdaya Saing Terutama Perempuan, Pemuda dan Penyandang Disabilitas.
+                        {{ translate('Berdaulat Dalam Pembangunan Sumber Daya Manusia Berahklak Mulia dan Berdaya Saing Terutama Perempuan, Pemuda dan Penyandang Disabilitas.') }}
                     </li>
-                    <li class="fs-8 fw-light lh-sm mb-1">Berdaulat Dalam Pemberdayaan Ekonomi Wilayah dan Ekonomi Kerakyatan Yang Berkeadilan.
-                    </li>
-                    <li class="fs-8 fw-light lh-sm mb-1">Berdaulat Dalam Memenuhi Kebutuhan Infrastruktur Kewilayahan.
-                    </li>
-                    <li class="fs-8 fw-light lh-sm mb-1">Berdaulat Dalam Pengelolaan Sumber Daya Alam Yang Berkelanjutan.
-                    </li>
-                    <li class="fs-8 fw-light lh-sm mb-1">Berdaulat Dalam Mewujudkan Birokrasi Pemerintahan Yang Bersih, Profesional dan Berorientasi Pelayanan Publik.
-                    </li>
+                    <li class="fs-8 fw-light lh-sm mb-1">{{ translate('Berdaulat Dalam Pemberdayaan Ekonomi Wilayah dan Ekonomi Kerakyatan Yang Berkeadilan.') }}</li>
+                    <li class="fs-8 fw-light lh-sm mb-1">{{ translate('Berdaulat Dalam Memenuhi Kebutuhan Infrastruktur Kewilayahan.') }}</li>
+                    <li class="fs-8 fw-light lh-sm mb-1">{{ translate('Berdaulat Dalam Pengelolaan Sumber Daya Alam Yang Berkelanjutan.') }}</li>
+                    <li class="fs-8 fw-light lh-sm mb-1">{{ translate('Berdaulat Dalam Mewujudkan Birokrasi Pemerintahan Yang Bersih, Profesional dan Berorientasi Pelayanan Publik.') }}</li>
                 </ol>
                 <div class="pio-container position-relative d-flex justify-content-center my-5">
                     <div class="row g-5">
@@ -62,7 +57,7 @@
                                 <div class="pio-card-icon w-100 d-flex justify-content-center mb-3">
                                     <i class="bi bi-postcard text-white text-center fs-2 m-0 p-0"></i>
                                 </div>
-                                <p class="text-uppercase text-center text-white fw-500 lh-sm m-0 p-0">FORM PENGAJUAN PERMOHONAN INFORMASI PUBLIK</p>
+                                <p class="text-uppercase text-center text-white fw-500 lh-sm m-0 p-0">{{ translate('FORM PENGAJUAN PERMOHONAN INFORMASI PUBLIK') }}</p>
                             </a>
                         </div>
                         {{-- <div class="col-4">

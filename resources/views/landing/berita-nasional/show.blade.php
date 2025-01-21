@@ -4,16 +4,16 @@
 <section class="breadcrumb-section position-relative d-flex justify-content-center">
     <div class="container custom-container">
         <div class="breadcrumb-container d-flex align-items-center gap-2 fs-8 mb-3">
-            <a href="{{route('landing.index' )}}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">beranda</a>
+            <a href="{{route('landing.index' )}}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <a href="{{ route('berita.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">berita</a>
+            <a href="{{ route('berita.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('berita') }}</a>
             <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">detail berita</p>
+            <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">{{ translate('detail berita') }}</p>
         </div>
         <div class="title-content">
             <h4 class="title text-capitalize fw-bold mb-3">
-                detail berita {{ $postNew->title }}
+                {{ translate('detail berita') }} {{ translate($postNew->title) }}
             </h4>
         </div>
     </div>
@@ -37,7 +37,7 @@
                                     <div class="d-flex align-items-start justify-content-start gap-2">
                                         <i class="bi bi-calendar2-week"></i>
                                         <p class="fs-9 lh-sm m-0 p-0">
-                                            {{ \Carbon\Carbon::parse($postNew->created_at)->locale('id')->translatedFormat('l, d F Y') }}
+                                            {{ \Carbon\Carbon::parse($postNew->created_at)->locale(session('locale'))->translatedFormat('l, d F Y') }}
                                         </p>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                 <div class="col-6 mb-2 m-0 p-0">
                                     <div class="d-flex align-items-start justify-content-start gap-2">
                                         <i class="bi bi-folder"></i>
-                                        <p class="fs-9 lh-sm m-0 p-0">{{ $postNew->category->name }}</p>
+                                        <p class="fs-9 lh-sm m-0 p-0">{{ translate($postNew->category->name ?? 'berita') }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2 m-0 p-0">
@@ -61,10 +61,10 @@
                                 </div>
                             </div>
                             <p class="fs-4 lh-sm fw-500 mb-4">
-                                {{ $postNew->title }}
+                                {{ translate($postNew->title) }}
                             </p>
                             <p class="text-justify fs-8 fw-light lh-sm mb-4">
-                                {!! $postNew->description !!}
+                                {!! translate($postNew->description) !!}
                             </p>
 
                             {{-- <p class="text-justify fs-8 fw-light lh-sm mb-4">

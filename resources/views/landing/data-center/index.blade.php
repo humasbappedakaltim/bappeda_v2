@@ -9,11 +9,11 @@
                 <a href="{{ route('landing.index') }}" class="breadcrumb-link text-capitalize text-decoration-none fw-500 m-0 p-0">{{ translate('beranda') }}</a>
 
                 <i class="bi bi-chevron-right text-white m-0 p-0"></i>
-                <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">{{ translate('Data Center') }}</p>
+                <p class="breadcrumb-active text-capitalize text-white fw-500 m-0 p-0">{{ translate('data Center') }}</p>
             </div>
             <div class="title-content">
                 <h4 class="title text-capitalize fw-bold mb-3">
-                    {{ translate('Data Center') }}
+                    {{ translate('data Center') }}
                 </h4>
             </div>
         </div>
@@ -37,14 +37,14 @@
                         <div class="col-3 mb-3">
                             <a href="{{ route('landing.penghargaan') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                                 <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('Penghargaan') }}</p>
+                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('penghargaan') }}</p>
                             </a>
                         </div>
                     @elseif($category->name == 'Peta')
                         <div class="col-3 mb-3">
                             <a href="{{ route('landing.peta') }}" class="document-list-card text-decoration-none d-flex align-items-center gap-2 p-2">
                                 <i class="bi bi-journal-bookmark bappeda-primary-color fs-3"></i>
-                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('Peta') }}</p>
+                                <p class="bappeda-primary-color fs-6 lh-sm m-0 p-0">{{ translate('peta') }}</p>
                             </a>
                         </div>
                     @else
