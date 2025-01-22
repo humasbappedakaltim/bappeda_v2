@@ -23,7 +23,7 @@
                     <a class="navbar-brand py-0" href="{{ route('landing.index') }}"><img src="{{ asset('assets/images/logo-bappeda.png')}}" alt=""></a>
                 </div>
                 <div class="title-content">
-                    <p class="text-title fw-500 m-0 p-0">{{ translate('Agenda') }}</p>
+                    <p class="text-title fw-500 m-0 p-0">{{ translate('agenda') }}</p>
                 </div>
             </nav>
         </div>
@@ -40,7 +40,7 @@
                 <div class="row m-0 p-0">
                     <div class="col-7">
                         <div class="title-content title-section d-flex align-items-center justify-content-between mb-3">
-                            <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('Agenda') }} {{ $title }}</p>
+                            <p class="text-title text-capitalize lh-sm my-0 py-0">{{ translate('agenda') }} {{ translate($title) }}</p>
                             <hr class="hr-title-black flex-grow-1 ms-3">
                         </div>
                         <!-- Swiper Present Agenda -->
