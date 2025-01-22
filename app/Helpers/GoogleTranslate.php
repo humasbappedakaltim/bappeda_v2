@@ -18,7 +18,7 @@ if (!function_exists('translate')) {
         $cacheKey = 'translation_' . $locale . '_' . md5($text);
 
         // Check if the translation exists in cache
-        return Cache::remember($cacheKey, 86400, function () use ($text, $locale) {
+        return Cache::remember($cacheKey, 604800, function () use ($text, $locale) {
             // Initialize GoogleTranslate instance
             $googleTranslate = new GoogleTranslate();
 
@@ -30,3 +30,4 @@ if (!function_exists('translate')) {
         });
     }
 }
+
