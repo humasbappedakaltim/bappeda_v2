@@ -263,6 +263,7 @@
                     <li class="nav-item my-1 py-2">
                         <a class="nav-item-title text-decoration-none text-white fs-6 text-capitalize" href="{{ route('ppid.index') }}">{{ translate('PPID') }}</a>
                     </li>
+                    {{-- @include('layouts.language') --}}
                 </ul>
             </div>
         </div>
