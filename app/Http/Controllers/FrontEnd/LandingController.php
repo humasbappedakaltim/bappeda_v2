@@ -13,6 +13,7 @@ use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Models\WelcomeSlider;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class LandingController extends Controller
 {
@@ -180,6 +181,17 @@ class LandingController extends Controller
         $visitor_by_year = Visitor::whereDate('created_at', '>=', Carbon::now()->startOfYear()->format('Y-m-d'))->count();
 
         return view('layouts.landing.footer', compact('visitor_by_day', 'visitor_by_month', 'visitor_by_year'));
+    }
+
+    public function getYoutube()
+    {
+        $api_key = env('YOUTUBE_API_KEY');
+        $chanelId = "UC5LF3CO4omiNMSrKOJUuXzQ";
+
+        $youtube_url =  Http::get("https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${chanelId}&maxResults=5&order=date&key=${api_key}");
+
+        return $youtube_url;
+
     }
 
 }

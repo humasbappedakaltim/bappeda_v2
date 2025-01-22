@@ -630,7 +630,7 @@
                         agendaEl.innerHTML = `
                             <p class="title">${agenda.caption}</p>
                             <p class="location">${agenda.location}</p>
-                            <div class="bottom-content d-flex align-items-end justify-content-between">
+                            <div class="bottom-content d-flex align-items-center text-start gap-3 ">
                                 <p class="time">${agenda.times}</p>
                                 <p class="status text-capitalize">${agenda.dihadiri}</p>
                             </div>

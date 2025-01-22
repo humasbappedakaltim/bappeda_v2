@@ -82,6 +82,8 @@ Route::middleware(['setlocale'])->group(function () {
             });
         });
 
+        Route::get('get/youtube', [LandingController::class, 'getYoutube'])->name('getYoutube');
+
         Route::get('/informasi-prioritas', [LandingController::class, 'informasi_prioritas'])->name('landing.informasi_prioritas');
 
         Route::get('/peta', [LandingController::class, 'peta'])->name('landing.peta');
