@@ -14,6 +14,10 @@ if (!function_exists('translate')) {
     {
         $locale = app()->getLocale();
 
+        if($locale == 'id') {
+            return $text;
+        }
+
         // Generate a unique cache key for the text and target language
         $cacheKey = 'translation_' . $locale . '_' . md5($text);
 

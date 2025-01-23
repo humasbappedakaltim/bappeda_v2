@@ -55,7 +55,7 @@
                                 <div class="col-6 mb-2 m-0 p-0">
                                     <div class="d-flex align-items-start justify-content-end gap-2">
                                         <i class="bi bi-eye"></i>
-                                        <p class="fs-9 lh-sm m-0 p-0">{{ $postNew->views }} kali dilihat</p>
+                                        <p class="fs-9 lh-sm m-0 p-0">{{ $postNew->views }} {{ translate('kali dilihat') }}</p>
                                     </div>
                                 </div>
                             </div>
