@@ -35,7 +35,7 @@ class PejabatSeeder extends Seeder
             [
                 'id' => 2,
                 'name' => 'Saur Parsaoran T, S.Pi, MEMD',
-                'jabatan' => 'SEKRETARIS/PLT KABID INFRASTRUKTUR DAN KEWILAYAHAN',
+                'jabatan' => 'SEKRETARIS',
                 'status_aktif' => 1,
                 'created_at' => '2020-11-10 06:39:34',
                 'updated_at' => '2024-09-05 23:36:26',
@@ -46,6 +46,7 @@ class PejabatSeeder extends Seeder
                 'kelas_jabatan' => '11.A',
                 'status_jabatan' => 'Pejabat',
                 'status_kehadiran' => 'Hadir',
+                'jabatan_lainnya' => 'PLT KABID INFRASTRUKTUR DAN KEWILAYAHAN',
                 'urutan_jabatan' => 2,
                 'ketua_tim' => null,
                 'slug' => Str::slug(Str::random(10)),

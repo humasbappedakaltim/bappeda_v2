@@ -20,21 +20,44 @@ class AsnController extends Controller
 
     public function bidang($bidang)
     {
-
+        // Retrieve the bidang from the database
         $bidang = Bidang::where('name', $bidang)->first();
         $pejabat = collect();
         $subBidangs = collect();
 
-
-        if($bidang->name  == 'Sekretariat'){
-            $pejabat = Pejabat::where('bidang_id', $bidang->id)->where('urutan_jabatan', 2)->first();
-            $subBidangs = SubBidang::where('bidang_id', $bidang->id)->get();
-        } else {
-            $pejabat = Pejabat::where('bidang_id', $bidang->id)->get();
+        // Check if the bidang exists
+        if (!$bidang) {
+            abort(404, 'Bidang not found');
         }
 
-        return view('landing.asn.show', compact('bidang','pejabat', 'subBidangs'));
+        if ($bidang->name == 'Sekretariat') {
+            // Fetch pejabat for "Sekretariat" with urutan_jabatan 2
+            $pejabat = Pejabat::where('bidang_id', $bidang->id)
+                ->where('urutan_jabatan', 2)
+                ->first();
+
+            // Fetch related subBidangs for "Sekretariat"
+            $subBidangs = SubBidang::where('bidang_id', $bidang->id)->get();
+        } else {
+            // Fetch all related subBidangs
+            $keywords = explode(' ', $bidang->name);
+            $subBidangs = SubBidang::where('bidang_id', $bidang->id)->get();
+
+            $pejabat = Pejabat::where('bidang_id', $bidang->id)
+            ->orWhere(function ($query) use ($keywords) {
+                foreach ($keywords as $keyword) {
+                    $query->orWhere('jabatan_lainnya', 'like', "%{$keyword}%");
+                }
+            })
+            ->orderBy('urutan_jabatan')->get();
+
+        }
+
+        return view('landing.asn.show', compact('bidang', 'pejabat', 'subBidangs'));
     }
+
+
+
 
     public function subBidang($bidang, $subBidang)
     {
