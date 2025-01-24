@@ -33,7 +33,7 @@ class PostNewsController extends Controller implements HasMiddleware
     public function data_table(Request $request)
     {
 
-        $posts = PostNew::with('category', 'user');
+        $posts = PostNew::with('category', 'user')->orderBy('created_at', 'desc');
 
         if ($request->category_id) {
             $posts = $posts->where('category_id', $request->category_id);
