@@ -28,16 +28,9 @@
                 <div class="document-list-card position-relative text-decoration-none gap-2 p-3 pb-3">
                     <div class="img-container position-relative d-flex align-items-center justify-content-center w-100 mb-3 py-2">
                         @if($data->cover != null)
-                            @php
-                                $coverPath = 'data-center/cover/' . $data->cover;
-                                if (Storage::exists($coverPath) && Storage::disk('public')->has($coverPath)) {
-                                    $data->coverPath = asset('storage/' . $coverPath);
-                                } else {
-                                    // Fallback to another storage location
-                                    $data->coverPath = asset('storage/data-center/' . $data->cover);
-                                }
-                            @endphp
-                        <img src="{{ $data->coverPath }}" alt="" class="img-fluid">
+                        {{-- <img src="{{ asset('storage/data-center/cover/' . $data->cover) ?? asset('storage/data-center/' . $data->cover) }}" alt="" class="img-fluid"> --}}
+                        <img id="coverImage" src="{{ asset('storage/data-center/cover/' . $data->cover) }}" alt="" class="img-fluid">
+
                         @else
                         <img src="{{ asset('assets/images/pdf-file-format.png') }}" alt="">
                         @endif
@@ -63,6 +56,18 @@
         </div>
     </div>
 </section>
+
+@push('front_js')
+    <script type="text/javascript">
+         window.onload = function() {
+            var img = document.getElementById('coverImage');
+            img.onerror = function() {
+                // If the image fails to load, switch to the fallback path
+                img.src = "{{ asset('storage/data-center/' . $data->cover) }}";
+            };
+        }
+    </script>
+@endpush
 @endsection
 
 
