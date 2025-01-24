@@ -388,10 +388,10 @@
                     <p class="fw-bold py-0 my-2 fs-7">{{ translate('Berita Nasional') }}</p>
                     <p class="fs-9 py-0 my-0">{{ translate('Temukan berita terkini tentang perkembangan yang menyentuh berbagai aspek kehidupan bangsa.') }}</p>
                 </a>
-                <a href="postingan-social-media.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
+                {{-- <a href="postingan-social-media.html" class="custom-content-dropdown lh-sm py-1 col-3 text-start text-reset text-decoration-none mt-2">
                     <p class="fw-bold py-0 my-2 fs-7">{{ translate('Social Media') }}</p>
                     <p class="fs-9 py-0 my-0">{{ translate('Jangan lewatkan informasi penting yang sedang menjadi sorotan di media sosial. Klik untuk selengkapnya.') }}</p>
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>

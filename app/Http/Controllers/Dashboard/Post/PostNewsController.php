@@ -26,7 +26,7 @@ class PostNewsController extends Controller implements HasMiddleware
 
     public function index()
     {
-        $categorys = PostCategory::orderBy('name')->where('status', '!=' , 0)->get();
+        $categorys = PostCategory::orderBy('created_at', 'desc')->where('status', '!=' , 0)->get();
         return view('dashboard.post.index', compact('categorys'));
     }
 

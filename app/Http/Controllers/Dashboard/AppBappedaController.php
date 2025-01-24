@@ -53,7 +53,7 @@ class AppBappedaController extends Controller implements HasMiddleware
 
     public function create()
     {
-        return view('dashboard.aplap-bappeda.create');
+        return view('dashboard.app-bappeda.create');
     }
 
     public function store(Request $request)
