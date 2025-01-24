@@ -28,7 +28,16 @@
                 <div class="document-list-card position-relative text-decoration-none gap-2 p-3 pb-3">
                     <div class="img-container position-relative d-flex align-items-center justify-content-center w-100 mb-3 py-2">
                         @if($data->cover != null)
-                        <img src="{{ asset('storage/file/data-center/cover/' . $data->cover) }}" alt="" class="img-fluid">
+                            @php
+                                $coverPath = 'file/data-center/cover/' . $data->cover;
+                                if (Storage::exists($coverPath) && Storage::disk('public')->has($coverPath)) {
+                                    $data->coverPath = asset('storage/' . $coverPath);
+                                } else {
+                                    // Fallback to another storage location
+                                    $data->coverPath = asset('storage/data-center/' . $data->cover);
+                                }
+                            @endphp
+                        <img src="{{ $data->coverPath }}" alt="" class="img-fluid">
                         @else
                         <img src="{{ asset('assets/images/pdf-file-format.png') }}" alt="">
                         @endif
