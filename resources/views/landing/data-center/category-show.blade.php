@@ -29,7 +29,7 @@
                     <div class="img-container position-relative d-flex align-items-center justify-content-center w-100 mb-3 py-2">
                         @if($data->cover != null)
                             @php
-                                $coverPath = 'file/data-center/cover/' . $data->cover;
+                                $coverPath = 'data-center/cover/' . $data->cover;
                                 if (Storage::exists($coverPath) && Storage::disk('public')->has($coverPath)) {
                                     $data->coverPath = asset('storage/' . $coverPath);
                                 } else {
