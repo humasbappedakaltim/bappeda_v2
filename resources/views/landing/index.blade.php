@@ -488,7 +488,7 @@
     <div class="container custom-container ">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-12">
-                <div class="video-container mx-0">
+                <div class="video-container mx-0 p-3">
                     <!-- Video iframe will dynamically load here -->
                 </div>
             </div>
@@ -808,7 +808,7 @@
                     src="https://www.youtube.com/embed/${videoId}?autoplay=1"
                     frameborder="0"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                    allowfullscreen >
                 </iframe>
             `);
 
