@@ -56,11 +56,13 @@ class AsnController extends Controller
             })->get();
 
 
-            $pejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan === 'pajabat');
-            $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
+            $pejabatPejabat = $pejabat->where('status_jabatan', 'pajabat'); // Adjust to the correct status value
+            $nonPejabat = $pejabat->where('status_jabatan', '!=', 'pajabat'); // Non-pejabat;
+
+
 
             $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $bidang->name))->first();
-    
+
 
             $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
                                     ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
@@ -98,16 +100,22 @@ class AsnController extends Controller
             $query->where('sub_bidang_id', $subBidang->id);
         })->get();
 
-        $pejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan === 'pajabat');
-        $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
 
-        $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $subBidang->name))->first();
+       // Directly filter using where method
+        $pejabatPejabat = $pejabat->where('status_jabatan', 'pajabat'); // Adjust to the correct status value
+        $nonPejabat = $pejabat->where('status_jabatan', '!=', 'pajabat'); // Non-pejabat
+        // dd($pejabatPejabat);
+
+        // $pejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan === 'pajabat');
+        // $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan != 'pajabat');
+
+        $ketuaTim = $pejabatPejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $subBidang->name))->first();
 
 
-        $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+        $struktural = $pejabatPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
                                 ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
 
-        $fungsional = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+        $fungsional = $pejabatPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
                                 ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'fungsional');
 
         // Filters for non-pejabat
