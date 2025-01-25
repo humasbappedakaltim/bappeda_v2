@@ -74,7 +74,7 @@ Route::middleware(['setlocale'])->group(function () {
             Route::get('/tupoksi', [LandingController::class, 'tupoksi'])->name('landing.tupoksi');
             Route::get('/struktur-organisasi', [LandingController::class, 'struktur'])->name('landing.struktur');
 
-        Route::group(['prefix' => '/'], function () {
+        Route::group(['prefix' => '/profil'], function () {
 
                 Route::get('/asn', [AsnController::class, 'index'])->name('landing.asn');
                 Route::get('/asn/{bidang}', [AsnController::class, 'bidang'])->name('landing.asn.bidang');
