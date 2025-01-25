@@ -21,6 +21,7 @@ use App\Http\Controllers\FrontEnd\LandingController;
 use App\Http\Controllers\Dashboard\PejabatController;
 
 // Dashboard
+use App\Http\Controllers\Dashboard\VisitorController;
 use App\Http\Controllers\FrontEnd\SideDataController;
 use App\Http\Controllers\FrontEnd\ArsipPostController;
 use App\Http\Controllers\FrontEnd\InformasiController;
@@ -168,6 +169,9 @@ Route::middleware(['setlocale'])->group(function () {
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/', DashboardController::class)->name('dashboard');
+
+    Route::get('/visitors/data', [VisitorController::class, 'getVisitorData'])->name('visitors.data');
+
 
     Route::resource('agenda', DashboardAgendaController::class, ['names' => 'dashboard.agenda']);
     Route::resource('slider', WelcomeSliderController::class, ['names'=> 'dashboard.sliders']);
