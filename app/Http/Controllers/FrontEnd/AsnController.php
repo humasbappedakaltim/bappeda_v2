@@ -22,8 +22,16 @@ class AsnController extends Controller
     {
         // Retrieve the bidang from the database
         $bidang = Bidang::where('name', $bidang)->first();
+
         $pejabat = collect();
         $subBidangs = collect();
+
+        $ketuaTim = collect();
+        $struktural = collect();
+        $fungsional = collect();
+        $pelaksana = collect();
+        $pppk = collect();
+        $nonAsn = collect();
 
         // Check if the bidang exists
         if (!$bidang) {
@@ -47,9 +55,35 @@ class AsnController extends Controller
                 $query->where('bidang_id', $bidang->id);
             })->get();
 
+
+            $pejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan === 'pajabat');
+            $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
+
+            $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $bidang->name))->first();
+    
+
+            $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                    ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
+
+            $fungsional = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                    ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'fungsional');
+
+            // Filters for non-pejabat
+            $pelaksana = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                    ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'pelaksana');
+
+            $pppk = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                    ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'pppk');
+
+            $nonAsn = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                    ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'non-asn');
+
         }
 
-        return view('landing.asn.show', compact('bidang', 'pejabat', 'subBidangs'));
+
+
+        return view('landing.asn.show', compact('bidang', 'pejabat', 'subBidangs', 'ketuaTim', 'struktural', 'fungsional', 'pelaksana', 'pppk', 'nonAsn'));
+
     }
 
 
@@ -68,7 +102,7 @@ class AsnController extends Controller
         $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
 
         $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $subBidang->name))->first();
-        
+
 
         $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
                                 ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
