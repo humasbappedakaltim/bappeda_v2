@@ -33,11 +33,15 @@ class PejabatController extends Controller
         $pejabat = Pejabat::orderBy('name','desc');
 
         if($request->bidang_id){
-            $pejabat = $pejabat->where('bidang_id', $request->bidang_id);
+            $pejabat = $pejabat->whereHas('bidangs', function($query) use ($request) {
+                $query->where('id', $request->bidang_id);
+            });
         }
 
         if($request->sub_bidang_id){
-            $pejabat = $pejabat->where('sub_bidang_id', $request->sub_bidang_id);
+            $pejabat = $pejabat->whereHas('sub_bidangs', function($query) use ($request) {
+                $query->where('id', $request->sub_bidang_id);
+            });
         }
 
         return DataTables::of($pejabat)

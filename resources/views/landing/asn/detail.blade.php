@@ -34,6 +34,8 @@
             <hr class="hr-title-black flex-grow-1 mb-5">
             <div class="row d-flex align-items-center justify-content-center g-4 m-0 p-0">
                 {{-- @forelse($ketuaTim as $pejab) --}}
+
+                @if($ketuaTim != null)
                 <div class="col-12 col-md-5 col-xl-4 mb-5">
                     <div class="asn-card-item position-relative d-flex align-items-end justify-content-center">
                         <div class="item-body position-relative text-center m-0 p-1 w-100">
@@ -84,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 {{-- @empty
 
                 @endforelse --}}

@@ -68,7 +68,7 @@ class AsnController extends Controller
         $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
 
         $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $subBidang->name))->first();
-
+        
 
         $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
                                 ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
