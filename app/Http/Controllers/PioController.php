@@ -24,11 +24,19 @@ class PioController extends Controller
             'tujuan_penggunaan' => 'required|string|max:2000',
         ]);
 
+
+
+
         $file_name_ktp = null;
         $file_name_akta = null;
 
         if ($request->hasFile('ktp')) {
             $file = $request->file('ktp');
+
+            if (!in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/jpg'])) {
+                return back()->withErrors(['ktp' => 'The uploaded file must be a valid image.']);
+            }
+
             $upload_path = public_path('storage/docs-pio/ktp/');
             $file_name_ktp = 'Ktp_' . Str::slug($request->name) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
@@ -37,6 +45,11 @@ class PioController extends Controller
 
         if ($request->hasFile('akta_kelahiran')) {
             $file = $request->file('akta_kelahiran');
+
+            if (!in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/jpg'])) {
+                return back()->withErrors(['akta_kelahiran' => 'The uploaded file must be a valid image.']);
+            }
+
             $upload_path = public_path('storage/docs-pio/akta/');
             $file_name_akta = 'Akta_' . Str::slug($request->name) . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
 
