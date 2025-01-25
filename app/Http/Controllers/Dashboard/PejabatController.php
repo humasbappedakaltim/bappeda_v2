@@ -42,10 +42,14 @@ class PejabatController extends Controller
 
         return DataTables::of($pejabat)
             ->addColumn('bidang', function ($row) {
-                return $row->bidang->name ?? '-';
+                $bidang = $row->bidangs->pluck('name')->implode(', ');
+                return $bidang;
+                // return $row->bidang->name ?? '-';
             })
             ->addColumn('sub_bidang', function ($row) {
-                return $row->sub_bidang->name ?? '-';
+                $sub_bidang = $row->sub_bidangs->pluck('name')->implode(', ');
+                return $sub_bidang;
+                // return $row->sub_bidang->name ?? '-';
             })
             ->addColumn('jabatan', function ($row) {
                 return $row->jabatan ?? '-';
@@ -88,7 +92,7 @@ class PejabatController extends Controller
             'jabatan' => 'required|string|max:100',
             'jabatan_lainnya' => 'nullable|string|max:100',
             'jabatan_lainnya2' => 'nullable|string|max:100',
-            'bidang_id' => 'required|exists:bidangs,id',
+            'bidang_id' => 'required|array|exists:bidangs,id',
             'status_jabatan' => 'required|string|max:50',
             'status_jabatan_penjabat' => 'required|string|max:50',
             'ketua_tim' => 'nullable|string|max:100',
@@ -110,8 +114,6 @@ class PejabatController extends Controller
 
         $pejabat = Pejabat::create([
             'name' => $request->name,
-            'bidang_id' => $request->bidang_id,
-            'sub_bidang_id' => $request->sub_bidang_id ?? NULL,
             'nip' => $request->nip,
             'golongan' => $request->golongan,
             'kelas_jabatan' => $request->kelas_jabatan,
@@ -126,6 +128,9 @@ class PejabatController extends Controller
             'status_aktif' => $request->status_aktif,
             'foto' => $file_name,
         ]);
+
+        $pejabat->bidangs()->attach($request->bidang_id);
+        $pejabat->sub_bidangs()->attach($request->sub_bidang_id);
 
         return redirect()->route('dashboard.pejabat.index')->with('success', 'Pegawai berhasil ditambahkan');
     }
@@ -152,7 +157,7 @@ class PejabatController extends Controller
             'jabatan' => 'required|string|max:100',
             'jabatan_lainnya' => 'nullable|string|max:100',
             'jabatan_lainnya2' => 'nullable|string|max:100',
-            'bidang_id' => 'required|exists:bidangs,id',
+            'bidang_id' => 'required|array|exists:bidangs,id',
             'status_jabatan' => 'required|string|max:50',
             'status_jabatan_penjabat' => 'required|string|max:50',
             'ketua_tim' => 'nullable|string|max:100',
@@ -175,8 +180,6 @@ class PejabatController extends Controller
 
         $pejabat->update([
             'name' => $request->name,
-            'bidang_id' => $request->bidang_id,
-            'sub_bidang_id' => $request->sub_bidang_id ?? NULL,
             'nip' => $request->nip,
             'golongan' => $request->golongan,
             'kelas_jabatan' => $request->kelas_jabatan,
@@ -191,6 +194,10 @@ class PejabatController extends Controller
             'status_aktif' => $request->status_aktif,
             'foto' => $file_name,
         ]);
+
+        $pejabat->bidangs()->sync($request->bidang_id);
+        $pejabat->sub_bidangs()->sync($request->sub_bidang_id);
+
 
         return redirect()->route('dashboard.pejabat.index')->with('success', 'Pegawai berhasil diperbarui');
     }

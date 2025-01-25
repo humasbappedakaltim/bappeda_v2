@@ -77,8 +77,8 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="bidang_id" class="form-label">Bidang</label>
-                                        <select class="form-control @error('bidang_id') is-invalid @enderror select2" id="bidang_id" name="bidang_id">
-                                            <option selected disabled>Pilih Bidang</option>
+                                        <select class="form-control @error('bidang_id') is-invalid @enderror select2" multiple id="bidang_id" name="bidang_id[]">
+                                            <option selected >Pilih Bidang</option>
                                             @foreach ($bidangs as $bidang)
                                                 <option value="{{ $bidang->id }}" {{ old('bidang_id') == $bidang->id ? 'selected' : '' }}>{{ $bidang->name }}</option>
                                             @endforeach
@@ -93,8 +93,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="sub_bidang_id" class="form-label">Sub Bidang</label>
-                                        <select class="form-control @error('sub_bidang_id') is-invalid @enderror select2" id="sub_bidang_id" name="sub_bidang_id">
-                                            <option selected disabled>Pilih Sub Bidang</option>
+                                        <select class="form-control @error('sub_bidang_id') is-invalid @enderror select_sub_bidang" multiple id="sub_bidang_id" name="sub_bidang_id[]">
                                             @foreach ($sub_bidangs as $sub)
                                                 <option value="{{ $sub->id }}" {{ old('sub_bidang_id') == $sub->id ? 'selected' : '' }}>{{ $sub->name }}</option>
                                             @endforeach
@@ -236,7 +235,15 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.select2').select2();
+        $('.select2').select2({
+            placeholder: 'Pilih Jabatan',
+            allowClear: true
+        });
+
+        $('.select_sub_bidang').select2({
+            placeholder: 'Pilih Sub Bidang',
+            allowClear: true
+        });
 
         $('#status_jabatan').on('change', function () {
             var status_jabatan = $(this).val();

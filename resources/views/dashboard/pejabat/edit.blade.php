@@ -78,10 +78,12 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="bidang_id" class="form-label">Bidang</label>
-                                        <select class="form-control @error('bidang_id') is-invalid @enderror select2" id="bidang_id" name="bidang_id">
-                                            <option selected disabled>Pilih Bidang</option>
+                                        <select class="form-control @error('bidang_id') is-invalid @enderror select2" multiple id="bidang_id" name="bidang_id[]">
+                                            @foreach ($pejabat->bidangs as $bidang)
+                                                <option selected value="{{ $bidang->id }}">{{ $bidang->name }}</option>
+                                            @endforeach
                                             @foreach ($bidangs as $bidang)
-                                                <option value="{{ $bidang->id }}" {{ old('bidang_id', $pejabat->bidang_id) == $bidang->id ? 'selected' : '' }}>{{ $bidang->name }}</option>
+                                                <option value="{{ $bidang->id }}">{{ $bidang->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('bidang_id')
@@ -94,10 +96,12 @@
                                 <div class="row mb-3">
                                     <div class="col-md-12">
                                         <label for="sub_bidang_id" class="form-label">Sub Bidang</label>
-                                        <select class="form-control @error('sub_bidang_id') is-invalid @enderror select2" id="sub_bidang_id" name="sub_bidang_id">
-                                            <option selected disabled>Pilih Sub Bidang</option>
+                                        <select class="form-control @error('sub_bidang_id') is-invalid @enderror select_sub_bidang" multiple id="sub_bidang_id" name="sub_bidang_id[]">
+                                            @foreach ($pejabat->sub_bidangs as $sub)
+                                                <option selected value="{{ $sub->id }}">{{ $sub->name }}</option>
+                                            @endforeach
                                             @foreach ($sub_bidangs as $sub)
-                                                <option value="{{ $sub->id }}" {{ old('sub_bidang_id', $pejabat->sub_bidang_id) == $sub->id ? 'selected' : '' }}>{{ $sub->name }}</option>
+                                                <option value="{{ $sub->id }}">{{ $sub->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('sub_bidang_id')
@@ -237,7 +241,15 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.select2').select2();
+        $('.select2').select2({
+            placeholder: 'Pilih Jabatan',
+            allowClear: true
+        });
+
+        $('.select_sub_bidang').select2({
+            placeholder: 'Pilih Sub Bidang',
+            allowClear: true
+        });
 
         function updateStatusJabatanOptions() {
             let status_jabatan = $('#status_jabatan').val();

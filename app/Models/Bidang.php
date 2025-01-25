@@ -18,6 +18,12 @@ class Bidang extends Model
         'slug',
     ];
 
+
+    public function pejabat()
+    {
+        return $this->belongsToMany(Pejabat::class, 'pejabat_bidang');
+    }
+
     public function sub_bidang()
     {
         return $this->hasMany(SubBidang::class, 'bidang_id');

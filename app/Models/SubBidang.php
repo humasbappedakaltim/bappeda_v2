@@ -24,6 +24,11 @@ class SubBidang extends Model
         return $this->belongsTo(Bidang::class);
     }
 
+    public function pejabats()
+    {
+        return $this->belongsToMany(Pejabat::class, 'pejabat_sub_bidang');
+    }
+
 
     public function getSlugOptions() : SlugOptions
     {

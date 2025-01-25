@@ -38,15 +38,14 @@ class Pejabat extends Model
         'deleted_at',
     ];
 
-    public function bidang()
+    public function bidangs()
     {
-        return $this->belongsTo(Bidang::class);
+        return $this->belongsToMany(Bidang::class, 'pejabat_bidang', 'pejabat_id', 'bidang_id');
     }
 
-
-    public function sub_bidang()
+    public function sub_bidangs()
     {
-        return $this->belongsTo(SubBidang::class);
+        return $this->belongsToMany(SubBidang::class, 'pejabat_sub_bidang');
     }
 
 

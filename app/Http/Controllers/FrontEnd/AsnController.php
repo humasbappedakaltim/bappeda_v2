@@ -32,24 +32,20 @@ class AsnController extends Controller
 
         if ($bidang->name == 'Sekretariat') {
             // Fetch pejabat for "Sekretariat" with urutan_jabatan 2
-            $pejabat = Pejabat::where('bidang_id', $bidang->id)
-                ->where('urutan_jabatan', 2)
-                ->first();
+            // $pejabat = Pejabat::whereHas('bidangs', function ($query) use ($bidang) {
+            //     $query->where('bidang_id', $bidang->id);
+            // });
+            // dd($pejabat->get());
+            $pejabat = Pejabat::whereHas('bidangs', function ($query) use ($bidang) {
+                $query->where('bidang_id', $bidang->id);
+            })->get();
 
-            // Fetch related subBidangs for "Sekretariat"
             $subBidangs = SubBidang::where('bidang_id', $bidang->id)->get();
         } else {
-            // Fetch all related subBidangs
-            $keywords = explode(' ', $bidang->name);
-            $subBidangs = SubBidang::where('bidang_id', $bidang->id)->get();
-
-            $pejabat = Pejabat::where('bidang_id', $bidang->id)
-            ->orWhere(function ($query) use ($keywords) {
-                foreach ($keywords as $keyword) {
-                    $query->orWhere('jabatan_lainnya', 'like', "%{$keyword}%");
-                }
-            })
-            ->orderBy('urutan_jabatan')->get();
+            // Fetch pejabat for the bidang
+            $pejabat = Pejabat::whereHas('bidangs', function ($query) use ($bidang) {
+                $query->where('bidang_id', $bidang->id);
+            })->get();
 
         }
 
@@ -61,12 +57,46 @@ class AsnController extends Controller
 
     public function subBidang($bidang, $subBidang)
     {
-        $subBidang = SubBidang::where('name', $subBidang)->first();
-        $bidang = Bidang::where('name', $bidang)->first();
+        $bidang = Bidang::where('name', $bidang)->firstOrFail();
+        $subBidang = SubBidang::where('name', $subBidang)->firstOrFail();
 
-        $pejabat = Pejabat::where('sub_bidang_id', $subBidang->id)->get();
+        $pejabat = Pejabat::whereHas('sub_bidangs', function ($query) use ($subBidang) {
+            $query->where('sub_bidang_id', $subBidang->id);
+        })->get();
 
-        return view('landing.asn.detail', compact('bidang','subBidang','pejabat'));
+        $pejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan === 'pajabat');
+        $nonPejabat = $pejabat->filter(fn($pejab) => $pejab->status_jabatan !== 'pajabat');
+
+        $ketuaTim = $pejabat->filter(fn($pejab) => str_contains($pejab->ketua_tim, $subBidang->name))->first();
+
+
+        $struktural = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'struktural');
+
+        $fungsional = $pejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'fungsional');
+
+        // Filters for non-pejabat
+        $pelaksana = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'pelaksana');
+
+        $pppk = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'pppk');
+
+        $nonAsn = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'non-asn');
+
+        return view('landing.asn.detail', compact(
+            'bidang',
+            'subBidang',
+            'pejabat',
+            'ketuaTim',
+            'struktural',
+            'fungsional',
+            'pelaksana',
+            'pppk',
+            'nonAsn'
+        ));
     }
 
 }
