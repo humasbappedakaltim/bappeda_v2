@@ -158,8 +158,8 @@
 
             <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                 data-bs-toggle="dropdown">
-                <img src="{{ asset('asset_dashboard/img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded me-1"
-                    alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name }}</span>
+                <img src="{{ asset('asset_dashboard/img/photos/logo_head.png') }}" class="avatar img-fluid rounded me-1"
+                    alt="" /> <span class="text-dark">{{ Auth::user()->name }}</span>
                     {{-- <span>{{ Auth()->user }}</span> --}}
             </a>
             <div class="dropdown-menu dropdown-menu-end">
