@@ -59,13 +59,13 @@
                                     {{ translate('jabatan') }}
                                 </p>
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                    @foreach ($ketuaTim->first()->bidangs as $bidang)
-                                    @if($ketuaTim->first()->bidangs->count() > 1)
-                                        {{ translate($bidang->name) }} /
-                                    @else
-                                        {{ translate($bidang->name) }}
-                                    @endif
-                                @endforeach
+                                    @foreach ($pejab->bidangs as $item)
+                                        @if($pejab->bidangs->count() > 1)
+                                            {{ translate($item->name) }} /
+                                        @else
+                                            {{ translate($item->name) }}
+                                        @endif
+                                    @endforeach
                                 {{ translate($ketuaTim->first()->jabatan_lainnya ??  '-' ) }}
                                 </p>
                             </div>
@@ -76,7 +76,7 @@
                                 @if($ketuaTim->ketua_tim != null)
 
                                 <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        {{ translate($ketuaTim->ketua_tim) }}
+                                    {{ translate($ketuaTim->ketua_tim) }}
                                 </p>
                                 @else
                                     -
@@ -123,13 +123,17 @@
                                         {{ translate('jabatan') }}
                                     </p>
                                     <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        @foreach ($pejab->first()->bidangs as $bidang)
+                                        @foreach ($pejab->bidangs as $item)
+                                            {{ translate($item->name) }}
+                                        @endforeach
+
+                                        {{-- @foreach ($pejab->first()->bidangs as $bidang)
                                         @if($pejab->first()->bidangs->count() > 1)
                                             {{ translate($bidang->name) }} /
                                         @else
                                             {{ translate($bidang->name) }}
                                         @endif
-                                    @endforeach
+                                    @endforeach --}}
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
@@ -187,13 +191,14 @@
                                         {{ translate('jabatan') }}
                                     </p>
                                     <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        @foreach ($pejab->first()->bidangs as $bidang)
-                                        @if($pejab->first()->bidangs->count() > 1)
-                                            {{ translate($bidang->name) }} /
-                                        @else
-                                            {{ translate($bidang->name) }}
-                                        @endif
-                                    @endforeach
+                                        @foreach ($pejab->bidangs as $item)
+                                            @if($pejab->bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
@@ -250,13 +255,13 @@
                                         {{ translate('jabatan') }}
                                     </p>
                                     <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        @foreach ($pejab->first()->bidangs as $bidang)
-                                        @if($pejab->first()->bidangs->count() > 1)
-                                            {{ translate($bidang->name) }} /
-                                        @else
-                                            {{ translate($bidang->name) }}
-                                        @endif
-                                    @endforeach
+                                        @foreach ($pejab->bidangs as $item)
+                                            @if($pejab->bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
@@ -313,13 +318,13 @@
                                         {{ translate('jabatan') }}
                                     </p>
                                     <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        @foreach ($pejab->first()->bidangs as $bidang)
-                                        @if($pejab->first()->bidangs->count() > 1)
-                                            {{ translate($bidang->name) }} /
-                                        @else
-                                            {{ translate($bidang->name) }}
-                                        @endif
-                                    @endforeach
+                                        @foreach ($pejab->bidangs as $item)
+                                            @if($pejab->bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
@@ -376,13 +381,13 @@
                                         {{ translate('jabatan') }}
                                     </p>
                                     <p class="text-grey fs-8 lh-sm m-0 p-0">
-                                        @foreach ($pejab->first()->bidangs as $bidang)
-                                        @if($pejab->first()->bidangs->count() > 1)
-                                            {{ translate($bidang->name) }} /
-                                        @else
-                                            {{ translate($bidang->name) }}
-                                        @endif
-                                    @endforeach
+                                        @foreach ($pejab->bidangs as $item)
+                                            @if($pejab->bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
