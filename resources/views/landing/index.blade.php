@@ -488,7 +488,7 @@
     <div class="container custom-container ">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-12">
-                <div class="video-container mx-0 p-3">
+                <div class="video-container mx-0 ">
                     <!-- Video iframe will dynamically load here -->
                 </div>
             </div>
