@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                        
+
                             <!-- Nama -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -101,7 +101,7 @@
 
                                 <div class="col-md-12 mt-2">
                                     <h6 class="text-center">Preview Gambar</h6>
-                                    <img src="{{ $pio->file ? url('storage/docs-pio/ktp/' . $pio->file) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                    <img src="{{ $pio->ktp ? url('storage/docs-pio/ktp/' . $pio->ktp) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
 
                                 <div class="col-md-12 mt-2">
                                     <h6 class="text-center">Preview Gambar</h6>
-                                    <img src="{{ $pio->file ? url('storage/docs-pio/akta/' . $pio->file) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                    <img src="{{ $pio->akta_kelahiran ? url('storage/docs-pio/akta/' . $pio->akta_kelahiran) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
                                 </div>
                             </div>
 
