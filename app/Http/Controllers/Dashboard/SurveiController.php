@@ -21,7 +21,7 @@ class SurveiController extends Controller
             ->addColumn('action', function ($survei) {
                 // return '<a href="' . route('dashboard.survei.show', $survei->id) . '" class="btn btn-primary btn-sm"><i class="bx bx-show"></i></a>';
                 $actions .= '<a href="' . route('dashboard.survei.show', $survei->id) . '" class="btn btn-primary btn-sm"><i class="bx bx-show"></i></a>';
-                $actions .= '<button data-id="'.$row['id'].'" class="btn btn-sm btn-danger btn-delete me-2"><i class="bx bxs-trash"></i></button>';
+                $actions .= '<button data-id="'.$survei['id'].'" class="btn btn-sm btn-danger btn-delete me-2"><i class="bx bxs-trash"></i></button>';
 
                 return $actions;
             })
