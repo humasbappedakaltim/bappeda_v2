@@ -40,16 +40,11 @@ class SurveiController extends Controller
         $survei = CommunitySatisfactionSurveyRespondent::find($id);
         $action = $survei->delete();
 
-        if ($action) {
-            return response()->json([
-                'status' => true,
-                'message' => 'Data berhasil dihapus'
-            ]);
+
+        if($action) {
+            return response()->json(['status' => 'success','message'=> 'Berhasil Menghapus Survei']);
         } else {
-            return response()->json([
-                'status' => false,
-                'message' => 'Data gagal dihapus'
-            ]);
+            return response()->json(['status' => 'error','message'=> 'Gagal Menghapus Survei']);
         }
 
     }
