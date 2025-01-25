@@ -496,7 +496,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start">
                 <div class="subscriber-container d-flex align-items-center">
-                    <img src="https://yt3.ggpht.com/QGy7EQetWM80rBfAZKnggapwsYhp_DO5v74_VfzYn_ayBAWWVXKa7YBV1jfvSJHsSsjRZ7yNlYo=s176-c-k-c0x00ffffff-no-rj-mo" alt="youtube image">
+                    <img src="https://yt3.googleusercontent.com/vQO95g1flLzlv5Re6MYm9qvycVkzKqC3haCVHtRgg20fI1WKg2w5MVuLKqnZi0wiMEdw-Adr=s160-c-k-c0x00ffffff-no-rj" alt="youtube image">
                     <div class="subscriber-content d-flex flex-column align-items-start mx-3">
                         <p class="name text-white">Bappeda Kaltim</p>
                         <p class="subscribers text-white">@bappedakaltim1650 • 29 Subscribers</p>
