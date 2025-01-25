@@ -19,7 +19,11 @@ class SurveiController extends Controller
         $surveis = CommunitySatisfactionSurveyRespondent::orderBy('id', 'desc');
         return DataTables::of($surveis)
             ->addColumn('action', function ($survei) {
-                return '<a href="' . route('dashboard.survei.show', $survei->id) . '" class="btn btn-primary btn-sm"><i class="bx bx-show"></i></a>';
+                // return '<a href="' . route('dashboard.survei.show', $survei->id) . '" class="btn btn-primary btn-sm"><i class="bx bx-show"></i></a>';
+                $actions .= '<a href="' . route('dashboard.survei.show', $survei->id) . '" class="btn btn-primary btn-sm"><i class="bx bx-show"></i></a>';
+                $actions .= '<button data-id="'.$row['id'].'" class="btn btn-sm btn-danger btn-delete me-2"><i class="bx bxs-trash"></i></button>';
+
+                return $actions;
             })
             ->addIndexColumn()
             ->rawColumns(['action'])
@@ -30,5 +34,24 @@ class SurveiController extends Controller
     {
         $survei = CommunitySatisfactionSurveyRespondent::find($id);
         return view('dashboard.survei.show', compact('survei'));
+    }
+
+    public function destroy($id)
+    {
+        $survei = CommunitySatisfactionSurveyRespondent::find($id);
+        $action = $survei->delete();
+
+        if ($action) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Data berhasil dihapus'
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data gagal dihapus'
+            ]);
+        }
+
     }
 }

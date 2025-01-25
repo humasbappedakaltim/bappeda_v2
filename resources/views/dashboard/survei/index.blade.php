@@ -61,7 +61,7 @@
                 });
                 $('#survei_table').on('click', '.btn-delete', function () {
                     var slug = $(this).data('id');
-                    var url = '{{ route("dashboard.pio.destroy", ":slug") }}';
+                    var url = '{{ route("dashboard.survei.destroy", ":slug") }}';
                     url = url.replace(':slug', slug);
                     Swal.fire({
                         title: 'Anda yakin?',
