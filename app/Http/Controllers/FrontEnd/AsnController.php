@@ -126,8 +126,8 @@ class AsnController extends Controller
                                 ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'pppk');
 
         $nonAsn = $nonPejabat->reject(fn($pejab) => $pejab->id === $ketuaTim?->id)
-                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'non-asn');
-
+                                ->filter(fn($pejab) => $pejab->status_jabatan_penjabat === 'non-asn' );
+        
         return view('landing.asn.detail', compact(
             'bidang',
             'subBidang',

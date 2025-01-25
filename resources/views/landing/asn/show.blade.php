@@ -202,6 +202,22 @@
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
+                                @if($pejab->sub_bidangs->count() > 0)
+                                <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
+                                    <p class="fs-8 text-capitalize lh-sm m-0 p-0">
+                                        {{ translate('sub bidang') }}
+                                    </p>
+                                    <p class="text-grey fs-8 lh-sm m-0 p-0">
+                                        @foreach ($pejab->sub_bidangs as $item)
+                                            @if($pejab->sub_bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                @endif
                                 <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                     <p class="fs-8 text-capitalize lh-sm m-0 p-0">
                                         {{ translate('ketua tim') }}
@@ -266,6 +282,22 @@
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
+                                @if($pejab->sub_bidangs->count() > 0)
+                                <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
+                                    <p class="fs-8 text-capitalize lh-sm m-0 p-0">
+                                        {{ translate('sub bidang') }}
+                                    </p>
+                                    <p class="text-grey fs-8 lh-sm m-0 p-0">
+                                        @foreach ($pejab->sub_bidangs as $item)
+                                            @if($pejab->sub_bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                @endif
                                 <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                     <p class="fs-8 text-capitalize lh-sm m-0 p-0">
                                         {{ translate('ketua tim') }}
@@ -329,6 +361,22 @@
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
+                                @if($pejab->sub_bidangs->count() > 0)
+                                <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
+                                    <p class="fs-8 text-capitalize lh-sm m-0 p-0">
+                                        {{ translate('sub bidang') }}
+                                    </p>
+                                    <p class="text-grey fs-8 lh-sm m-0 p-0">
+                                        @foreach ($pejab->sub_bidangs as $item)
+                                            @if($pejab->sub_bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                @endif
                                 <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                     <p class="fs-8 text-capitalize lh-sm m-0 p-0">
                                         {{ translate('ketua tim') }}
@@ -392,6 +440,22 @@
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
+                                @if($pejab->sub_bidangs->count() > 0)
+                                <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
+                                    <p class="fs-8 text-capitalize lh-sm m-0 p-0">
+                                        {{ translate('sub bidang') }}
+                                    </p>
+                                    <p class="text-grey fs-8 lh-sm m-0 p-0">
+                                        @foreach ($pejab->sub_bidangs as $item)
+                                            @if($pejab->sub_bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                @endif
                                 <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                     <p class="fs-8 text-capitalize lh-sm m-0 p-0">
                                         {{ translate('ketua tim') }}
@@ -455,6 +519,22 @@
                                     {{ translate($pejab->first()->jabatan_lainnya ??  '-' ) }}
                                     </p>
                                 </div>
+                                @if($pejab->sub_bidangs->count() > 0)
+                                <div class="asn-position d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
+                                    <p class="fs-8 text-capitalize lh-sm m-0 p-0">
+                                        {{ translate('sub bidang') }}
+                                    </p>
+                                    <p class="text-grey fs-8 lh-sm m-0 p-0">
+                                        @foreach ($pejab->sub_bidangs as $item)
+                                            @if($pejab->sub_bidangs->count() > 1)
+                                                {{ translate($item->name) }} /
+                                            @else
+                                                {{ translate($item->name) }}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                @endif
                                 <div class="asn-team-leader d-flex flex-column align-items-center justify-content-center border-top m-0 p-0 pt-3 pb-2 gap-2">
                                     <p class="fs-8 text-capitalize lh-sm m-0 p-0">
                                         {{ translate('ketua tim') }}
