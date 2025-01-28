@@ -17,7 +17,7 @@ class AgendaController extends Controller
         $lastSegment = $request->segment(3);
         $title = strtoupper($lastSegment);
 
-        $carbon = Carbon::now()->locale('id');
+        $carbon = Carbon::now()->locale(session('locale'));
 
         $agendas = Agenda::where('dihadiri', 'like', '%' . $lastSegment . '%')
                         ->whereDate('schedule', '=', Carbon::today())
