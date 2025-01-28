@@ -25,7 +25,7 @@ class AgendaController extends Controller
 
         // $bidang = Bidang::where('name', 'Kepala')->first();
         // dd($lastSegment);
-        $pejabats = Pejabat::whereHas('bidang', function ($bidang) use ($lastSegment) {
+        $pejabats = Pejabat::whereHas('bidangs', function ($bidang) use ($lastSegment) {
             $bidang->where('name', 'like', '%' . $lastSegment . '%');
         })->where('status_jabatan', 'pejabat')->get();
 

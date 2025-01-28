@@ -148,10 +148,10 @@
                 labels: [], // Empty initially, will be filled dynamically
                 datasets: [{
                     label: "Data",
-                    backgroundColor: window.theme.primary,
-                    borderColor: window.theme.primary,
-                    hoverBackgroundColor: window.theme.primary,
-                    hoverBorderColor: window.theme.primary,
+                    backgroundColor: window.theme.z,
+                    borderColor: window.theme.z,
+                    hoverBackgroundColor: window.theme.z,
+                    hoverBorderColor: window.theme.z,
                     data: [], // Empty initially
                     barPercentage: 0.75,
                     categoryPercentage: 0.5,
