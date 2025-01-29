@@ -29,17 +29,20 @@ class AgendaController extends Controller
                             ->whereDate('schedule', '=', Carbon::today())
                             ->get();
         } else {
-            $pejabats = Pejabat::whereHas('bidangs', function ($query) use ($lastSegment) {
-                $query->where('name', 'like', '%' . $lastSegment . '%');
-            })
-            ->where('status_jabatan', 'pajabat')
-            ->get();
 
             $bidang = Bidang::where('name', 'like', '%' . $lastSegment . '%')->first();
 
             if (!$bidang) {
                 abort(404);
             }
+
+            $pejabats = Pejabat::whereHas('bidangs', function ($query) use ($bidang) {
+                $query->where('name', 'like', '%' . $bidang->name . '%');
+            })
+            ->where('status_jabatan', 'pajabat')
+            ->get();
+
+
 
             $agendas = Agenda::where('dihadiri', 'like', '%' . $bidang->name . '%')
                             ->whereDate('schedule', '=', Carbon::today())
