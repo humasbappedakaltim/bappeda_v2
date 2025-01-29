@@ -16,20 +16,39 @@ class AgendaController extends Controller
     {
         $lastSegment = $request->segment(3);
         $title = strtoupper($lastSegment);
+        $locale = session('locale', 'en');
+        $carbon = Carbon::now()->locale($locale);
 
-        $carbon = Carbon::now()->locale(session('locale'));
+        $agendas = collect();
 
-        $agendas = Agenda::where('dihadiri', 'like', '%' . $lastSegment . '%')
-                        ->whereDate('schedule', '=', Carbon::today())
-                        ->get();
 
-        // $bidang = Bidang::where('name', 'Kepala')->first();
-        // dd($lastSegment);
-        $pejabats = Pejabat::whereHas('bidangs', function ($bidang) use ($lastSegment) {
-            $bidang->where('name', 'like', '%' . $lastSegment . '%');
-        })->where('status_jabatan', 'pajabat')->get();
+        if ($lastSegment === 'umum') {
+            $pejabats = Pejabat::where('status_jabatan', 'pajabat')->get();
+
+            $agendas = Agenda::where('dihadiri', 'like', '%' . $lastSegment . '%')
+                            ->whereDate('schedule', '=', Carbon::today())
+                            ->get();
+        } else {
+            $pejabats = Pejabat::whereHas('bidangs', function ($query) use ($lastSegment) {
+                $query->where('name', 'like', '%' . $lastSegment . '%');
+            })
+            ->where('status_jabatan', 'pajabat')
+            ->get();
+
+            $bidang = Bidang::where('name', 'like', '%' . $lastSegment . '%')->first();
+
+            if (!$bidang) {
+                abort(404);
+            }
+
+            $agendas = Agenda::where('dihadiri', 'like', '%' . $bidang->name . '%')
+                            ->whereDate('schedule', '=', Carbon::today())
+                            ->get();
+        }
 
         return view('landing.agenda.index', compact('agendas', 'title', 'pejabats'));
     }
+
+
 
 }
