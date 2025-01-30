@@ -1,7 +1,36 @@
 @extends('layouts.landing')
 @section('content')
 
+@push('front_css')
+    <style>
+        /* HTML: <div class="loader"></div> */
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 8px solid #514b82;
+            animation:
+                l20-1 0.8s infinite linear alternate,
+                l20-2 1.6s infinite linear;
+            }
+            @keyframes l20-1{
+                0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+                12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+                25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+                50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+                62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+                75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+                100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+            }
+            @keyframes l20-2{
+                0%    {transform:scaleY(1)  rotate(0deg)}
+                49.99%{transform:scaleY(1)  rotate(135deg)}
+                50%   {transform:scaleY(-1) rotate(0deg)}
+                100%  {transform:scaleY(-1) rotate(-135deg)}
+        }
+    </style>
 
+@endpush
 
 <!------------------------------>
 <!----- Hero Banner Start ------>
@@ -611,53 +640,78 @@
 
     // Fungsi untuk mengambil data agenda berdasarkan tanggal
     const fetchAgendaByDate = (date) => {
+        const agendaContainer = document.getElementById('detail-agenda');
+
+        if (!agendaContainer) {
+            console.error('Agenda container tidak ditemukan di DOM.');
+            return;
+        }
+
+        // Kosongkan kontainer sebelum fetch
+        agendaContainer.innerHTML = '';
+
+        const agendaWrapper = document.createElement('div');
+        // class agenda-content and text-center
+        agendaWrapper.classList.add('agenda-content', 'd-flex', 'flex-column', 'align-items-center', 'justify-content-center');
+
+        const loadingEl = document.createElement('div');
+        loadingEl.classList.add('loader');
+        agendaWrapper.appendChild(loadingEl);
+        // add text loading
+        const loadingText = document.createElement('p');
+        loadingText.classList.add('mt-2', 'text-center', 'text-black');
+        loadingText.textContent = 'Loading...';
+        agendaWrapper.appendChild(loadingText);
+
+        agendaContainer.appendChild(agendaWrapper);
+
         fetch(`/beranda/agendas/data?date=${date}`)
             .then((response) => response.json())
             .then((data) => {
-                const agendaContainer = document.getElementById('detail-agenda');
+                setTimeout(() => {
+                    agendaWrapper.remove();
 
-                if (!agendaContainer) {
-                    console.error('Agenda container tidak ditemukan di DOM.');
-                    return;
-                }
+                    if (data.status === 'success') {
+                        const fragment = document.createDocumentFragment();
 
-                agendaContainer.innerHTML = '';
+                        data.data.forEach((agenda) => {
+                            const agendaEl = document.createElement('div');
+                            agendaEl.classList.add('agenda-content');
+                            agendaEl.innerHTML = `
+                                <p class="title">${agenda.caption}</p>
+                                <p class="location">${agenda.location}</p>
+                                <div class="bottom-content d-flex align-items-center text-start gap-3">
+                                    <p class="time">${agenda.times}</p>
+                                    <p class="status text-capitalize">${agenda.dihadiri}</p>
+                                </div>
+                            `;
+                            fragment.appendChild(agendaEl);
+                        });
 
-                if (data.status === 'success') {
-                    data.data.forEach((agenda) => {
-                        const agendaEl = document.createElement('div');
-                        agendaEl.classList.add('agenda-content');
-                        agendaEl.innerHTML = `
-                            <p class="title">${agenda.caption}</p>
-                            <p class="location">${agenda.location}</p>
-                            <div class="bottom-content d-flex align-items-center text-start gap-3 ">
-                                <p class="time">${agenda.times}</p>
-                                <p class="status text-capitalize">${agenda.dihadiri}</p>
+                        agendaContainer.appendChild(fragment);
+                    } else {
+                        agendaContainer.innerHTML = `
+                            <div class="card text-center card-sm">
+                                <div class="card-body">
+                                    <p>${data.message}</p>
+                                </div>
                             </div>
                         `;
-                        agendaContainer.appendChild(agendaEl);
-                    });
-                } else {
-                    agendaContainer.innerHTML = `
-                        <div class="card text-center card-sm">
-                            <div class="card-body">
-                                <p>${data.message}</p>
-                            </div>
-                        </div>
-                    `;
-                }
+                    }
+                }, 300); // Loader tetap terlihat minimal 300ms
             })
             .catch((error) => {
                 console.error(`Gagal memuat agenda untuk ${date}:`, error);
-
-                const agendaContainer = document.getElementById('detail-agenda');
-                if (agendaContainer) {
+                setTimeout(() => {
+                    agendaWrapper.remove();
                     agendaContainer.innerHTML = `
                         <p class="no-agenda-message">Gagal memuat agenda untuk tanggal ini.</p>
                     `;
-                }
+                }, 300);
             });
     };
+
+
 
     // Inisialisasi
     const dates = createDatesArrayToEndOfThisMonth();

@@ -44,6 +44,7 @@ class AgendaController extends Controller
             ->get();
 
             $agendas = Agenda::where('dihadiri', 'like', '%' . $abbreviation . '%')
+                            //  ->orWhere('description', 'like', '%' . $lastSegmentCleaned . '%')
                              ->whereDate('schedule', '=', Carbon::today())
                              ->get();
         }
