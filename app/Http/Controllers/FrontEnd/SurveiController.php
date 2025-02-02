@@ -117,7 +117,7 @@ class SurveiController extends Controller
                 'name' => 'required|string|min:2|max:256',
                 'email' => 'required|string|email:dns',
                 'sex' => 'required|string|in:Laki-laki,Perempuan',
-                'age' => 'required|numeric',
+                'age' => 'required',
                 'phoneNumber' => 'required|numeric|digits_between:10,20',
                 'address' => 'required|string|min:2|max:5012',
                 'mainJob' => 'required|string',
