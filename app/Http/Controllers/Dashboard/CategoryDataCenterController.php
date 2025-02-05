@@ -14,7 +14,7 @@ class CategoryDataCenterController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:category-data-center-view|category-data-center-manage'),
+            // new Middleware('permission:category-data-center-view|category-data-center-manage'),
             new Middleware('permission:category-data-center-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:category-data-center-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

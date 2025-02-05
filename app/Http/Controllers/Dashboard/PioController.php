@@ -18,7 +18,7 @@ class PioController extends Controller implements HasMiddleware
     {
         return [
             // new Middleware('role:superadmin'),
-            new Middleware('permission:pio-view|pio-manage'),
+            // new Middleware('permission:pio-view|pio-manage'),
             new Middleware('permission:pio-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:pio-manage', ['only'=> ['edit', 'update','destroy']]),
         ];

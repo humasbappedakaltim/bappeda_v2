@@ -15,7 +15,7 @@ class PejabatController extends Controller
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:pegawai-view|pegawai-manage'),
+            // new Middleware('permission:pegawai-view|pegawai-manage'),
             new Middleware('permission:pegawai-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:pegawai-manage', ['only'=> ['create', 'store', 'edit', 'update']]),
         ];

@@ -8,9 +8,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class UserController extends Controller
+class UserController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:user-view', ['only' => ['index', 'data_table']]),
+            new Middleware('permission:user-manage', ['only'=> ['create', 'store', 'edit', 'update']]),
+        ];
+    }
+
+
     public function index()
     {
         return view('dashboard.users.index');
@@ -65,7 +76,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::where('name', '!=', 'superadmin')->get();
-        
+
         return view('dashboard.users.edit',compact('user','roles'));
     }
 

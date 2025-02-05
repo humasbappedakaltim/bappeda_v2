@@ -16,7 +16,7 @@ class DataCenterController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:data-center-view|data-center-manage'),
+            // new Middleware('permission:data-center-view|data-center-manage'),
             new Middleware('permission:data-center-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:data-center-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

@@ -15,7 +15,7 @@ class CategoryPostController extends Controller implements HasMiddleware
     {
         return [
             // new Middleware('role:superadmin'),
-            new Middleware('permission:post-category-view|post-category-manage'),
+            // new Middleware('permission:post-category-view|post-category-manage'),
             new Middleware('permission:post-category-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:post-category-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

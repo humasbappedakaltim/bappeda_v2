@@ -14,7 +14,7 @@ class BidangController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:bidang-view|bidang-manage'),
+            // new Middleware('permission:bidang-view|bidang-manage'),
             new Middleware('permission:bidang-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:bidang-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

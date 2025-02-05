@@ -15,7 +15,7 @@ class SubBidangController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:sub-bidang-view|sub-bidang-manage'),
+            // new Middleware('permission:sub-bidang-view|sub-bidang-manage'),
             new Middleware('permission:sub-bidang-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:sub-bidang-manage', ['only'=> ['create', 'store', 'edit', 'update']]),
         ];

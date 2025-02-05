@@ -18,7 +18,7 @@ class PostNewsController extends Controller implements HasMiddleware
     {
         return [
             // new Middleware('role:superadmin'),
-            new Middleware('permission:post-news-view|post-news-manage'),
+            // new Middleware('permission:post-news-view|post-news-manage'),
             new Middleware('permission:post-news-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:post-news-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

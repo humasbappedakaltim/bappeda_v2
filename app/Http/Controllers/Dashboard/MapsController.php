@@ -15,7 +15,7 @@ class MapsController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:maps-view|maps-manage'),
+            // new Middleware('permission:maps-view|maps-manage'),
             new Middleware('permission:maps-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:maps-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

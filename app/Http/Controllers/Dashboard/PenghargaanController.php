@@ -13,7 +13,7 @@ class PenghargaanController extends Controller
     public static function middleware(): array
     {
         return [
-            new Middleware('permission:penghargaan-view|penghargaan-manage'),
+            // new Middleware('permission:penghargaan-view|penghargaan-manage'),
             new Middleware('permission:penghargaan-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:penghargaan-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

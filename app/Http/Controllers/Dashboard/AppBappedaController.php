@@ -16,7 +16,7 @@ class AppBappedaController extends Controller implements HasMiddleware
     {
         return [
             // new Middleware('role:superadmin'),
-            new Middleware('permission:app-bappeda-view|app-bappeda-manage'),
+            // new Middleware('permission:app-bappeda-view|app-bappeda-manage'),
             new Middleware('permission:app-bappeda-view', ['only' => ['index', 'data_table']]),
             new Middleware('permission:app-bappeda-manage', ['only'=> ['create', 'store', 'edit', 'update', 'destroy']]),
         ];

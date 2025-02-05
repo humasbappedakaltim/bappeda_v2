@@ -8,13 +8,19 @@ use App\Models\WelcomeSlider;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Http\Requests\Dashboard\WelcomeSliderRequest;
 
-class WelcomeSliderController extends Controller
+class WelcomeSliderController extends Controller implements HasMiddleware
 {
-    public function __construct()
+    public static function middleware(): array
     {
-        // $this->middleware("permission:slider-create|slider-edit|slider-delete|slider-list|slider-show", ['only' => ['index', 'create', 'store']]);
+        return [
+            // new Middleware('permission:sub-bidang-view|sub-bidang-manage'),
+            new Middleware('permission:slider-view', ['only' => ['index', 'data_table']]),
+            new Middleware('permission:slider-manage', ['only'=> ['create', 'store', 'edit', 'update']]),
+        ];
     }
 
     public function index()
