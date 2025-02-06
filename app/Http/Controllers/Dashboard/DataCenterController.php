@@ -94,7 +94,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         $data_center = DataCenter::create([
             'name' => $request->name,
-            'order' => $request->order,
+            'order' => $request->order ?? 0,
             'file' => $file_name,
             'file_cover' => $file_name_cover,
             'category_information' => $request->category_information,
@@ -148,7 +148,7 @@ class DataCenterController extends Controller implements HasMiddleware
 
         $data_center->update([
             'name'=> $request->name,
-            'order'=> $request->order,
+            'order'=> $request->order ?? 0,
             'category_data_center_id'=> $request->category_data_center_id,
             'file' => $file_name,
             'category_information' => $request->category_information,
