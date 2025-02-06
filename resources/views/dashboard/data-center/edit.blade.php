@@ -114,7 +114,7 @@
 </div>
 
 @push('js')
-<!-- You can add any custom JS here if needed -->
+
 @endpush
 @endsection
 

@@ -96,7 +96,7 @@ class DataCenterController extends Controller implements HasMiddleware
             'name' => $request->name,
             'order' => $request->order ?? 0,
             'file' => $file_name,
-            'file_cover' => $file_name_cover,
+            'cover' => $file_name_cover,
             'category_information' => $request->category_information,
             'category_data_center_id' => $request->category_data_center_id,
         ]);

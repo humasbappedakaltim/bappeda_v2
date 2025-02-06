@@ -30,7 +30,6 @@
                         @if($data->cover != null)
                         {{-- <img src="{{ asset('storage/data-center/cover/' . $data->cover) ?? asset('storage/data-center/' . $data->cover) }}" alt="" class="img-fluid"> --}}
                         <img id="coverImage" src="{{ asset('storage/data-center/cover/' . $data->cover) }}" alt="" class="img-fluid">
-
                         @else
                         <img src="{{ asset('assets/images/pdf-file-format.png') }}" alt="">
                         @endif
