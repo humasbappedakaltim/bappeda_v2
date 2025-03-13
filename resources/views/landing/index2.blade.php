@@ -79,11 +79,6 @@
         <div class="row m-0 p-0">
             <div class="col-12 overview-container d-flex justify-content-center w-100 position-relative text-white mb-5 py-3 py-lg-4">
                 <div class="row m-0 p-0">
-                    <div class="col-12 px-3 py-0 m-0 mb-4 mb-lg-4">
-                        <div class="welcome-image-container">
-                            <img class="w-100" src="{{ asset('assets/images/selamat-datang.png')}}" alt="Selamat Datang">
-                        </div>
-                    </div>
                     <div class="col-6 col-lg-3 left-content position-relative d-flex align-items-center justify-content-center p-0 m-0 mb-4 mb-lg-0">
                         <div class="image-container">
                             <img src="{{ asset('assets/images/kepala-bappeda.jpg')}}" alt="Kepala Bappeda">
