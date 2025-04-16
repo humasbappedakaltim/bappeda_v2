@@ -40,6 +40,7 @@ use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
+use App\Http\Controllers\FrontEnd\SurveiRPJMDController;
 
 // Route::get('/', function () {
 //     return view('landing.index');
@@ -64,6 +65,8 @@ Route::middleware(['setlocale'])->group(function () {
 
     Route::get('/survei-kepuasan-masyarakat', [SurveiController::class, 'index'])->name('landing.survei');
     Route::get('/survei/berhasil', [SurveiController::class, 'success'])->name('landing.survei.success');
+    Route::get('/survei-rpjmd', [SurveiRPJMDController::class, 'index'])->name('landing.survei-rpjmd');
+    Route::get('/survei-rpjmd/berhasil', [SurveiRPJMDController::class, 'success'])->name('landing.survei-rpjmd.success');
 
 
     Route::group(['prefix' => '/beranda'], function () {
