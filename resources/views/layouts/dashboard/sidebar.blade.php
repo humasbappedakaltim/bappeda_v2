@@ -134,10 +134,39 @@
     </a>
 </li>
 
-<li class="sidebar-item {{ request()->routeIs('dashboard.survei.*') ? 'active' : '' }}">
+{{-- <li class="sidebar-item {{ request()->routeIs('dashboard.survei.*') ? 'active' : '' }}">
     <a class="sidebar-link" href="{{ route('dashboard.survei.index') }}">
         <i class="align-middle bx bxs-inbox" ></i> <span class="align-middle">Survei</span>
     </a>
+</li>
+
+<li class="sidebar-item {{ request()->routeIs('dashboard.survei-rpjmd.*') ? 'active' : '' }}">
+    <a class="sidebar-link" href="{{ route('dashboard.survei-rpjmd.index') }}">
+        <i class="align-middle bx bxs-inbox" ></i> <span class="align-middle">Survei RPJMD</span>
+    </a>
+</li> --}}
+<li class="sidebar-item">
+    <a class="sidebar-link {{ request()->routeIs('dashboard.survei.*') || request()->routeIs('dashboard.survei-rpjmd.*') ? '' : 'collapsed' }}"
+       href="#survei"
+       data-bs-toggle="collapse"
+       role="button"
+       aria-expanded="{{ request()->routeIs('dashboard.survei.*') || request()->routeIs('dashboard.survei-rpjmd.*') ? 'true' : 'false' }}"
+       aria-controls="survei">
+        <i class="align-middle bx bx-group"></i> <span class="align-middle">Survei</span>
+        <i class="align-middle float-end" data-feather="chevron-right"></i>
+    </a>
+    <ul class="collapse list-unstyled mx-4 {{ request()->routeIs('dashboard.survei.*') || request()->routeIs('dashboard.survei.*') ? 'show' : '' }}" id="survei">
+        <li class="sidebar-item {{ request()->routeIs('dashboard.survei.*') ? 'active' : '' }}">
+            <a class="sidebar-link" href="{{ route('dashboard.survei.index') }}">
+                <i class="align-middle bx bx-group"></i> <span class="align-middle">Survei Kepuasan Masyarakat</span>
+            </a>
+        </li>
+        <li class="sidebar-item {{ request()->routeIs('dashboard.survei-rpjmd.*') ? 'active' : '' }}">
+            <a class="sidebar-link" href="{{ route('dashboard.survei-rpjmd.index') }}">
+                <i class="align-middle bx bx-group"></i> <span class="align-middle">Survei RPJMD</span>
+            </a>
+        </li>
+    </ul>
 </li>
 
 {{-- Settings --}}

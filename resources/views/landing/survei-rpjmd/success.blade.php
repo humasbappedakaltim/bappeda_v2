@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Survei Kepuasan Masyarakat (SKM) | Bappeda Provinsi Kalimantan Timur</title>
+    <title>Survei Publik RPJMD 2025-2029 | Bappeda Provinsi Kalimantan Timur</title>
     <script src="{{ asset('jquery-3.7.1/jquery-3.7.1.min.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('storage/settings/September2020/akBHm4gYEq4pgdfOLIHQ.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -52,9 +52,9 @@
                         <img src="{{ asset('assets/images/survei_rpjmd.png') }}" class="img-fluid rounded shadow" alt="">
                     </div>
                     <div class="card-body">
-                        <p class="text-center mb-3 fw-semibold">TERIMA KASIH ATAS PARTISIPASI ANDA DALAM</br>SURVEI KEPUASAN MASYARAKAT (SKM)<br>
-                            BAPPEDA PROVINSI KALIMANTAN TIMUR👋</p>
-                        <p class="text-center">Semoga dengan survei yang telah Sobat Perencana isi dapat memberikan kontribusi dalam merumuskan impian, harapan, dan perbaikan untuk Bappeda Provinsi Kalimantan Timur.</p>
+                        <p class="text-center mb-3 fw-semibold">TERIMA KASIH ATAS PARTISIPASI ANDA DALAM</br>SURVEI RPJMD DAN PROGRAM UNGGULAN GUBERNUR<br>
+                            PROVINSI KALIMANTAN TIMUR👋</p>
+                        <p class="text-center">Semoga dengan survei yang telah Sobat Perencana isi dapat memberikan kontribusi dalam merumuskan impian, harapan, dan pembangunan yang lebih baik bagi Provinsi Kalimantan Timur.</p>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="text-center text-secondary">
-                        &copy; Bappeda Provinsi Kalimantan Timur
+                        2025 &copy; Bappeda Provinsi Kalimantan Timur
                     </div>
                     <div class="text-center text-secondary">
                         Dibuat oleh Humas Bappeda

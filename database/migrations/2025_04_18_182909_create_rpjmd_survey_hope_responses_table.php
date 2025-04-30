@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\RpjmdSurveyRespondent;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,15 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rpjmd_survey_respondents', function (Blueprint $table) {
+        Schema::create('rpjmd_survey_hope_responses', function (Blueprint $table) {
             $table->id();
-            $table->string('sex');
-            $table->string('age');
-            $table->string('domicile');
-            $table->string('main_job');
-            $table->string('disability');
-            $table->string('last_education');
-            $table->string('phone_number', 20);
+            $table->foreignIdFor(RpjmdSurveyRespondent::class);
+            $table->text('hope_development');
+            $table->text('hope_program');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rpjmd_survey_respondents');
+        Schema::dropIfExists('rpjmd_survey_hope_responses');
     }
 };

@@ -39,6 +39,7 @@ use App\Http\Controllers\Dashboard\CategoryDataCenterController;
 use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
+use App\Http\Controllers\Dashboard\SurveiRPJMDController as DashboardSurveiRPJMDController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
 use App\Http\Controllers\FrontEnd\SurveiRPJMDController;
 
@@ -65,8 +66,8 @@ Route::middleware(['setlocale'])->group(function () {
 
     Route::get('/survei-kepuasan-masyarakat', [SurveiController::class, 'index'])->name('landing.survei');
     Route::get('/survei/berhasil', [SurveiController::class, 'success'])->name('landing.survei.success');
-    Route::get('/survei-rpjmd', [SurveiRPJMDController::class, 'index'])->name('landing.survei-rpjmd');
-    Route::get('/survei-rpjmd/berhasil', [SurveiRPJMDController::class, 'success'])->name('landing.survei-rpjmd.success');
+    Route::get('/survei-publik-rpjmd', [SurveiRPJMDController::class, 'index'])->name('landing.survei-publik-rpjmd');
+    Route::get('/survei-publik-rpjmd/berhasil', [SurveiRPJMDController::class, 'success'])->name('landing.survei-publik-rpjmd.success');
 
 
     Route::group(['prefix' => '/beranda'], function () {
@@ -136,6 +137,7 @@ Route::middleware(['setlocale'])->group(function () {
         Route::get('/ruang-publik', [LandingController::class, 'ruang_publik'])->name('landing.ruang_publik');
 
         Route::post('/survei/store', [SurveiController::class, 'store'])->name('landing.survei.store');
+        Route::post('/survei-publik-rpjmd/store', [SurveiRPJMDController::class, 'store'])->name('landing.survei-publik-rpjmd.store');
 
 
         Route::get('agendas/data', [LandingController::class, 'listAgenda'])->name('agendas.data');
@@ -190,6 +192,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('pegawai', PejabatController::class, ['names' => 'dashboard.pejabat']);
 
     Route::resource('survei', DashboardSurveiController::class, ['names' => 'dashboard.survei']);
+    Route::resource('survei-rpjmd', DashboardSurveiRPJMDController::class, ['names' => 'dashboard.survei-rpjmd']);
+    Route::get('download-survei-rpjmd', [DashboardSurveiRPJMDController::class, 'downloadSurveiRpjmd'])->name('dashboard.survei-rpjmd.download');
 
     Route::group(['prefix' => 'post'], function () {
         Route::resource('category-post', CategoryPostController::class, ['names' => 'dashboard.post.category']);
@@ -215,6 +219,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('pejabats-datas', [PejabatController::class, 'data_table'])->name('dashboard.pejabat.data_table');
         Route::get('pios-datas', [DashboardPioController::class, 'data_table'])->name('dashboard.pio.data_table');
         Route::get('survei', [DashboardSurveiController::class, 'data_table'])->name('dashboard.survei.data_table');
+        Route::get('survei-rpjmd', [DashboardSurveiRPJMDController::class, 'data_table'])->name('dashboard.survei-rpjmd.data_table');
         Route::get('users', [UserController::class, 'data_table'])->name('dashboard.settings.users.data_table');
     });
 
