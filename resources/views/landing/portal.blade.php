@@ -23,56 +23,56 @@
 
 </head>
 <body>
-    <section class="container-fluid portal-section position-relative m-0 p-0">
-        <div class="container portal-container position-relative p-4">
-            <div class="title-section position-relative mx-auto mb-lg-5 mb-3">
-                <div class="row m-0 p-0">
+    <section class="p-0 m-0 container-fluid portal-section position-relative">
+        <div class="container p-4 portal-container position-relative">
+            <div class="mx-auto mb-3 title-section position-relative mb-lg-5">
+                <div class="p-0 m-0 row">
                     <div class="col-12">
                         <img src="assets/images/kaltim-logo.png" alt="">
                     </div>
                     <div class="col-12">
-                        <p class="greeting text-white text-center fw-500 lh-sm mb-2 m-0 p-0">
+                        <p class="p-0 m-0 mb-2 text-center text-white greeting fw-500 lh-sm">
                             Selamat Datang
                         </p>
-                        <p class="bappeda text-center fw-500 lh-sm mb-1 m-0 p-0">
+                        <p class="p-0 m-0 mb-1 text-center bappeda fw-500 lh-sm">
                             Badan Perencanaan Pembangunan Daerah
                         </p>
-                        <p class="province text-center lh-sm m-0 p-0">
+                        <p class="p-0 m-0 text-center province lh-sm">
                             Pemerintah Provinsi Kalimantan Timur
                         </p>
 
                     </div>
                 </div>
             </div>
-            <div class="menu-section position-relative m-0 p-0">
-                <div class="row g-4 m-0 p-0">
+            <div class="p-0 m-0 menu-section position-relative">
+                <div class="p-0 m-0 row g-4">
                     <a href="{{ route('ppid.index') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             ppid
                         </p>
                     </a>
                     <a href="{{ route('landing.index') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             website
                         </p>
                     </a>
-                    <a href="{{ url('https://sidilan.bappedakaltim.com') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                    <a href="{{ url('https://bappeda.kaltimprov.go.id/smart-spj') }}" class="col-6 col-md-4 list-menu text-decoration-none">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             smart-spj
                         </p>
                     </a>
                     <a href="{{ url('https://evdoren.kaltimprov.go.id') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             evdoren
                         </p>
                     </a>
                     <a href="{{ url('https://www.lapor.go.id') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             sp4n lapor
                         </p>
                     </a>
                     <a href="{{ route('landing.survei') }}" class="col-6 col-md-4 list-menu text-decoration-none">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase text-white text-center lh-sm fw-500">
+                        <p class="text-center text-white d-flex align-items-center justify-content-center text-uppercase lh-sm fw-500">
                             survei kepuasan masyarakat
                         </p>
                     </a>
