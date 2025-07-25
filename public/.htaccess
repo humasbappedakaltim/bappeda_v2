@@ -53,7 +53,7 @@
 
     #RewriteCond %{HTTP_HOST} ^www.bappeda.kaltimprov.go.id [NC]
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    # RewriteRule ^(.*)$ https://bappeda.kaltimprov.go.id/$1 [L,R=301]
+    RewriteRule ^(.*)$ https://bappeda.kaltimprov.go.id/$1 [L,R=301]
 
     #RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 </IfModule>
