@@ -27,7 +27,7 @@ class DataCenterController extends Controller
         if($datas == null){
             abort(404);
         }
-
+        
 
         return view('landing.data-center.category-show', compact('category','datas'));
     }

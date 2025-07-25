@@ -29,7 +29,9 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SubBidangController;
 use App\Http\Controllers\FrontEnd\DataCenterController;
 use App\Http\Controllers\Dashboard\AppBappedaController;
+use App\Http\Controllers\FrontEnd\SurveiRPJMDController;
 use App\Http\Controllers\Dashboard\PenghargaanController;
+use App\Http\Controllers\FrontEnd\MateriPaparanController;
 use App\Http\Controllers\Dashboard\Post\PostNewsController;
 use App\Http\Controllers\Dashboard\WelcomeSliderController;
 use App\Http\Controllers\FrontEnd\BeritaNasionalController;
@@ -39,9 +41,9 @@ use App\Http\Controllers\Dashboard\CategoryDataCenterController;
 use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
-use App\Http\Controllers\Dashboard\SurveiRPJMDController as DashboardSurveiRPJMDController;
 use App\Http\Controllers\Dashboard\DataCenterController as DashboardDataCenterController;
-use App\Http\Controllers\FrontEnd\SurveiRPJMDController;
+use App\Http\Controllers\Dashboard\SurveiRPJMDController as DashboardSurveiRPJMDController;
+use App\Http\Controllers\Dashboard\MateriPaparanController as DashboardMateriPaparanController;
 
 // Route::get('/', function () {
 //     return view('landing.index');
@@ -119,7 +121,14 @@ Route::middleware(['setlocale'])->group(function () {
         Route::get('/arsip/{tahun}', [ArsipPostController::class, 'index'])->name('arsip.show');
         // Route::get('/lainnya/{slug}/detail', [SideDataController::class, 'show'])->name('lainnya.show');
 
-        Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
+        Route::group(['prefix' => 'data-center'], function () {
+            Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
+            Route::get('materi-paparan', [MateriPaparanController::class , 'index'])->name('materi_paparan.index');
+            Route::get('materi-paparan/{bidang}', [MateriPaparanController::class , 'show'])->name('materi_paparan.show');
+            Route::get('materi-paparan/download/{bidang}', [MateriPaparanController::class , 'download'])->name('materi_paparan.download');
+
+
+        });
         // Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
         Route::get('data-center/category/{slug}', [DataCenterController::class, 'show'])->name('data-center.category.show');
         Route::get('data-center/category/download/{slug}', [DataCenterController::class, 'download'])->name('data-center.category.download');
@@ -183,6 +192,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('penghargaan', PenghargaanController::class, ['names' => 'dashboard.penghargaan']);
     Route::resource('category-data-center', CategoryDataCenterController::class, ['names' => 'dashboard.category.data.center']);
     Route::resource('data-center', DashboardDataCenterController::class, ['names'=> 'dashboard.data.center'])->except('show');
+    Route::resource('materi-paparan', DashboardMateriPaparanController::class, ['names' => 'dashboard.data.materi_paparan']);
+
     Route::resource('maps', MapsController::class, ['names' => 'dashboard.maps'])->except('show');
     Route::resource('app', AppBappedaController::class, ['names' => 'dashboard.app-bappeda']);
     Route::resource('permohonan-informasi-online', DashboardPioController::class, ['names' => 'dashboard.pio']);
@@ -197,6 +208,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
 
     Route::group(['prefix' => 'post'], function () {
         Route::resource('category-post', CategoryPostController::class, ['names' => 'dashboard.post.category']);
+
         Route::resource('post-news', PostNewsController::class, ['names' => 'dashboard.post.news']);
         Route::post('post-upload-image', [PostNewsController::class, 'uploadImage'])->name('dashboard.post.upload.image');
     });
@@ -209,6 +221,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('penghargaan', [PenghargaanController::class, 'data_table'])->name('dashboard.penghargaan.data_table');
         Route::get('category-data-center', [CategoryDataCenterController::class, 'data_table'])->name('dashboard.category.data.center.data_table');
         Route::get('data-center', [DashboardDataCenterController::class, 'data_table'])->name('dashboard.data.center.data_table');
+        Route::get('data-paparan', [DashboardMateriPaparanController::class, 'data_table'])->name('dashboard.data.materi_paparan.data_table');
         Route::get('posts', [PostNewsController::class, 'data_table'])->name('dashboard.post.news.data_table');
         Route::get('category-post', [CategoryPostController::class, 'data_table'])->name('dashboard.post.category.data_table');
         Route::get('maps-data', [MapsController::class, 'data_table'])->name('dashboard.maps.data_table');

@@ -43,6 +43,13 @@
             </a>
         </li>
         @endcanany
+        @canany(['data-paparan-view','data-paparan-manage'])
+        <li class="sidebar-item {{ request()->routeIs('dashboard.data.materi_paparan.index') ? 'active' : '' }}">
+            <a class="sidebar-link" href="{{ route('dashboard.data.materi_paparan.index') }}">
+                <i class="align-middle" data-feather="database"></i><span class="align-middle">Data Paparan</span>
+            </a>
+        </li>
+        @endcanany
     </ul>
 </li>
 @endcanany

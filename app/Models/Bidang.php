@@ -6,6 +6,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Bidang extends Model
 {
@@ -32,8 +33,13 @@ class Bidang extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+     public function materiPaparan(): BelongsToMany
+    {
+        return $this->belongsToMany(MateriPaparan::class, 'materi_paparan_bidangs','materi_paparan_id', 'bidang_id');
     }
 
     public function getRouteKeyName()

@@ -96,6 +96,11 @@ const dropdownList = [
         chevronSelector: "#berita-dropdown-toggle .icon-chevron-down"
     },
     {
+        toggleSelector: "#data-center-dropdown-toggle",
+        dropdownSelector: "#data-center-dropdown",
+        chevronSelector: "#data-center-dropdown-toggle .icon-chevron-down"
+    },
+    {
         toggleSelector: "#survei-dropdown-toggle",
         dropdownSelector: "#survei-dropdown",
         chevronSelector: "#survei-dropdown-toggle .icon-chevron-down"

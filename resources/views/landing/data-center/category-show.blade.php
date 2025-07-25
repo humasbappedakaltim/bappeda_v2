@@ -29,7 +29,7 @@
                     <div class="py-2 mb-3 img-container position-relative d-flex align-items-center justify-content-center w-100">
                         @if($data->cover != null)
                         {{-- <img src="{{ asset('storage/data-center/cover/' . $data->cover) ?? asset('storage/data-center/' . $data->cover) }}" alt="" class="img-fluid"> --}}
-                        <img id="coverImage" src="{{ asset('storage/data-center/cover/' . $data->cover) }}" alt="" class="img-fluid w-100">
+                        <img id="coverImage" src="{{ asset('storage/data-center/cover/' . $data->cover) }}"  onerror="this.onerror=null; this.src='{{ asset('assets/images/pdf-file-format.png') }}';" alt="" class="img-fluid w-100">
                         @else
                         <img src="{{ asset('assets/images/pdf-file-format.png') }}" alt="">
                         @endif
