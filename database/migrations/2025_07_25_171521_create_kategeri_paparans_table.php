@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('materi_paparans', function (Blueprint $table) {
+        Schema::create('kategeri_paparans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('file');
-            $table->foreignId('category_paparan_id')->references('id')->on('kategeri_paparans')->onDelete('cascade');
-            $table->string('cover')->nullable();
             $table->string('slug');
-            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('materi_paparans');
+        Schema::dropIfExists('kategeri_paparans');
     }
 };

@@ -1,16 +1,17 @@
 @extends('layouts.dashboard')
 @section('title','Survei')
 @section('content')
-<h1 class="h3 mb-3">
+<h1 class="mb-3 h3">
     <strong>Survei</strong>
-        {{-- <a href="{{ route('dashboard.maps.create') }}" class="btn btn-primary float-end btn-sm btn-rounded">
-            Tambah
-            <i class="align-middle" data-feather="plus"></i>
-        </a> --}}
+        <a href="{{ route('dashboard.survei.export.index') }}" class="btn btn-success float-end btn-sm btn-rounded">
+            Export Survie
+            <i class="align-middle" data-feather="file"></i>
+        </a>
     </h1>
 
 <div class="row">
     <div class="col-md-12">
+
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">

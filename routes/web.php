@@ -31,6 +31,7 @@ use App\Http\Controllers\FrontEnd\DataCenterController;
 use App\Http\Controllers\Dashboard\AppBappedaController;
 use App\Http\Controllers\FrontEnd\SurveiRPJMDController;
 use App\Http\Controllers\Dashboard\PenghargaanController;
+use App\Http\Controllers\Dashboard\ExportSurveiController;
 use App\Http\Controllers\FrontEnd\MateriPaparanController;
 use App\Http\Controllers\Dashboard\Post\PostNewsController;
 use App\Http\Controllers\Dashboard\WelcomeSliderController;
@@ -203,6 +204,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('pegawai', PejabatController::class, ['names' => 'dashboard.pejabat']);
 
     Route::resource('survei', DashboardSurveiController::class, ['names' => 'dashboard.survei']);
+    Route::get('surveis/export', [ExportSurveiController::class, 'index'])->name('dashboard.survei.export.index');
     Route::resource('survei-rpjmd', DashboardSurveiRPJMDController::class, ['names' => 'dashboard.survei-rpjmd']);
     Route::get('download-survei-rpjmd', [DashboardSurveiRPJMDController::class, 'downloadSurveiRpjmd'])->name('dashboard.survei-rpjmd.download');
 

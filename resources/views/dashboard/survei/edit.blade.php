@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title','Permohonan Informasi Online')
 @section('content')
-<h1 class="h3 mb-3">
+<h1 class="mb-3 h3">
     <strong>Edit Permohonan Informasi Online</strong>
 </h1>
 
@@ -16,7 +16,7 @@
                                 @csrf
                                 @method('PUT')
                                 <!-- Nama -->
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Nama</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $pio->name) }}" readonly>
@@ -35,7 +35,7 @@
                                 </div>
 
                                 <!-- Email -->
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $pio->email) }}" readonly>
@@ -54,7 +54,7 @@
                                 </div>
 
                                 <!-- Telepon -->
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-6">
                                         <label for="telp" class="form-label">Telepon</label>
                                         <div class="input-group">
@@ -101,9 +101,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mt-2">
+                                    <div class="mt-2 col-md-12">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ $pio->file ? url('storage/docs-pio/ktp' . $pio->file) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="{{ $pio->file ? url('storage/docs-pio/ktp' . $pio->file) : '' }}" id="output" class="mb-3 img-preview img-fluid" style="border-radius: 10px;">
                                     </div>
                                 </div>
 
@@ -119,9 +119,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mt-2">
+                                    <div class="mt-2 col-md-12">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ $pio->file ? url('storage/docs-pio/akta' . $pio->file) : '' }}" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="{{ $pio->file ? url('storage/docs-pio/akta' . $pio->file) : '' }}" id="output" class="mb-3 img-preview img-fluid" style="border-radius: 10px;">
                                     </div>
                                 </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title','Tambah Peta / Maps')
 @section('content')
-<h1 class="h3 mb-3">
+<h1 class="mb-3 h3">
     <strong>Tambah Peta / Maps</strong>
 </h1>
 
@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <form action="{{ route('dashboard.maps.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Nama</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="file" class="form-label">Gambar</label>
                                         <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
@@ -32,9 +32,9 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-12 mt-2">
+                                    <div class="mt-2 col-md-12">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="" id="output" class="img-preview img-fluid mb-3" style="border-radius: 10px;">
+                                        <img src="" id="output" class="mb-3 img-preview img-fluid" style="border-radius: 10px;">
                                     </div>
 
                                 </div>
