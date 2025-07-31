@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 @endpush
 @section('content')
-<h1 class="h3 mb-3">
+<h1 class="mb-3 h3">
     <strong>Tambah Data Center</strong>
 </h1>
 
@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <form action="{{ route('dashboard.data.center.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Nama</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
@@ -36,7 +36,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="file" class="form-label">File</label>
                                         <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file') }}" >
@@ -45,7 +45,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="category_information" class="form-label">Kategori Informasi</label>
                                         <select name="category_information" id="category_information" class="form-control select2">
@@ -68,7 +68,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="file_cover" class="form-label">Cover</label>
                                         <input type="file"
@@ -82,15 +82,15 @@
                                         @enderror
 
                                     </div>
-                                    <div class="col-md-12 mt-2 text-center">
+                                    <div class="mt-2 text-center col-md-12">
                                         <h6 class="text-center">Preview Gambar</h6>
                                         <img src=""
                                              id="output"
-                                             class="img-preview img-fluid mb-3"
+                                             class="mb-3 img-preview img-fluid"
                                              style="border-radius: 10px; max-width: 100%; height: auto; display: none;">
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="order" class="form-label">Posisi</label>
                                         <input type="text" class="form-control @error('order') is-invalid @enderror" id="order" name="order" value="{{ old('order') }}">

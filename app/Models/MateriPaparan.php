@@ -18,6 +18,7 @@ class MateriPaparan extends Model
         "name",
         "file",
         "cover",
+        "category_data_center_id",
         "slug",
     ];
 
@@ -25,6 +26,11 @@ class MateriPaparan extends Model
     public function bidangs(): BelongsToMany
     {
         return $this->belongsToMany(Bidang::class, 'materi_paparan_bidangs','materi_paparan_id', 'bidang_id');
+    }
+
+    public function categoryDataCenter(): BelongsTo
+    {
+        return $this->belongsTo(CategoryDataCenter::class, 'category_data_center_id', 'id');
     }
 
      public function getSlugOptions() : SlugOptions

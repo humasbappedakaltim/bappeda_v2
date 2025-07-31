@@ -125,8 +125,8 @@ Route::middleware(['setlocale'])->group(function () {
             Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');
             Route::get('materi-paparan', [MateriPaparanController::class , 'index'])->name('materi_paparan.index');
             Route::get('materi-paparan/{bidang}', [MateriPaparanController::class , 'show'])->name('materi_paparan.show');
+            Route::get('materi-paparan/{bidang}/{category}', [MateriPaparanController::class , 'category'])->name('materi_paparan.category');
             Route::get('materi-paparan/download/{bidang}', [MateriPaparanController::class , 'download'])->name('materi_paparan.download');
-
 
         });
         // Route::get('data-center', [DataCenterController::class, 'index'])->name('data-center.index');

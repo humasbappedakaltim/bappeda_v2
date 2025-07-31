@@ -34,6 +34,17 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                     <div class="mt-2 col-md-12">
+                                        <label for="name" class="form-label">Kategori Data Center</label>
+                                        <select name="category_data_center_id" id="category_data_center_id" class="form-control select2 @error('category_data_center_id') is-invalid @enderror">
+                                            @foreach ($categoryDataCenter as $categoryData)
+                                                <option value="{{ $categoryData->id }}">{{ $categoryData->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_data_center_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="col-md-12">

@@ -35,14 +35,32 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="mt-2 col-md-12">
+                                    <label for="name" class="form-label">Kategori Data Center</label>
+                                        <select name="category_data_center_id" id="category_data_center_id" class="form-control select2 @error('category_data_center_id') is-invalid @enderror">
+                                            <option value="">Pilih Kategori Data Center</option>
+                                            @foreach ($categoryDataCenter as $categoryData)
+                                                <option value="{{ $categoryData->id }}" {{ $categoryData->id == $data->category_data_center_id ? 'selected' : '' }}>{{ $categoryData->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_data_center_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="col-md-12">
                                         <label for="file" class="form-label">File</label>
-                                        <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file') }}" >
+                                        <div class="input-group">
+                                            <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file') }}" >
+                                            <a href="{{ asset('storage/file/materi-paparan/' . $data->file) }}" target="_blank" class="btn btn-outline-success btn-sm">
+                                               Lihat File
+                                            </a>
+                                        </div>
                                         @error('file')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -61,7 +79,7 @@
                                     </div>
                                     <div class="mt-2 text-center col-md-12">
                                         <h6 class="text-center">Preview Gambar</h6>
-                                        <img src="{{ asset('storage/matari-paparan/cover/' . $data->cover) }}"
+                                        <img src="{{ asset('storage/materi-paparan/cover/' . $data->cover) }}"
                                              id="output"
                                              class="mb-3 img-preview img-fluid"
                                              style="border-radius: 10px; max-width: 100%; height: auto; display: block;">

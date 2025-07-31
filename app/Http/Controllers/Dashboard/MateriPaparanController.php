@@ -6,6 +6,7 @@ use App\Models\Bidang;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\MateriPaparan;
+use App\Models\CategoryDataCenter;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -67,7 +68,8 @@ class MateriPaparanController extends Controller
     public function create()
     {
         $bidangs = Bidang::orderBy('name', 'desc')->get();
-        return view('dashboard.materi_paparan.create', compact('bidangs'));
+        $categoryDataCenter = CategoryDataCenter::orderBy('name', 'desc')->get();
+        return view('dashboard.materi_paparan.create', compact('bidangs','categoryDataCenter'));
     }
 
     /**
@@ -79,6 +81,7 @@ class MateriPaparanController extends Controller
             'name'=> 'required|string',
             'file' => 'required|mimes:pdf,doc,docx,ppt,pptx,zip,rar|max:2048',
             'cover' => 'mimes:jpg,jpeg,png|max:2048',
+            'category_data_center_id' => 'required|exists:data_centers,id',
             'category_bidang_id' => 'required|array|exists:bidangs,id',
         ]);
 
@@ -105,7 +108,8 @@ class MateriPaparanController extends Controller
         $materiPaparan = MateriPaparan::create([
             'name'=> $request->name,
             'file' => $file_name,
-            'cover'=> $file_name_cover
+            'cover'=> $file_name_cover,
+            'category_data_center_id' => $request->category_data_center_id,
         ]);
 
          $materiPaparan->bidangs()->attach($request->category_bidang_id);
@@ -129,7 +133,8 @@ class MateriPaparanController extends Controller
     {
         $data = MateriPaparan::where('slug', $slug)->firstOrFail();
         $bidangs = Bidang::orderBy('name', 'desc')->get();
-        return view('dashboard.materi_paparan.edit', compact('data','bidangs'));
+        $categoryDataCenter = CategoryDataCenter::orderBy('name', 'desc')->get();
+        return view('dashboard.materi_paparan.edit', compact('data','bidangs','categoryDataCenter'));
     }
 
     /**
@@ -144,6 +149,8 @@ class MateriPaparanController extends Controller
             'file' => 'nullable|mimes:pdf,doc,docx,ppt,pptx,zip,rar|max:2048',
             'cover' => 'nullable|mimes:jpg,jpeg,png|max:2048',
             'category_bidang_id' => 'required|array|exists:bidangs,id',
+            'category_data_center_id' => 'required|exists:data_centers,id',
+
         ]);
 
         $file_name = $materiPaparan->file;
@@ -178,6 +185,8 @@ class MateriPaparanController extends Controller
             'name' => $request->name,
             'file' => $file_name,
             'cover' => $file_name_cover,
+            'category_data_center_id' => $request->category_data_center_id,
+
         ]);
 
         // Sinkronisasi relasi many-to-many

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create("materi_paparan_bidangs", function (Blueprint $table) {
             $table->foreignId('materi_paparan_id')->references('id')->on('materi_paparans')->onDelete('cascade');
             $table->foreignId('bidang_id')->references('id')->on('bidangs')->onDelete('cascade');
-            $table->primary(['pejabat_id', 'sub_bidang_id']);
+            $table->primary(['materi_paparan_id', 'bidang_id']);
         });
     }
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('file');
+            $table->foreignId('category_data_center_id')->references('id')->on('category_data_centers')->onDelete('cascade');
             $table->string('cover')->nullable();
             $table->string('slug');
             $table->timestamps();
