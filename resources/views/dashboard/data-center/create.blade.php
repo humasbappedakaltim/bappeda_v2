@@ -3,6 +3,20 @@
 @push('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+     <style>
+        /* Perkecil padding kolom agar tidak memakan tempat */
+        table.table td, table.table th {
+            padding: 4px 6px !important;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* Perbesar checkbox tanpa memperlebar kolom */
+        .custom-checkbox {
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+    </style>
 @endpush
 @section('content')
 <h1 class="mb-3 h3">
@@ -58,6 +72,7 @@
                                             <option value="prosedurpengajuankeberatan" {{ old('category_information') == 'prosedurpengajuankeberatan' ? 'selected' : '' }}>Prosedur Pengajuan Keberatan</option>
                                             <option value="prosedursengketainformasi" {{ old('category_information') == 'prosedursengketainformasi' ? 'selected' : '' }}>Prosedur Sengketa Informasi</option>
                                             <option value="jalurwaktudanbiayalayanan" {{ old('category_information') == 'jalurwaktudanbiayalayanan' ? 'selected' : '' }}>Jalur, Waktu dan Biaya Layanan</option>
+                                            <option value="daftar_informasi_publik" {{ old('category_information') == 'daftar_informasi_publik' ? 'selected' : '' }}>Daftar Informasi Publik</option>
                                             <option value="laporanaksesinformasipublik" {{ old('category_information') == 'laporanaksesinformasipublik' ? 'selected' : '' }}>Laporan Akses Informasi Publik</option>
                                             <option value="laporanlayananinformasipublik" {{ old('category_information') == 'laporanlayananinformasipublik' ? 'selected' : '' }}>Laporan Layanan Informasi Publik</option>
                                             <option value="laporansurveilayananinformasi" {{ old('category_information') == 'laporansurveilayananinformasi' ? 'selected' : '' }}>Laporan Survei Layanan Informasi</option>
@@ -67,6 +82,41 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="mt-2 col-md-12 d-none" id="daftar_informasi_field">
+                                            <div class="table-responsive" style="font-size: 10px;">
+                                                <table class="table align-middle table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2">Penanggung Jawab</th>
+                                                            <th rowspan="2">Waktu Dan Tempat Pembuatan Informasi</th>
+                                                            <th rowspan="2">Bentuk Informasi Yang Tersedia</th>
+                                                            <th colspan="4" class="text-center">Kategori Informasi</th>
+                                                            <th rowspan="2">Jangka Waktu Penyimpanan Retensi Arsip</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Wajib Disediakan dan Diumumkan Berkala</th>
+                                                            <th>Wajib Diumumkan Serta Merta</th>
+                                                            <th>Wajib Disediakan Setiap Saat</th>
+                                                            <th>Informasi yang Dikecualikan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="text" name="penanggung_jawab" value="{{ old('penanggung_jawab') }}" class="form-control"></td>
+                                                            <td><input type="text" name="waktu_tempat_pembuatan" value="{{ old('waktu_tempat_pembuatan') }}" class="form-control"></td>
+                                                            <td><input type="text" name="bentuk_informasi" value="{{ old('bentuk_informasi') }}" class="form-control"></td>
+                                                            <!-- checkbox -->
+                                                            <td class="text-center"><input type="checkbox" name="wajib_berkala" value="1" {{ old('wajib_berkala') == '1' ? 'checked' : '' }} class="form-check-input custom-checkbox"></td>
+                                                            <td class="text-center"><input type="checkbox" name="wajib_serta_merta" value="1" {{ old('wajib_serta_merta') == '1' ? 'checked' : '' }} class="form-check-input custom-checkbox"></td>
+                                                            <td class="text-center"><input type="checkbox" name="wajib_disediakan" value="1" {{ old('wajib_disediakan') == '1' ? 'checked' : '' }} class="form-check-input custom-checkbox"></td>
+                                                            <td class="text-center"><input type="checkbox" name="di_kecualikan" value="1" {{ old('di_kecualikan') == '1' ? 'checked' : '' }} class="form-check-input custom-checkbox"></td>
+                                                            <!-- checkbox -->
+                                                            <td><input type="text" name="jangka_waktu" value="{{ old('jangka_waktu') }}" class="form-control"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="col-md-12">
@@ -121,6 +171,15 @@
 <script>
     $(document).ready(function () {
         $('.select2').select2();
+        $('#category_information').on('change', function (){
+            const category_information = $(this).val();
+
+            if(category_information === 'daftar_informasi_publik') {
+                $('#daftar_informasi_field').removeClass('d-none');
+            } else {
+                $('#daftar_informasi_field').addClass('d-none');
+            }
+        });
     });
 </script>
 @endpush

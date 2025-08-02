@@ -99,6 +99,15 @@ class DataCenterController extends Controller implements HasMiddleware
             'cover' => $file_name_cover,
             'category_information' => $request->category_information,
             'category_data_center_id' => $request->category_data_center_id,
+            'penanggung_jawab' => $request->penanggung_jawab,
+            'waktu_tempat_pembuatan' => $request->waktu_tempat_pembuatan,
+            'bentuk_informasi' => $request->bentuk_informasi,
+            'wajib_berkala' => $request->wajib_berkala,
+            'wajib_serta_merta' => $request->wajib_serta_merta,
+            'wajib_disediakan' => $request->wajib_disediakan,
+            'di_kecualikan' => $request->di_kecualikan,
+            'jangka_waktu' => $request->jangka_waktu,
+
         ]);
 
         return redirect()->route('dashboard.data.center.index')->with('success', 'Data Center berhasil ditambahkan');
@@ -153,6 +162,14 @@ class DataCenterController extends Controller implements HasMiddleware
             'file' => $file_name,
             'category_information' => $request->category_information,
             'cover' => $file_name_cover,
+            'penanggung_jawab' => $request->penanggung_jawab,
+            'waktu_tempat_pembuatan' => $request->waktu_tempat_pembuatan,
+            'bentuk_informasi' => $request->bentuk_informasi,
+            'wajib_berkala' => $request->wajib_berkala,
+            'wajib_serta_merta' => $request->wajib_serta_merta,
+            'wajib_disediakan' => $request->wajib_disediakan,
+            'di_kecualikan' => $request->di_kecualikan,
+            'jangka_waktu' => $request->jangka_waktu,
         ]);
 
         return redirect()->route('dashboard.data.center.index')->with('success', 'Data Center berhasil diupdate');

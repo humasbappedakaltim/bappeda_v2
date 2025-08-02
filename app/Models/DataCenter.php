@@ -21,6 +21,16 @@ class DataCenter extends Model
         'category_data_center_id',
         'order',
         'category_information',
+        // new
+        'penanggung_jawab',
+        'waktu_tempat_pembuatan',
+        'bentuk_informasi',
+        'wajib_berkala',
+        'wajib_serta_merta',
+        'wajib_disediakan',
+        'di_kecualikan',
+        'jangka_waktu',
+
         'slug',
     ];
 

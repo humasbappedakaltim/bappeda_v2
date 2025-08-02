@@ -45,38 +45,47 @@ class DataCenterPpidController extends Controller
             abort(404);
         }
 
-
         return view('landing.ppid.dasar_hukum_show', compact('data'));
     }
 
     public function show($slug)
     {
-        // $category = CategoryDataCenter::where('slug', $slug)->first();
-        // if (!$category) {
-        //     abort(404);
-        // }
-
-        // $datas = DataCenter::where('category_data_center_id', $category->id)->get();
-        $datas = DataCenter::where('name', 'like', '%'. $slug .'%')->get();
-        // if($name != ''){
-        //     $datas = DataCenter::where('name', 'like', '%'. $name .'%')->get();
-        //     $category = $datas->category_data_center()->name;
-        // }else{
-        //     dd($slug);
-        //     $category = CategoryDataCenter::where('slug', $slug)->first();
-        //     if (!$category) {
-        //         abort(404);
-        //     }
-
-        //     $datas = DataCenter::where('category_data_center_id', $category->id)->get();
-        // }
-
-        if($datas == null){
+        if ($slug == null) {
             abort(404);
         }
-        // return view('landing.ppid.category-data', compact('category','datas'));
-        return view('landing.ppid.category-data', compact('datas'));
+
+        // Mapping slug ke teks yang rapi
+        $slugMap = [
+            'infoberkala' => 'Info Berkala',
+            'infosertamerta' => 'Info Serta Merta',
+            'infotersediasetiapsaat' => 'Info Tersedia Setiap Saat',
+            'maklumat' => 'Maklumat',
+            'prosedurpermohonaninformasi' => 'Prosedur Permohonan Informasi',
+            'prosedurpengajuankeberatan' => 'Prosedur Pengajuan Keberatan',
+            'prosedursengketainformasi' => 'Prosedur Sengketa Informasi',
+            'jalurwaktudanbiayalayanan' => 'Jalur, Waktu dan Biaya Layanan',
+            'daftar_informasi_publik' => 'Daftar Informasi Publik',
+            'laporanaksesinformasipublik' => 'Laporan Akses Informasi Publik',
+            'laporanlayananinformasipublik' => 'Laporan Layanan Informasi Publik',
+            'laporansurveilayananinformasi' => 'Laporan Survei Layanan Informasi',
+            'laporanrealisasianggaran' => 'Laporan Realisasi Anggaran',
+        ];
+
+        // Ambil teks berdasarkan mapping, fallback jika tidak ada di mapping
+        $slugText = $slugMap[$slug] ?? ucwords(str_replace('_', ' ', $slug));
+
+        // Ambil data berdasarkan category_information
+        $datas = DataCenter::where('category_information', 'like', '%' . $slug . '%')->get();
+
+        if($slug === 'daftar_informasi_publik') {
+            return view('landing.ppid.catgeory-data-daftar_informasi_publik', compact('datas', 'slugText'));
+        }
+
+        // Return view dengan slug yang sudah diformat rapi
+        return view('landing.ppid.category-data', compact('datas', 'slugText'));
     }
+
+
 
     public function download($slug)
     {
