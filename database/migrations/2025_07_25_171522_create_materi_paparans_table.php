@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('file');
-            $table->foreignId('category_paparan_id')->references('id')->on('kategeri_paparans')->onDelete('cascade');
+            $table->foreignId('category_paparan_id')->references('id')->on('kategori_paparans')->onDelete('cascade');
+            $table->string('category_information');
             $table->string('cover')->nullable();
             $table->string('slug');
             $table->boolean('status')->default(false);

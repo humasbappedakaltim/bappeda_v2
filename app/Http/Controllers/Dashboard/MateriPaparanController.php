@@ -6,6 +6,7 @@ use App\Models\Bidang;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\MateriPaparan;
+use App\Models\KategoriPaparan;
 use App\Models\CategoryDataCenter;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -68,8 +69,8 @@ class MateriPaparanController extends Controller
     public function create()
     {
         $bidangs = Bidang::orderBy('name', 'desc')->get();
-        $categoryDataCenter = CategoryDataCenter::orderBy('name', 'desc')->get();
-        return view('dashboard.materi_paparan.create', compact('bidangs','categoryDataCenter'));
+        $categoryMateri = KategoriPaparan::orderBy('name', 'desc')->get();
+        return view('dashboard.materi_paparan.create', compact('bidangs','categoryMateri'));
     }
 
     /**
@@ -81,8 +82,10 @@ class MateriPaparanController extends Controller
             'name'=> 'required|string',
             'file' => 'required|mimes:pdf,doc,docx,ppt,pptx,zip,rar|max:2048',
             'cover' => 'mimes:jpg,jpeg,png|max:2048',
-            'category_data_center_id' => 'required|exists:data_centers,id',
+            'category_information' => 'required',
+            'category_paparan_id' => 'required|exists:kategori_paparans,id',
             'category_bidang_id' => 'required|array|exists:bidangs,id',
+            'status' => 'required',
         ]);
 
         $file_name = null;
@@ -109,7 +112,9 @@ class MateriPaparanController extends Controller
             'name'=> $request->name,
             'file' => $file_name,
             'cover'=> $file_name_cover,
-            'category_data_center_id' => $request->category_data_center_id,
+            'category_paparan_id' => $request->category_paparan_id,
+            'category_information' => $request->category_information,
+            'status' => $request->status,
         ]);
 
          $materiPaparan->bidangs()->attach($request->category_bidang_id);
@@ -133,8 +138,9 @@ class MateriPaparanController extends Controller
     {
         $data = MateriPaparan::where('slug', $slug)->firstOrFail();
         $bidangs = Bidang::orderBy('name', 'desc')->get();
-        $categoryDataCenter = CategoryDataCenter::orderBy('name', 'desc')->get();
-        return view('dashboard.materi_paparan.edit', compact('data','bidangs','categoryDataCenter'));
+        $categoryMateri = KategoriPaparan::orderBy('name', 'desc')->get();
+
+        return view('dashboard.materi_paparan.edit', compact('data','bidangs','categoryMateri'));
     }
 
     /**
@@ -149,7 +155,9 @@ class MateriPaparanController extends Controller
             'file' => 'nullable|mimes:pdf,doc,docx,ppt,pptx,zip,rar|max:2048',
             'cover' => 'nullable|mimes:jpg,jpeg,png|max:2048',
             'category_bidang_id' => 'required|array|exists:bidangs,id',
-            'category_data_center_id' => 'required|exists:data_centers,id',
+            'category_paparan_id' => 'required|exists:kategori_paparans,id',
+            'category_information' => 'required',
+            'status' => 'required',
 
         ]);
 
@@ -185,8 +193,9 @@ class MateriPaparanController extends Controller
             'name' => $request->name,
             'file' => $file_name,
             'cover' => $file_name_cover,
-            'category_data_center_id' => $request->category_data_center_id,
-
+            'category_paparan_id' => $request->category_paparan_id,
+            'category_information' => $request->category_information,
+            'status' => $request->status,
         ]);
 
         // Sinkronisasi relasi many-to-many

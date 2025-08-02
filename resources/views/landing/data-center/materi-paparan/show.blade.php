@@ -9,11 +9,11 @@
             <i class="px-0 py-0 mx-0 my-0 text-white bi bi-chevron-right"></i>
             <a href="{{ route('materi_paparan.index') }}" class="px-0 py-0 mx-0 my-0 breadcrumb-link text-capitalize text-decoration-none fw-500">{{ translate($bidang->name ?? '') }}</a>
             <i class="px-0 py-0 mx-0 my-0 text-white bi bi-chevron-right"></i>
-            <p class="px-0 py-0 mx-0 my-0 text-white breadcrumb-active fw-500">{{ translate($categoryDataCenter->name ?? '') }}</p>
+            <p class="px-0 py-0 mx-0 my-0 text-white breadcrumb-active fw-500">{{ translate($kategoriPaparan->name ?? '') }}</p>
         </div>
         <div class="title-content">
             <h4 class="mb-3 title fw-bold">
-                {{ translate('Data Paparan') }} {{ translate($categoryDataCenter->name ?? '') }}
+                {{ translate('Data Paparan') }} {{ translate($kategoriPaparan->name ?? '') }}
             </h4>
         </div>
     </div>
@@ -21,7 +21,7 @@
 <section class="my-0 over-top-section dc-detail-section position-relative d-flex justify-content-center">
     <div class="container p-0 m-0 over-top-container">
         <div class="mb-3 title-content d-flex align-items-center justify-content-between">
-            <p class="py-0 tagline text-uppercase fw-bold fs-4">{{ translate($categoryDataCenter->name ?? '') }}</p>
+            <p class="py-0 tagline text-uppercase fw-bold fs-4">{{ translate($kategoriPaparan->name ?? '') }}</p>
             <hr class="hr-title-black flex-grow-1 ms-3">
         </div>
         <div class="p-0 m-0 row g-4 dc-document-list">

@@ -16,6 +16,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('layouts.flashmessage')
                             <form action="{{ route('dashboard.data.materi_paparan.update', $data->slug) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -36,14 +37,47 @@
                                         </select>
                                     </div>
                                     <div class="mt-2 col-md-12">
-                                    <label for="name" class="form-label">Kategori Data Center</label>
-                                        <select name="category_data_center_id" id="category_data_center_id" class="form-control select2 @error('category_data_center_id') is-invalid @enderror">
-                                            <option value="">Pilih Kategori Data Center</option>
-                                            @foreach ($categoryDataCenter as $categoryData)
-                                                <option value="{{ $categoryData->id }}" {{ $categoryData->id == $data->category_data_center_id ? 'selected' : '' }}>{{ $categoryData->name }}</option>
+                                    <label for="name" class="form-label">Kategori Materi Paparan</label>
+                                        <select name="category_paparan_id" id="category_paparan_id" class="form-control select2 @error('category_paparan_id') is-invalid @enderror">
+                                            @foreach ($categoryMateri as $categoryData)
+                                                <option value="{{ $categoryData->id }}" {{ $categoryData->id == $data->category_paparan_id ? 'selected' : '' }}>{{ $categoryData->name }}</option>
                                             @endforeach
                                         </select>
-                                        @error('category_data_center_id')
+                                        @error('category_paparan_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <label for="category_information" class="form-label">Kategori Informasi</label>
+                                        <select name="category_information" id="category_information" class="form-control select2">
+                                            <option selected disabled>Pilih Kategori Informasi</option>
+                                            <option value="infoberkala" {{ old('category_information', $data->category_information) == 'infoberkala' ? 'selected' : '' }}>Info Berkala</option>
+                                            <option value="infosertamerta" {{ old('category_information', $data->category_information) == 'infosertamerta' ? 'selected' : '' }}>Info Serta Merta</option>
+                                            <option value="infotersediasetiapsaat" {{ old('category_information', $data->category_information) == 'infotersediasetiapsaat' ? 'selected' : '' }}>Info Tersedia Setiap Saat</option>
+                                            <option value="maklumat" {{ old('category_information', $data->category_information) == 'maklumat' ? 'selected' : '' }}>Maklumat</option>
+                                            <option value="prosedurpermohonaninformasi" {{ old('category_information', $data->category_information) == 'prosedurpermohonaninformasi' ? 'selected' : '' }}>Prosedur Permohonan Informasi</option>
+                                            <option value="prosedurpengajuankeberatan" {{ old('category_information', $data->category_information) == 'prosedurpengajuankeberatan' ? 'selected' : '' }}>Prosedur Pengajuan Keberatan</option>
+                                            <option value="prosedursengketainformasi" {{ old('category_information', $data->category_information) == 'prosedursengketainformasi' ? 'selected' : '' }}>Prosedur Sengketa Informasi</option>
+                                            <option value="jalurwaktudanbiayalayanan" {{ old('category_information', $data->category_information) == 'jalurwaktudanbiayalayanan' ? 'selected' : '' }}>Jalur, Waktu dan Biaya Layanan</option>
+                                            <option value="laporanaksesinformasipublik" {{ old('category_information', $data->category_information) == 'laporanaksesinformasipublik' ? 'selected' : '' }}>Laporan Akses Informasi Publik</option>
+                                            <option value="laporanlayananinformasipublik" {{ old('category_information', $data->category_information) == 'laporanlayananinformasipublik' ? 'selected' : '' }}>Laporan Layanan Informasi Publik</option>
+                                            <option value="laporansurveilayananinformasi" {{ old('category_information', $data->category_information) == 'laporansurveilayananinformasi' ? 'selected' : '' }}>Laporan Survei Layanan Informasi</option>
+                                            <option value="laporanrealisasianggaran" {{ old('category_information', $data->category_information) == 'laporanrealisasianggaran' ? 'selected' : '' }}>Laporan Realisasi Anggaran</option>
+                                        </select>
+                                        @error('category_information')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mt-2 col-md-12">
+                                        <label for="status">Status</label>
+                                        <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
+                                            <option value="1" {{ old('status', $data->status) == '1' ? 'selected' : '' }}>Aktif</option>
+                                            <option value="0" {{ old('status', $data->status) == '0' ? 'selected' : '' }}>Tidak Aktif</option>
+                                        </select>
+                                        @error('status')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

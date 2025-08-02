@@ -39,6 +39,7 @@ use App\Http\Controllers\FrontEnd\BeritaNasionalController;
 use App\Http\Controllers\Dashboard\Post\CategoryPostController;
 use App\Http\Controllers\FrontEnd\KinerjaPembangunanController;
 use App\Http\Controllers\Dashboard\CategoryDataCenterController;
+use App\Http\Controllers\Dashboard\KategoriMateriPaparanController;
 use App\Http\Controllers\Dashboard\PioController as DashboardPioController;
 use App\Http\Controllers\Dashboard\AgendaController as DashboardAgendaController;
 use App\Http\Controllers\Dashboard\SurveiController as DashboardSurveiController;
@@ -193,6 +194,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('penghargaan', PenghargaanController::class, ['names' => 'dashboard.penghargaan']);
     Route::resource('category-data-center', CategoryDataCenterController::class, ['names' => 'dashboard.category.data.center']);
     Route::resource('data-center', DashboardDataCenterController::class, ['names'=> 'dashboard.data.center'])->except('show');
+    Route::resource('category-materi-paparan', KategoriMateriPaparanController::class, ['names' => 'dashboard.category.materi_paparan']);
     Route::resource('materi-paparan', DashboardMateriPaparanController::class, ['names' => 'dashboard.data.materi_paparan']);
 
     Route::resource('maps', MapsController::class, ['names' => 'dashboard.maps'])->except('show');
@@ -222,6 +224,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('agendas', [DashboardAgendaController::class, 'data_table'])->name('dashboard.agenda.data_table');
         Route::get('penghargaan', [PenghargaanController::class, 'data_table'])->name('dashboard.penghargaan.data_table');
         Route::get('category-data-center', [CategoryDataCenterController::class, 'data_table'])->name('dashboard.category.data.center.data_table');
+        Route::get('category-data-paparan', [KategoriMateriPaparanController::class, 'data_table'])->name('dashboard.category.materi_paparan.data_table');
         Route::get('data-center', [DashboardDataCenterController::class, 'data_table'])->name('dashboard.data.center.data_table');
         Route::get('data-paparan', [DashboardMateriPaparanController::class, 'data_table'])->name('dashboard.data.materi_paparan.data_table');
         Route::get('posts', [PostNewsController::class, 'data_table'])->name('dashboard.post.news.data_table');

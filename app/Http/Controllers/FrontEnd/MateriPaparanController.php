@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use App\Models\Bidang;
 use Illuminate\Http\Request;
 use App\Models\MateriPaparan;
+use App\Models\KategoriPaparan;
 use App\Models\CategoryDataCenter;
 use App\Http\Controllers\Controller;
 
@@ -46,7 +47,7 @@ class MateriPaparanController extends Controller
         $search = strtolower($request->search);
 
         // Ambil kategori berdasarkan bidang
-        $categoryDataCenter = CategoryDataCenter::orderBy('order', 'asc')->get();
+        $categoryDataCenter = KategoriPaparan::orderBy('order', 'asc')->get();
 
         // Jika AJAX hanya butuh kategori
         if ($request->ajax()) {
@@ -65,19 +66,20 @@ class MateriPaparanController extends Controller
         $search = strtolower($request->search);
         $bidang = Bidang::where('slug', $bidangSlug)->firstOrFail();
 
-        $categoryDataCenter = CategoryDataCenter::where('slug', $categorySlug)->firstOrFail();
+        $kategoriPaparan = KategoriPaparan::where('slug', $categorySlug)->firstOrFail();
 
         $materiPaparan = MateriPaparan::with('bidangs')
-            ->where('category_data_center_id', $categoryDataCenter->id)
+            ->where('category_paparan_id', $kategoriPaparan->id)
             ->whereHas('bidangs', fn($query) => $query->where('slug', $bidangSlug))
             ->when($search, fn($query) => $query->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]))
+            ->where('status', 1)
             ->get();
 
         if ($request->ajax()) {
-            return view('landing.data-center.materi-paparan.show-item', compact('materiPaparan', 'bidang','bidangSlug', 'categorySlug','categoryDataCenter'))->render();
+            return view('landing.data-center.materi-paparan.show-item', compact('materiPaparan', 'bidang','bidangSlug', 'categorySlug','kategoriPaparan'))->render();
         }
 
-        return view('landing.data-center.materi-paparan.show', compact('materiPaparan','bidang','bidangSlug', 'categorySlug','categoryDataCenter'));
+        return view('landing.data-center.materi-paparan.show', compact('materiPaparan','bidang','bidangSlug', 'categorySlug','kategoriPaparan'));
     }
 
 

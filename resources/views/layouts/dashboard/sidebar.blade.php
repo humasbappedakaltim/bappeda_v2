@@ -44,9 +44,14 @@
         </li>
         @endcanany
         @canany(['data-paparan-view','data-paparan-manage'])
+        <li class="sidebar-item {{ request()->routeIs('dashboard.category.materi_paparan.*') ? 'active' : '' }}">
+            <a class="sidebar-link" href="{{ route('dashboard.category.materi_paparan.index') }}">
+                <i class="align-middle" data-feather="list"></i><span class="align-middle">Kategori Materi Paparan</span>
+            </a>
+        </li>
         <li class="sidebar-item {{ request()->routeIs('dashboard.data.materi_paparan.index') ? 'active' : '' }}">
             <a class="sidebar-link" href="{{ route('dashboard.data.materi_paparan.index') }}">
-                <i class="align-middle" data-feather="database"></i><span class="align-middle">Data Paparan</span>
+                <i class="align-middle" data-feather="database"></i><span class="align-middle">Materi Paparan</span>
             </a>
         </li>
         @endcanany
