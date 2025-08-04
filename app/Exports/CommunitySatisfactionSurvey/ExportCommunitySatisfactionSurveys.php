@@ -2,26 +2,25 @@
 
 namespace App\Exports\CommunitySatisfactionSurvey;
 
-use Illuminate\Support\Collection;
+
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class ExportCommunitySatisfactionSurveys implements WithMultipleSheets
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    protected $data;
+    protected $respondents;
+    protected $responses;
 
-    public function __construct(Collection $data)
+    public function __construct(array $data)
     {
-        $this->data = $data;
+        $this->respondents = $data['respondents'];
+        $this->responses = $data['responses'];
     }
 
     public function sheets(): array
     {
         return [
-            new ExportCommunitySatisfactionSurveyRespondents($this->data),
-            new ExportCommunitySatisfactionSurveyResponses($this->data),
+            new ExportCommunitySatisfactionSurveyRespondents(collect($this->respondents)),
+            new ExportCommunitySatisfactionSurveyResponses(collect($this->responses)),
         ];
     }
 }

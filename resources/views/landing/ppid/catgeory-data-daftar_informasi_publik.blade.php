@@ -1,4 +1,4 @@
-@extends('layouts.landing')
+@extends('layouts.ppid')
 @push('front_css')
  <style>
         /* Perkecil padding kolom agar tidak memakan tempat */

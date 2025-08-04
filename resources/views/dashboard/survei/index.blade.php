@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="mb-3 h3">
     <strong>Survei</strong>
-        <a href="{{ route('dashboard.survei.export.index') }}" class="btn btn-success float-end btn-sm btn-rounded">
+        <a href="{{ route('dashboard.survei.masyarakat') }}" class="btn btn-success float-end btn-sm btn-rounded">
             Export Survie
             <i class="align-middle" data-feather="file"></i>
         </a>

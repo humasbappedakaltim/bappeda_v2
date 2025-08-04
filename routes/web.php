@@ -205,8 +205,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::resource('sub-bidang', SubBidangController::class, ['names' => 'dashboard.sub.bidang']);
     Route::resource('pegawai', PejabatController::class, ['names' => 'dashboard.pejabat']);
 
-    Route::resource('survei', DashboardSurveiController::class, ['names' => 'dashboard.survei']);
-    Route::get('surveis/export', [ExportSurveiController::class, 'index'])->name('dashboard.survei.export.index');
+    Route::resource('survei/', DashboardSurveiController::class, ['names' => 'dashboard.survei']);
+    // Route::post('surveis/export', [DashboardSurveiController::class, 'export'])->name('dashboard.survei.export.index');
+    Route::get('survei-kepuasan-masyarakat', [ExportSurveiController::class, 'index'])->name('dashboard.survei.masyarakat');
+    Route::get('surveis/export', [ExportSurveiController::class, 'export'])->name('dashboard.survei.export');
     Route::resource('survei-rpjmd', DashboardSurveiRPJMDController::class, ['names' => 'dashboard.survei-rpjmd']);
     Route::get('download-survei-rpjmd', [DashboardSurveiRPJMDController::class, 'downloadSurveiRpjmd'])->name('dashboard.survei-rpjmd.download');
 
